@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct TempPreferenceView: View {
-    @State private var speed = 0.5
     @State private var isEditing = false
-    
     @State var sliderColor = UIColor(Color(hex: "#FFDDA9"))
+    
+    @State var prefTemp = UserDefaults.standard.double(forKey: "prefTemp")
     
     
     var body: some View {
@@ -26,16 +26,18 @@ struct TempPreferenceView: View {
                         .font(.custom("Montserrat-Medium", size: 16))
                     Spacer()
                 }
-                Text("\(speed)")
+                Text("\(prefTemp)")
                     .foregroundColor(isEditing ? .red : .blue)
                 
                 SwiftUISlider(
                     thumbColor: .white,
                     minTrackColor: UIColor(Color(hex: "##BFD6EF")),
                     maxTrackColor: UIColor(Color(hex: "##BFD6EF")),
-                    value: $speed
+                    value: $prefTemp
                 )
-                
+                .onChange(of: prefTemp) { newValue in
+                    UserDefaults.standard.set(prefTemp, forKey: "prefTemp")
+                }
                 
                 HStack(alignment: .center) {
                     HStack {

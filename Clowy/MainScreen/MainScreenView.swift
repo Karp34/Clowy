@@ -83,9 +83,12 @@ struct MainScreenView: View, DaysForecastViewDelegate {
                 category.id = Int16(clothesType.id.rawValue)
                 PersistenceController.shared.save()
             }
+            UserDefaults.standard.set(0.5, forKey: "prefTemp")
+            UserDefaults.standard.set("Username", forKey: "username")
         }
         
         UserDefaults.standard.set(true, forKey: "launchedBefore")
+        
     }
     
     

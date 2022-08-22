@@ -61,6 +61,7 @@
 		BA820200287F500200A3C66B /* ProfileNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8201FF287F500200A3C66B /* ProfileNavBarView.swift */; };
 		BA820202287F5B7400A3C66B /* TempPreferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA820201287F5B7400A3C66B /* TempPreferenceView.swift */; };
 		BA9D82AF28212D55009E43E8 /* CustomNavBarPreferenceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9D82AE28212D55009E43E8 /* CustomNavBarPreferenceKeys.swift */; };
+		BAB8D37B28B3D032000E1717 /* ProfileNavBarContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB8D37A28B3D032000E1717 /* ProfileNavBarContent.swift */; };
 		BABEC84F2746955900ECBF76 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABEC84E2746955900ECBF76 /* AvatarView.swift */; };
 		BABEC852274695D800ECBF76 /* GreetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABEC851274695D800ECBF76 /* GreetingView.swift */; };
 		BABEC8552746996B00ECBF76 /* WeatherForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABEC8542746996B00ECBF76 /* WeatherForecastView.swift */; };
@@ -169,6 +170,7 @@
 		BA8201FF287F500200A3C66B /* ProfileNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNavBarView.swift; sourceTree = "<group>"; };
 		BA820201287F5B7400A3C66B /* TempPreferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempPreferenceView.swift; sourceTree = "<group>"; };
 		BA9D82AE28212D55009E43E8 /* CustomNavBarPreferenceKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarPreferenceKeys.swift; sourceTree = "<group>"; };
+		BAB8D37A28B3D032000E1717 /* ProfileNavBarContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNavBarContent.swift; sourceTree = "<group>"; };
 		BABEC84E2746955900ECBF76 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		BABEC851274695D800ECBF76 /* GreetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingView.swift; sourceTree = "<group>"; };
 		BABEC8542746996B00ECBF76 /* WeatherForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastView.swift; sourceTree = "<group>"; };
@@ -452,6 +454,7 @@
 			isa = PBXGroup;
 			children = (
 				BA8201FF287F500200A3C66B /* ProfileNavBarView.swift */,
+				BAB8D37A28B3D032000E1717 /* ProfileNavBarContent.swift */,
 				BA820201287F5B7400A3C66B /* TempPreferenceView.swift */,
 				BAC1952F287F605A00FB109B /* LocationView.swift */,
 				BAC19531287F676400FB109B /* AvailableTypesView.swift */,
@@ -822,6 +825,7 @@
 				BA43D1FF28212457008A4AF5 /* CustomNavBarContainerView.swift in Sources */,
 				BA8201F92874980600A3C66B /* ScroolViewModifier.swift in Sources */,
 				BAC4BEA7286DF92F0076DFFC /* NewChosenTempView.swift in Sources */,
+				BAB8D37B28B3D032000E1717 /* ProfileNavBarContent.swift in Sources */,
 				BADE87C12795FEE8001DE300 /* NewClothView.swift in Sources */,
 				BA8201F12873859A00A3C66B /* AddPhotoView.swift in Sources */,
 				BA820202287F5B7400A3C66B /* TempPreferenceView.swift in Sources */,

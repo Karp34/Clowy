@@ -7,7 +7,14 @@
 
 import SwiftUI
 
+class ProfileViewModel: ObservableObject {
+    
+    static var shared = ProfileViewModel()
+}
+
 struct ProfileView: View {
+    @StateObject private var viewModel = ProfileViewModel.shared
+    
     var body: some View {
         ZStack(alignment: .top) {
             ScrollView(.vertical, showsIndicators: false) {
@@ -21,7 +28,10 @@ struct ProfileView: View {
                 }
                 .padding(.horizontal, 24)
             }
-            ProfileNavBarView()
+            VStack {
+                ProfileNavBarView()
+                ProfileNavBarContent()
+            }
         }
     }
 }

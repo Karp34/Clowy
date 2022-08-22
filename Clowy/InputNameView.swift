@@ -15,6 +15,14 @@ struct CustomFieldStyle: TextFieldStyle {
     }
 }
 
+struct CustomFieldStyle2: TextFieldStyle {
+    func _body(configuration: TextField<Self._Label>) -> some View {
+        configuration
+            .font(.custom("Montserrat-Semibold", size: 32))
+            .foregroundColor(Color(hex: "#FFFFFF"))
+    }
+}
+
 struct InputNameView: View {
     @State var newClothesName: String = ""
     @State var title = "Add item"
@@ -52,6 +60,19 @@ struct InputNameView: View {
             Rectangle()
                 .frame(height: 1)
                 .foregroundColor(Color(hex: "#DADADA"))
+        }
+    }
+}
+
+extension View {
+    func placeholder<Content: View>(
+        when shouldShow: Bool,
+        alignment: Alignment = .leading,
+        @ViewBuilder placeholder: () -> Content) -> some View {
+
+        ZStack(alignment: alignment) {
+            placeholder().opacity(shouldShow ? 1 : 0)
+            self
         }
     }
 }
