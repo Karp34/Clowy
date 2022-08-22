@@ -1,0 +1,1234 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		05570692DFA9D3C17D80F0C4 /* Pods_Clowy_ClowyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3272218E9A7BED41FC1A65A7 /* Pods_Clowy_ClowyUITests.framework */; };
+		45255EA2992C4BF4A3349C83 /* Pods_ClowyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 418BAECECD7A494A219E2BAD /* Pods_ClowyTests.framework */; };
+		4CF354A7B4A87079C0286A2E /* Pods_Clowy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE57C054442E593078CF1DA /* Pods_Clowy.framework */; };
+		BA12D0F427737D3000F91349 /* WardrobeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA12D0F327737D3000F91349 /* WardrobeScreenView.swift */; };
+		BA12D0FA2773D19F00F91349 /* WardrobeClothesCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA12D0F92773D19F00F91349 /* WardrobeClothesCard.swift */; };
+		BA12D0FC2773D4DD00F91349 /* WardrobeClothesCardCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA12D0FB2773D4DD00F91349 /* WardrobeClothesCardCollection.swift */; };
+		BA12D0FE2776041600F91349 /* GetClothes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA12D0FD2776041600F91349 /* GetClothes.swift */; };
+		BA1591E2273FE7530010CD56 /* ClowyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1591E1273FE7530010CD56 /* ClowyApp.swift */; };
+		BA1591E6273FE7560010CD56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA1591E5273FE7560010CD56 /* Assets.xcassets */; };
+		BA1591E9273FE7560010CD56 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA1591E8273FE7560010CD56 /* Preview Assets.xcassets */; };
+		BA1591F3273FE7560010CD56 /* ClowyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1591F2273FE7560010CD56 /* ClowyTests.swift */; };
+		BA1591FD273FE7560010CD56 /* ClowyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1591FC273FE7560010CD56 /* ClowyUITests.swift */; };
+		BA1591FF273FE7560010CD56 /* ClowyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1591FE273FE7560010CD56 /* ClowyUITestsLaunchTests.swift */; };
+		BA3336792799AFB200E88B68 /* WaterfallGrid in Frameworks */ = {isa = PBXBuildFile; productRef = BA3336782799AFB200E88B68 /* WaterfallGrid */; };
+		BA396DF02817329800BD63A8 /* GetOutfits.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA396DEF2817329800BD63A8 /* GetOutfits.swift */; };
+		BA396DF22817461900BD63A8 /* AddGeneratedOutfit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA396DF12817461900BD63A8 /* AddGeneratedOutfit.swift */; };
+		BA3CE08628149C9900D724BF /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3CE08528149C9900D724BF /* MainScreenView.swift */; };
+		BA3CE08928149DA300D724BF /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3CE08828149DA300D724BF /* Weather.swift */; };
+		BA3CE08B28149DB700D724BF /* Wardrobe.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3CE08A28149DB700D724BF /* Wardrobe.swift */; };
+		BA3CE08D28149DE400D724BF /* Cloth.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3CE08C28149DE400D724BF /* Cloth.swift */; };
+		BA3CE08F28149DFA00D724BF /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3CE08E28149DFA00D724BF /* Day.swift */; };
+		BA3CE09128149F7F00D724BF /* WardrobeModuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3CE09028149F7F00D724BF /* WardrobeModuleView.swift */; };
+		BA3CE09328156B4000D724BF /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3CE09228156B4000D724BF /* Forecast.swift */; };
+		BA3E184A2746B99E0070F4EF /* HEX.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3E18492746B99E0070F4EF /* HEX.swift */; };
+		BA43D1FB28211D40008A4AF5 /* AppNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA43D1FA28211D40008A4AF5 /* AppNavBarView.swift */; };
+		BA43D1FD28211F95008A4AF5 /* CustomNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA43D1FC28211F95008A4AF5 /* CustomNavBarView.swift */; };
+		BA43D1FF28212457008A4AF5 /* CustomNavBarContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA43D1FE28212457008A4AF5 /* CustomNavBarContainerView.swift */; };
+		BA43D20128212718008A4AF5 /* CustomNavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA43D20028212718008A4AF5 /* CustomNavView.swift */; };
+		BA43D20328212862008A4AF5 /* CustomNavLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA43D20228212862008A4AF5 /* CustomNavLink.swift */; };
+		BA53DA93274FF8280006817F /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA53DA92274FF74C0006817F /* Montserrat-Regular.ttf */; };
+		BA53DA94274FF82B0006817F /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA53DA90274FF74C0006817F /* Montserrat-Medium.ttf */; };
+		BA53DA95274FF82E0006817F /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA53DA91274FF74C0006817F /* Montserrat-Bold.ttf */; };
+		BA53DA97274FFD3F0006817F /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA53DA96274FFD3F0006817F /* Montserrat-SemiBold.ttf */; };
+		BA5D826E28393D9400A54005 /* Stash.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BA5D826C28393D9400A54005 /* Stash.xcdatamodeld */; };
+		BA5D8270283A5A7700A54005 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5D826F283A5A7700A54005 /* PersistenceController.swift */; };
+		BA5D8272283C279400A54005 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5D8271283C279400A54005 /* CameraView.swift */; };
+		BA5D8274283D641600A54005 /* CustomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5D8273283D641600A54005 /* CustomSheetView.swift */; };
+		BA61262F281868140011ACF7 /* OutfitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA61262E281868140011ACF7 /* OutfitView.swift */; };
+		BA6126312818733E0011ACF7 /* OutfitScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6126302818733E0011ACF7 /* OutfitScreenView.swift */; };
+		BA649148286B279400B57F58 /* WardrobeCoreDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA649147286B279400B57F58 /* WardrobeCoreDataView.swift */; };
+		BA64914A286C4A6900B57F58 /* WardrobeClothesTestCardCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA649149286C4A6900B57F58 /* WardrobeClothesTestCardCollection.swift */; };
+		BA64914C286C4B1E00B57F58 /* WardrobeTestClothCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA64914B286C4B1E00B57F58 /* WardrobeTestClothCard.swift */; };
+		BA715E1D283EA60900BD30FE /* CoreDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA715E1C283EA60900BD30FE /* CoreDataView.swift */; };
+		BA7812012819656200D452DE /* AddNewOutfitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7812002819656100D452DE /* AddNewOutfitView.swift */; };
+		BA7812032819678F00D452DE /* Outfit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7812022819678F00D452DE /* Outfit.swift */; };
+		BA7812052819777100D452DE /* MiniCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7812042819777100D452DE /* MiniCard.swift */; };
+		BA8201F12873859A00A3C66B /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8201F02873859A00A3C66B /* AddPhotoView.swift */; };
+		BA8201F32873874500A3C66B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8201F22873874500A3C66B /* ImagePicker.swift */; };
+		BA8201F92874980600A3C66B /* ScroolViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8201F82874980600A3C66B /* ScroolViewModifier.swift */; };
+		BA8201FD287F4F1700A3C66B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8201FC287F4F1600A3C66B /* ProfileView.swift */; };
+		BA820200287F500200A3C66B /* ProfileNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8201FF287F500200A3C66B /* ProfileNavBarView.swift */; };
+		BA820202287F5B7400A3C66B /* TempPreferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA820201287F5B7400A3C66B /* TempPreferenceView.swift */; };
+		BA9D82AF28212D55009E43E8 /* CustomNavBarPreferenceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9D82AE28212D55009E43E8 /* CustomNavBarPreferenceKeys.swift */; };
+		BABEC84F2746955900ECBF76 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABEC84E2746955900ECBF76 /* AvatarView.swift */; };
+		BABEC852274695D800ECBF76 /* GreetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABEC851274695D800ECBF76 /* GreetingView.swift */; };
+		BABEC8552746996B00ECBF76 /* WeatherForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABEC8542746996B00ECBF76 /* WeatherForecastView.swift */; };
+		BABEC86427469BB600ECBF76 /* WeatherForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABEC86327469BB600ECBF76 /* WeatherForecast.swift */; };
+		BABEC86A27469C8300ECBF76 /* DaysForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABEC86927469C8300ECBF76 /* DaysForecastView.swift */; };
+		BABEC86D27469CD000ECBF76 /* DaysForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABEC86C27469CD000ECBF76 /* DaysForecastCell.swift */; };
+		BABEC87027469D7C00ECBF76 /* ClothesCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABEC86F27469D7C00ECBF76 /* ClothesCardsView.swift */; };
+		BAC19530287F605A00FB109B /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC1952F287F605A00FB109B /* LocationView.swift */; };
+		BAC19532287F676400FB109B /* AvailableTypesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC19531287F676400FB109B /* AvailableTypesView.swift */; };
+		BAC19534287F68AA00FB109B /* CleanTagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC19533287F68AA00FB109B /* CleanTagsView.swift */; };
+		BAC19536287F6B8E00FB109B /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC19535287F6B8E00FB109B /* NotificationsView.swift */; };
+		BAC19538287F6DD500FB109B /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC19537287F6DD500FB109B /* InformationView.swift */; };
+		BAC1953A2880AACA00FB109B /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC195392880AACA00FB109B /* CustomSlider.swift */; };
+		BAC3D64F2749082100DA1BAC /* ClothesApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC3D64E2749082100DA1BAC /* ClothesApi.swift */; };
+		BAC4BEA7286DF92F0076DFFC /* NewChosenTempView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC4BEA6286DF92F0076DFFC /* NewChosenTempView.swift */; };
+		BAC4BEA9286DF9ED0076DFFC /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC4BEA8286DF9EC0076DFFC /* Temperature.swift */; };
+		BAC4BEAC286E2B580076DFFC /* ParentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC4BEAB286E2B580076DFFC /* ParentView.swift */; };
+		BAC4BEAE286E2B620076DFFC /* ChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC4BEAD286E2B620076DFFC /* ChildView.swift */; };
+		BAC4BEB0286E2B700076DFFC /* SuperChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC4BEAF286E2B700076DFFC /* SuperChildView.swift */; };
+		BADE87C12795FEE8001DE300 /* NewClothView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADE87C02795FEE8001DE300 /* NewClothView.swift */; };
+		BADE87C427960357001DE300 /* NoClothesCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADE87C327960357001DE300 /* NoClothesCollection.swift */; };
+		BADE87D7279886BD001DE300 /* ChooseTempView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADE87D6279886BD001DE300 /* ChooseTempView.swift */; };
+		BADE87DA279886EA001DE300 /* TemperarureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADE87D9279886EA001DE300 /* TemperarureView.swift */; };
+		BADE87DC27988703001DE300 /* ChooseColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADE87DB27988703001DE300 /* ChooseColorView.swift */; };
+		BADE87DE27988714001DE300 /* TagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADE87DD27988714001DE300 /* TagsView.swift */; };
+		BADE87E027988726001DE300 /* UsePhotoFromGalary.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADE87DF27988726001DE300 /* UsePhotoFromGalary.swift */; };
+		BADE87E227988737001DE300 /* InputNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADE87E127988737001DE300 /* InputNameView.swift */; };
+		BADE87E52798876A001DE300 /* AddClothesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADE87E42798876A001DE300 /* AddClothesView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BA1591EF273FE7560010CD56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BA1591D6273FE7530010CD56 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BA1591DD273FE7530010CD56;
+			remoteInfo = Clowy;
+		};
+		BA1591F9273FE7560010CD56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BA1591D6273FE7530010CD56 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BA1591DD273FE7530010CD56;
+			remoteInfo = Clowy;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2C23D6039619969CA2019E42 /* Pods-Clowy-ClowyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clowy-ClowyUITests.debug.xcconfig"; path = "Target Support Files/Pods-Clowy-ClowyUITests/Pods-Clowy-ClowyUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		3272218E9A7BED41FC1A65A7 /* Pods_Clowy_ClowyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Clowy_ClowyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AE57C054442E593078CF1DA /* Pods_Clowy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Clowy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		418BAECECD7A494A219E2BAD /* Pods_ClowyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClowyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B0D299ABFEEFCE8ED3092D1 /* Pods-ClowyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClowyTests.debug.xcconfig"; path = "Target Support Files/Pods-ClowyTests/Pods-ClowyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8941845D3FCE40E587945427 /* Pods-Clowy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clowy.debug.xcconfig"; path = "Target Support Files/Pods-Clowy/Pods-Clowy.debug.xcconfig"; sourceTree = "<group>"; };
+		AA418C9013A9538637C7389A /* Pods-Clowy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clowy.release.xcconfig"; path = "Target Support Files/Pods-Clowy/Pods-Clowy.release.xcconfig"; sourceTree = "<group>"; };
+		BA12D0F327737D3000F91349 /* WardrobeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeScreenView.swift; sourceTree = "<group>"; };
+		BA12D0F92773D19F00F91349 /* WardrobeClothesCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeClothesCard.swift; sourceTree = "<group>"; };
+		BA12D0FB2773D4DD00F91349 /* WardrobeClothesCardCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeClothesCardCollection.swift; sourceTree = "<group>"; };
+		BA12D0FD2776041600F91349 /* GetClothes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetClothes.swift; sourceTree = "<group>"; };
+		BA1591DE273FE7530010CD56 /* Clowy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clowy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA1591E1273FE7530010CD56 /* ClowyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClowyApp.swift; sourceTree = "<group>"; };
+		BA1591E5273FE7560010CD56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BA1591E8273FE7560010CD56 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BA1591EE273FE7560010CD56 /* ClowyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClowyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA1591F2273FE7560010CD56 /* ClowyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClowyTests.swift; sourceTree = "<group>"; };
+		BA1591F8273FE7560010CD56 /* ClowyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClowyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA1591FC273FE7560010CD56 /* ClowyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClowyUITests.swift; sourceTree = "<group>"; };
+		BA1591FE273FE7560010CD56 /* ClowyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClowyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BA396DEF2817329800BD63A8 /* GetOutfits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetOutfits.swift; sourceTree = "<group>"; };
+		BA396DF12817461900BD63A8 /* AddGeneratedOutfit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGeneratedOutfit.swift; sourceTree = "<group>"; };
+		BA3CE08528149C9900D724BF /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
+		BA3CE08828149DA300D724BF /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		BA3CE08A28149DB700D724BF /* Wardrobe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wardrobe.swift; sourceTree = "<group>"; };
+		BA3CE08C28149DE400D724BF /* Cloth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloth.swift; sourceTree = "<group>"; };
+		BA3CE08E28149DFA00D724BF /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		BA3CE09028149F7F00D724BF /* WardrobeModuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeModuleView.swift; sourceTree = "<group>"; };
+		BA3CE09228156B4000D724BF /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
+		BA3E18492746B99E0070F4EF /* HEX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HEX.swift; sourceTree = "<group>"; };
+		BA43D1FA28211D40008A4AF5 /* AppNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavBarView.swift; sourceTree = "<group>"; };
+		BA43D1FC28211F95008A4AF5 /* CustomNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarView.swift; sourceTree = "<group>"; };
+		BA43D1FE28212457008A4AF5 /* CustomNavBarContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarContainerView.swift; sourceTree = "<group>"; };
+		BA43D20028212718008A4AF5 /* CustomNavView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavView.swift; sourceTree = "<group>"; };
+		BA43D20228212862008A4AF5 /* CustomNavLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavLink.swift; sourceTree = "<group>"; };
+		BA53DA90274FF74C0006817F /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Medium.ttf"; path = "../../../.Trash/Montserrat 16-37-43-333/Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		BA53DA91274FF74C0006817F /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Bold.ttf"; path = "../../../.Trash/Montserrat 16-37-43-333/Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		BA53DA92274FF74C0006817F /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Regular.ttf"; path = "../../../.Trash/Montserrat 16-37-43-333/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		BA53DA96274FFD3F0006817F /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-SemiBold.ttf"; path = "../../../.Trash/Montserrat 16-37-43-333/Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		BA5D826D28393D9400A54005 /* Stash.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Stash.xcdatamodel; sourceTree = "<group>"; };
+		BA5D826F283A5A7700A54005 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		BA5D8271283C279400A54005 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		BA5D8273283D641600A54005 /* CustomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheetView.swift; sourceTree = "<group>"; };
+		BA61262E281868140011ACF7 /* OutfitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutfitView.swift; sourceTree = "<group>"; };
+		BA6126302818733E0011ACF7 /* OutfitScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutfitScreenView.swift; sourceTree = "<group>"; };
+		BA649147286B279400B57F58 /* WardrobeCoreDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeCoreDataView.swift; sourceTree = "<group>"; };
+		BA649149286C4A6900B57F58 /* WardrobeClothesTestCardCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeClothesTestCardCollection.swift; sourceTree = "<group>"; };
+		BA64914B286C4B1E00B57F58 /* WardrobeTestClothCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeTestClothCard.swift; sourceTree = "<group>"; };
+		BA715E1C283EA60900BD30FE /* CoreDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataView.swift; sourceTree = "<group>"; };
+		BA7812002819656100D452DE /* AddNewOutfitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewOutfitView.swift; sourceTree = "<group>"; };
+		BA7812022819678F00D452DE /* Outfit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Outfit.swift; sourceTree = "<group>"; };
+		BA7812042819777100D452DE /* MiniCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniCard.swift; sourceTree = "<group>"; };
+		BA8201F02873859A00A3C66B /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
+		BA8201F22873874500A3C66B /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		BA8201F82874980600A3C66B /* ScroolViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScroolViewModifier.swift; sourceTree = "<group>"; };
+		BA8201FC287F4F1600A3C66B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		BA8201FF287F500200A3C66B /* ProfileNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNavBarView.swift; sourceTree = "<group>"; };
+		BA820201287F5B7400A3C66B /* TempPreferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempPreferenceView.swift; sourceTree = "<group>"; };
+		BA9D82AE28212D55009E43E8 /* CustomNavBarPreferenceKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarPreferenceKeys.swift; sourceTree = "<group>"; };
+		BABEC84E2746955900ECBF76 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		BABEC851274695D800ECBF76 /* GreetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingView.swift; sourceTree = "<group>"; };
+		BABEC8542746996B00ECBF76 /* WeatherForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastView.swift; sourceTree = "<group>"; };
+		BABEC86327469BB600ECBF76 /* WeatherForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecast.swift; sourceTree = "<group>"; };
+		BABEC86927469C8300ECBF76 /* DaysForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysForecastView.swift; sourceTree = "<group>"; };
+		BABEC86C27469CD000ECBF76 /* DaysForecastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysForecastCell.swift; sourceTree = "<group>"; };
+		BABEC86F27469D7C00ECBF76 /* ClothesCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCardsView.swift; sourceTree = "<group>"; };
+		BAC1952F287F605A00FB109B /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
+		BAC19531287F676400FB109B /* AvailableTypesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableTypesView.swift; sourceTree = "<group>"; };
+		BAC19533287F68AA00FB109B /* CleanTagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanTagsView.swift; sourceTree = "<group>"; };
+		BAC19535287F6B8E00FB109B /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
+		BAC19537287F6DD500FB109B /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
+		BAC195392880AACA00FB109B /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
+		BAC3D64E2749082100DA1BAC /* ClothesApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesApi.swift; sourceTree = "<group>"; };
+		BAC4BEA6286DF92F0076DFFC /* NewChosenTempView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChosenTempView.swift; sourceTree = "<group>"; };
+		BAC4BEA8286DF9EC0076DFFC /* Temperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
+		BAC4BEAB286E2B580076DFFC /* ParentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentView.swift; sourceTree = "<group>"; };
+		BAC4BEAD286E2B620076DFFC /* ChildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildView.swift; sourceTree = "<group>"; };
+		BAC4BEAF286E2B700076DFFC /* SuperChildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperChildView.swift; sourceTree = "<group>"; };
+		BADE87C02795FEE8001DE300 /* NewClothView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewClothView.swift; sourceTree = "<group>"; };
+		BADE87C327960357001DE300 /* NoClothesCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoClothesCollection.swift; sourceTree = "<group>"; };
+		BADE87D6279886BD001DE300 /* ChooseTempView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseTempView.swift; sourceTree = "<group>"; };
+		BADE87D9279886EA001DE300 /* TemperarureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperarureView.swift; sourceTree = "<group>"; };
+		BADE87DB27988703001DE300 /* ChooseColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseColorView.swift; sourceTree = "<group>"; };
+		BADE87DD27988714001DE300 /* TagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsView.swift; sourceTree = "<group>"; };
+		BADE87DF27988726001DE300 /* UsePhotoFromGalary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsePhotoFromGalary.swift; sourceTree = "<group>"; };
+		BADE87E127988737001DE300 /* InputNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNameView.swift; sourceTree = "<group>"; };
+		BADE87E42798876A001DE300 /* AddClothesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClothesView.swift; sourceTree = "<group>"; };
+		C0A08B7F4192E3A52E473CCA /* Pods-ClowyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClowyTests.release.xcconfig"; path = "Target Support Files/Pods-ClowyTests/Pods-ClowyTests.release.xcconfig"; sourceTree = "<group>"; };
+		DB761446FBD8D763411B19B6 /* Pods-Clowy-ClowyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clowy-ClowyUITests.release.xcconfig"; path = "Target Support Files/Pods-Clowy-ClowyUITests/Pods-Clowy-ClowyUITests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BA1591DB273FE7530010CD56 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA3336792799AFB200E88B68 /* WaterfallGrid in Frameworks */,
+				4CF354A7B4A87079C0286A2E /* Pods_Clowy.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA1591EB273FE7560010CD56 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45255EA2992C4BF4A3349C83 /* Pods_ClowyTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA1591F5273FE7560010CD56 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05570692DFA9D3C17D80F0C4 /* Pods_Clowy_ClowyUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		36CB36988F4F4F4DC1DB5400 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3AE57C054442E593078CF1DA /* Pods_Clowy.framework */,
+				3272218E9A7BED41FC1A65A7 /* Pods_Clowy_ClowyUITests.framework */,
+				418BAECECD7A494A219E2BAD /* Pods_ClowyTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AF1449F64DA5DFA17424FA90 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8941845D3FCE40E587945427 /* Pods-Clowy.debug.xcconfig */,
+				AA418C9013A9538637C7389A /* Pods-Clowy.release.xcconfig */,
+				2C23D6039619969CA2019E42 /* Pods-Clowy-ClowyUITests.debug.xcconfig */,
+				DB761446FBD8D763411B19B6 /* Pods-Clowy-ClowyUITests.release.xcconfig */,
+				5B0D299ABFEEFCE8ED3092D1 /* Pods-ClowyTests.debug.xcconfig */,
+				C0A08B7F4192E3A52E473CCA /* Pods-ClowyTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		BA12D0F527737E0F00F91349 /* WardrobeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				BA12D0F327737D3000F91349 /* WardrobeScreenView.swift */,
+				BA12D0F92773D19F00F91349 /* WardrobeClothesCard.swift */,
+				BA12D0FB2773D4DD00F91349 /* WardrobeClothesCardCollection.swift */,
+				BADE87C02795FEE8001DE300 /* NewClothView.swift */,
+				BADE87C327960357001DE300 /* NoClothesCollection.swift */,
+				BA5D8271283C279400A54005 /* CameraView.swift */,
+			);
+			path = WardrobeScreen;
+			sourceTree = "<group>";
+		};
+		BA1591D5273FE7530010CD56 = {
+			isa = PBXGroup;
+			children = (
+				BA1591E0273FE7530010CD56 /* Clowy */,
+				BA1591F1273FE7560010CD56 /* ClowyTests */,
+				BA1591FB273FE7560010CD56 /* ClowyUITests */,
+				BA1591DF273FE7530010CD56 /* Products */,
+				AF1449F64DA5DFA17424FA90 /* Pods */,
+				36CB36988F4F4F4DC1DB5400 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+			usesTabs = 0;
+		};
+		BA1591DF273FE7530010CD56 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BA1591DE273FE7530010CD56 /* Clowy.app */,
+				BA1591EE273FE7560010CD56 /* ClowyTests.xctest */,
+				BA1591F8273FE7560010CD56 /* ClowyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BA1591E0273FE7530010CD56 /* Clowy */ = {
+			isa = PBXGroup;
+			children = (
+				BA8201FB287F4F0300A3C66B /* ProfileView */,
+				BA5D826B28393D6800A54005 /* CoreDataFiles */,
+				BA396DF6281867A800BD63A8 /* OutfitScreen */,
+				BA3CE08728149D8800D724BF /* Models */,
+				BADE87D527988692001DE300 /* AddNewClothScreen */,
+				BA12D0F527737E0F00F91349 /* WardrobeScreen */,
+				BA3E18482746B98E0070F4EF /* Extensions */,
+				BAEC625D274E751B009E69E5 /* Fonts */,
+				BA75B7DC2746AEC30091A797 /* MainScreen */,
+				BA1591E7273FE7560010CD56 /* Preview Content */,
+				BABEC86227469BA600ECBF76 /* Services */,
+				BA1591E5273FE7560010CD56 /* Assets.xcassets */,
+				BA1591E1273FE7530010CD56 /* ClowyApp.swift */,
+			);
+			path = Clowy;
+			sourceTree = "<group>";
+		};
+		BA1591E7273FE7560010CD56 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				BA1591E8273FE7560010CD56 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BA1591F1273FE7560010CD56 /* ClowyTests */ = {
+			isa = PBXGroup;
+			children = (
+				BA1591F2273FE7560010CD56 /* ClowyTests.swift */,
+			);
+			path = ClowyTests;
+			sourceTree = "<group>";
+		};
+		BA1591FB273FE7560010CD56 /* ClowyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BA1591FC273FE7560010CD56 /* ClowyUITests.swift */,
+				BA1591FE273FE7560010CD56 /* ClowyUITestsLaunchTests.swift */,
+			);
+			path = ClowyUITests;
+			sourceTree = "<group>";
+		};
+		BA31138F2808B51400BBCE97 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BABEC84E2746955900ECBF76 /* AvatarView.swift */,
+				BABEC851274695D800ECBF76 /* GreetingView.swift */,
+				BABEC86927469C8300ECBF76 /* DaysForecastView.swift */,
+				BABEC86C27469CD000ECBF76 /* DaysForecastCell.swift */,
+				BABEC86F27469D7C00ECBF76 /* ClothesCardsView.swift */,
+				BA3CE09028149F7F00D724BF /* WardrobeModuleView.swift */,
+				BABEC8542746996B00ECBF76 /* WeatherForecastView.swift */,
+				BA396DF12817461900BD63A8 /* AddGeneratedOutfit.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BA396DF6281867A800BD63A8 /* OutfitScreen */ = {
+			isa = PBXGroup;
+			children = (
+				BA6126302818733E0011ACF7 /* OutfitScreenView.swift */,
+				BA396DF7281867BF00BD63A8 /* Views */,
+			);
+			path = OutfitScreen;
+			sourceTree = "<group>";
+		};
+		BA396DF7281867BF00BD63A8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BA61262E281868140011ACF7 /* OutfitView.swift */,
+				BA5D8273283D641600A54005 /* CustomSheetView.swift */,
+				BA7812042819777100D452DE /* MiniCard.swift */,
+				BA7812002819656100D452DE /* AddNewOutfitView.swift */,
+				BAC19533287F68AA00FB109B /* CleanTagsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BA3CE08728149D8800D724BF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BA3CE08828149DA300D724BF /* Weather.swift */,
+				BA3CE08A28149DB700D724BF /* Wardrobe.swift */,
+				BA7812022819678F00D452DE /* Outfit.swift */,
+				BAC4BEA8286DF9EC0076DFFC /* Temperature.swift */,
+				BA3CE09228156B4000D724BF /* Forecast.swift */,
+				BA3CE08C28149DE400D724BF /* Cloth.swift */,
+				BA3CE08E28149DFA00D724BF /* Day.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BA3E18482746B98E0070F4EF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BA43D1F928211D18008A4AF5 /* CustomNavBar */,
+				BA3E18492746B99E0070F4EF /* HEX.swift */,
+				BA8201F82874980600A3C66B /* ScroolViewModifier.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BA43D1F928211D18008A4AF5 /* CustomNavBar */ = {
+			isa = PBXGroup;
+			children = (
+				BA43D1FA28211D40008A4AF5 /* AppNavBarView.swift */,
+				BA43D20228212862008A4AF5 /* CustomNavLink.swift */,
+				BA43D1FC28211F95008A4AF5 /* CustomNavBarView.swift */,
+				BA43D1FE28212457008A4AF5 /* CustomNavBarContainerView.swift */,
+				BA43D20028212718008A4AF5 /* CustomNavView.swift */,
+				BA9D82AE28212D55009E43E8 /* CustomNavBarPreferenceKeys.swift */,
+			);
+			path = CustomNavBar;
+			sourceTree = "<group>";
+		};
+		BA5D826B28393D6800A54005 /* CoreDataFiles */ = {
+			isa = PBXGroup;
+			children = (
+				BA5D826C28393D9400A54005 /* Stash.xcdatamodeld */,
+				BA5D826F283A5A7700A54005 /* PersistenceController.swift */,
+				BA715E1C283EA60900BD30FE /* CoreDataView.swift */,
+				BA649147286B279400B57F58 /* WardrobeCoreDataView.swift */,
+				BA649149286C4A6900B57F58 /* WardrobeClothesTestCardCollection.swift */,
+				BA64914B286C4B1E00B57F58 /* WardrobeTestClothCard.swift */,
+			);
+			path = CoreDataFiles;
+			sourceTree = "<group>";
+		};
+		BA75B7DC2746AEC30091A797 /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				BA31138F2808B51400BBCE97 /* Views */,
+				BA3CE08528149C9900D724BF /* MainScreenView.swift */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		BA8201EE2873857500A3C66B /* PhotoView */ = {
+			isa = PBXGroup;
+			children = (
+				BADE87DF27988726001DE300 /* UsePhotoFromGalary.swift */,
+				BA8201F02873859A00A3C66B /* AddPhotoView.swift */,
+				BA8201F22873874500A3C66B /* ImagePicker.swift */,
+			);
+			name = PhotoView;
+			sourceTree = "<group>";
+		};
+		BA8201FB287F4F0300A3C66B /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				BA8201FC287F4F1600A3C66B /* ProfileView.swift */,
+				BA8201FE287F4F2700A3C66B /* ProfileSubViews */,
+			);
+			path = ProfileView;
+			sourceTree = "<group>";
+		};
+		BA8201FE287F4F2700A3C66B /* ProfileSubViews */ = {
+			isa = PBXGroup;
+			children = (
+				BA8201FF287F500200A3C66B /* ProfileNavBarView.swift */,
+				BA820201287F5B7400A3C66B /* TempPreferenceView.swift */,
+				BAC1952F287F605A00FB109B /* LocationView.swift */,
+				BAC19531287F676400FB109B /* AvailableTypesView.swift */,
+				BAC19535287F6B8E00FB109B /* NotificationsView.swift */,
+				BAC19537287F6DD500FB109B /* InformationView.swift */,
+				BAC195392880AACA00FB109B /* CustomSlider.swift */,
+			);
+			path = ProfileSubViews;
+			sourceTree = "<group>";
+		};
+		BABEC86227469BA600ECBF76 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BABEC86327469BB600ECBF76 /* WeatherForecast.swift */,
+				BAC3D64E2749082100DA1BAC /* ClothesApi.swift */,
+				BA12D0FD2776041600F91349 /* GetClothes.swift */,
+				BA396DEF2817329800BD63A8 /* GetOutfits.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		BAC4BEAA286E2B470076DFFC /* TestViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BAC4BEAB286E2B580076DFFC /* ParentView.swift */,
+				BAC4BEAD286E2B620076DFFC /* ChildView.swift */,
+				BAC4BEAF286E2B700076DFFC /* SuperChildView.swift */,
+			);
+			name = TestViewModel;
+			sourceTree = "<group>";
+		};
+		BADE87D527988692001DE300 /* AddNewClothScreen */ = {
+			isa = PBXGroup;
+			children = (
+				BADE87E42798876A001DE300 /* AddClothesView.swift */,
+				BADE87E32798874D001DE300 /* Views */,
+			);
+			name = AddNewClothScreen;
+			sourceTree = "<group>";
+		};
+		BADE87E32798874D001DE300 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BADE87D6279886BD001DE300 /* ChooseTempView.swift */,
+				BAC4BEA6286DF92F0076DFFC /* NewChosenTempView.swift */,
+				BADE87D9279886EA001DE300 /* TemperarureView.swift */,
+				BAC4BEAA286E2B470076DFFC /* TestViewModel */,
+				BADE87DB27988703001DE300 /* ChooseColorView.swift */,
+				BA8201EE2873857500A3C66B /* PhotoView */,
+				BADE87DD27988714001DE300 /* TagsView.swift */,
+				BADE87E127988737001DE300 /* InputNameView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		BAEC625D274E751B009E69E5 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				BA53DA91274FF74C0006817F /* Montserrat-Bold.ttf */,
+				BA53DA90274FF74C0006817F /* Montserrat-Medium.ttf */,
+				BA53DA96274FFD3F0006817F /* Montserrat-SemiBold.ttf */,
+				BA53DA92274FF74C0006817F /* Montserrat-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BA1591DD273FE7530010CD56 /* Clowy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA159202273FE7560010CD56 /* Build configuration list for PBXNativeTarget "Clowy" */;
+			buildPhases = (
+				D1EA98056E2AD75C2E3A4AF8 /* [CP] Check Pods Manifest.lock */,
+				BA1591DA273FE7530010CD56 /* Sources */,
+				BA1591DB273FE7530010CD56 /* Frameworks */,
+				BA1591DC273FE7530010CD56 /* Resources */,
+				1B525785EB30C9F994366416 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Clowy;
+			packageProductDependencies = (
+				BA3336782799AFB200E88B68 /* WaterfallGrid */,
+			);
+			productName = Clowy;
+			productReference = BA1591DE273FE7530010CD56 /* Clowy.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BA1591ED273FE7560010CD56 /* ClowyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA159205273FE7560010CD56 /* Build configuration list for PBXNativeTarget "ClowyTests" */;
+			buildPhases = (
+				5E1D2F78DF50FC797E70D8E5 /* [CP] Check Pods Manifest.lock */,
+				BA1591EA273FE7560010CD56 /* Sources */,
+				BA1591EB273FE7560010CD56 /* Frameworks */,
+				BA1591EC273FE7560010CD56 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BA1591F0273FE7560010CD56 /* PBXTargetDependency */,
+			);
+			name = ClowyTests;
+			productName = ClowyTests;
+			productReference = BA1591EE273FE7560010CD56 /* ClowyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BA1591F7273FE7560010CD56 /* ClowyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA159208273FE7560010CD56 /* Build configuration list for PBXNativeTarget "ClowyUITests" */;
+			buildPhases = (
+				7187761CE48ED05E26E45F9F /* [CP] Check Pods Manifest.lock */,
+				BA1591F4273FE7560010CD56 /* Sources */,
+				BA1591F5273FE7560010CD56 /* Frameworks */,
+				BA1591F6273FE7560010CD56 /* Resources */,
+				ACEFFDD86BD55852C8837108 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BA1591FA273FE7560010CD56 /* PBXTargetDependency */,
+			);
+			name = ClowyUITests;
+			productName = ClowyUITests;
+			productReference = BA1591F8273FE7560010CD56 /* ClowyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BA1591D6273FE7530010CD56 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1310;
+				LastUpgradeCheck = 1310;
+				TargetAttributes = {
+					BA1591DD273FE7530010CD56 = {
+						CreatedOnToolsVersion = 13.1;
+					};
+					BA1591ED273FE7560010CD56 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = BA1591DD273FE7530010CD56;
+					};
+					BA1591F7273FE7560010CD56 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = BA1591DD273FE7530010CD56;
+					};
+				};
+			};
+			buildConfigurationList = BA1591D9273FE7530010CD56 /* Build configuration list for PBXProject "Clowy" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BA1591D5273FE7530010CD56;
+			packageReferences = (
+				BA3336772799AFB200E88B68 /* XCRemoteSwiftPackageReference "WaterfallGrid" */,
+			);
+			productRefGroup = BA1591DF273FE7530010CD56 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BA1591DD273FE7530010CD56 /* Clowy */,
+				BA1591ED273FE7560010CD56 /* ClowyTests */,
+				BA1591F7273FE7560010CD56 /* ClowyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BA1591DC273FE7530010CD56 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA53DA97274FFD3F0006817F /* Montserrat-SemiBold.ttf in Resources */,
+				BA53DA95274FF82E0006817F /* Montserrat-Bold.ttf in Resources */,
+				BA53DA93274FF8280006817F /* Montserrat-Regular.ttf in Resources */,
+				BA1591E9273FE7560010CD56 /* Preview Assets.xcassets in Resources */,
+				BA53DA94274FF82B0006817F /* Montserrat-Medium.ttf in Resources */,
+				BA1591E6273FE7560010CD56 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA1591EC273FE7560010CD56 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA1591F6273FE7560010CD56 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1B525785EB30C9F994366416 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Clowy/Pods-Clowy-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Clowy/Pods-Clowy-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Clowy/Pods-Clowy-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5E1D2F78DF50FC797E70D8E5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ClowyTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7187761CE48ED05E26E45F9F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Clowy-ClowyUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ACEFFDD86BD55852C8837108 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Clowy-ClowyUITests/Pods-Clowy-ClowyUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Clowy-ClowyUITests/Pods-Clowy-ClowyUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Clowy-ClowyUITests/Pods-Clowy-ClowyUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D1EA98056E2AD75C2E3A4AF8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Clowy-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BA1591DA273FE7530010CD56 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA3CE09128149F7F00D724BF /* WardrobeModuleView.swift in Sources */,
+				BA3CE08D28149DE400D724BF /* Cloth.swift in Sources */,
+				BABEC87027469D7C00ECBF76 /* ClothesCardsView.swift in Sources */,
+				BA8201F32873874500A3C66B /* ImagePicker.swift in Sources */,
+				BA3CE08B28149DB700D724BF /* Wardrobe.swift in Sources */,
+				BA3CE09328156B4000D724BF /* Forecast.swift in Sources */,
+				BA649148286B279400B57F58 /* WardrobeCoreDataView.swift in Sources */,
+				BA396DF22817461900BD63A8 /* AddGeneratedOutfit.swift in Sources */,
+				BAC19534287F68AA00FB109B /* CleanTagsView.swift in Sources */,
+				BA3CE08628149C9900D724BF /* MainScreenView.swift in Sources */,
+				BABEC86A27469C8300ECBF76 /* DaysForecastView.swift in Sources */,
+				BA820200287F500200A3C66B /* ProfileNavBarView.swift in Sources */,
+				BA43D1FB28211D40008A4AF5 /* AppNavBarView.swift in Sources */,
+				BA5D8270283A5A7700A54005 /* PersistenceController.swift in Sources */,
+				BA5D826E28393D9400A54005 /* Stash.xcdatamodeld in Sources */,
+				BA715E1D283EA60900BD30FE /* CoreDataView.swift in Sources */,
+				BABEC86D27469CD000ECBF76 /* DaysForecastCell.swift in Sources */,
+				BA43D20328212862008A4AF5 /* CustomNavLink.swift in Sources */,
+				BA3CE08928149DA300D724BF /* Weather.swift in Sources */,
+				BABEC852274695D800ECBF76 /* GreetingView.swift in Sources */,
+				BA12D0FE2776041600F91349 /* GetClothes.swift in Sources */,
+				BABEC84F2746955900ECBF76 /* AvatarView.swift in Sources */,
+				BA1591E2273FE7530010CD56 /* ClowyApp.swift in Sources */,
+				BA7812032819678F00D452DE /* Outfit.swift in Sources */,
+				BAC4BEB0286E2B700076DFFC /* SuperChildView.swift in Sources */,
+				BA6126312818733E0011ACF7 /* OutfitScreenView.swift in Sources */,
+				BAC19530287F605A00FB109B /* LocationView.swift in Sources */,
+				BADE87DC27988703001DE300 /* ChooseColorView.swift in Sources */,
+				BA43D1FD28211F95008A4AF5 /* CustomNavBarView.swift in Sources */,
+				BA12D0FC2773D4DD00F91349 /* WardrobeClothesCardCollection.swift in Sources */,
+				BADE87E227988737001DE300 /* InputNameView.swift in Sources */,
+				BA7812052819777100D452DE /* MiniCard.swift in Sources */,
+				BAC4BEA9286DF9ED0076DFFC /* Temperature.swift in Sources */,
+				BA7812012819656200D452DE /* AddNewOutfitView.swift in Sources */,
+				BADE87C427960357001DE300 /* NoClothesCollection.swift in Sources */,
+				BAC1953A2880AACA00FB109B /* CustomSlider.swift in Sources */,
+				BADE87DE27988714001DE300 /* TagsView.swift in Sources */,
+				BA12D0F427737D3000F91349 /* WardrobeScreenView.swift in Sources */,
+				BAC19532287F676400FB109B /* AvailableTypesView.swift in Sources */,
+				BA43D20128212718008A4AF5 /* CustomNavView.swift in Sources */,
+				BADE87D7279886BD001DE300 /* ChooseTempView.swift in Sources */,
+				BAC4BEAE286E2B620076DFFC /* ChildView.swift in Sources */,
+				BA3E184A2746B99E0070F4EF /* HEX.swift in Sources */,
+				BA64914C286C4B1E00B57F58 /* WardrobeTestClothCard.swift in Sources */,
+				BABEC86427469BB600ECBF76 /* WeatherForecast.swift in Sources */,
+				BADE87E027988726001DE300 /* UsePhotoFromGalary.swift in Sources */,
+				BA64914A286C4A6900B57F58 /* WardrobeClothesTestCardCollection.swift in Sources */,
+				BABEC8552746996B00ECBF76 /* WeatherForecastView.swift in Sources */,
+				BAC19536287F6B8E00FB109B /* NotificationsView.swift in Sources */,
+				BAC4BEAC286E2B580076DFFC /* ParentView.swift in Sources */,
+				BAC3D64F2749082100DA1BAC /* ClothesApi.swift in Sources */,
+				BA43D1FF28212457008A4AF5 /* CustomNavBarContainerView.swift in Sources */,
+				BA8201F92874980600A3C66B /* ScroolViewModifier.swift in Sources */,
+				BAC4BEA7286DF92F0076DFFC /* NewChosenTempView.swift in Sources */,
+				BADE87C12795FEE8001DE300 /* NewClothView.swift in Sources */,
+				BA8201F12873859A00A3C66B /* AddPhotoView.swift in Sources */,
+				BA820202287F5B7400A3C66B /* TempPreferenceView.swift in Sources */,
+				BA396DF02817329800BD63A8 /* GetOutfits.swift in Sources */,
+				BA3CE08F28149DFA00D724BF /* Day.swift in Sources */,
+				BAC19538287F6DD500FB109B /* InformationView.swift in Sources */,
+				BA8201FD287F4F1700A3C66B /* ProfileView.swift in Sources */,
+				BA61262F281868140011ACF7 /* OutfitView.swift in Sources */,
+				BA5D8272283C279400A54005 /* CameraView.swift in Sources */,
+				BADE87DA279886EA001DE300 /* TemperarureView.swift in Sources */,
+				BA12D0FA2773D19F00F91349 /* WardrobeClothesCard.swift in Sources */,
+				BADE87E52798876A001DE300 /* AddClothesView.swift in Sources */,
+				BA9D82AF28212D55009E43E8 /* CustomNavBarPreferenceKeys.swift in Sources */,
+				BA5D8274283D641600A54005 /* CustomSheetView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA1591EA273FE7560010CD56 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA1591F3273FE7560010CD56 /* ClowyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA1591F4273FE7560010CD56 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA1591FD273FE7560010CD56 /* ClowyUITests.swift in Sources */,
+				BA1591FF273FE7560010CD56 /* ClowyUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BA1591F0273FE7560010CD56 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BA1591DD273FE7530010CD56 /* Clowy */;
+			targetProxy = BA1591EF273FE7560010CD56 /* PBXContainerItemProxy */;
+		};
+		BA1591FA273FE7560010CD56 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BA1591DD273FE7530010CD56 /* Clowy */;
+			targetProxy = BA1591F9273FE7560010CD56 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		BA159200273FE7560010CD56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BA159201273FE7560010CD56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				"INFOPLIST_FILE[sdk=*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BA159203273FE7560010CD56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8941845D3FCE40E587945427 /* Pods-Clowy.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Clowy/Preview Content\"";
+				DEVELOPMENT_TEAM = DW3U5789LF;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Clowy/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortrait UIInterfaceOrientationPortrait";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = karpcorp.Clowy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BA159204273FE7560010CD56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA418C9013A9538637C7389A /* Pods-Clowy.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Clowy/Preview Content\"";
+				DEVELOPMENT_TEAM = DW3U5789LF;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Clowy/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortrait UIInterfaceOrientationPortrait";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = karpcorp.Clowy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BA159206273FE7560010CD56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B0D299ABFEEFCE8ED3092D1 /* Pods-ClowyTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DW3U5789LF;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = karpcorp.ClowyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Clowy.app/Clowy";
+			};
+			name = Debug;
+		};
+		BA159207273FE7560010CD56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C0A08B7F4192E3A52E473CCA /* Pods-ClowyTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DW3U5789LF;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = karpcorp.ClowyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Clowy.app/Clowy";
+			};
+			name = Release;
+		};
+		BA159209273FE7560010CD56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C23D6039619969CA2019E42 /* Pods-Clowy-ClowyUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DW3U5789LF;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = karpcorp.ClowyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Clowy;
+			};
+			name = Debug;
+		};
+		BA15920A273FE7560010CD56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB761446FBD8D763411B19B6 /* Pods-Clowy-ClowyUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DW3U5789LF;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = karpcorp.ClowyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Clowy;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BA1591D9273FE7530010CD56 /* Build configuration list for PBXProject "Clowy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA159200273FE7560010CD56 /* Debug */,
+				BA159201273FE7560010CD56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA159202273FE7560010CD56 /* Build configuration list for PBXNativeTarget "Clowy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA159203273FE7560010CD56 /* Debug */,
+				BA159204273FE7560010CD56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA159205273FE7560010CD56 /* Build configuration list for PBXNativeTarget "ClowyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA159206273FE7560010CD56 /* Debug */,
+				BA159207273FE7560010CD56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA159208273FE7560010CD56 /* Build configuration list for PBXNativeTarget "ClowyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA159209273FE7560010CD56 /* Debug */,
+				BA15920A273FE7560010CD56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BA3336772799AFB200E88B68 /* XCRemoteSwiftPackageReference "WaterfallGrid" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/paololeonardi/WaterfallGrid";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BA3336782799AFB200E88B68 /* WaterfallGrid */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BA3336772799AFB200E88B68 /* XCRemoteSwiftPackageReference "WaterfallGrid" */;
+			productName = WaterfallGrid;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		BA5D826C28393D9400A54005 /* Stash.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BA5D826D28393D9400A54005 /* Stash.xcdatamodel */,
+			);
+			currentVersion = BA5D826D28393D9400A54005 /* Stash.xcdatamodel */;
+			path = Stash.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = BA1591D6273FE7530010CD56 /* Project object */;
+}
