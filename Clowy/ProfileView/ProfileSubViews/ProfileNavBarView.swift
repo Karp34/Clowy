@@ -7,6 +7,17 @@
 
 import SwiftUI
 
+struct Gender {
+    var icon: String
+    var color: genderColor
+}
+
+enum genderColor: String {
+    case male = "#5bcefa"
+    case female = "#f5a9b8"
+    case transgender = "#FFBF00"
+}
+
 struct ProfileNavBarView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
@@ -20,53 +31,57 @@ struct ProfileNavBarView: View {
             }
     }
     
+    @State var gender = UserDefaults.standard.string(forKey: "gender")!
     @State var isChangingGender = false
     @State var isChangingName = false
     
     let hint = "Enter your name"
-    @State var username = UserDefaults.standard.string(forKey: "username")!
+    
+    let genderList: [Gender] = [Gender(icon: "male", color: .male), Gender(icon: "female", color: .female), Gender(icon: "transgender", color: .transgender)]
     
     var btnChangeGender: some View {
         ZStack {
+            RoundedRectangle(cornerRadius: 8)
+                .frame(width: isChangingGender ? 98 : 32 )
             if isChangingGender == true {
-                RoundedRectangle(cornerRadius: 8)
-                    .frame(width: 98)
-                HStack(spacing:0){
-                    Image("plus")
-                        .foregroundColor(Color(hex: "#DE8FD6"))
-                        .frame(width: 32)
-                    Rectangle()
-                        .frame(width: 1, height: 16)
-                        .foregroundColor(Color(hex: "#DBE4EF"))
-                    Image("plus")
-                        .foregroundColor(Color(hex: "#DE8FD6"))
-                        .frame(width: 32)
-                    Rectangle()
-                        .frame(width: 1, height: 16)
-                        .foregroundColor(Color(hex: "#DBE4EF"))
-                    Image("plus")
-                        .foregroundColor(Color(hex: "#DE8FD6"))
-                        .frame(width: 32)
+                HStack(spacing : 6) {
+                    ForEach (0..<3) { id in
+                        Image(genderList[id].icon)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 20, height: 20)
+                            .foregroundColor(Color(hex: genderList[id].color.rawValue))
+                            .onTapGesture {
+                                withAnimation {
+                                    gender = genderList[id].icon
+                                    UserDefaults.standard.set(gender, forKey: "gender")
+                                    isChangingGender = false
+                                }
+                            }
+                        if id < 2 {
+                            Rectangle()
+                                .frame(width: 1, height: 16)
+                                .foregroundColor(Color(hex: "#DBE4EF"))
+                        }
+                    }
                 }
             } else {
-                RoundedRectangle(cornerRadius: 8)
-                    .frame(width: 32)
-                Image("plus")
-                    .foregroundColor(Color(hex: "#DE8FD6"))
+                let index = genderList.firstIndex(where: {$0.icon == gender })
+                Image(gender)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 20, height: 20)
+                    .foregroundColor(Color(hex: genderList[index!].color.rawValue))
+                    .onTapGesture {
+                        withAnimation {
+                            isChangingGender = true
+                        }
+                    }
             }
         }
         .frame(height: 32)
         .foregroundColor(.white)
-        .onTapGesture {
-            isChangingGender.toggle()
-        }
     }
-        
-    
-    var color = "#CEDAE1"
-    var name = "Madeline"
-    
-    @State var isChangingImage = false
     
     let insets = EdgeInsets(top: 12, leading: 12, bottom: 12, trailing: 12)
     

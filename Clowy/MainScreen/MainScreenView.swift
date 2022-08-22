@@ -85,6 +85,7 @@ struct MainScreenView: View, DaysForecastViewDelegate {
             }
             UserDefaults.standard.set(0.5, forKey: "prefTemp")
             UserDefaults.standard.set("Username", forKey: "username")
+            UserDefaults.standard.set("female", forKey: "gender")
         }
         
         UserDefaults.standard.set(true, forKey: "launchedBefore")
@@ -140,6 +141,9 @@ struct MainScreenView: View, DaysForecastViewDelegate {
                     getOutfits()
                     getClothes()
                     createWardrobe(wardrobe: clothes)
+                }
+                .onAppear {
+                    UIApplication.shared.setStatusBarStyle(.darkContent, animated: false)
                 }
                 .navigationBarHidden(true)
                 .background(Color(hex: "#F7F8FA").edgesIgnoringSafeArea(.all))

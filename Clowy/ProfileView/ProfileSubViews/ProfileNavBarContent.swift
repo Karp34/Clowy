@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ProfileNavBarContent: View {
     @State var isChangingImage = false
@@ -18,12 +19,23 @@ struct ProfileNavBarContent: View {
     
     let insets = EdgeInsets(top: 12, leading: 12, bottom: 12, trailing: 12)
     
+    let textLimit = 16
+    
+    func limitText(_ upper: Int) {
+        if username.count > upper {
+            username = String(username.prefix(upper))
+        }
+    }
+    
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 16)
                 .foregroundColor(Color(hex: "#678CD4"))
                 .onTapGesture {
                     withAnimation {
+                        if username.count > 0 {
+                            UserDefaults.standard.set(username, forKey: "username")
+                        }
                         isChangingName = false
                         isChangingImage = false
                     }
@@ -57,14 +69,18 @@ struct ProfileNavBarContent: View {
                                     .font(.custom("Montserrat-Semibold", size: 32))
                             }
                             TextField("", text: $username, onEditingChanged: { (isChangingName) in
-                                UserDefaults.standard.set(username, forKey: "username")
+                                if username.count > 0 {
+                                    UserDefaults.standard.set(username, forKey: "username")
+                                }
                             }, onCommit: {
                                 withAnimation {
+                                    UserDefaults.standard.set(username, forKey: "username")
                                     isChangingName = false
                                 }
                             })
                                 .textFieldStyle(CustomFieldStyle2())
                                 .multilineTextAlignment(.center)
+                                .onReceive(Just(username)) { _ in limitText(textLimit) }
                         }
                         .padding(.horizontal)
                         .padding(.top, 83)

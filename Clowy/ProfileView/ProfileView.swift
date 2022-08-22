@@ -33,5 +33,9 @@ struct ProfileView: View {
                 ProfileNavBarContent()
             }
         }
+        .onAppear {
+            UIApplication.shared.setStatusBarStyle(.lightContent, animated: false)
+        }
+        .background(Color(hex: "#F7F8FA").edgesIgnoringSafeArea(.all))
     }
 }

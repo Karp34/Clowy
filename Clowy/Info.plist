@@ -11,6 +11,8 @@
 		<string>Montserrat-Bold.ttf</string>
 		<string>Rubik-Regular.ttf</string>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 	<key>UTImportedTypeDeclarations</key>
 	<array>
 		<dict/>

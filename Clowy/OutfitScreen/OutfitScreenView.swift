@@ -77,14 +77,15 @@ struct OutfitScreenView: View {
                 .padding(.bottom, 16)
             }
         }
-        
+        .onAppear() {
+            getOutfits()
+        }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .navigationBarItems(leading: btnBack, trailing: btnAdd)
         .navigationBarBackButtonHidden(true)
         .background(Color(hex: "#F7F8FA").edgesIgnoringSafeArea(.all))
-        .onAppear() {
-            getOutfits()
-        }    }
+        
+    }
     func didDismiss() {
         // Handle the dismissing action.
     }
