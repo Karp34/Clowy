@@ -16,6 +16,8 @@ struct ProfileNavBarContent: View {
     let hint = "Enter your name"
     @State var username = UserDefaults.standard.string(forKey: "username")!
     
+    let insets = EdgeInsets(top: 12, leading: 12, bottom: 12, trailing: 12)
+    
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 16)
@@ -23,22 +25,25 @@ struct ProfileNavBarContent: View {
                 .onTapGesture {
                     withAnimation {
                         isChangingName = false
+                        isChangingImage = false
                     }
                 }
             VStack {
                 ZStack {
                     Circle()
-                        .frame(width: isChangingName ? 140 : 72, height: isChangingName ? 140 : 72)
+                        .frame(width: isChangingName ? 96 : 72, height: isChangingName ? 96 : 72)
                         .foregroundColor(Color(hex: color))
                     Image("girl")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: isChangingName ? 130 : 68, height: isChangingName ? 130 : 68)
+                        .frame(width: isChangingName ? 85 : 68, height: isChangingName ? 85 : 68)
                 }
                 .padding(.top, isChangingName ? 56 : 8)
                 .onTapGesture {
-                    withAnimation {
-                        isChangingImage.toggle()
+                    if isChangingName == false {
+                        withAnimation {
+                            isChangingImage.toggle()
+                        }
                     }
                 }
                 if isChangingName == true {
@@ -77,99 +82,57 @@ struct ProfileNavBarContent: View {
                         }
                 }
             }
+            
+            if isChangingImage == true {
+                ZStack {
+                    Rectangle()
+                        .frame(width: 11, height: 11)
+                        .foregroundColor(.white)
+                        .rotationEffect(Angle.degrees(45))
+                        .padding(.bottom, 60)
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 16)
+                            .frame(height: 64)
+                            .foregroundColor(.white)
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack (spacing: 8) {
+                                ZStack {
+                                    Circle()
+                                        .frame(width: 40, height: 40)
+                                        .foregroundColor(Color(hex: "#E1E8F6"))
+                                    Image(systemName: "camera.fill")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 20, height: 18)
+                                        .foregroundColor(Color(hex: "#678CD4"))
+                                }
+                                ForEach (0..<10) { id in
+                                    ZStack {
+                                        Circle()
+                                            .frame(width: 40, height: 40)
+                                            .foregroundColor(Color(hex: "#B4E5BC"))
+                                        Image("girl")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 32, height: 32)
+                                    }
+                                    
+                                }
+                            }
+                            .padding(insets)
+                        }
+                    }
+                    
+                }
+                .offset(y: 56)
+                .padding(.horizontal, 24)
+                .shadow(color: Color(hex: "#273145").opacity(0.2), radius: 35, x: 0, y: 8)
+            }
         }
         .frame(height: isChangingName ? nil : 114)
         .edgesIgnoringSafeArea(.all)
     }
 }
-        
-//        if isChangingName == true {
-//            VStack {
-//                ZStack {
-//                    Circle()
-//                        .frame(width: 140, height: 140)
-//                        .foregroundColor(Color(hex: color))
-////                        .opacity(0.2)
-//                    Image("girl")
-//                        .resizable()
-//                        .scaledToFit()
-//                        .frame(width: 130, height: 130)
-//
-//                }
-//                .padding(.bottom, 83)
-//                .padding(.top, 56)
-//
-//                TextField("", text: $username)
-//                    .placeholder(when: username.isEmpty) {
-//                        Text(hint)
-//                            .foregroundColor(Color(hex: "##FFFFFF"))
-//                            .opacity(0.5)
-//                            .font(.custom("Montserrat-Semibold", size: 32))
-//                    }
-//                    .textFieldStyle(CustomFieldStyle2())
-//                Spacer()
-//            }
-//            .background(
-//                RoundedRectangle(cornerRadius: 16)
-//                    .foregroundColor(Color(hex: "#678CD4"))
-//            )
-//        } else {
-//
-//        }
-//    }
-//}
-//
-                 
-    
-         
-//            if isChangingImage == true {
-//                ZStack {
-//                    Rectangle()
-//                        .frame(width: 11, height: 11)
-//                        .foregroundColor(.white)
-//                        .rotationEffect(Angle.degrees(45))
-//                        .padding(.bottom, 60)
-//                    ZStack {
-//                        RoundedRectangle(cornerRadius: 16)
-//                            .frame(height: 64)
-//                            .foregroundColor(.white)
-//                        ScrollView(.horizontal, showsIndicators: false) {
-//                            HStack (spacing: 8) {
-//                                ZStack {
-//                                    Circle()
-//                                        .frame(width: 40, height: 40)
-//                                        .foregroundColor(Color(hex: "#E1E8F6"))
-//                                    Image(systemName: "camera.fill")
-//                                        .resizable()
-//                                        .scaledToFit()
-//                                        .frame(width: 20, height: 18)
-//                                        .foregroundColor(Color(hex: "#678CD4"))
-//                                }
-//                                ForEach (0..<10) { id in
-//                                    ZStack {
-//                                        Circle()
-//                                            .frame(width: 40, height: 40)
-//                                            .foregroundColor(Color(hex: "#B4E5BC"))
-//                                        Image("girl")
-//                                            .resizable()
-//                                            .scaledToFit()
-//                                            .frame(width: 32, height: 32)
-//                                    }
-//
-//                                }
-//                            }
-//                            .padding(insets)
-//                        }
-//                    }
-//
-//                }
-//                .offset(y: 76)
-//                .padding(.horizontal, 24)
-//                .shadow(color: Color(hex: "#273145").opacity(0.1), radius: 35, x: 0, y: 8)
-//            }
-//        }
-//    }
-//}
 
 struct ProfileNavBarContent_Previews: PreviewProvider {
     static var previews: some View {

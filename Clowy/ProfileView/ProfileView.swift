@@ -28,7 +28,7 @@ struct ProfileView: View {
                 }
                 .padding(.horizontal, 24)
             }
-            VStack {
+            VStack (spacing: 8){
                 ProfileNavBarView()
                 ProfileNavBarContent()
             }
