@@ -31,7 +31,7 @@ struct ProfileNavBarView: View {
             }
     }
     
-    @State var gender = UserDefaults.standard.string(forKey: "gender")!
+    @State var gender = UserDefaults.standard.string(forKey: "gender") ?? "female"
     @State var isChangingGender = false
     @State var isChangingName = false
     

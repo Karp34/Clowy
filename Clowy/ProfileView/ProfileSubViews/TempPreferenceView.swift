@@ -29,15 +29,23 @@ struct TempPreferenceView: View {
                 Text("\(prefTemp)")
                     .foregroundColor(isEditing ? .red : .blue)
                 
-                SwiftUISlider(
-                    thumbColor: .white,
-                    minTrackColor: UIColor(Color(hex: "##BFD6EF")),
-                    maxTrackColor: UIColor(Color(hex: "##BFD6EF")),
-                    value: $prefTemp
-                )
-                .onChange(of: prefTemp) { newValue in
-                    UserDefaults.standard.set(prefTemp, forKey: "prefTemp")
+                ZStack {
+                    RoundedRectangle(cornerRadius: 16)
+                        .frame(height: 4)
+                        .foregroundColor( prefTemp > 0.5 ? (prefTemp > 0.75 ? Color(hex: "#FFA929") : Color(hex: "#FFDDA9") ) : (prefTemp > 0.25 ? Color(hex: "#BFD6EF") : Color(hex: "#6391EB") ))
+                    SwiftUISlider(
+                        thumbColor: .white,
+                        minTrackColor: .clear,
+                        maxTrackColor: .clear,
+                        value: $prefTemp
+                    )
+                    .onChange(of: prefTemp) { newValue in
+                        withAnimation {
+                            UserDefaults.standard.set(prefTemp, forKey: "prefTemp")
+                        }
+                    }
                 }
+                
                 
                 HStack(alignment: .center) {
                     HStack {
@@ -46,17 +54,26 @@ struct TempPreferenceView: View {
                             .font(.custom("Montserrat-Regular", size: 12))
                         Spacer()
                     }
+                    .onTapGesture {
+                        prefTemp = 0
+                    }
                     .frame(width: 73)
                     Spacer()
                     Rectangle()
                         .frame(width: 1, height: 16)
                         .foregroundColor(Color(hex: "#DBE4EF"))
+                        .onTapGesture {
+                            prefTemp = 0.5
+                        }
                     Spacer()
                     HStack {
                         Spacer()
                         Text("Warmer")
                             .foregroundColor(Color(hex: "#646C75"))
                             .font(.custom("Montserrat-Regular", size: 12))
+                    }
+                    .onTapGesture {
+                        prefTemp = 1
                     }
                     .frame(width: 73)
                 }

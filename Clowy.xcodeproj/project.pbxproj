@@ -54,6 +54,7 @@
 		BA7812012819656200D452DE /* AddNewOutfitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7812002819656100D452DE /* AddNewOutfitView.swift */; };
 		BA7812032819678F00D452DE /* Outfit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7812022819678F00D452DE /* Outfit.swift */; };
 		BA7812052819777100D452DE /* MiniCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7812042819777100D452DE /* MiniCard.swift */; };
+		BA7E40AB28B4C63E00FB3730 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E40AA28B4C63E00FB3730 /* CustomTextField.swift */; };
 		BA8201F12873859A00A3C66B /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8201F02873859A00A3C66B /* AddPhotoView.swift */; };
 		BA8201F32873874500A3C66B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8201F22873874500A3C66B /* ImagePicker.swift */; };
 		BA8201F92874980600A3C66B /* ScroolViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8201F82874980600A3C66B /* ScroolViewModifier.swift */; };
@@ -163,6 +164,7 @@
 		BA7812002819656100D452DE /* AddNewOutfitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewOutfitView.swift; sourceTree = "<group>"; };
 		BA7812022819678F00D452DE /* Outfit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Outfit.swift; sourceTree = "<group>"; };
 		BA7812042819777100D452DE /* MiniCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniCard.swift; sourceTree = "<group>"; };
+		BA7E40AA28B4C63E00FB3730 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		BA8201F02873859A00A3C66B /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
 		BA8201F22873874500A3C66B /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		BA8201F82874980600A3C66B /* ScroolViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScroolViewModifier.swift; sourceTree = "<group>"; };
@@ -392,6 +394,7 @@
 				BA43D1F928211D18008A4AF5 /* CustomNavBar */,
 				BA3E18492746B99E0070F4EF /* HEX.swift */,
 				BA8201F82874980600A3C66B /* ScroolViewModifier.swift */,
+				BA7E40AA28B4C63E00FB3730 /* CustomTextField.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -834,6 +837,7 @@
 				BAC19538287F6DD500FB109B /* InformationView.swift in Sources */,
 				BA8201FD287F4F1700A3C66B /* ProfileView.swift in Sources */,
 				BA61262F281868140011ACF7 /* OutfitView.swift in Sources */,
+				BA7E40AB28B4C63E00FB3730 /* CustomTextField.swift in Sources */,
 				BA5D8272283C279400A54005 /* CameraView.swift in Sources */,
 				BADE87DA279886EA001DE300 /* TemperarureView.swift in Sources */,
 				BA12D0FA2773D19F00F91349 /* WardrobeClothesCard.swift in Sources */,
