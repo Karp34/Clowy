@@ -15,7 +15,8 @@ struct ProfileNavBarContent: View {
     var color = "#CEDAE1"
     
     let hint = "Enter your name"
-    @State var username = UserDefaults.standard.string(forKey: "username")!
+    @State var username = UserDefaults.standard.string(forKey: "username")!.trimmingCharacters(in: .whitespaces)
+    
     
     let insets = EdgeInsets(top: 12, leading: 12, bottom: 12, trailing: 12)
     
@@ -33,8 +34,8 @@ struct ProfileNavBarContent: View {
                 .foregroundColor(Color(hex: "#678CD4"))
                 .onTapGesture {
                     withAnimation {
-                        if username.count > 0 {
-                            UserDefaults.standard.set(username, forKey: "username")
+                        if username.trimmingCharacters(in: .whitespaces).count > 0 {
+                            UserDefaults.standard.set(username.trimmingCharacters(in: .whitespaces), forKey: "username")
                         }
                         isChangingName = false
                         isChangingImage = false
@@ -61,26 +62,32 @@ struct ProfileNavBarContent: View {
                 if isChangingName == true {
                     VStack {
                         ZStack {
-                            if username.count < 1 {
+                            if username.trimmingCharacters(in: .whitespaces).count < 1 {
                                 Text(hint)
                                     .foregroundColor(Color(hex: "##FFFFFF"))
                                     .multilineTextAlignment(.center)
                                     .opacity(0.5)
                                     .font(.custom("Montserrat-Semibold", size: 32))
                             }
+                            
                             TextField("", text: $username, onEditingChanged: { (isChangingName) in
-                                if username.count > 0 {
-                                    UserDefaults.standard.set(username, forKey: "username")
+                                if username.trimmingCharacters(in: .whitespaces).count > 0  && username.starts(with: " ") == false {
+                                    UserDefaults.standard.set(username.trimmingCharacters(in: .whitespaces), forKey: "username")
                                 }
                             }, onCommit: {
                                 withAnimation {
-                                    UserDefaults.standard.set(username, forKey: "username")
+                                    if username.trimmingCharacters(in: .whitespaces).count > 0  && username.starts(with: " ") == false {
+                                        UserDefaults.standard.set(username.trimmingCharacters(in: .whitespaces), forKey: "username")
+                                    }
                                     isChangingName = false
                                 }
                             })
                                 .textFieldStyle(CustomFieldStyle2())
                                 .multilineTextAlignment(.center)
                                 .onReceive(Just(username)) { _ in limitText(textLimit) }
+                            
+                            
+                            
                         }
                         .padding(.horizontal)
                         .padding(.top, 83)

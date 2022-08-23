@@ -24,15 +24,15 @@ struct ProfileNavBarView: View {
     var btnBack : some View {
         Button (action: {
             self.presentationMode.wrappedValue.dismiss()}) {
-                Image("back_button")
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 12.0, height: 12.0)
-                    .foregroundColor(.white)
-                    .background(
-                        Rectangle()
-                            .foregroundColor(Color(hex: "#678CD4"))
-                            .frame(width: 16, height: 16)
-                        )
+                ZStack {
+                    Image("back_button")
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 12.0, height: 12.0)
+                        .foregroundColor(.white)
+                    Rectangle()
+                        .foregroundColor(.clear)
+                        .frame(width: 20, height: 25)
+                }
             }
     }
     
