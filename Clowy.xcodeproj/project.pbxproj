@@ -25,7 +25,6 @@
 		BA348F1F28B3747C008C6BBC /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA348F1E28B3747C008C6BBC /* Montserrat-Medium.ttf */; };
 		BA348F2128B3748E008C6BBC /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA348F2028B3748E008C6BBC /* Montserrat-SemiBold.ttf */; };
 		BA348F2328B3749F008C6BBC /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA348F2228B3749F008C6BBC /* Montserrat-Regular.ttf */; };
-		BA348F2528B38794008C6BBC /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA348F2428B38794008C6BBC /* CustomSlider.swift */; };
 		BA396DF02817329800BD63A8 /* GetOutfits.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA396DEF2817329800BD63A8 /* GetOutfits.swift */; };
 		BA396DF22817461900BD63A8 /* AddGeneratedOutfit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA396DF12817461900BD63A8 /* AddGeneratedOutfit.swift */; };
 		BA3CE08628149C9900D724BF /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3CE08528149C9900D724BF /* MainScreenView.swift */; };
@@ -135,7 +134,6 @@
 		BA348F1E28B3747C008C6BBC /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Medium.ttf"; path = "../../../../Downloads/Montserrat/Montserrat-Medium.dataset/Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		BA348F2028B3748E008C6BBC /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-SemiBold.ttf"; path = "../../../../Downloads/Montserrat/Montserrat-SemiBold.dataset/Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		BA348F2228B3749F008C6BBC /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Regular.ttf"; path = "../../../../Downloads/Montserrat/Montserrat-Regular.dataset/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
-		BA348F2428B38794008C6BBC /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		BA396DEF2817329800BD63A8 /* GetOutfits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetOutfits.swift; sourceTree = "<group>"; };
 		BA396DF12817461900BD63A8 /* AddGeneratedOutfit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGeneratedOutfit.swift; sourceTree = "<group>"; };
 		BA3CE08528149C9900D724BF /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
@@ -464,7 +462,6 @@
 				BAC19535287F6B8E00FB109B /* NotificationsView.swift */,
 				BAC19537287F6DD500FB109B /* InformationView.swift */,
 				BAC195392880AACA00FB109B /* SwiftUISlider.swift */,
-				BA348F2428B38794008C6BBC /* CustomSlider.swift */,
 			);
 			path = ProfileSubViews;
 			sourceTree = "<group>";
@@ -819,7 +816,6 @@
 				BA64914C286C4B1E00B57F58 /* WardrobeTestClothCard.swift in Sources */,
 				BABEC86427469BB600ECBF76 /* WeatherForecast.swift in Sources */,
 				BADE87E027988726001DE300 /* UsePhotoFromGalary.swift in Sources */,
-				BA348F2528B38794008C6BBC /* CustomSlider.swift in Sources */,
 				BA64914A286C4A6900B57F58 /* WardrobeClothesTestCardCollection.swift in Sources */,
 				BABEC8552746996B00ECBF76 /* WeatherForecastView.swift in Sources */,
 				BAC19536287F6B8E00FB109B /* NotificationsView.swift in Sources */,

@@ -62,6 +62,11 @@ struct TempPreferenceView: View {
                     Rectangle()
                         .frame(width: 1, height: 16)
                         .foregroundColor(Color(hex: "#DBE4EF"))
+                        .background(
+                            Rectangle()
+                                .foregroundColor(.white)
+                                .frame(width: 16, height: 16)
+                            )
                         .onTapGesture {
                             prefTemp = 0.5
                         }
