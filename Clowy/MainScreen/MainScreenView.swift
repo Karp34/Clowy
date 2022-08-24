@@ -86,6 +86,7 @@ struct MainScreenView: View, DaysForecastViewDelegate {
             UserDefaults.standard.set(0.5, forKey: "prefTemp")
             UserDefaults.standard.set("Username", forKey: "username")
             UserDefaults.standard.set("female", forKey: "gender")
+            UserDefaults.standard.set("Panda", forKey: "avatar")
         }
         
         UserDefaults.standard.set(true, forKey: "launchedBefore")

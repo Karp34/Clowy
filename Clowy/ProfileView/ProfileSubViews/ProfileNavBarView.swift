@@ -7,16 +7,6 @@
 
 import SwiftUI
 
-struct Gender {
-    var icon: String
-    var color: genderColor
-}
-
-enum genderColor: String {
-    case male = "#5bcefa"
-    case female = "#f5a9b8"
-    case transgender = "#FFBF00"
-}
 
 struct ProfileNavBarView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>

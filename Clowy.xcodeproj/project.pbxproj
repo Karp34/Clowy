@@ -54,6 +54,8 @@
 		BA7812032819678F00D452DE /* Outfit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7812022819678F00D452DE /* Outfit.swift */; };
 		BA7812052819777100D452DE /* MiniCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7812042819777100D452DE /* MiniCard.swift */; };
 		BA7E40AB28B4C63E00FB3730 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E40AA28B4C63E00FB3730 /* CustomTextField.swift */; };
+		BA7E40AD28B6278700FB3730 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E40AC28B6278700FB3730 /* Gender.swift */; };
+		BA7E40AF28B6279E00FB3730 /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E40AE28B6279E00FB3730 /* Emoji.swift */; };
 		BA8201F12873859A00A3C66B /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8201F02873859A00A3C66B /* AddPhotoView.swift */; };
 		BA8201F32873874500A3C66B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8201F22873874500A3C66B /* ImagePicker.swift */; };
 		BA8201F92874980600A3C66B /* ScroolViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8201F82874980600A3C66B /* ScroolViewModifier.swift */; };
@@ -163,6 +165,8 @@
 		BA7812022819678F00D452DE /* Outfit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Outfit.swift; sourceTree = "<group>"; };
 		BA7812042819777100D452DE /* MiniCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniCard.swift; sourceTree = "<group>"; };
 		BA7E40AA28B4C63E00FB3730 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		BA7E40AC28B6278700FB3730 /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
+		BA7E40AE28B6279E00FB3730 /* Emoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
 		BA8201F02873859A00A3C66B /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
 		BA8201F22873874500A3C66B /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		BA8201F82874980600A3C66B /* ScroolViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScroolViewModifier.swift; sourceTree = "<group>"; };
@@ -381,6 +385,8 @@
 				BAC4BEA8286DF9EC0076DFFC /* Temperature.swift */,
 				BA3CE09228156B4000D724BF /* Forecast.swift */,
 				BA3CE08C28149DE400D724BF /* Cloth.swift */,
+				BA7E40AC28B6278700FB3730 /* Gender.swift */,
+				BA7E40AE28B6279E00FB3730 /* Emoji.swift */,
 				BA3CE08E28149DFA00D724BF /* Day.swift */,
 			);
 			path = Models;
@@ -805,6 +811,7 @@
 				BAC4BEA9286DF9ED0076DFFC /* Temperature.swift in Sources */,
 				BA7812012819656200D452DE /* AddNewOutfitView.swift in Sources */,
 				BADE87C427960357001DE300 /* NoClothesCollection.swift in Sources */,
+				BA7E40AD28B6278700FB3730 /* Gender.swift in Sources */,
 				BAC1953A2880AACA00FB109B /* SwiftUISlider.swift in Sources */,
 				BADE87DE27988714001DE300 /* TagsView.swift in Sources */,
 				BA12D0F427737D3000F91349 /* WardrobeScreenView.swift in Sources */,
@@ -835,6 +842,7 @@
 				BA61262F281868140011ACF7 /* OutfitView.swift in Sources */,
 				BA7E40AB28B4C63E00FB3730 /* CustomTextField.swift in Sources */,
 				BA5D8272283C279400A54005 /* CameraView.swift in Sources */,
+				BA7E40AF28B6279E00FB3730 /* Emoji.swift in Sources */,
 				BADE87DA279886EA001DE300 /* TemperarureView.swift in Sources */,
 				BA12D0FA2773D19F00F91349 /* WardrobeClothesCard.swift in Sources */,
 				BADE87E52798876A001DE300 /* AddClothesView.swift in Sources */,

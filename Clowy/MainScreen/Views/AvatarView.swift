@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AvatarIcon: View {
+    var avatar: String
     var color: String
     
     var body: some View {
@@ -16,10 +17,10 @@ struct AvatarIcon: View {
                 .frame(width: 48.0, height: 48.0)
                 .foregroundColor(Color(hex: color))
                 .opacity(0.2)
-            Image("girl")
+            Image(avatar)
                 .resizable()
                 .scaledToFit()
-                .frame(width: 40, height: 40)
+                .frame(width: 30, height: 30)
         }
     }
 }

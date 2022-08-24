@@ -10,6 +10,7 @@ import SwiftUI
 struct GreetingView: View {
     var color: String
     var username = UserDefaults.standard.string(forKey: "username")
+    var avatar = UserDefaults.standard.string(forKey: "avatar") ?? "Panda"
     
     @State var identifier = "en"
     
@@ -41,7 +42,7 @@ struct GreetingView: View {
     
     var body: some View {
         HStack {
-            AvatarIcon(color: color)
+            AvatarIcon(avatar: avatar, color: color)
             VStack(alignment: .leading, spacing: 4) {
                 let myCurrentDate = convertDateFormate(date: Date())
                 Text(myCurrentDate)
