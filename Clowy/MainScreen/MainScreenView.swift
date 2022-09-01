@@ -73,6 +73,8 @@ struct MainScreenView: View, DaysForecastViewDelegate {
         sortDescriptors: [NSSortDescriptor(keyPath: \TestWardrobe.id, ascending: true)]
     ) var categories: FetchedResults<TestWardrobe>
     
+    
+    
     var launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
 
     private func createWardrobe(wardrobe: [Wardrobe]) {
@@ -87,6 +89,15 @@ struct MainScreenView: View, DaysForecastViewDelegate {
             UserDefaults.standard.set("Username", forKey: "username")
             UserDefaults.standard.set("female", forKey: "gender")
             UserDefaults.standard.set("Panda", forKey: "avatar")
+            UserDefaults.standard.set("New York", forKey: "location")
+            UserDefaults.standard.set(false, forKey: "isGeoposition")
+            UserDefaults.standard.set(["London", "New York", "Tokyo", "Paris", "Berlin"], forKey: "locationHistory")
+
+
+            
+            let chosenClothesList = GetChosenClothes.getChosenClothes()
+            UserDefaults.standard.set(
+                UserDefaults.standard.string(forKey: "gender") == "male" ? chosenClothesList[0].clothes : chosenClothesList[1].clothes, forKey: "chosenClothesTypes")
         }
         
         UserDefaults.standard.set(true, forKey: "launchedBefore")

@@ -56,6 +56,12 @@
 		BA7E40AB28B4C63E00FB3730 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E40AA28B4C63E00FB3730 /* CustomTextField.swift */; };
 		BA7E40AD28B6278700FB3730 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E40AC28B6278700FB3730 /* Gender.swift */; };
 		BA7E40AF28B6279E00FB3730 /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E40AE28B6279E00FB3730 /* Emoji.swift */; };
+		BA7E40B228B65B9500FB3730 /* DeviceLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E40B128B65B9500FB3730 /* DeviceLocationService.swift */; };
+		BA7E40B428B65BCD00FB3730 /* LocationTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E40B328B65BCD00FB3730 /* LocationTestView.swift */; };
+		BA7E40B728B6A0BE00FB3730 /* ChosenClothesTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E40B628B6A0BE00FB3730 /* ChosenClothesTypes.swift */; };
+		BA7E40B928C0AC3B00FB3730 /* YandexModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E40B828C0AC3B00FB3730 /* YandexModels.swift */; };
+		BA7E40BB28C1055100FB3730 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E40BA28C1055100FB3730 /* State.swift */; };
+		BA7E40BD28C1130300FB3730 /* ChooseLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E40BC28C1130300FB3730 /* ChooseLocationView.swift */; };
 		BA8201F12873859A00A3C66B /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8201F02873859A00A3C66B /* AddPhotoView.swift */; };
 		BA8201F32873874500A3C66B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8201F22873874500A3C66B /* ImagePicker.swift */; };
 		BA8201F92874980600A3C66B /* ScroolViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8201F82874980600A3C66B /* ScroolViewModifier.swift */; };
@@ -167,6 +173,12 @@
 		BA7E40AA28B4C63E00FB3730 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		BA7E40AC28B6278700FB3730 /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		BA7E40AE28B6279E00FB3730 /* Emoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
+		BA7E40B128B65B9500FB3730 /* DeviceLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceLocationService.swift; sourceTree = "<group>"; };
+		BA7E40B328B65BCD00FB3730 /* LocationTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTestView.swift; sourceTree = "<group>"; };
+		BA7E40B628B6A0BE00FB3730 /* ChosenClothesTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChosenClothesTypes.swift; sourceTree = "<group>"; };
+		BA7E40B828C0AC3B00FB3730 /* YandexModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexModels.swift; sourceTree = "<group>"; };
+		BA7E40BA28C1055100FB3730 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		BA7E40BC28C1130300FB3730 /* ChooseLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLocationView.swift; sourceTree = "<group>"; };
 		BA8201F02873859A00A3C66B /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
 		BA8201F22873874500A3C66B /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		BA8201F82874980600A3C66B /* ScroolViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScroolViewModifier.swift; sourceTree = "<group>"; };
@@ -379,6 +391,7 @@
 		BA3CE08728149D8800D724BF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BA7E40B828C0AC3B00FB3730 /* YandexModels.swift */,
 				BA3CE08828149DA300D724BF /* Weather.swift */,
 				BA3CE08A28149DB700D724BF /* Wardrobe.swift */,
 				BA7812022819678F00D452DE /* Outfit.swift */,
@@ -386,8 +399,10 @@
 				BA3CE09228156B4000D724BF /* Forecast.swift */,
 				BA3CE08C28149DE400D724BF /* Cloth.swift */,
 				BA7E40AC28B6278700FB3730 /* Gender.swift */,
+				BA7E40B628B6A0BE00FB3730 /* ChosenClothesTypes.swift */,
 				BA7E40AE28B6279E00FB3730 /* Emoji.swift */,
 				BA3CE08E28149DFA00D724BF /* Day.swift */,
+				BA7E40BA28C1055100FB3730 /* State.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -438,6 +453,16 @@
 			path = MainScreen;
 			sourceTree = "<group>";
 		};
+		BA7E40B028B65B7100FB3730 /* LocationSubViews */ = {
+			isa = PBXGroup;
+			children = (
+				BA7E40B128B65B9500FB3730 /* DeviceLocationService.swift */,
+				BA7E40BC28C1130300FB3730 /* ChooseLocationView.swift */,
+				BA7E40B328B65BCD00FB3730 /* LocationTestView.swift */,
+			);
+			path = LocationSubViews;
+			sourceTree = "<group>";
+		};
 		BA8201EE2873857500A3C66B /* PhotoView */ = {
 			isa = PBXGroup;
 			children = (
@@ -464,6 +489,7 @@
 				BAB8D37A28B3D032000E1717 /* ProfileNavBarContent.swift */,
 				BA820201287F5B7400A3C66B /* TempPreferenceView.swift */,
 				BAC1952F287F605A00FB109B /* LocationView.swift */,
+				BA7E40B028B65B7100FB3730 /* LocationSubViews */,
 				BAC19531287F676400FB109B /* AvailableTypesView.swift */,
 				BAC19535287F6B8E00FB109B /* NotificationsView.swift */,
 				BAC19537287F6DD500FB109B /* InformationView.swift */,
@@ -805,6 +831,7 @@
 				BAC19530287F605A00FB109B /* LocationView.swift in Sources */,
 				BADE87DC27988703001DE300 /* ChooseColorView.swift in Sources */,
 				BA43D1FD28211F95008A4AF5 /* CustomNavBarView.swift in Sources */,
+				BA7E40B428B65BCD00FB3730 /* LocationTestView.swift in Sources */,
 				BA12D0FC2773D4DD00F91349 /* WardrobeClothesCardCollection.swift in Sources */,
 				BADE87E227988737001DE300 /* InputNameView.swift in Sources */,
 				BA7812052819777100D452DE /* MiniCard.swift in Sources */,
@@ -821,11 +848,14 @@
 				BAC4BEAE286E2B620076DFFC /* ChildView.swift in Sources */,
 				BA3E184A2746B99E0070F4EF /* HEX.swift in Sources */,
 				BA64914C286C4B1E00B57F58 /* WardrobeTestClothCard.swift in Sources */,
+				BA7E40B928C0AC3B00FB3730 /* YandexModels.swift in Sources */,
+				BA7E40BB28C1055100FB3730 /* State.swift in Sources */,
 				BABEC86427469BB600ECBF76 /* WeatherForecast.swift in Sources */,
 				BADE87E027988726001DE300 /* UsePhotoFromGalary.swift in Sources */,
 				BA64914A286C4A6900B57F58 /* WardrobeClothesTestCardCollection.swift in Sources */,
 				BABEC8552746996B00ECBF76 /* WeatherForecastView.swift in Sources */,
 				BAC19536287F6B8E00FB109B /* NotificationsView.swift in Sources */,
+				BA7E40B728B6A0BE00FB3730 /* ChosenClothesTypes.swift in Sources */,
 				BAC4BEAC286E2B580076DFFC /* ParentView.swift in Sources */,
 				BAC3D64F2749082100DA1BAC /* ClothesApi.swift in Sources */,
 				BA43D1FF28212457008A4AF5 /* CustomNavBarContainerView.swift in Sources */,
@@ -838,11 +868,13 @@
 				BA396DF02817329800BD63A8 /* GetOutfits.swift in Sources */,
 				BA3CE08F28149DFA00D724BF /* Day.swift in Sources */,
 				BAC19538287F6DD500FB109B /* InformationView.swift in Sources */,
+				BA7E40BD28C1130300FB3730 /* ChooseLocationView.swift in Sources */,
 				BA8201FD287F4F1700A3C66B /* ProfileView.swift in Sources */,
 				BA61262F281868140011ACF7 /* OutfitView.swift in Sources */,
 				BA7E40AB28B4C63E00FB3730 /* CustomTextField.swift in Sources */,
 				BA5D8272283C279400A54005 /* CameraView.swift in Sources */,
 				BA7E40AF28B6279E00FB3730 /* Emoji.swift in Sources */,
+				BA7E40B228B65B9500FB3730 /* DeviceLocationService.swift in Sources */,
 				BADE87DA279886EA001DE300 /* TemperarureView.swift in Sources */,
 				BA12D0FA2773D19F00F91349 /* WardrobeClothesCard.swift in Sources */,
 				BADE87E52798876A001DE300 /* AddClothesView.swift in Sources */,
@@ -1016,7 +1048,8 @@
 				INFOPLIST_FILE = Clowy/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Hook it up";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = Smth;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
@@ -1051,7 +1084,8 @@
 				INFOPLIST_FILE = Clowy/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Hook it up";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = Smth;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;

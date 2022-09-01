@@ -8,7 +8,17 @@
 import SwiftUI
 import Combine
 
+class ProfileNavBarContentViewModel: ObservableObject {
+    @Published var image: Data = .init(count: 0)
+    static var shared = AddClothesViewModel()
+}
+
 struct ProfileNavBarContent: View {
+    @StateObject private var viewModel = ProfileNavBarContentViewModel.shared
+    @Environment(\.managedObjectContext) var moc
+    @State var show = false
+    @State private var isActionSheetPresented = false
+    
     @State var isChangingImage = false
     
     @State var isChangingName = false
@@ -133,17 +143,45 @@ struct ProfileNavBarContent: View {
                             .foregroundColor(.white)
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack (spacing: 8) {
-                                ZStack {
-                                    Circle()
-                                        .frame(width: 40, height: 40)
-                                        .foregroundColor(Color(hex: "#E1E8F6"))
-                                    Image(systemName: "camera.fill")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 20, height: 18)
-                                        .foregroundColor(Color(hex: "#678CD4"))
+                                Button {
+                                    isActionSheetPresented.toggle()
+                                } label: {
+                                    ZStack {
+                                        Circle()
+                                            .frame(width: 40, height: 40)
+                                            .foregroundColor(Color(hex: "#E1E8F6"))
+                                        Image(systemName: "camera.fill")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 20, height: 18)
+                                            .foregroundColor(Color(hex: "#678CD4"))
+                                    }
                                 }
-                                ForEach (0..<emojiList.count) { id in
+                                .actionSheet(isPresented: $isActionSheetPresented) {
+                                    ActionSheet(title: Text("Take a picture or choose from library"), buttons: [
+                                        .cancel(),
+                                        .default(
+                                            Text("Take a picture"),
+                                            action: {
+                                                show.toggle()
+                                            }
+                                        ),
+                                        .default(
+                                            Text("Choose from library"),
+                                            action: {
+                                                show.toggle()
+                                            }
+                                        )
+                                    ])
+                                }
+                                .sheet(isPresented: self.$show) {
+                                    ImagePicker(show: self.$show, image: $viewModel.image)
+                                        .environment(\.managedObjectContext, self.moc)
+                                }
+                                
+                                
+                                
+                                ForEach (0..<emojiList.count, id:\.self) { id in
                                     ZStack {
                                         if avatar != emojiList[id].icon {
                                             Circle()

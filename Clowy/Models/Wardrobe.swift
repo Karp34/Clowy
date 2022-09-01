@@ -22,13 +22,15 @@ enum WardrobeOrder: Int, CaseIterable, Codable {
     case hoodies = 4
     case thermals = 5
     case tshirts = 6
-    case pants = 7
-    case thermalPants = 8
-    case socks = 9
-    case sneakers = 10
-    case umbrellas = 11
-    case gloves = 12
-    case accessories = 13
+    case dresses = 7
+    case skirts = 8
+    case pants = 9
+    case thermalPants = 10
+    case socks = 11
+    case sneakers = 12
+    case umbrellas = 13
+    case gloves = 14
+    case accessories = 15
 }
 
 struct AspectRatioType {

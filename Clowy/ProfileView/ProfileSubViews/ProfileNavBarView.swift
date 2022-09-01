@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ProfileNavBarView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @ObservedObject var viewModel: ProfileViewModel
     
     var btnBack : some View {
         Button (action: {
@@ -50,6 +51,8 @@ struct ProfileNavBarView: View {
                                 withAnimation {
                                     gender = genderList[id].icon
                                     UserDefaults.standard.set(gender, forKey: "gender")
+                                    UserDefaults.standard.set( GetChosenClothes.getChosenClothes()[ gender == "male" ? 0 : 1 ].clothes, forKey: "chosenClothesTypes")
+                                    viewModel.chosenClothes = GetChosenClothes.getChosenClothes()[ gender == "male" ? 0 : 1 ].clothes
                                     isChangingGender = false
                                 }
                             }

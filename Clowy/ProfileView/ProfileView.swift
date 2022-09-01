@@ -7,7 +7,10 @@
 
 import SwiftUI
 
+
 class ProfileViewModel: ObservableObject {
+    @Published var chosenClothes: [String] = UserDefaults.standard.array(forKey: "chosenClothesTypes") as? [String] ?? GetChosenClothes.getChosenClothes()[1].clothes
+    @Published var location = UserDefaults.standard.string(forKey: "location") ?? "New York"
     
     static var shared = ProfileViewModel()
 }
@@ -21,7 +24,13 @@ struct ProfileView: View {
                 VStack (spacing: 24){
                     Spacer(minLength: 180)
                     TempPreferenceView()
-                    LocationView()
+                    
+                    NavigationLink {
+                        LocationTestView()
+                    } label: {
+                        LocationView()
+                    }
+                    
                     AvailableTypesView()
                     NotificationsView()
                     InformationView()
@@ -29,7 +38,7 @@ struct ProfileView: View {
                 .padding(.horizontal, 24)
             }
             VStack (spacing: 8){
-                ProfileNavBarView()
+                ProfileNavBarView(viewModel: viewModel)
                 ProfileNavBarContent()
             }
         }

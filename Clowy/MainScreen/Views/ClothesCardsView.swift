@@ -8,6 +8,7 @@
 import SwiftUI
 import WaterfallGrid
 
+
 struct ClothesCardsView: View {
     
     func getRatio(name: ClothesType) -> Double {
@@ -33,6 +34,7 @@ struct ClothesCardsView: View {
         } else {
             NoOutfit()
         }
+        
     }
 }
 
