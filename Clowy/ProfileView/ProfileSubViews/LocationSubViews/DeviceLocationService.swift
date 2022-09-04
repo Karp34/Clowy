@@ -52,8 +52,6 @@ class DeviceLocationService: NSObject, CLLocationManagerDelegate, ObservableObje
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("1111")
-        print(locations)
         guard let location = locations.last else { return }
         coordinatesPublisher.send(location.coordinate)
     }

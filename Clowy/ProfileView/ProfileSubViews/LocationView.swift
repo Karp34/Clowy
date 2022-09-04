@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LocationView: View {
     var locationName = "Moscow, Taganka"
-    var currentWeather = Weather(color: "#74A3FF", icon: "cloud.fill", temp: "-19°")
+    var currentWeather = Weather(name: "Cloudy", color: "#74A3FF", icon: "cloud.fill", temp: -19, humidity: 99, windSpeed: 2)
     
     var body: some View {
         ZStack {
@@ -36,7 +36,7 @@ struct LocationView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 12, height: 10)
-                            Text(currentWeather.temp)
+                            Text(String(currentWeather.temp))
                                 .font(.custom("Montserrat-Medium", size: 12))
                         }
                         .padding(.horizontal, 5)

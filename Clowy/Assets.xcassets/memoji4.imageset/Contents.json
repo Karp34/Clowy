@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "d7a7a452bd64c6a4bedfc387b2e09de2-sticker 1.svg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

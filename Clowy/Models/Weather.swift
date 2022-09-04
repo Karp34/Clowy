@@ -8,16 +8,10 @@
 import SwiftUI
 
 struct Weather: Equatable {
-    
-//    init(stringLiteral value: StringLiteralType) {
-//        color = value
-//        icon = value
-//        temp = value
-//        }
-    
+    var name: String
     var color: String
     var icon: String
-    var temp: String
-//    var humidity: Int
-//    var windSpeed: Int
+    var temp: Int
+    var humidity: Int
+    var windSpeed: Int
 }

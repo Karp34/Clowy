@@ -60,7 +60,7 @@ struct ProfileNavBarContent: View {
                     Image(avatar)
                         .resizable()
                         .scaledToFit()
-                        .frame(width: isChangingName ? 67 : 50, height: isChangingName ? 67 : 50)
+                        .frame(width: isChangingName ? 67 : (avatar.starts(with: "memoji") ? 62 : 50), height: isChangingName ? 67 : (avatar.starts(with: "memoji") ? 62 : 50))
                 }
                 .padding(.top, isChangingName ? 56 : 8)
                 .onTapGesture {
@@ -119,12 +119,14 @@ struct ProfileNavBarContent: View {
             
             if isChangingImage == true {
                 let emojiList = [
-                    Emoji(icon: "girl", color: "#CEDAE1"),
-                    Emoji(icon: "girl", color: "#B4E5BC"),
-                    Emoji(icon: "girl", color: "#CCC1F0"),
-                    Emoji(icon: "girl", color: "#F3ABA7"),
-                    Emoji(icon: "girl", color: "#B4E5BC"),
-                    Emoji(icon: "girl", color: "#CEDAE1"),
+                    Emoji(icon: "memoji1", color: "#CEDAE1"),
+                    Emoji(icon: "memoji2", color: "#B4E5BC"),
+                    Emoji(icon: "memoji3", color: "#CCC1F0"),
+                    Emoji(icon: "memoji4", color: "#F3ABA7"),
+                    Emoji(icon: "memoji5", color: "#B4E5BC"),
+                    Emoji(icon: "memoji6", color: "#CEDAE1"),
+                    Emoji(icon: "memoji7", color: "#F3ABA7"),
+                    Emoji(icon: "memoji8", color: "#B4E5BC"),
                     Emoji(icon: "Panda", color: "#F4CE9B"),
                     Emoji(icon: "Fox", color: "#CCC1F0"),
                     Emoji(icon: "Frog", color: "#B4E5BC"),
@@ -190,7 +192,7 @@ struct ProfileNavBarContent: View {
                                             Image(emojiList[id].icon)
                                                 .resizable()
                                                 .scaledToFit()
-                                                .frame(width: 28, height: 28)
+                                                .frame(width: (emojiList[id].icon.starts(with: "memoji") ? 35 : 28), height: (emojiList[id].icon.starts(with: "memoji") ? 35 : 28))
                                         } else {
                                             Circle()
                                                 .stroke(Color(hex: "#9FA8AD"), style: StrokeStyle(lineWidth: 1))
@@ -200,7 +202,7 @@ struct ProfileNavBarContent: View {
                                             Image(emojiList[id].icon)
                                                 .resizable()
                                                 .scaledToFit()
-                                                .frame(width: 28, height: 28)
+                                                .frame(width: (emojiList[id].icon.starts(with: "memoji") ? 35 : 28), height: (emojiList[id].icon.starts(with: "memoji") ? 35 : 28))
                                             
                                             HStack {
                                                 Spacer()

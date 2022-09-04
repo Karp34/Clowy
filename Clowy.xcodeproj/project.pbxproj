@@ -60,8 +60,11 @@
 		BA7E40B428B65BCD00FB3730 /* LocationTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E40B328B65BCD00FB3730 /* LocationTestView.swift */; };
 		BA7E40B728B6A0BE00FB3730 /* ChosenClothesTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E40B628B6A0BE00FB3730 /* ChosenClothesTypes.swift */; };
 		BA7E40B928C0AC3B00FB3730 /* YandexModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E40B828C0AC3B00FB3730 /* YandexModels.swift */; };
-		BA7E40BB28C1055100FB3730 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E40BA28C1055100FB3730 /* State.swift */; };
+		BA7E40BB28C1055100FB3730 /* PlaceholderState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E40BA28C1055100FB3730 /* PlaceholderState.swift */; };
 		BA7E40BD28C1130300FB3730 /* ChooseLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E40BC28C1130300FB3730 /* ChooseLocationView.swift */; };
+		BA7E40BF28C213AF00FB3730 /* CityNamesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E40BE28C213AF00FB3730 /* CityNamesModel.swift */; };
+		BA7E40C128C2700500FB3730 /* PlaceholderCities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E40C028C2700400FB3730 /* PlaceholderCities.swift */; };
+		BA7E40C328C3E1D100FB3730 /* OpenWeatherModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E40C228C3E1D000FB3730 /* OpenWeatherModels.swift */; };
 		BA8201F12873859A00A3C66B /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8201F02873859A00A3C66B /* AddPhotoView.swift */; };
 		BA8201F32873874500A3C66B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8201F22873874500A3C66B /* ImagePicker.swift */; };
 		BA8201F92874980600A3C66B /* ScroolViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8201F82874980600A3C66B /* ScroolViewModifier.swift */; };
@@ -177,8 +180,11 @@
 		BA7E40B328B65BCD00FB3730 /* LocationTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTestView.swift; sourceTree = "<group>"; };
 		BA7E40B628B6A0BE00FB3730 /* ChosenClothesTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChosenClothesTypes.swift; sourceTree = "<group>"; };
 		BA7E40B828C0AC3B00FB3730 /* YandexModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexModels.swift; sourceTree = "<group>"; };
-		BA7E40BA28C1055100FB3730 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		BA7E40BA28C1055100FB3730 /* PlaceholderState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderState.swift; sourceTree = "<group>"; };
 		BA7E40BC28C1130300FB3730 /* ChooseLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLocationView.swift; sourceTree = "<group>"; };
+		BA7E40BE28C213AF00FB3730 /* CityNamesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityNamesModel.swift; sourceTree = "<group>"; };
+		BA7E40C028C2700400FB3730 /* PlaceholderCities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderCities.swift; sourceTree = "<group>"; };
+		BA7E40C228C3E1D000FB3730 /* OpenWeatherModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherModels.swift; sourceTree = "<group>"; };
 		BA8201F02873859A00A3C66B /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
 		BA8201F22873874500A3C66B /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		BA8201F82874980600A3C66B /* ScroolViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScroolViewModifier.swift; sourceTree = "<group>"; };
@@ -402,7 +408,9 @@
 				BA7E40B628B6A0BE00FB3730 /* ChosenClothesTypes.swift */,
 				BA7E40AE28B6279E00FB3730 /* Emoji.swift */,
 				BA3CE08E28149DFA00D724BF /* Day.swift */,
-				BA7E40BA28C1055100FB3730 /* State.swift */,
+				BA7E40BA28C1055100FB3730 /* PlaceholderState.swift */,
+				BA7E40BE28C213AF00FB3730 /* CityNamesModel.swift */,
+				BA7E40C228C3E1D000FB3730 /* OpenWeatherModels.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -457,6 +465,7 @@
 			isa = PBXGroup;
 			children = (
 				BA7E40B128B65B9500FB3730 /* DeviceLocationService.swift */,
+				BA7E40C028C2700400FB3730 /* PlaceholderCities.swift */,
 				BA7E40BC28C1130300FB3730 /* ChooseLocationView.swift */,
 				BA7E40B328B65BCD00FB3730 /* LocationTestView.swift */,
 			);
@@ -819,11 +828,13 @@
 				BA5D826E28393D9400A54005 /* Stash.xcdatamodeld in Sources */,
 				BA715E1D283EA60900BD30FE /* CoreDataView.swift in Sources */,
 				BABEC86D27469CD000ECBF76 /* DaysForecastCell.swift in Sources */,
+				BA7E40C328C3E1D100FB3730 /* OpenWeatherModels.swift in Sources */,
 				BA43D20328212862008A4AF5 /* CustomNavLink.swift in Sources */,
 				BA3CE08928149DA300D724BF /* Weather.swift in Sources */,
 				BABEC852274695D800ECBF76 /* GreetingView.swift in Sources */,
 				BA12D0FE2776041600F91349 /* GetClothes.swift in Sources */,
 				BABEC84F2746955900ECBF76 /* AvatarView.swift in Sources */,
+				BA7E40C128C2700500FB3730 /* PlaceholderCities.swift in Sources */,
 				BA1591E2273FE7530010CD56 /* ClowyApp.swift in Sources */,
 				BA7812032819678F00D452DE /* Outfit.swift in Sources */,
 				BAC4BEB0286E2B700076DFFC /* SuperChildView.swift in Sources */,
@@ -849,7 +860,7 @@
 				BA3E184A2746B99E0070F4EF /* HEX.swift in Sources */,
 				BA64914C286C4B1E00B57F58 /* WardrobeTestClothCard.swift in Sources */,
 				BA7E40B928C0AC3B00FB3730 /* YandexModels.swift in Sources */,
-				BA7E40BB28C1055100FB3730 /* State.swift in Sources */,
+				BA7E40BB28C1055100FB3730 /* PlaceholderState.swift in Sources */,
 				BABEC86427469BB600ECBF76 /* WeatherForecast.swift in Sources */,
 				BADE87E027988726001DE300 /* UsePhotoFromGalary.swift in Sources */,
 				BA64914A286C4A6900B57F58 /* WardrobeClothesTestCardCollection.swift in Sources */,
@@ -874,6 +885,7 @@
 				BA7E40AB28B4C63E00FB3730 /* CustomTextField.swift in Sources */,
 				BA5D8272283C279400A54005 /* CameraView.swift in Sources */,
 				BA7E40AF28B6279E00FB3730 /* Emoji.swift in Sources */,
+				BA7E40BF28C213AF00FB3730 /* CityNamesModel.swift in Sources */,
 				BA7E40B228B65B9500FB3730 /* DeviceLocationService.swift in Sources */,
 				BADE87DA279886EA001DE300 /* TemperarureView.swift in Sources */,
 				BA12D0FA2773D19F00F91349 /* WardrobeClothesCard.swift in Sources */,

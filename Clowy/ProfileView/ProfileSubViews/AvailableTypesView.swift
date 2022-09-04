@@ -117,7 +117,7 @@ struct AvailableTypesView: View {
 
 struct ListItem: View {
     var name: String
-    var isPicked: Bool
+    var isPicked: Bool?
     
     var body: some View {
         HStack {
@@ -125,16 +125,18 @@ struct ListItem: View {
                 .foregroundColor(Color(hex: "#646C75"))
                 .font(.custom("Montserrat-Medium", size: 16))
             Spacer()
-            ZStack {
-                RoundedRectangle(cornerRadius: 4)
-                    .frame(width: 24, height: 24)
-                    .foregroundColor(Color(hex: isPicked ? "#678CD4" : "#EFF0F2"))
-                if isPicked {
-                    Image("Ok")
-                        .resizable()
-                        .scaledToFit()
-                        .foregroundColor(.white)
-                        .frame(width: 12, height: 10)
+            if isPicked != nil {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 4)
+                        .frame(width: 24, height: 24)
+                        .foregroundColor(Color(hex: isPicked == true ? "#678CD4" : "#EFF0F2"))
+                    if isPicked == true {
+                        Image("Ok")
+                            .resizable()
+                            .scaledToFit()
+                            .foregroundColor(.white)
+                            .frame(width: 12, height: 10)
+                    }
                 }
             }
         }

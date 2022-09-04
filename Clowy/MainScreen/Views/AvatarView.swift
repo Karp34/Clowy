@@ -20,7 +20,7 @@ struct AvatarIcon: View {
             Image(avatar)
                 .resizable()
                 .scaledToFit()
-                .frame(width: 30, height: 30)
+                .frame(width: (avatar.starts(with: "memoji") ? 37 : 30), height: (avatar.starts(with: "memoji") ? 37 : 30))
         }
     }
 }

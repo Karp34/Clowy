@@ -12,14 +12,21 @@ import CoreLocation
 
 
 class LocationTestViewModel: ObservableObject {
+    static var shared = LocationTestViewModel()
+    
     @Published var state: PlaceHolderState = .placeholder
-    @Published var weather = ResponseBodyWeatherAPI(coord: CoordinatesResponse(lon: 0, lat: 0), weather: [WeatherResponse(id: 0, main: "sunny", description: "sunny", icon: "sunny")], base: "aa", main: MainResponse(temp: 0, feels_like: 0, temp_min: 0, temp_max: 0, pressure: 0, humidity: 0, sea_level: 0, grnd_level: 0), wind: WindResponse(speed: 0, deg: 0, gust: 0), clouds: CloudsResponse(all: 99), dt: 0, sys: SysResponse(type: 0, id: 0, country: "Russia", sunrise: 0, sunset: 0), timezone: 0, id: 0, name: "", cod: 200)
+    @Published var stateCityName: PlaceHolderState = .placeholder
+//    @Published var weather = ResponseBodyWeatherAPI(coord: CoordinatesResponse(lon: 0, lat: 0), weather: [WeatherResponse(id: 0, main: "sunny", description: "sunny", icon: "sunny")], base: "aa", main: MainResponse(temp: 0, feels_like: 0, temp_min: 0, temp_max: 0, pressure: 0, humidity: 0, sea_level: 0, grnd_level: 0), wind: WindResponse(speed: 0, deg: 0, gust: 0), clouds: CloudsResponse(all: 99), dt: 0, sys: SysResponse(type: 0, id: 0, country: "Russia", sunrise: 0, sunset: 0), timezone: 0, id: 0, name: "", cod: 200)
+    
+    @Published var weather = ResponseBodyForecastAPI(cod: "200", message: 0, cnt: 0, list: [], city: CityResponse(id: 0, name: "", country: "", population: 0, timezone: 0, sunrise: 0, sunset: 0))
+    
+    @Published var cityNames = [String]()
         
     func getWeatherData(parameters: [String : String]) {
         guard let lat = parameters["lat"],
               let long = parameters["long"],
               let appID = parameters["appid"] else { print("Invalid parameters"); return }
-        var urlComponents = URLComponents(string: "https://api.openweathermap.org/data/2.5/weather")!
+        var urlComponents = URLComponents(string: "https://api.openweathermap.org/data/2.5/forecast")!
         let queryItems = [URLQueryItem(name: "lat", value: lat),
                           URLQueryItem(name: "lon", value: long),
                           URLQueryItem(name: "appid", value: appID),
@@ -39,13 +46,72 @@ class LocationTestViewModel: ObservableObject {
                 guard let data = data else { return }
                 do {
                     let decoder = JSONDecoder()
-                    self.weather = try decoder.decode(ResponseBodyWeatherAPI.self, from: data)
+                    self.weather = try decoder.decode(ResponseBodyForecastAPI.self, from: data)
                     withAnimation {
                         self.state = .success
                     }
                 } catch {
                     withAnimation {
                         self.state = .error
+                    }
+                    print(error)
+                }
+            }
+        }.resume()
+    }
+    
+    func getCityName(prefixName: String) {
+        var urlComponents = URLComponents(string: "https://wft-geo-db.p.rapidapi.com/v1/geo/cities")!
+        let queryItems = [URLQueryItem(name: "limit", value: "5"),
+                          URLQueryItem(name: "minPopulation", value: "100"),
+                          URLQueryItem(name: "namePrefix", value: prefixName),
+                          URLQueryItem(name: "sort", value: "-population"),
+                          URLQueryItem(name: "types", value: "City"),
+                          URLQueryItem(name: "distanceUnit", value: "KM")]
+        
+        urlComponents.queryItems = queryItems
+        
+        guard let url = urlComponents.url else { return }
+        
+        var request = URLRequest(url: url)
+        let headers = [
+            "X-RapidAPI-Key": "829a909363msh0b8c0e070645bf9p1034cajsn75d49f6d130b",
+            "X-RapidAPI-Host": "wft-geo-db.p.rapidapi.com"
+        ]
+        for (key, value) in headers {
+            request.setValue(value, forHTTPHeaderField: key)
+        }
+        URLSession.shared.dataTask(with: request) { ( data, response, err ) in
+            DispatchQueue.main.async { // never, never, never sync !!
+                if let err = err {
+                    print("Failed to get data from url:", err)
+                    withAnimation {
+                        self.stateCityName = .error
+                    }
+                    return
+                }
+                guard let data = data else { return }
+                do {
+                    let decoder = JSONDecoder()
+                    let result = try decoder.decode(CityNamesModel.self, from: data)
+                    self.cityNames.removeAll()
+                    if result.data != nil {
+                        for city in result.data! {
+                            let fullCityName = String(city.name + ", " + city.country)
+                            let shortCityName = String(city.name + ", " + city.countryCode)
+                            if fullCityName.count < 40 {
+                                self.cityNames.append(fullCityName)
+                            } else {
+                                self.cityNames.append(shortCityName)
+                            }
+                        }
+                        withAnimation {
+                            self.stateCityName = .success
+                        }
+                    }
+                } catch {
+                    withAnimation {
+                        self.stateCityName = .error
                     }
                     print(error)
                 }
@@ -87,87 +153,56 @@ class LocationTestViewModel: ObservableObject {
 //        return weather
 //    }
 
-struct ResponseBodyWeatherAPI: Codable {
-    var coord: CoordinatesResponse
-    var weather: [WeatherResponse]
-    var base: String
-    var main: MainResponse?
-    var wind: WindResponse
-    var clouds: CloudsResponse
-    var dt: Int
-    var sys: SysResponse
-    var timezone: Int
-    var id: Double
-    var name: String
-    var cod: Double
-    
-}
-    
-struct CoordinatesResponse: Codable {
-    var lon: Double
-    var lat: Double
-}
 
-struct WeatherResponse: Codable, Identifiable {
-    var id: Double
-    var main: String
-    var description: String
-    var icon: String
-}
-
-struct CloudsResponse: Codable {
-    var all: Double
-}
-
-struct SysResponse: Codable {
-    var type: Double?
-    var id: Int?
-    var country: String?
-    var sunrise: Double
-    var sunset: Double
-}
-
-struct MainResponse: Codable {
-    var temp: Double
-    var feels_like: Double?
-    var temp_min: Double?
-    var temp_max: Double?
-    var pressure: Double
-    var humidity: Double
-    var sea_level: Double?
-    var grnd_level: Double?
-}
-
-struct WindResponse: Codable {
-    var speed: Double
-    var deg: Double
-    var gust: Double
-}
 
 struct LocationTestView: View {
-    @ObservedObject var viewModel = LocationTestViewModel()
+//    @ObservedObject var viewModel = LocationTestViewModel()
+    @StateObject private var viewModel = LocationTestViewModel.shared
     
     @StateObject var deviceLocationService = DeviceLocationService.shared
 
     @State var tokens: Set<AnyCancellable> = []
     @State var coordinates: (lat: Double, lon: Double) = (0, 0)
+    @State var showSheet = false
     
+    @State var timeNow = "60"
+    let timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
+            var dateFormatter: DateFormatter {
+                    let fmtr = DateFormatter()
+                    fmtr.dateFormat = "S"
+                    return fmtr
+            }
     
     var body: some View {
         VStack {
-            VStack {
-                if viewModel.state == .placeholder {
-                    RoundedRectangle(cornerRadius: 16)
-                        .foregroundColor(.blue)
-                        .frame(width: 180, height: 14)
-                    RoundedRectangle(cornerRadius: 16)
-                        .foregroundColor(.blue)
-                        .frame(width: 200, height: 14)
-                    RoundedRectangle(cornerRadius: 14)
-                        .foregroundColor(.blue)
-                        .frame(width: 100, height: 16)
-                    
-                }
+            VStack(alignment: .leading) {
+//                if viewModel.state == .placeholder {
+//                    RoundedRectangle(cornerRadius: 16)
+//                        .foregroundColor( Int(timeNow)! % 10 == 0 ? .blue : .gray )
+//                        .frame(width: 180, height: 14)
+//                    RoundedRectangle(cornerRadius: 16)
+//                        .foregroundColor( Int(timeNow)! % 10 == 1 ? .blue : .gray )
+//                        .frame(width: 200, height: 14)
+//                    RoundedRectangle(cornerRadius: 14)
+//                        .foregroundColor( Int(timeNow)! % 10 == 2 ? .blue : .gray )
+//                        .frame(width: 100, height: 16)
+//                    RoundedRectangle(cornerRadius: 16)
+//                        .foregroundColor( Int(timeNow)! % 10 == 3 ? .blue : .gray )
+//                        .frame(width: 180, height: 14)
+//                    RoundedRectangle(cornerRadius: 16)
+//                        .foregroundColor( Int(timeNow)! % 10 == 4 ? .blue : .gray )
+//                        .frame(width: 200, height: 14)
+//                    RoundedRectangle(cornerRadius: 14)
+//                        .foregroundColor( Int(timeNow)! % 10 == 5 ? .blue : .gray )
+//                        .frame(width: 100, height: 16)
+//
+//
+//                    Text(timeNow)
+//                        .onReceive(timer) { _ in
+//                                self.timeNow = dateFormatter.string(from: Date())
+//                        }
+//
+//                }
                 if viewModel.state == .error {
                     Text("Error has occured")
                 }
@@ -175,10 +210,50 @@ struct LocationTestView: View {
                     Text("Latitude: \(coordinates.lat)")
         //                .font(.largeTitle)
                     Text("Longitude: \(coordinates.lon)")
-                    Text(viewModel.weather.name)
+                    Text(viewModel.weather.city.name)
+                    
+//                    VStack(alignment: .leading) {
+                    HStack {
+//                        ForEach (0..<16) { item in
+//                            let weatherList = viewModel.weather.list[item]
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    ForEach (0..<16) { item in
+                                        let weatherList = viewModel.weather.list[item]
+                                        Text(weatherList.dt_txt)
+                                    }
+                                }
+                                VStack(alignment: .leading) {
+                                    ForEach (0..<16) { item in
+                                        let weatherList = viewModel.weather.list[item]
+                                        Text(String(weatherList.main.temp))
+                                    }
+                                }
+                                VStack(alignment: .leading) {
+                                    ForEach (0..<16) { item in
+                                        let weatherList = viewModel.weather.list[item]
+                                        Text(weatherList.weather[0].main)
+                                    }
+                                }
+                                VStack(alignment: .leading) {
+                                    ForEach (0..<16) { item in
+                                        let weatherList = viewModel.weather.list[item]
+                                        Text(String(weatherList.wind.speed))
+                                    }
+                                }
+                                VStack(alignment: .leading) {
+                                    ForEach (0..<16) { item in
+                                        let weatherList = viewModel.weather.list[item]
+                                        Text(String(weatherList.main.humidity))
+                                    }
+                                }
+                            }
+                        }
+//                    }
                 }
             }
-            .frame(height: 200)
+//            .frame(height: 200)
+
             HStack {
                 Button {
                     withAnimation {
@@ -200,12 +275,68 @@ struct LocationTestView: View {
                     Text("Get data")
                 }
             }
-            
-            NavigationLink {
-                ChooseLocationView()
+//
+//            VStack {
+//                if viewModel.stateCityName == .placeholder {
+//                    RoundedRectangle(cornerRadius: 16)
+//                        .foregroundColor(.blue)
+//                        .frame(width: 180, height: 14)
+//                    RoundedRectangle(cornerRadius: 16)
+//                        .foregroundColor(.blue)
+//                        .frame(width: 200, height: 14)
+//                    RoundedRectangle(cornerRadius: 14)
+//                        .foregroundColor(.blue)
+//                        .frame(width: 100, height: 16)
+//
+//                }
+//                if viewModel.stateCityName == .error {
+//                    Text("Error has occured")
+//                }
+//                if viewModel.stateCityName == .success {
+//                    if viewModel.cityNames.count > 0 {
+//                        Text(viewModel.cityNames[0])
+//                    }
+//                }
+//            }
+//            .frame(height: 200)
+//
+//            HStack {
+//                Button {
+//                    withAnimation {
+//                        viewModel.stateCityName = .error
+//                    }
+//                } label: {
+//                    Text("Error")
+//                }
+//                Button {
+//                    withAnimation {
+//                        viewModel.stateCityName = .placeholder
+//                    }
+//                } label: {
+//                    Text("Placeholder")
+//                }
+//                Button {
+//                    viewModel.getCityName(prefixName: "Mos")
+//                } label: {
+//                    Text("Get data")
+//                }
+//            }
+//
+//            NavigationLink {
+//                ChooseLocationView()
+//            } label: {
+//                Text("Geo")
+//            }
+//
+            Button {
+                showSheet.toggle()
             } label: {
-                Text("Geo")
+                Text("Sheet")
             }
+            .sheet(isPresented: $showSheet) {
+                ChooseLocationView()
+            }
+
 
             
 //                .font(.largeTitle)

@@ -20,6 +20,7 @@ struct Clowy2App: App {
         WindowGroup {
             MainScreenView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .preferredColorScheme(.light)
         }
         .onChange(of: scenePhase) { (newScenePhase) in
             switch newScenePhase {

@@ -51,39 +51,30 @@ class WeatherForecast {
     static func getDays() -> [Day] {
         var daysList: [Day] = []
         let hour = Calendar.current.component(.hour, from: Date())
-        let dayNumber = Calendar.current.component(.weekday, from: Date())
         let weatherList = [
-            Weather(color: "#42AAFF", icon: "sun.max.fill", temp: "35°"),
-            Weather(color: "#ABCDEF", icon: "sun.haze.fill", temp: "12°"),
-            Weather(color: "#003153", icon: "cloud.moon.rain.fill", temp: "2°"),
-            Weather(color: "#4285B4", icon: "cloud.bolt.fill", temp: "0°"),
-            Weather(color: "#3E5F8A", icon: "cloud.drizzle.fill", temp: "-3°"),
-            Weather(color: "#606E8C", icon: "cloud.sun.rain.fill", temp: "-27°"),
-            Weather(color: "#1560BD", icon: "cloud.snow.fill", temp: "-33°")
+            Weather(name: "Cloudy", color: "#42AAFF", icon: "sun.max.fill", temp: 35, humidity: 99, windSpeed: 2),
+            Weather(name: "Cloudy", color: "#ABCDEF", icon: "sun.haze.fill", temp: 12, humidity: 99, windSpeed: 2),
+            Weather(name: "Cloudy", color: "#003153", icon: "cloud.moon.rain.fill", temp: 2, humidity: 99, windSpeed: 2),
+            Weather(name: "Cloudy", color: "#4285B4", icon: "cloud.bolt.fill", temp: 0, humidity: 99, windSpeed: 2),
+            Weather(name: "Cloudy", color: "#3E5F8A", icon: "cloud.drizzle.fill", temp: -3, humidity: 99, windSpeed: 2),
+            Weather(name: "Cloudy", color: "#606E8C", icon: "cloud.sun.rain.fill", temp: 27, humidity: 99, windSpeed: 2),
+            Weather(name: "Cloudy", color: "#1560BD", icon: "cloud.snow.fill", temp:-33, humidity: 99, windSpeed: 2)
         ]
         
-        for time in 0..<7 {
+        let dayNumber = Calendar.current.component(.weekday, from: Date())
+        
+        for time in 0..<5 {
             var name: String
-            var newHour: Int
             var nextDayNumber: Int
             if time == 0 {
-                name = "Now"
-            } else if time < 4 {
-                newHour = hour + 5 * ( time + 1 )
-                if newHour > 24 {
-                    newHour = newHour - 24
-                }
-                name = greetingLogic(newHour)
-            } else if time == 4 {
                 name = "Tomorrow"
             } else {
-                nextDayNumber = dayNumber + time - 4
+                nextDayNumber = dayNumber + time
                 if nextDayNumber > 7 {
                     nextDayNumber = nextDayNumber - 7
                 }
                 name = dayName(nextDayNumber)
             }
-            daysList.append(Day(id: time, name: name, weather: weatherList[time]))
         }
         return daysList
 //        [

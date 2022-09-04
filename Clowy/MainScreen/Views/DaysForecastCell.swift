@@ -19,8 +19,17 @@ struct DaysForecastCell: View {
                     .foregroundColor(Color(hex: "#646C75"))
                 HStack(spacing: 2) {
                     Image(systemName: day.weather.icon)
-                    Text(day.weather.temp)
+                    if day.weather.temp > 0 {
+                        Text("+"+String(day.weather.temp)+"°")
+                            .font(.custom("Montserrat-Medium", size: 12))
+                    }
+                    else if day.weather.temp < 0 {
+                    Text("-"+String(day.weather.temp)+"°")
                         .font(.custom("Montserrat-Medium", size: 12))
+                    } else {
+                        Text(String(day.weather.temp)+"°")
+                            .font(.custom("Montserrat-Medium", size: 12))
+                    }
                 }
                 .padding(.horizontal, 5)
                 .padding(.vertical, 3)
