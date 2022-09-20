@@ -164,6 +164,7 @@ struct LocationTestView: View {
     @State var tokens: Set<AnyCancellable> = []
     @State var coordinates: (lat: Double, lon: Double) = (0, 0)
     @State var showSheet = false
+    @State var showSheet2 = false
     
     @State var timeNow = "60"
     let timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
@@ -335,6 +336,15 @@ struct LocationTestView: View {
             }
             .sheet(isPresented: $showSheet) {
                 ChooseLocationView()
+            }
+            
+            Button {
+                showSheet.toggle()
+            } label: {
+                Text("LocationView")
+            }
+            .sheet(isPresented: $showSheet2) {
+                NewLocationView()
             }
 
 

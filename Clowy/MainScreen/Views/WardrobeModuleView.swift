@@ -9,11 +9,13 @@ import SwiftUI
 
 struct WardrobeModuleView: View {
     var color: String
+    var numberOfClothes: Int
+    var numberOfOutfits: Int
     
     var body: some View {
         HStack {
-            WardrobeView(color: color)
-            OutfitButtonView(color: color)
+            WardrobeView(numberOfClothes: numberOfClothes, color: color)
+            OutfitButtonView(numberOfOutfits: numberOfOutfits, color: color)
             AddNewClothView()
         }
         .foregroundColor(.white)
@@ -22,152 +24,84 @@ struct WardrobeModuleView: View {
 }
 
 struct OutfitButtonView: View {
+//    @StateObject private var viewModel = MainScreenViewModel.shared
+    var numberOfOutfits: Int
     var color: String
     var body: some View {
-        if #available(iOS 14.0, *) {
-            NavigationLink(destination: OutfitScreenView()
-                .navigationBarTitle("My Outfits")
-                .navigationBarTitleDisplayMode(.inline)
-            ) {
-                ZStack {
-                    RoundedRectangle(cornerRadius:20)
-                        .frame(height: 152.0)
-                    VStack(alignment: .leading) {
-                        HStack (alignment: .top) {
-                            ZStack {
-                                Circle()
-                                    .frame(width: 28, height: 28)
-                                    .foregroundColor(Color(hex: color))
-                                    .opacity(0.2)
-                                Image("Liked")
-                                    .foregroundColor(Color(hex: color))
-                                    .frame(width: 24, height: 24)
-                                    .scaledToFill()
-                            }
-                            Spacer()
+        NavigationLink(destination: OutfitScreenView()
+            .navigationBarTitle("My Outfits")
+            .navigationBarTitleDisplayMode(.inline)
+        ) {
+            ZStack {
+                RoundedRectangle(cornerRadius:20)
+                    .frame(height: 152.0)
+                VStack(alignment: .leading) {
+                    HStack (alignment: .top) {
+                        ZStack {
+                            Circle()
+                                .frame(width: 28, height: 28)
+                                .foregroundColor(Color(hex: color))
+                                .opacity(0.2)
+                            Image("Liked")
+                                .foregroundColor(Color(hex: color))
+                                .frame(width: 24, height: 24)
+                                .scaledToFill()
                         }
-                        .padding(.top, 4)
-                        Text("27")
-                            .font(Font.custom("Montserrat-Medium", size: 28))
-                            .foregroundColor(.black)
-                            .padding(.top, 8)
-                        Text("Your outfits")
-                            .foregroundColor(.gray)
-                            .font(Font.custom("Montserrat-Regular", size: 14))
+                        Spacer()
                     }
-                    .padding(.leading, 28)
+                    .padding(.top, 4)
+                    
+                    Text(String(numberOfOutfits))
+                        .font(Font.custom("Montserrat-Medium", size: 28))
+                        .foregroundColor(.black)
+                        .padding(.top, 8)
+                    Text("My outfits")
+                        .foregroundColor(.gray)
+                        .font(Font.custom("Montserrat-Regular", size: 14))
                 }
-            }
-        } else {
-            NavigationLink(destination: OutfitScreenView()
-                .navigationBarTitle("My Outfits")
-            ) {
-                ZStack {
-                    RoundedRectangle(cornerRadius:20)
-                        .frame(height: 152.0)
-                    VStack(alignment: .leading) {
-                        HStack (alignment: .top) {
-                            ZStack {
-                                Circle()
-                                    .frame(width: 28, height: 28)
-                                    .foregroundColor(Color(hex: color))
-                                    .opacity(0.2)
-                                Image("Liked")
-                                    .foregroundColor(Color(hex: color))
-                                    .frame(width: 24, height: 24)
-                                    .scaledToFill()
-                            }
-                            Spacer()
-                        }
-                        .padding(.top, 4)
-                        Text("27")
-                            .font(Font.custom("Montserrat-Medium", size: 28))
-                            .foregroundColor(.black)
-                            .padding(.top, 8)
-                        Text("Your outfits")
-                            .foregroundColor(.gray)
-                            .font(Font.custom("Montserrat-Regular", size: 14))
-                    }
-                    .padding(.leading, 28)
-                }
+                .padding(.leading, 28)
             }
         }
     }
 }
 
 struct WardrobeView: View {
-    
+    var numberOfClothes: Int
     var color: String
     var body: some View {
-        if #available(iOS 14.0, *) {
-            NavigationLink(
-                destination: WardrobeCoreDataView()
-                    .navigationBarTitle("Wardrobe")
-                    .navigationBarTitleDisplayMode(.inline)
-            ) {
-                ZStack {
-                    RoundedRectangle(cornerRadius:20)
-                        .frame(height: 152.0)
-                    VStack(alignment: .leading) {
-                        HStack (alignment: .top) {
-                            ZStack (alignment: .center){
-                                Circle()
-                                    .frame(width: 28, height: 28)
-                                    .foregroundColor(Color(hex: color))
-                                    .opacity(0.2)
-                                Image("Veshalka")
-                                    .frame(width: 28, height: 28)
-                                    .foregroundColor(Color(hex: color))
-                                    .scaledToFill()
-                                    .padding(.bottom, 2)
-                            }
-                            Spacer()
+        NavigationLink(
+            destination: WardrobeCoreDataView()
+                .navigationBarTitle("Wardrobe")
+                .navigationBarTitleDisplayMode(.inline)
+        ) {
+            ZStack {
+                RoundedRectangle(cornerRadius:20)
+                    .frame(height: 152.0)
+                VStack(alignment: .leading) {
+                    HStack (alignment: .top) {
+                        ZStack (alignment: .center){
+                            Circle()
+                                .frame(width: 28, height: 28)
+                                .foregroundColor(Color(hex: color))
+                                .opacity(0.2)
+                            Image("Veshalka")
+                                .frame(width: 28, height: 28)
+                                .foregroundColor(Color(hex: color))
+                                .scaledToFill()
+                                .padding(.bottom, 2)
                         }
-                        .padding(.top, 4)
-                        Text("157")
-                            .font(.custom("Montserrat-Medium", size: 28))
-                            .foregroundColor(.black)
-                            .padding(.top, 8)
-                        Text("In wardrobe")
-                            .font(.custom("Montserrat-Regular", size: 14))
-                            .foregroundColor(.gray)
+                        Spacer()
                     }
-                    .padding(.leading, 28)
+                    .padding(.top, 4)
+                    Text(String(numberOfClothes))
+                        .font(.custom("Montserrat-Medium", size: 28))
+                        .foregroundColor(.black)
+                        .padding(.top, 8)
+                    Text("In wardrobe")
+                        .font(.custom("Montserrat-Regular", size: 14))
+                        .foregroundColor(.gray)
                 }
-            }
-        } else {
-            NavigationLink(
-                destination: WardrobeCoreDataView()
-            ) {
-                ZStack {
-                    RoundedRectangle(cornerRadius:20)
-                        .frame(height: 152.0)
-                    VStack(alignment: .leading) {
-                        HStack (alignment: .top) {
-                            ZStack (alignment: .center){
-                                Circle()
-                                    .frame(width: 28, height: 28)
-                                    .foregroundColor(Color(hex: color))
-                                    .opacity(0.2)
-                                Image("Veshalka")
-                                    .frame(width: 28, height: 28)
-                                    .foregroundColor(Color(hex: color))
-                                    .scaledToFill()
-                                    .padding(.bottom, 2)
-                            }
-                            Spacer()
-                        }
-                        .padding(.top, 4)
-                        Text("157")
-                            .font(.custom("Montserrat-Medium", size: 28))
-                            .foregroundColor(.black)
-                            .padding(.top, 8)
-                        Text("In wardrobe")
-                            .font(.custom("Montserrat-Regular", size: 14))
-                            .foregroundColor(.gray)
-                    }
-                    .padding(.leading, 28)
-                }
+                .padding(.leading, 28)
             }
         }
     }

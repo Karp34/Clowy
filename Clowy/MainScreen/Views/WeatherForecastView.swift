@@ -12,7 +12,7 @@ struct WeatherForecastView: View {
     var color: String
     var temp: Int
     var icon: String
-    var chosenLocation = UserDefaults.standard.string(forKey: "location") ?? ""
+    var chosenLocation = UserDefaults.standard.string(forKey: "location")!
     
     var body: some View {
         ZStack {
@@ -35,6 +35,7 @@ struct WeatherForecastView: View {
                     .font(.largeTitle)
                     .frame(width: 56, height: 56)
             }
+            .multilineTextAlignment(.leading)
             .foregroundColor(.white)
             .padding(.horizontal, 16)
         }

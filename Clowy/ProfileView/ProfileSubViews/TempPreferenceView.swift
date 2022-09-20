@@ -26,8 +26,8 @@ struct TempPreferenceView: View {
                         .font(.custom("Montserrat-Medium", size: 16))
                     Spacer()
                 }
-                Text("\(prefTemp)")
-                    .foregroundColor(isEditing ? .red : .blue)
+//                Text("\(prefTemp)")
+//                    .foregroundColor(isEditing ? .red : .blue)
                 
                 ZStack {
                     RoundedRectangle(cornerRadius: 16)
@@ -52,7 +52,7 @@ struct TempPreferenceView: View {
                 
                 HStack(alignment: .center) {
                     HStack {
-                        Text("Easier")
+                        Text("Cooler")
                             .foregroundColor(Color(hex: "#646C75"))
                             .font(.custom("Montserrat-Regular", size: 12))
                         Spacer()

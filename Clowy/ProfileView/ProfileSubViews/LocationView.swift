@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct LocationView: View {
-    var locationName = "Moscow, Taganka"
-    var currentWeather = Weather(name: "Cloudy", color: "#74A3FF", icon: "cloud.fill", temp: -19, humidity: 99, windSpeed: 2)
+    @StateObject private var viewModel = MainScreenViewModel.shared
+    
     
     var body: some View {
         ZStack {
@@ -24,28 +24,36 @@ struct LocationView: View {
                 }
                 ZStack {
                     RoundedRectangle(cornerRadius: 16)
-                        .foregroundColor(Color(hex: currentWeather.color))
+                        .foregroundColor(Color(hex: "#74A3FF"))
                         .frame(height: 56)
                     HStack {
-                        Text(locationName)
+                        Text(UserDefaults.standard.string(forKey: "location")!)
                             .foregroundColor(.white)
                             .font(.custom("Montserrat-Bold", size: 16))
+                            .multilineTextAlignment(.leading)
                         Spacer()
                         HStack(spacing: 2) {
-                            Image(systemName: currentWeather.icon)
+                            Image(systemName: viewModel.chosenWeather.icon)
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 12, height: 10)
-                            Text(String(currentWeather.temp))
+                            
+                            Text( (viewModel.chosenWeather.temp > 0 ? "+" : viewModel.chosenWeather.temp == 0 ? "" : "-") + String(viewModel.chosenWeather.temp) + "°")
                                 .font(.custom("Montserrat-Medium", size: 12))
+                                
                         }
                         .padding(.horizontal, 5)
                         .padding(.vertical, 3)
-                        .foregroundColor(Color(hex: currentWeather.color))
+                        .foregroundColor(Color(hex: "#74A3FF"))
                         .background(Color(.white))
                         .clipShape(RoundedRectangle(cornerRadius: 12))
                     }
                     .padding(.horizontal, 16)
+                    .onDisappear {
+                        print("APPEAR")
+                        print(UserDefaults.standard.string(forKey: "location"))
+                        print(viewModel.chosenWeather)
+                    }
                 }
                 
             }

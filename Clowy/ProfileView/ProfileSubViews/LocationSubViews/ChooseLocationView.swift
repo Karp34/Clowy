@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ChooseLocationView: View {
-    @StateObject private var viewModel = LocationTestViewModel.shared
+    @StateObject private var viewModel = MainScreenViewModel.shared
     
     @State var location = ""
     @State var isChangingLocation = false
@@ -191,10 +191,10 @@ struct ChooseLocationView: View {
                     .onTapGesture {
                         isGeoposition.toggle()
                         UserDefaults.standard.set(isGeoposition, forKey: "isGeoposition")
-                        chosenLocation = viewModel.weather.city.name
-                        print("AAAAAA")
-                        print(isGeoposition)
-                        UserDefaults.standard.set(chosenLocation, forKey: "location")
+//                        print(chosenLocation)
+//                        print("AAAAAA")
+//                        print(isGeoposition)
+//                        print(UserDefaults.standard.string(forKey: "location"))
                     }
                     
                     if !locationHistory.isEmpty {
@@ -251,6 +251,25 @@ struct ChooseLocationView: View {
             .padding(.horizontal, 24)
         }
         .background(Color(hex: "#F7F8FA").edgesIgnoringSafeArea(.all))
+        .onDisappear {
+            if isGeoposition == true {
+                viewModel.getWeatherData(lat: viewModel.coordinates.lat, long: viewModel.coordinates.lon, locationName: nil) {
+                    chosenLocation = viewModel.weather.city.name
+                    UserDefaults.standard.set(chosenLocation, forKey: "location")
+                    self.viewModel.days = viewModel.parseWeatherData(data: viewModel.weather)
+                    withAnimation {
+                        viewModel.changeWeather(id: viewModel.selectedId)
+                    }
+                }
+            } else {
+                viewModel.getWeatherData(lat: nil, long: nil, locationName: chosenLocation) {
+                    self.viewModel.days = viewModel.parseWeatherData(data: viewModel.weather)
+                    withAnimation {
+                        viewModel.changeWeather(id: viewModel.selectedId)
+                    }
+                }
+            }
+        }
     }
 }
 

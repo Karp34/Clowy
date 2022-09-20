@@ -18,6 +18,9 @@ class ProfileViewModel: ObservableObject {
 struct ProfileView: View {
     @StateObject private var viewModel = ProfileViewModel.shared
     
+    @State var showSheet = false
+    @State var showSheet2 = false
+    
     var body: some View {
         ZStack(alignment: .top) {
             ScrollView(.vertical, showsIndicators: false) {
@@ -25,15 +28,28 @@ struct ProfileView: View {
                     Spacer(minLength: 180)
                     TempPreferenceView()
                     
-                    NavigationLink {
-                        LocationTestView()
+                    
+                    Button {
+                        showSheet.toggle()
                     } label: {
                         LocationView()
+                    }
+                    .sheet(isPresented: $showSheet) {
+                        ChooseLocationView()
                     }
                     
                     AvailableTypesView()
                     NotificationsView()
                     InformationView()
+                    
+                    Button {
+                        showSheet2.toggle()
+                    } label: {
+                        Text("LocationView")
+                    }
+                    .sheet(isPresented: $showSheet2) {
+                        NewLocationView()
+                    }
                 }
                 .padding(.horizontal, 24)
             }
