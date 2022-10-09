@@ -28,13 +28,15 @@ struct TempPreferenceView: View {
                 }
 //                Text("\(prefTemp)")
 //                    .foregroundColor(isEditing ? .red : .blue)
+//                Text("\((prefTemp - 0.5) + 0.5)")
+//                Text("\((prefTemp - 0.5) - 0.5)")
                 
                 ZStack {
                     RoundedRectangle(cornerRadius: 16)
                         .frame(height: 4)
                         .foregroundColor(prefTemp > 0.5 ? Color(hex: "#FFA929") : Color(hex: "#6391EB"))
                         .opacity(
-                            abs(prefTemp - 0.5) + 0.5 > 1 ? abs(prefTemp - 0.5) - 0.5 : abs(prefTemp - 0.5) + 0.5
+                            abs(prefTemp - 0.5) + 0.2 > 1 ? abs(prefTemp - 0.5) - 0.2 : abs(prefTemp - 0.5) + 0.2
                         )
                     SwiftUISlider(
                         thumbColor: .white,

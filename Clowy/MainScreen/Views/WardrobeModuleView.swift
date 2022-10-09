@@ -13,7 +13,7 @@ struct WardrobeModuleView: View {
     var numberOfOutfits: Int
     
     var body: some View {
-        HStack {
+        HStack(alignment: .top, spacing: 8) {
             WardrobeView(numberOfClothes: numberOfClothes, color: color)
             OutfitButtonView(numberOfOutfits: numberOfOutfits, color: color)
             AddNewClothView()
@@ -34,7 +34,7 @@ struct OutfitButtonView: View {
         ) {
             ZStack {
                 RoundedRectangle(cornerRadius:20)
-                    .frame(height: 152.0)
+                    .frame(idealWidth: 125, idealHeight: 136)
                 VStack(alignment: .leading) {
                     HStack (alignment: .top) {
                         ZStack {
@@ -76,7 +76,7 @@ struct WardrobeView: View {
         ) {
             ZStack {
                 RoundedRectangle(cornerRadius:20)
-                    .frame(height: 152.0)
+                    .frame(idealWidth: 125, idealHeight: 136)
                 VStack(alignment: .leading) {
                     HStack (alignment: .top) {
                         ZStack (alignment: .center){
@@ -113,7 +113,7 @@ struct AddNewClothView: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius:20)
-                .frame(width: 72.0, height: 152.0)
+                .frame(maxWidth: 61, idealHeight: 136)
                 .foregroundColor(.white)
             VStack{
                 Button(action: {
@@ -125,20 +125,6 @@ struct AddNewClothView: View {
                 .sheet(isPresented: $isShowingSheet, onDismiss: didDismiss) {
                     VStack (spacing: 0) {
                         AddClothesView(isShowingSheet: $isShowingSheet)
-//                        Button(action: {
-//                            isShowingSheet.toggle()
-//                        }) {
-//                            ZStack {
-//                                RoundedRectangle(cornerRadius: 24)
-//                                    .frame(height: 56)
-//                                    .foregroundColor(Color(hex: "#CBCED2"))
-//                                Text("SAVE")
-//                                    .font(.custom("Montserrat-SemiBold", size: 16))
-//                                    .foregroundColor(.white)
-//                            }
-//                        }
-//                        .padding(.horizontal, 24)
-//                        .padding(.bottom, 40)
                     }
                     .background(Color(hex: "#F7F8FA").edgesIgnoringSafeArea(.all))
                 }

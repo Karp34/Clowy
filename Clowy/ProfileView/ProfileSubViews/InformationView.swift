@@ -15,9 +15,18 @@ struct InformationView: View {
             RoundedRectangle(cornerRadius: 16)
                 .foregroundColor(.white)
             VStack (alignment: .leading, spacing: 16){
-                Text("Privacy policy")
-                    .foregroundColor(Color(hex: "#646C75"))
-                    .font(.custom("Montserrat-Medium", size: 16))
+                NavigationLink {
+                    ColorImagesView()
+//                        .foregroundColor(.red)
+                } label: {
+                    Text("Privacy policy")
+                        .foregroundColor(Color(hex: "#646C75"))
+                        .font(.custom("Montserrat-Medium", size: 16))
+                }
+
+//                Text("Privacy policy")
+//                    .foregroundColor(Color(hex: "#646C75"))
+//                    .font(.custom("Montserrat-Medium", size: 16))
                 Rectangle()
                     .foregroundColor(Color(hex: "#DADADA"))
                     .frame(height: 1)

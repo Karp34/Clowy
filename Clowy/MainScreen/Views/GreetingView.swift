@@ -21,7 +21,7 @@ struct GreetingView: View {
 
         // Formate
         let dateFormate = DateFormatter()
-        dateFormate.dateFormat = "MMM"
+        dateFormate.dateFormat = "MMMM"
         dateFormate.locale = Locale(identifier: identifier)
         let newDate = dateFormate.string(from: date)
 
@@ -41,7 +41,7 @@ struct GreetingView: View {
     }
     
     var body: some View {
-        HStack {
+        HStack(spacing: 24) {
             AvatarIcon(avatar: avatar, color: color)
             VStack(alignment: .leading, spacing: 4) {
                 let myCurrentDate = convertDateFormate(date: Date())
@@ -52,7 +52,6 @@ struct GreetingView: View {
                     .font(.custom("Montserrat-SemiBold", size: 20))
                     .foregroundColor(Color(hex: "#23232D"))
             }
-            .padding(.leading)
             Spacer()
         }
     }

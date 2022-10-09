@@ -74,32 +74,27 @@ struct MainScreenView: View, DaysForecastViewDelegate {
                             .navigationBarHidden(true)
                     ) {
                         GreetingView(color: viewModel.chosenWeather.color)
-                            .padding()
+                            .padding(.horizontal, 24)
+                            .padding(.bottom, 32)
+                            .padding(.top, 24)
                         
                     }
                     
-                    if viewModel.state == .success {
-                        WeatherForecastView(
-                            name: viewModel.chosenWeather.name,
-                            color: viewModel.chosenWeather.color,
-                            temp: viewModel.chosenWeather.temp,
-                            icon: viewModel.chosenWeather.icon)
-                        .padding(.horizontal)
-                    } else if viewModel.state == .error {
-                        Text("ERROR")
-                    } else if viewModel.state == .placeholder {
-                        Text("Loading")
-                        ProgressView()
-                    }
+                    WeatherForecastView(
+                        name: viewModel.chosenWeather.name,
+                        color: viewModel.chosenWeather.color,
+                        temp: viewModel.chosenWeather.temp,
+                        icon: viewModel.chosenWeather.icon,
+                        state: viewModel.state)
 
                     WardrobeModuleView(color: viewModel.chosenWeather.color, numberOfClothes: items.count, numberOfOutfits: 0)
-                        .padding(.horizontal)
+                        .padding(.horizontal, 24)
                         .padding(.bottom, 32)
                     
                     if viewModel.state == .success {
                         Section {
                             ClothesCardsView(outfit: viewModel.outfits.first(where: { $0.id == viewModel.selectedId })?.outfit ?? [])
-                                .padding(.horizontal)
+                                .padding(.horizontal, 16)
                             
                             AddGeneratedOutfit(isGenerated: viewModel.outfits.first(where: { $0.id == viewModel.selectedId })?.isGenerated ?? false, outfit: viewModel.outfits.first(where: { $0.id == viewModel.selectedId })?.outfit ?? defaultOutfit)
                         } header: {
@@ -109,10 +104,10 @@ struct MainScreenView: View, DaysForecastViewDelegate {
                                 selectedId: viewModel.selectedId)
                             .background((offset.y > 380 ? Color(hex: "#F7F8FA") : Color(.clear)).frame(height: 95).edgesIgnoringSafeArea(.all).offset(y: -30))
                         }
-                    }
-                    if viewModel.state == .placeholder {
-                        Text("Loading")
-                        ProgressView()
+                    } else if viewModel.state == .error {
+                        NoClothesDataPlaceholder()
+                    } else {
+                        ClothesLoadingPlaceholder()
                     }
                     
                 }

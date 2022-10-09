@@ -70,6 +70,8 @@
 		BA8201FD287F4F1700A3C66B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8201FC287F4F1600A3C66B /* ProfileView.swift */; };
 		BA820200287F500200A3C66B /* ProfileNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8201FF287F500200A3C66B /* ProfileNavBarView.swift */; };
 		BA820202287F5B7400A3C66B /* TempPreferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA820201287F5B7400A3C66B /* TempPreferenceView.swift */; };
+		BA8614B128EF77CF0095F232 /* ColorImagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8614B028EF77CF0095F232 /* ColorImagesView.swift */; };
+		BA8614B328EF785A0095F232 /* image 35.svg in Resources */ = {isa = PBXBuildFile; fileRef = BA8614B228EF785A0095F232 /* image 35.svg */; };
 		BA9C23C728D2514C00DDDB54 /* WaterfallGrid in Frameworks */ = {isa = PBXBuildFile; productRef = BA3336782799AFB200E88B68 /* WaterfallGrid */; };
 		BA9C23C928D265A100DDDB54 /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9C23C828D265A100DDDB54 /* MainScreenViewModel.swift */; };
 		BA9C23CC28D4E80C00DDDB54 /* StartScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9C23CB28D4E80C00DDDB54 /* StartScreenView.swift */; };
@@ -91,6 +93,8 @@
 		BAC19536287F6B8E00FB109B /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC19535287F6B8E00FB109B /* NotificationsView.swift */; };
 		BAC19538287F6DD500FB109B /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC19537287F6DD500FB109B /* InformationView.swift */; };
 		BAC1953A2880AACA00FB109B /* SwiftUISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC195392880AACA00FB109B /* SwiftUISlider.swift */; };
+		BAC3C28628F29F2A00B32AE0 /* NoClothesPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC3C28528F29F2A00B32AE0 /* NoClothesPlaceholder.swift */; };
+		BAC3C28828F2E96800B32AE0 /* ClothesLoadingPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC3C28728F2E96800B32AE0 /* ClothesLoadingPlaceholder.swift */; };
 		BAC3D64F2749082100DA1BAC /* ClothesApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC3D64E2749082100DA1BAC /* ClothesApi.swift */; };
 		BAC4BEA7286DF92F0076DFFC /* NewChosenTempView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC4BEA6286DF92F0076DFFC /* NewChosenTempView.swift */; };
 		BAC4BEA9286DF9ED0076DFFC /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC4BEA8286DF9EC0076DFFC /* Temperature.swift */; };
@@ -196,6 +200,8 @@
 		BA8201FC287F4F1600A3C66B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		BA8201FF287F500200A3C66B /* ProfileNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNavBarView.swift; sourceTree = "<group>"; };
 		BA820201287F5B7400A3C66B /* TempPreferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempPreferenceView.swift; sourceTree = "<group>"; };
+		BA8614B028EF77CF0095F232 /* ColorImagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorImagesView.swift; sourceTree = "<group>"; };
+		BA8614B228EF785A0095F232 /* image 35.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "image 35.svg"; sourceTree = "<group>"; };
 		BA9C23C828D265A100DDDB54 /* MainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModel.swift; sourceTree = "<group>"; };
 		BA9C23CB28D4E80C00DDDB54 /* StartScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenView.swift; sourceTree = "<group>"; };
 		BA9C23CF28D8B91E00DDDB54 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -216,6 +222,8 @@
 		BAC19535287F6B8E00FB109B /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 		BAC19537287F6DD500FB109B /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
 		BAC195392880AACA00FB109B /* SwiftUISlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUISlider.swift; sourceTree = "<group>"; };
+		BAC3C28528F29F2A00B32AE0 /* NoClothesPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoClothesPlaceholder.swift; sourceTree = "<group>"; };
+		BAC3C28728F2E96800B32AE0 /* ClothesLoadingPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesLoadingPlaceholder.swift; sourceTree = "<group>"; };
 		BAC3D64E2749082100DA1BAC /* ClothesApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesApi.swift; sourceTree = "<group>"; };
 		BAC4BEA6286DF92F0076DFFC /* NewChosenTempView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChosenTempView.swift; sourceTree = "<group>"; };
 		BAC4BEA8286DF9EC0076DFFC /* Temperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
@@ -327,6 +335,7 @@
 			isa = PBXGroup;
 			children = (
 				BA9C23CE28D8B90A00DDDB54 /* LocationManager */,
+				BA8614AF28EF77B00095F232 /* ColorImages */,
 				BA8201FB287F4F0300A3C66B /* ProfileView */,
 				BA5D826B28393D6800A54005 /* CoreDataFiles */,
 				BA396DF6281867A800BD63A8 /* OutfitScreen */,
@@ -373,6 +382,8 @@
 			isa = PBXGroup;
 			children = (
 				BABEC84E2746955900ECBF76 /* AvatarView.swift */,
+				BAC3C28528F29F2A00B32AE0 /* NoClothesPlaceholder.swift */,
+				BAC3C28728F2E96800B32AE0 /* ClothesLoadingPlaceholder.swift */,
 				BABEC851274695D800ECBF76 /* GreetingView.swift */,
 				BABEC86927469C8300ECBF76 /* DaysForecastView.swift */,
 				BABEC86C27469CD000ECBF76 /* DaysForecastCell.swift */,
@@ -520,6 +531,14 @@
 			path = ProfileSubViews;
 			sourceTree = "<group>";
 		};
+		BA8614AF28EF77B00095F232 /* ColorImages */ = {
+			isa = PBXGroup;
+			children = (
+				BA8614B028EF77CF0095F232 /* ColorImagesView.swift */,
+			);
+			path = ColorImages;
+			sourceTree = "<group>";
+		};
 		BA9C23CA28D4E7F800DDDB54 /* StartScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -541,6 +560,7 @@
 		BABEC86227469BA600ECBF76 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				BA8614B228EF785A0095F232 /* image 35.svg */,
 				BABEC86327469BB600ECBF76 /* WeatherForecast.swift */,
 				BAC3D64E2749082100DA1BAC /* ClothesApi.swift */,
 				BA12D0FD2776041600F91349 /* GetClothes.swift */,
@@ -712,6 +732,7 @@
 				BA1591E9273FE7560010CD56 /* Preview Assets.xcassets in Resources */,
 				BA348F2328B3749F008C6BBC /* Montserrat-Regular.ttf in Resources */,
 				BA348F2128B3748E008C6BBC /* Montserrat-SemiBold.ttf in Resources */,
+				BA8614B328EF785A0095F232 /* image 35.svg in Resources */,
 				BA348F1F28B3747C008C6BBC /* Montserrat-Medium.ttf in Resources */,
 				BA1591E6273FE7560010CD56 /* Assets.xcassets in Resources */,
 				BA348F1D28B37468008C6BBC /* Montserrat-Bold.ttf in Resources */,
@@ -865,6 +886,7 @@
 				BA3CE08928149DA300D724BF /* Weather.swift in Sources */,
 				BABEC852274695D800ECBF76 /* GreetingView.swift in Sources */,
 				BA12D0FE2776041600F91349 /* GetClothes.swift in Sources */,
+				BAC3C28628F29F2A00B32AE0 /* NoClothesPlaceholder.swift in Sources */,
 				BABEC84F2746955900ECBF76 /* AvatarView.swift in Sources */,
 				BA7E40C128C2700500FB3730 /* PlaceholderCities.swift in Sources */,
 				BA1591E2273FE7530010CD56 /* ClowyApp.swift in Sources */,
@@ -898,6 +920,7 @@
 				BABEC86427469BB600ECBF76 /* WeatherForecast.swift in Sources */,
 				BADE87E027988726001DE300 /* UsePhotoFromGalary.swift in Sources */,
 				BA64914A286C4A6900B57F58 /* WardrobeClothesTestCardCollection.swift in Sources */,
+				BAC3C28828F2E96800B32AE0 /* ClothesLoadingPlaceholder.swift in Sources */,
 				BABEC8552746996B00ECBF76 /* WeatherForecastView.swift in Sources */,
 				BAC19536287F6B8E00FB109B /* NotificationsView.swift in Sources */,
 				BA9C23D228D8BACA00DDDB54 /* NewLocationView.swift in Sources */,
@@ -908,6 +931,7 @@
 				BA8201F92874980600A3C66B /* ScroolViewModifier.swift in Sources */,
 				BAC4BEA7286DF92F0076DFFC /* NewChosenTempView.swift in Sources */,
 				BAB8D37B28B3D032000E1717 /* ProfileNavBarContent.swift in Sources */,
+				BA8614B128EF77CF0095F232 /* ColorImagesView.swift in Sources */,
 				BADE87C12795FEE8001DE300 /* NewClothView.swift in Sources */,
 				BA8201F12873859A00A3C66B /* AddPhotoView.swift in Sources */,
 				BA820202287F5B7400A3C66B /* TempPreferenceView.swift in Sources */,

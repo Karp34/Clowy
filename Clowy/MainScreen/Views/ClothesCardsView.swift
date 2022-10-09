@@ -29,10 +29,11 @@ struct ClothesCardsView: View {
             WaterfallGrid(outfit) { item in
                 ClothesCard(clothesName: item.name, clothesImage: item.image)
                     .aspectRatio(getRatio(name: item.clothesType), contentMode: .fit)
-                    .padding(6)
             }
+            .padding(.horizontal, 4)
         } else {
             NoOutfit()
+                .padding(.horizontal, 8)
         }
         
     }
@@ -62,14 +63,53 @@ struct ClothesCard: View {
             .padding()
         }
         .shadow(color:Color(hex: "#646C75").opacity(0.15), radius: 30, y: 4)
+        .padding(4)
     }
 }
 
 struct NoOutfit : View {
+    @StateObject private var viewModel = MainScreenViewModel.shared
+    @State var isShowingSheet = false
+    
     var body: some View {
-        Text("Add more clothes!")
-            .font(.custom("Montserrat-Regular", size: 14))
-            .foregroundColor(Color(hex: "#606060"))
+        VStack(alignment: .center, spacing: 16) {
+            ZStack {
+                Circle()
+                    .frame(width: 96, height: 96)
+                    .foregroundColor(Color(hex: viewModel.chosenWeather.color)).opacity(0.2)
+                Image("Veshalka")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 41)
+                    .foregroundColor(Color(hex: viewModel.chosenWeather.color))
+            }
+            Text("No items in wardrobe")
+                .font(.custom("Montserrat-SemiBold", size: 20))
+                .foregroundColor(Color(hex: "#646C75"))
+                .multilineTextAlignment(.center)
+        }
+        .frame(idealHeight: 320)
+        
+        Button {
+            isShowingSheet.toggle()
+        } label: {
+            ZStack {
+                RoundedRectangle(cornerRadius: 24)
+                    .frame(height: 56)
+                    .foregroundColor(Color(hex: viewModel.chosenWeather.color))
+                Text("Add")
+                    .font(.custom("Montserrat-Bold", size: 16))
+                    .foregroundColor(.white)
+            }
+            .padding(.bottom, 24)
+        }
+        .sheet(isPresented: $isShowingSheet) {
+            VStack (spacing: 0) {
+                AddClothesView(isShowingSheet: $isShowingSheet)
+            }
+            .background(Color(hex: "#F7F8FA").edgesIgnoringSafeArea(.all))
+        }
+        
     }
 }
 

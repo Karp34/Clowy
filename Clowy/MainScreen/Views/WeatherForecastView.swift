@@ -13,32 +13,94 @@ struct WeatherForecastView: View {
     var temp: Int
     var icon: String
     var chosenLocation = UserDefaults.standard.string(forKey: "location")!
+    var state: PlaceHolderState
     
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 20.0)
-                .foregroundColor((Color(hex: color)))
-                .frame(height: 80.0)
-            HStack(spacing: 0) {
-                Text( (temp > 0 ? "+" : temp == 0 ? "" : "-") + String(temp) + "°")
-                    .font(.custom("Montserrat-Medium", size: 32))
-                    .frame(width: 80, height: 56)
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(chosenLocation)
-                        .font(.custom("Montserrat-Bold", size: 14))
-                    Text(name)
-                        .font(.custom("Montserrat-Regular", size: 12))
+        if state == .success {
+            ZStack {
+                RoundedRectangle(cornerRadius: 16.0)
+                    .foregroundColor((Color(hex: color)))
+                    .frame(height: 80.0)
+                HStack(spacing: 8) {
+                    Text( (temp > 0 ? "+" : "") + String(temp) + "°")
+                        .font(.custom("Montserrat-Medium", size: 32))
+                        .frame(height: 40)
+                        .frame(minWidth: 56, maxWidth: 72)
+                    HStack {
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text(chosenLocation)
+                                .font(.custom("Montserrat-Bold", size: 14))
+                            Text(name)
+                                .font(.custom("Montserrat-Regular", size: 12))
+                        }
+                        Spacer()
+                    }
+                    .frame(minWidth: 156)
+                    .frame(height: 80.0)
+                    
+                    Spacer()
+                    Image(systemName: icon)
+                        .font(.largeTitle)
+                        .frame(width: 56, height: 56)
                 }
-                .frame(width: 180, height: 80.0)
-                Spacer()
-                Image(systemName: icon)
-                    .font(.largeTitle)
-                    .frame(width: 56, height: 56)
+                .multilineTextAlignment(.leading)
+                .foregroundColor(.white)
+                .padding(.horizontal, 16)
             }
-            .multilineTextAlignment(.leading)
-            .foregroundColor(.white)
-            .padding(.horizontal, 16)
+            .padding(.horizontal, 24)
+            .padding(.bottom, 16)
+        } else if state == .error {
+            ZStack(alignment: .leading) {
+                RoundedRectangle(cornerRadius: 16.0)
+                    .foregroundColor((Color(hex: "#B1B4B8")))
+                    .frame(height: 80.0)
+                HStack(spacing: 12) {
+                    Image(systemName: "exclamationmark.circle.fill")
+                    Text("Failed to get weather data")
+                        .font(.custom("Montserrat-Bold", size: 14))
+                }
+                .padding(.leading, 16)
+                .foregroundColor(.white)
+            }
+            .padding(.bottom, 16)
+            .padding(.horizontal, 24)
+            
+        } else if state == .placeholder {
+            
+            ZStack {
+                RoundedRectangle(cornerRadius: 16.0)
+                    .foregroundColor(Color(hex: "#EEEFF1"))
+                    .frame(height: 80.0)
+                HStack(spacing: 8) {
+                    RoundedRectangle(cornerRadius: 20)
+                        .frame(minWidth: 56, maxWidth: 72)
+                        .frame(height: 40)
+                        .foregroundColor(Color(hex: "#E0E1E3"))
+                    HStack {
+                        VStack(alignment: .leading, spacing: 6) {
+                            RoundedRectangle(cornerRadius: 16)
+                                .frame(width: 100, height: 12)
+                                .foregroundColor(Color(hex: "#E0E1E3"))
+                            RoundedRectangle(cornerRadius: 16)
+                                .frame(width: 60, height: 12)
+                                .foregroundColor(Color(hex: "#E0E1E3"))
+                        }
+                        Spacer()
+                    }
+                    .frame(minWidth: 156)
+                    .frame(height: 80.0)
+                    
+                    Spacer()
+                    RoundedRectangle(cornerRadius: 20)
+                        .foregroundColor(Color(hex: "#E0E1E3"))
+                        .frame(width: 56, height: 40)
+                }
+                .multilineTextAlignment(.leading)
+                .foregroundColor(.white)
+                .padding(.horizontal, 16)
+            }
+            .padding(.horizontal, 24)
+            .padding(.bottom, 16)
         }
-        .padding(.bottom)
     }
 }

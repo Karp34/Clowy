@@ -19,10 +19,10 @@ struct DaysForecastView: View {
     var selectedId: Int
     
     var body: some View {
-        let insets = EdgeInsets(top: 0, leading: 16, bottom: 16, trailing: 16)
+        let insets = EdgeInsets(top: 0, leading: 24, bottom: 16, trailing: 16)
 
         ScrollView (.horizontal, showsIndicators: false) {
-             HStack {
+            HStack(spacing: 16) {
                  if !days.isEmpty {
                      ForEach(0..<days.count, id: \.self) { index in
                          let day = days[index]

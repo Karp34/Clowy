@@ -19,7 +19,7 @@ class MainScreenViewModel: ObservableObject {
     
     @Published var cityNames = [String]()
     
-    @Published var chosenWeather: Weather = Weather(name: "Default", color: "#cc0000", icon: "cloud", temp: 20, humidity: 99, windSpeed: 2)
+    @Published var chosenWeather: Weather = Weather(name: "Default", color: "#B1B4B8", icon: "cloud", temp: 20, humidity: 99, windSpeed: 2)
     @Published var selectedId: Int = 0
     @Published var days: [Day] = []
     @Published var clothes: [Wardrobe] = []
@@ -37,7 +37,14 @@ class MainScreenViewModel: ObservableObject {
     
     func changeWeather(id:Int) {
         selectedId = id
-        chosenWeather = days.first(where: { $0.id == id })?.weather ?? Weather(name: "Clouds", color: "#cc0000", icon: "cloud", temp: 666, humidity: 99, windSpeed: 2)
+        if let weather = days.first(where: { $0.id == id })?.weather {
+            chosenWeather = weather
+        } else if let weather = days.first(where: { $0.id == 0 })?.weather {
+            chosenWeather = weather
+            self.selectedId = 0
+        } else {
+            chosenWeather = Weather(name: "Clouds", color: "#B1B4B8", icon: "cloud", temp: 0, humidity: 99, windSpeed: 2)
+        }
     }
         
     func getWeatherData(lat: Double?, long: Double?, locationName: String?, completion: @escaping () -> ()) {
@@ -65,6 +72,7 @@ class MainScreenViewModel: ObservableObject {
                     print("Failed to get data from url:", err)
                     withAnimation {
                         self.state = .error
+                        self.chosenWeather = Weather(name: "Clouds", color: "#B1B4B8", icon: "cloud", temp: 0, humidity: 99, windSpeed: 2)
                     }
                     return
                 }
@@ -79,6 +87,7 @@ class MainScreenViewModel: ObservableObject {
                 } catch {
                     withAnimation {
                         self.state = .error
+                        self.chosenWeather = Weather(name: "Clouds", color: "#B1B4B8", icon: "cloud", temp: 0, humidity: 99, windSpeed: 2)
                     }
                     print(error)
                 }
@@ -151,7 +160,6 @@ class MainScreenViewModel: ObservableObject {
         
         if hourInt != nil && dayTime == nil {
             time = getTimeName(hour: hourInt!)
-            print(time)
         }
         
         if String(statusCode).hasPrefix("2") {
@@ -320,6 +328,7 @@ class MainScreenViewModel: ObservableObject {
             let firstDaySeconds = Date(timeIntervalSince1970: TimeInterval(data.list[0].dt + Int(data.city.timezone)) )
             let dateFormatter = DateFormatter()
             dateFormatter.dateStyle = DateFormatter.Style.medium
+            dateFormatter.timeZone = TimeZone(secondsFromGMT: Int(data.city.timezone))
             let firstLocalDate = dateFormatter.string(from: firstDaySeconds)
             
             
@@ -329,12 +338,12 @@ class MainScreenViewModel: ObservableObject {
             var weatherList = [String]()
             
             for item in (0..<data.list.count) {
-                let newDaySeconds = Date(timeIntervalSince1970: TimeInterval(data.list[item].dt + Int(data.city.timezone)) )
+                let newDaySeconds = Date(timeIntervalSince1970: TimeInterval(data.list[item].dt))
+                
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateStyle = DateFormatter.Style.medium
+                dateFormatter.timeZone = TimeZone(secondsFromGMT: Int(data.city.timezone))
                 let newLocalDate = dateFormatter.string(from: newDaySeconds)
-                
-                
                 
                 let id = item
                 let newFullDate = data.list[item].dt_txt.components(separatedBy: " ")
@@ -348,6 +357,7 @@ class MainScreenViewModel: ObservableObject {
                 if firstLocalDate == newLocalDate {
                     let hourFormatter = DateFormatter()
                     hourFormatter.dateFormat = "H"
+                    hourFormatter.timeZone = TimeZone(secondsFromGMT: Int(data.city.timezone))
                     let hour = hourFormatter.string(from: newDaySeconds)
                     let intHour = (hour as NSString).integerValue
                 
