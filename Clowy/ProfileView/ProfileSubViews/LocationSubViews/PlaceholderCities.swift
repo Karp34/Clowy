@@ -16,10 +16,12 @@ struct PlaceholderCities: View {
                     return fmtr
             }
     
+    
+    
     var body: some View {
         VStack (alignment: .leading, spacing: 16) {
             RoundedRectangle(cornerRadius: 16)
-                .foregroundColor( Int(timeNow)! % 10 == 0 ? Color(hex: "#646C75").opacity(0.5) : Color(hex: "#EFF0F2") )
+                .foregroundColor( Int(timeNow)! % 10 == 0 ? Color(hex: "#E0E1E3").opacity(0.5) : Color(hex: "#EEEFF1") )
                 .frame(width: 180, height: 14)
                 .padding(.leading, 16)
                 .padding(.top, 8)
@@ -28,7 +30,7 @@ struct PlaceholderCities: View {
                 .foregroundColor(Color(hex: "#DADADA")).opacity(0.5)
             
             RoundedRectangle(cornerRadius: 16)
-                .foregroundColor( Int(timeNow)! % 10 == 1 ? Color(hex: "#646C75").opacity(0.5) : Color(hex: "#EFF0F2") )
+                .foregroundColor( Int(timeNow)! % 10 == 1 ? Color(hex: "#E0E1E3").opacity(0.5) : Color(hex: "#EEEFF1") )
                 .frame(width: 200, height: 14)
                 .padding(.leading, 16)
             RoundedRectangle(cornerRadius: 16)
@@ -36,7 +38,7 @@ struct PlaceholderCities: View {
                 .foregroundColor(Color(hex: "#DADADA")).opacity(0.5)
             
             RoundedRectangle(cornerRadius: 14)
-                .foregroundColor( Int(timeNow)! % 10 == 2 ? Color(hex: "#646C75").opacity(0.5) : Color(hex: "#EFF0F2") )
+                .foregroundColor( Int(timeNow)! % 10 == 2 ? Color(hex: "#E0E1E3").opacity(0.5) : Color(hex: "#EEEFF1") )
                 .frame(width: 100, height: 16)
                 .padding(.leading, 16)
             RoundedRectangle(cornerRadius: 16)
@@ -44,7 +46,7 @@ struct PlaceholderCities: View {
                 .foregroundColor(Color(hex: "#DADADA")).opacity(0.5)
             
             RoundedRectangle(cornerRadius: 16)
-                .foregroundColor( Int(timeNow)! % 10 == 3 ? Color(hex: "#646C75").opacity(0.5) : Color(hex: "#EFF0F2") )
+                .foregroundColor( Int(timeNow)! % 10 == 3 ? Color(hex: "#E0E1E3").opacity(0.5) : Color(hex: "#EEEFF1") )
                 .frame(width: 180, height: 14)
                 .padding(.leading, 16)
             RoundedRectangle(cornerRadius: 16)
@@ -52,7 +54,7 @@ struct PlaceholderCities: View {
                 .foregroundColor(Color(hex: "#DADADA")).opacity(0.5)
             
             RoundedRectangle(cornerRadius: 14)
-                .foregroundColor( Int(timeNow)! % 10 == 4 ? Color(hex: "#646C75").opacity(0.5) : Color(hex: "#EFF0F2") )
+                .foregroundColor( Int(timeNow)! % 10 == 4 ? Color(hex: "#E0E1E3").opacity(0.5) : Color(hex: "#EEEFF1") )
                 .frame(width: 100, height: 16)
                 .padding(.leading, 16)
             

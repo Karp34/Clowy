@@ -24,7 +24,6 @@ struct WardrobeModuleView: View {
 }
 
 struct OutfitButtonView: View {
-//    @StateObject private var viewModel = MainScreenViewModel.shared
     var numberOfOutfits: Int
     var color: String
     var body: some View {
@@ -150,6 +149,5 @@ struct AddNewClothView: View {
         }
     }
     func didDismiss() {
-        // Handle the dismissing action.
     }
 }

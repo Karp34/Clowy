@@ -146,28 +146,6 @@ struct MainScreenView: View, DaysForecastViewDelegate {
                 }
                 viewModel.observeDeniedLocationAccess()
                 viewModel.deviceLocationService.requestLocationUpdates()
-
-//                if UserDefaults.standard.bool(forKey: "isGeoposition") == true {
-//                    print(viewModel.coordinates)
-//                    viewModel.getWeatherData(lat: viewModel.coordinates.lat, long: viewModel.coordinates.lon, locationName: nil) {
-//                        self.viewModel.days = viewModel.parseWeatherData(data: viewModel.weather)
-//                        withAnimation {
-//                            viewModel.changeWeather(id: viewModel.selectedId)
-//                        }
-//                        print("geo")
-//                        print(viewModel.coordinates)
-//                        print(viewModel.weather)
-//                    }
-//                } else {
-//                    viewModel.getWeatherData(lat: nil, long: nil, locationName: UserDefaults.standard.string(forKey: "location") ) {
-//                        self.viewModel.days = viewModel.parseWeatherData(data: viewModel.weather)
-//                        withAnimation {
-//                            viewModel.changeWeather(id: viewModel.selectedId)
-//                        }
-//                        print("loc")
-//                        print(UserDefaults.standard.string(forKey: "location"))
-//                    }
-//                }
             }
             .navigationBarHidden(true)
             .background(Color(hex: "#F7F8FA").edgesIgnoringSafeArea(.all))

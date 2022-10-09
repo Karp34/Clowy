@@ -43,52 +43,68 @@ struct ChooseLocationView: View {
                                 .foregroundColor(Color(hex: "#909BA8"))
                         }
                         HStack {
-                            TextField(
-                                "Input location name",
-                                
-                                text: $location,
-                                
-                                onEditingChanged: { isEditing in
-                                    if isEditing {
-                                        viewModel.getCityName(prefixName: location)
-                                        print("CITY NAMES")
-                                        print(viewModel.cityNames)
-                                        withAnimation {
-                                            isChangingLocation = true
-                                        }
-                                    }
-                                },
-                                
-                                onCommit: {
-                                    withAnimation {
-                                        if location.trimmingCharacters(in: .whitespaces).count > 0  && location.starts(with: " ") == false {
-                                            chosenLocation = location
-                                            UserDefaults.standard.set(chosenLocation, forKey: "location")
-                                            
-                                            if !locationHistory.contains(location) {
-                                                locationHistory.remove(at: 4)
-                                                locationHistory.insert(location, at: 0)
-                                                
-                                                UserDefaults.standard.set(locationHistory, forKey: "locationHistory")
+                            ZStack(alignment: .leading) {
+                                let textHint = viewModel.cityNames.isEmpty ? "" : viewModel.cityNames.first(where: { $0.starts(with: location)}) ?? ""
+                                if isChangingLocation == true {
+                                    if textHint.starts(with: location) {
+                                        Text(textHint)
+                                            .font(.custom("Montserrat-Semibold", size: 16))
+                                            .foregroundColor(Color(hex: "#A6B3C2"))
+                                            .onTapGesture {
+                                                location = viewModel.cityNames[0]
                                             }
-                                            
-                                            if isGeoposition == true {
-                                                isGeoposition = false
-                                                UserDefaults.standard.set(isGeoposition, forKey: "isGeoposition")
-                                            }
-                                        }
-                                        isChangingLocation = false
                                     }
                                 }
-                            )
-                            .textFieldStyle(CustomFieldStyle())
-                            .multilineTextAlignment(.leading)
-                            .onChange(of: location, perform: { _ in
-                                print(location)
-                                viewModel.getCityName(prefixName: location)
-                                print("CITY NAMES")
-                                print(viewModel.cityNames)
-                            })
+                                TextField("Input location name",
+                                    
+                                    text: $location,
+                                    
+                                    onEditingChanged: { isEditing in
+                                        if isEditing {
+                                            viewModel.getCityName(prefixName: location)
+                                            print("CITY NAMES")
+                                            print(viewModel.cityNames)
+                                            withAnimation {
+                                                isChangingLocation = true
+                                            }
+                                        }
+                                    },
+                                    
+                                    onCommit: {
+                                        withAnimation {
+                                            if !viewModel.cityNames.isEmpty {
+                                                location = viewModel.cityNames[0]
+                                            }
+                                            if location.trimmingCharacters(in: .whitespaces).count > 0  && location.starts(with: " ") == false {
+                                                chosenLocation = location
+                                                UserDefaults.standard.set(chosenLocation, forKey: "location")
+                                                
+                                                if !locationHistory.contains(location) {
+                                                    locationHistory.remove(at: 4)
+                                                    locationHistory.insert(location, at: 0)
+                                                    
+                                                    UserDefaults.standard.set(locationHistory, forKey: "locationHistory")
+                                                }
+                                                
+                                                if isGeoposition == true {
+                                                    isGeoposition = false
+                                                    UserDefaults.standard.set(isGeoposition, forKey: "isGeoposition")
+                                                }
+                                            }
+                                            isChangingLocation = false
+                                        }
+                                    }
+                                )
+                                .textFieldStyle(CustomFieldStyle())
+                                .multilineTextAlignment(.leading)
+                                .onChange(of: location, perform: { _ in
+                                    print(location)
+                                    viewModel.getCityName(prefixName: location)
+                                    print("CITY NAMES")
+                                    print(viewModel.cityNames)
+                                })
+                            }
+                            
     //                        .onReceive(location.publisher) { _ in
     //                            print(location)
     //                            viewModel.getCityName(prefixName: location)

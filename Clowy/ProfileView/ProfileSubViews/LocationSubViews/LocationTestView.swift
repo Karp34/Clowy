@@ -177,33 +177,7 @@ struct LocationTestView: View {
     var body: some View {
         VStack {
             VStack(alignment: .leading) {
-//                if viewModel.state == .placeholder {
-//                    RoundedRectangle(cornerRadius: 16)
-//                        .foregroundColor( Int(timeNow)! % 10 == 0 ? .blue : .gray )
-//                        .frame(width: 180, height: 14)
-//                    RoundedRectangle(cornerRadius: 16)
-//                        .foregroundColor( Int(timeNow)! % 10 == 1 ? .blue : .gray )
-//                        .frame(width: 200, height: 14)
-//                    RoundedRectangle(cornerRadius: 14)
-//                        .foregroundColor( Int(timeNow)! % 10 == 2 ? .blue : .gray )
-//                        .frame(width: 100, height: 16)
-//                    RoundedRectangle(cornerRadius: 16)
-//                        .foregroundColor( Int(timeNow)! % 10 == 3 ? .blue : .gray )
-//                        .frame(width: 180, height: 14)
-//                    RoundedRectangle(cornerRadius: 16)
-//                        .foregroundColor( Int(timeNow)! % 10 == 4 ? .blue : .gray )
-//                        .frame(width: 200, height: 14)
-//                    RoundedRectangle(cornerRadius: 14)
-//                        .foregroundColor( Int(timeNow)! % 10 == 5 ? .blue : .gray )
-//                        .frame(width: 100, height: 16)
-//
-//
-//                    Text(timeNow)
-//                        .onReceive(timer) { _ in
-//                                self.timeNow = dateFormatter.string(from: Date())
-//                        }
-//
-//                }
+                
                 if viewModel.state == .error {
                     Text("Error has occured")
                 }
