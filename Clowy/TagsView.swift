@@ -93,7 +93,16 @@ struct TagsView: View {
                             .background( viewModel.clothesType == word ? Color(hex: "#678CD4") : Color(hex: "#EFF0F2"))
                             .clipShape(RoundedRectangle(cornerRadius: 6))
                             .onTapGesture {
+                                if viewModel.clothesType != "" && viewModel.isDefault == true {
+                                    viewModel.clothesType = ""
+                                    viewModel.isDefault = false
+                                    viewModel.image = .init(count: 0)
+                                }
                                 viewModel.clothesType = word
+                                if viewModel.image.count == 0 {
+                                    viewModel.image = (UIImage.init(named:word)?.pngData())!
+                                    viewModel.isDefault = true
+                                }
                             }
                     }
                 }
@@ -101,4 +110,3 @@ struct TagsView: View {
         }
     }
 }
-

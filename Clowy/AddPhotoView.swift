@@ -20,19 +20,9 @@ struct AddPhotoView: View {
                 RoundedRectangle(cornerRadius: 16)
                     .stroke(Color(hex: "#DADADA"), style: StrokeStyle(lineWidth: 1, dash: [4]))
                 VStack {
-//                    if viewModel.image != nil {
-                        Image(uiImage: UIImage(data: self.viewModel.image)!)
-                            .renderingMode(.original)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 104)
-//                    } else {
-//                        Image(uiImage: UIImage(data: self.image)!)
-//                            .renderingMode(.original)
-//                            .resizable()
-//                            .scaledToFit()
-//                            .frame(width: 104)
-//                    }
+                    ClothImage(imageName: viewModel.image, isDeafult: viewModel.isDefault, color: viewModel.chosenColor)
+                        .scaledToFit()
+                        .frame(width: 104)
                     Text("Upload Photo")
                         .font(.custom("Montserrat-Medium", size: 12))
                         .foregroundColor(Color(hex: "#606060"))
@@ -52,13 +42,11 @@ struct AddPhotoView: View {
                 .onTapGesture {
                     withAnimation {
                         viewModel.image.count = 0
+                        viewModel.isDefault = false
                     }
                 }
             }
             .frame(height: 133)
-//            .onAppear {
-//                viewModel.image = image
-//            }
         } else {
             HStack (spacing: 16) {
                 Button {

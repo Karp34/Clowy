@@ -16,8 +16,8 @@ struct InformationView: View {
                 .foregroundColor(.white)
             VStack (alignment: .leading, spacing: 16){
                 NavigationLink {
-                    ColorImagesView()
-//                        .foregroundColor(.red)
+//                    ColorImagesView()
+////                        .foregroundColor(.red)
                 } label: {
                     Text("Privacy policy")
                         .foregroundColor(Color(hex: "#646C75"))

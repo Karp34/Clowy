@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct ChooseColorView: View {
+    @StateObject private var viewModel = AddClothesViewModel.shared
     let insets = EdgeInsets(top: 8, leading: 24, bottom: 2, trailing: 24)
-    
-    @State var chosenColor: String = ""
     
     var body: some View {
         VStack( alignment: .leading, spacing:0) {
@@ -26,8 +25,8 @@ struct ChooseColorView: View {
                 HStack (spacing: 8) {
                     ForEach(colorList, id: \.self) { id in
                         if !id.isEmpty {
-                            if id.contains(chosenColor) {
-                                ChosenColor(colorList: id, chosenColor: chosenColor)
+                            if id.contains(viewModel.chosenColor) {
+                                ChosenColorView(colorList: id)
                             } else {
                                 if id.first == "#FFFFFF" {
                                     Circle()
@@ -36,7 +35,7 @@ struct ChooseColorView: View {
                                         .frame(width: 32, height: 32)
                                         .onTapGesture {
                                             withAnimation{
-                                                chosenColor = id.first!
+                                                viewModel.chosenColor = id.first!
                                             }
                                         }
                                 } else {
@@ -44,8 +43,8 @@ struct ChooseColorView: View {
                                         .frame(width: 32, height: 32)
                                         .foregroundColor(Color(hex: id.first!))
                                         .onTapGesture {
-                                            withAnimation{
-                                                chosenColor = id.first!
+                                            withAnimation {
+                                                viewModel.chosenColor = id.first!
                                             }
                                         }
                                 }
@@ -60,16 +59,16 @@ struct ChooseColorView: View {
     }
 }
 
-struct ChosenColor: View {
+struct ChosenColorView: View {
     var colorList: [String]
-    @State var chosenColor: String
+    @StateObject private var viewModel = AddClothesViewModel.shared
     
     var body: some View {
         if colorList.count > 1 {
             ZStack {
                 HStack(spacing: 4) {
                     ForEach(colorList, id:\.self) { color in
-                        if color == chosenColor {
+                        if color == viewModel.chosenColor {
                             if color == "#FFFFFF" {
                                 ZStack {
                                     Circle()
@@ -84,7 +83,7 @@ struct ChosenColor: View {
                                 }
                                 .onTapGesture {
                                     withAnimation {
-                                        chosenColor = ""
+                                        viewModel.chosenColor = "#FFFFFF"
                                     }
                                 }
                             } else {
@@ -100,7 +99,7 @@ struct ChosenColor: View {
                                 }
                                 .onTapGesture {
                                     withAnimation {
-                                        chosenColor = ""
+                                        viewModel.chosenColor = color
                                     }
                                 }
                             }
@@ -110,7 +109,7 @@ struct ChosenColor: View {
                                 .foregroundColor(Color(hex: color))
                                 .onTapGesture {
                                     withAnimation {
-                                        chosenColor = color
+                                        viewModel.chosenColor = color
                                     }
                                 }
                         }
@@ -140,7 +139,7 @@ struct ChosenColor: View {
                         }
                         .onTapGesture {
                             withAnimation {
-                                chosenColor = ""
+                                viewModel.chosenColor = "#FFFFFF"
                             }
                         }
                     } else {
@@ -156,7 +155,7 @@ struct ChosenColor: View {
                         }
                         .onTapGesture {
                             withAnimation {
-                                chosenColor = ""
+                                viewModel.chosenColor = color
                             }
                         }
                     }
@@ -171,3 +170,33 @@ struct ChosenColor: View {
 //        ChooseColorView()
 //    }
 //}
+
+extension View {
+// This function changes our View to UIView, then calls another function
+// to convert the newly-made UIView to a UIImage.
+    public func asUIImage() -> UIImage {
+        let controller = UIHostingController(rootView: self)
+        
+        controller.view.frame = CGRect(x: 0, y: CGFloat(Int.max), width: 1, height: 1)
+        UIApplication.shared.windows.first!.rootViewController?.view.addSubview(controller.view)
+        
+        let size = controller.sizeThatFits(in: UIScreen.main.bounds.size)
+        controller.view.bounds = CGRect(origin: .zero, size: size)
+        controller.view.sizeToFit()
+        
+// here is the call to the function that converts UIView to UIImage: `.asUIImage()`
+        let image = controller.view.asUIImage()
+        controller.view.removeFromSuperview()
+        return image
+    }
+}
+
+extension UIView {
+// This is the function to convert UIView to UIImage
+    public func asUIImage() -> UIImage {
+        let renderer = UIGraphicsImageRenderer(bounds: bounds)
+        return renderer.image { rendererContext in
+            layer.render(in: rendererContext.cgContext)
+        }
+    }
+}

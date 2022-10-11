@@ -72,6 +72,7 @@
 		BA820202287F5B7400A3C66B /* TempPreferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA820201287F5B7400A3C66B /* TempPreferenceView.swift */; };
 		BA8614B128EF77CF0095F232 /* ColorImagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8614B028EF77CF0095F232 /* ColorImagesView.swift */; };
 		BA8614B328EF785A0095F232 /* image 35.svg in Resources */ = {isa = PBXBuildFile; fileRef = BA8614B228EF785A0095F232 /* image 35.svg */; };
+		BA86934A28F52C1A008F37EB /* ClothImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA86934928F52C1A008F37EB /* ClothImage.swift */; };
 		BA9C23C728D2514C00DDDB54 /* WaterfallGrid in Frameworks */ = {isa = PBXBuildFile; productRef = BA3336782799AFB200E88B68 /* WaterfallGrid */; };
 		BA9C23C928D265A100DDDB54 /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9C23C828D265A100DDDB54 /* MainScreenViewModel.swift */; };
 		BA9C23CC28D4E80C00DDDB54 /* StartScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9C23CB28D4E80C00DDDB54 /* StartScreenView.swift */; };
@@ -202,6 +203,7 @@
 		BA820201287F5B7400A3C66B /* TempPreferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempPreferenceView.swift; sourceTree = "<group>"; };
 		BA8614B028EF77CF0095F232 /* ColorImagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorImagesView.swift; sourceTree = "<group>"; };
 		BA8614B228EF785A0095F232 /* image 35.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "image 35.svg"; sourceTree = "<group>"; };
+		BA86934928F52C1A008F37EB /* ClothImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothImage.swift; sourceTree = "<group>"; };
 		BA9C23C828D265A100DDDB54 /* MainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModel.swift; sourceTree = "<group>"; };
 		BA9C23CB28D4E80C00DDDB54 /* StartScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenView.swift; sourceTree = "<group>"; };
 		BA9C23CF28D8B91E00DDDB54 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -340,7 +342,7 @@
 				BA5D826B28393D6800A54005 /* CoreDataFiles */,
 				BA396DF6281867A800BD63A8 /* OutfitScreen */,
 				BA3CE08728149D8800D724BF /* Models */,
-				BADE87D527988692001DE300 /* AddNewClothScreen */,
+				BADE87D527988692001DE300 /* AddClothesView */,
 				BA12D0F527737E0F00F91349 /* WardrobeScreen */,
 				BA3E18482746B98E0070F4EF /* Extensions */,
 				BAEC625D274E751B009E69E5 /* Fonts */,
@@ -440,6 +442,7 @@
 		BA3E18482746B98E0070F4EF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				BA86934928F52C1A008F37EB /* ClothImage.swift */,
 				BA43D1F928211D18008A4AF5 /* CustomNavBar */,
 				BA3E18492746B99E0070F4EF /* HEX.swift */,
 				BA8201F82874980600A3C66B /* ScroolViewModifier.swift */,
@@ -579,13 +582,13 @@
 			name = TestViewModel;
 			sourceTree = "<group>";
 		};
-		BADE87D527988692001DE300 /* AddNewClothScreen */ = {
+		BADE87D527988692001DE300 /* AddClothesView */ = {
 			isa = PBXGroup;
 			children = (
 				BADE87E42798876A001DE300 /* AddClothesView.swift */,
 				BADE87E32798874D001DE300 /* Views */,
 			);
-			name = AddNewClothScreen;
+			name = AddClothesView;
 			sourceTree = "<group>";
 		};
 		BADE87E32798874D001DE300 /* Views */ = {
@@ -875,6 +878,7 @@
 				BAC19534287F68AA00FB109B /* CleanTagsView.swift in Sources */,
 				BA3CE08628149C9900D724BF /* MainScreenView.swift in Sources */,
 				BABEC86A27469C8300ECBF76 /* DaysForecastView.swift in Sources */,
+				BA86934A28F52C1A008F37EB /* ClothImage.swift in Sources */,
 				BA820200287F500200A3C66B /* ProfileNavBarView.swift in Sources */,
 				BA43D1FB28211D40008A4AF5 /* AppNavBarView.swift in Sources */,
 				BA5D8270283A5A7700A54005 /* PersistenceController.swift in Sources */,

@@ -15,7 +15,8 @@ class AddClothesViewModel: ObservableObject {
     @Published var temp: [Temperature] = []
     @Published var color: String? = nil
     @Published var image: Data = .init(count: 0)
-    
+    @Published var chosenColor: String = "#FFFFFF"
+    @Published var isDefault: Bool = false
     
     static var shared = AddClothesViewModel()
 
@@ -26,6 +27,8 @@ class AddClothesViewModel: ObservableObject {
         temp = []
         color = nil
         image = .init(count: 0)
+        chosenColor = "#FFFFFF"
+        isDefault = false
     }
     
     func createTempNames() -> [String] {
@@ -101,6 +104,8 @@ struct AddClothesView: View {
                         clothes.temp = viewModel.createTempNames()
                         clothes.toTestWardrobe = category
                         clothes.image = viewModel.image
+                        clothes.color = viewModel.chosenColor
+                        clothes.isDefault = viewModel.isDefault
                         PersistenceController.shared.save()
 
 

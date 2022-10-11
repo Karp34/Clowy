@@ -92,8 +92,7 @@ struct WardrobeTestClothCard: View {
                 }
                 VStack {
                     if cloth.image != nil {
-                        Image(uiImage: UIImage(data: cloth.image!)!)
-                            .resizable()
+                        ClothImage(imageName: cloth.image, isDeafult: cloth.isDefault, color: cloth.color ?? "#FFFFFF")
                             .scaledToFit()
                             .frame(width: 70, height: 100)
                     } else {
@@ -106,12 +105,13 @@ struct WardrobeTestClothCard: View {
                     Text(cloth.name ?? "Cloth")
                         .font(.custom("Montserrat-Regular", size: 14))
                         .multilineTextAlignment(.center)
+                        .lineLimit(2)
                         .frame(width: 100)
                         .scaledToFill()
                         .padding(.vertical, 2)
                         .foregroundColor(Color(hex: "#606060"))
                 }
-                .padding()
+                .frame(width: 96, height: 120)
         }
             .shadow(color:Color(hex: "#646C75").opacity(0.1), radius: 10, y: 4)
     }
