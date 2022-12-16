@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct Weather: Equatable {
+    var code: Double
     var name: String
     var color: String
     var icon: String

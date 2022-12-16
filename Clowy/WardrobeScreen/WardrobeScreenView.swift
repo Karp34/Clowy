@@ -7,15 +7,10 @@
 
 import SwiftUI
 
-class WardrobeScreenViewModel: ObservableObject {
-}
-
-
-
 struct WardrobeScreenView: View{
     
     @State private var isShowingSheet = false
-    @ObservedObject private var viewModel = WardrobeScreenViewModel()
+    @ObservedObject private var viewModel = AddClothesViewModel.shared
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
@@ -108,6 +103,6 @@ struct WardrobeScreenView: View{
         .background(Color(hex: "#F7F8FA").edgesIgnoringSafeArea(.all))
     }
     func didDismiss() {
-        // Handle the dismissing action.
+        viewModel.reset()
     }
 }

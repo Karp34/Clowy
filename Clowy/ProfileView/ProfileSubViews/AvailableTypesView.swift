@@ -112,6 +112,7 @@ struct AvailableTypesView: View {
             }
             
         }
+        .buttonStyle(ScaleButtonStyle())
     }
 }
 

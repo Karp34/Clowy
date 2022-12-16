@@ -19,7 +19,18 @@ struct ChooseColorView: View {
                 .padding(.horizontal, 24)
                 .padding(.top, 24)
             
-            let colorList: [[String]] = [["#A5D469", "#C6FF7E", "#7DA150"], ["#EAAF2D", "#FE9011"], ["#89112C"], ["#FFFFFF"]]
+            let colorList: [[String]] = [
+                ["#FFFFFF"], //white
+                ["#323232", "#808080", "#CCCCCC"], //black
+                ["#806030", "#CC9A4D", "#E0C49A"], //brown
+                ["#A60000", "#D90000", "#FF7777"], //red
+                ["#D97500", "#FDBF1F", "#FFBE5B"], //orange
+                ["#E5CF00", "#FFE600", "#FFF27A"], //yellow
+                ["#137016", "#1BA320", "#55DA5A"], //green
+                ["#0070C0", "#00B0F0", "#8AE0FF"], //blue
+                ["#380094", "#8236FF", "#B283FF"], //purple
+                ["#EF32FF", "#F68EFF", "#FAC2FF"] //pink
+            ]
             
             ScrollView (.horizontal, showsIndicators: false) {
                 HStack (spacing: 8) {
@@ -161,42 +172,6 @@ struct ChosenColorView: View {
                     }
                 }
             }
-        }
-    }
-}
-//
-//struct ChooseColorView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ChooseColorView()
-//    }
-//}
-
-extension View {
-// This function changes our View to UIView, then calls another function
-// to convert the newly-made UIView to a UIImage.
-    public func asUIImage() -> UIImage {
-        let controller = UIHostingController(rootView: self)
-        
-        controller.view.frame = CGRect(x: 0, y: CGFloat(Int.max), width: 1, height: 1)
-        UIApplication.shared.windows.first!.rootViewController?.view.addSubview(controller.view)
-        
-        let size = controller.sizeThatFits(in: UIScreen.main.bounds.size)
-        controller.view.bounds = CGRect(origin: .zero, size: size)
-        controller.view.sizeToFit()
-        
-// here is the call to the function that converts UIView to UIImage: `.asUIImage()`
-        let image = controller.view.asUIImage()
-        controller.view.removeFromSuperview()
-        return image
-    }
-}
-
-extension UIView {
-// This is the function to convert UIView to UIImage
-    public func asUIImage() -> UIImage {
-        let renderer = UIGraphicsImageRenderer(bounds: bounds)
-        return renderer.image { rendererContext in
-            layer.render(in: rendererContext.cgContext)
         }
     }
 }

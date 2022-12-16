@@ -7,12 +7,8 @@
 
 import SwiftUI
 
-class OutfitScreenViewModel: ObservableObject {
-
-}
 struct OutfitScreenView: View {
     @State private var isShowingSheet = false
-    @ObservedObject private var viewModel = WardrobeScreenViewModel()
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 

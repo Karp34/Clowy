@@ -17,12 +17,10 @@ struct ClothImage: View {
         if imageName != nil {
             if isDeafult == true {
                 Image(uiImage: UIImage(data: imageName!)!)
-//                    .renderingMode(.template)
                     .resizable()
                     .colorMultiply(Color(hex: color))
             } else {
                 Image(uiImage: UIImage(data: imageName!)!)
-//                    .renderingMode(.original)
                     .resizable()
             }
         }

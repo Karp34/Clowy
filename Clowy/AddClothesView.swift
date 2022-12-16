@@ -117,22 +117,16 @@ struct AddClothesView: View {
                 isShowingSheet = false
             }) {
                 ZStack {
-                    if viewModel.name.count > 2 && viewModel.image != .init(count: 0) && viewModel.clothesType != "" && viewModel.temp != []
-                    {
-                        RoundedRectangle(cornerRadius: 24)
-                            .frame(height: 56)
-                            .foregroundColor(Color(hex: "#678CD4"))
-                    } else {
-                        RoundedRectangle(cornerRadius: 24)
-                            .frame(height: 56)
-                            .foregroundColor(Color(hex: "#CBCED2"))
-                    }
-                    
+                    Rectangle()
+                        .foregroundColor(.clear)
+                        .frame(height: 56)
                     Text("SAVE")
                         .font(.custom("Montserrat-SemiBold", size: 16))
                         .foregroundColor(.white)
                 }
             }
+            .buttonStyle(DefaultColorButtonStyle(color: "#678CD4"))
+            .disabled(viewModel.name.count > 2 && viewModel.image != .init(count: 0) && viewModel.clothesType != "" && viewModel.temp != [] ? false : true)
             .padding(.horizontal, 24)
             .padding(.bottom, 40)
         }

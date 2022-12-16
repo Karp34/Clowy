@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct NewClothView: View {
+    @ObservedObject private var viewModel = AddClothesViewModel.shared
     @State private var isShowingSheet = false
     
     var body: some View {
@@ -32,6 +33,6 @@ struct NewClothView: View {
     }
     
     func didDismiss() {
-        // Handle the dismissing action.
+        viewModel.reset()
     }
 }

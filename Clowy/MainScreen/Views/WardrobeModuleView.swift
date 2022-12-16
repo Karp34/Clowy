@@ -12,10 +12,45 @@ struct WardrobeModuleView: View {
     var numberOfClothes: Int
     var numberOfOutfits: Int
     
+    @State var selection: Int? = nil
+    
     var body: some View {
         HStack(alignment: .top, spacing: 8) {
-            WardrobeView(numberOfClothes: numberOfClothes, color: color)
-            OutfitButtonView(numberOfOutfits: numberOfOutfits, color: color)
+            NavigationLink(
+                destination: WardrobeCoreDataView()
+                    .navigationBarTitle("My Outfits")
+                    .navigationBarTitleDisplayMode(.inline),
+                tag: 1,
+                selection: $selection) {
+                    Button(action: {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                            self.selection = 1
+                        }
+                    }) {
+                        WardrobeView(numberOfClothes: numberOfClothes, color: color)
+                    }
+                    .buttonStyle(NoAnimationButtonStyle())
+                }
+                .buttonStyle(ScaleButtonStyle())
+            
+            NavigationLink(
+                destination: OutfitScreenView()
+                    .navigationBarTitle("My Outfits")
+                    .navigationBarTitleDisplayMode(.inline),
+                tag: 2,
+                selection: $selection) {
+                    Button(action: {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                            self.selection = 2
+                        }
+                    }) {
+                        OutfitButtonView(numberOfOutfits: numberOfOutfits, color: color)
+                    }
+                    .buttonStyle(NoAnimationButtonStyle())
+                }
+                .buttonStyle(ScaleButtonStyle())
+            
+            
             AddNewClothView()
         }
         .foregroundColor(.white)
@@ -26,40 +61,36 @@ struct WardrobeModuleView: View {
 struct OutfitButtonView: View {
     var numberOfOutfits: Int
     var color: String
+    
     var body: some View {
-        NavigationLink(destination: OutfitScreenView()
-            .navigationBarTitle("My Outfits")
-            .navigationBarTitleDisplayMode(.inline)
-        ) {
-            ZStack {
-                RoundedRectangle(cornerRadius:20)
-                    .frame(idealWidth: 125, idealHeight: 136)
-                VStack(alignment: .leading) {
-                    HStack (alignment: .top) {
-                        ZStack {
-                            Circle()
-                                .frame(width: 28, height: 28)
-                                .foregroundColor(Color(hex: color))
-                                .opacity(0.2)
-                            Image("Liked")
-                                .foregroundColor(Color(hex: color))
-                                .frame(width: 24, height: 24)
-                                .scaledToFill()
-                        }
-                        Spacer()
+        ZStack {
+            RoundedRectangle(cornerRadius:20)
+                .frame(idealWidth: 125, idealHeight: 136)
+            VStack(alignment: .leading) {
+                HStack (alignment: .top) {
+                    ZStack {
+                        Circle()
+                            .frame(width: 28, height: 28)
+                            .foregroundColor(Color(hex: color))
+                            .opacity(0.2)
+                        Image("Liked")
+                            .foregroundColor(Color(hex: color))
+                            .frame(width: 24, height: 24)
+                            .scaledToFill()
                     }
-                    .padding(.top, 4)
-                    
-                    Text(String(numberOfOutfits))
-                        .font(Font.custom("Montserrat-Medium", size: 28))
-                        .foregroundColor(.black)
-                        .padding(.top, 8)
-                    Text("My outfits")
-                        .foregroundColor(.gray)
-                        .font(Font.custom("Montserrat-Regular", size: 14))
+                    Spacer()
                 }
-                .padding(.leading, 28)
+                .padding(.top, 4)
+                
+                Text(String(numberOfOutfits))
+                    .font(Font.custom("Montserrat-Medium", size: 28))
+                    .foregroundColor(.black)
+                    .padding(.top, 8)
+                Text("My outfits")
+                    .foregroundColor(.gray)
+                    .font(Font.custom("Montserrat-Regular", size: 14))
             }
+            .padding(.leading, 28)
         }
     }
 }
@@ -68,40 +99,34 @@ struct WardrobeView: View {
     var numberOfClothes: Int
     var color: String
     var body: some View {
-        NavigationLink(
-            destination: WardrobeCoreDataView()
-                .navigationBarTitle("Wardrobe")
-                .navigationBarTitleDisplayMode(.inline)
-        ) {
-            ZStack {
-                RoundedRectangle(cornerRadius:20)
-                    .frame(idealWidth: 125, idealHeight: 136)
-                VStack(alignment: .leading) {
-                    HStack (alignment: .top) {
-                        ZStack (alignment: .center){
-                            Circle()
-                                .frame(width: 28, height: 28)
-                                .foregroundColor(Color(hex: color))
-                                .opacity(0.2)
-                            Image("Veshalka")
-                                .frame(width: 28, height: 28)
-                                .foregroundColor(Color(hex: color))
-                                .scaledToFill()
-                                .padding(.bottom, 2)
-                        }
-                        Spacer()
+        ZStack {
+            RoundedRectangle(cornerRadius:20)
+                .frame(idealWidth: 125, idealHeight: 136)
+            VStack(alignment: .leading) {
+                HStack (alignment: .top) {
+                    ZStack (alignment: .center){
+                        Circle()
+                            .frame(width: 28, height: 28)
+                            .foregroundColor(Color(hex: color))
+                            .opacity(0.2)
+                        Image("Veshalka")
+                            .frame(width: 28, height: 28)
+                            .foregroundColor(Color(hex: color))
+                            .scaledToFill()
+                            .padding(.bottom, 2)
                     }
-                    .padding(.top, 4)
-                    Text(String(numberOfClothes))
-                        .font(.custom("Montserrat-Medium", size: 28))
-                        .foregroundColor(.black)
-                        .padding(.top, 8)
-                    Text("In wardrobe")
-                        .font(.custom("Montserrat-Regular", size: 14))
-                        .foregroundColor(.gray)
+                    Spacer()
                 }
-                .padding(.leading, 28)
+                .padding(.top, 4)
+                Text(String(numberOfClothes))
+                    .font(.custom("Montserrat-Medium", size: 28))
+                    .foregroundColor(.black)
+                    .padding(.top, 8)
+                Text("In wardrobe")
+                    .font(.custom("Montserrat-Regular", size: 14))
+                    .foregroundColor(.gray)
             }
+            .padding(.leading, 28)
         }
     }
 }

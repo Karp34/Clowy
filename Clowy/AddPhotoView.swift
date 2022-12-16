@@ -22,12 +22,7 @@ struct AddPhotoView: View {
                 VStack {
                     ClothImage(imageName: viewModel.image, isDeafult: viewModel.isDefault, color: viewModel.chosenColor)
                         .scaledToFit()
-                        .frame(width: 104)
-                    Text("Upload Photo")
-                        .font(.custom("Montserrat-Medium", size: 12))
-                        .foregroundColor(Color(hex: "#606060"))
-                        .padding(.bottom, 16)
-                        .padding(.top, 4)
+                        .frame(width: 96, height: 96)
                 }
                 HStack (alignment: .top) {
                     Spacer()

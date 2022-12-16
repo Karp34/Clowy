@@ -20,12 +20,14 @@
 		BA1591F3273FE7560010CD56 /* ClowyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1591F2273FE7560010CD56 /* ClowyTests.swift */; };
 		BA1591FD273FE7560010CD56 /* ClowyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1591FC273FE7560010CD56 /* ClowyUITests.swift */; };
 		BA1591FF273FE7560010CD56 /* ClowyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1591FE273FE7560010CD56 /* ClowyUITestsLaunchTests.swift */; };
+		BA23DF0928F737F8008C1A0B /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA23DF0828F737F8008C1A0B /* Buttons.swift */; };
 		BA348F1D28B37468008C6BBC /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA348F1C28B37468008C6BBC /* Montserrat-Bold.ttf */; };
 		BA348F1F28B3747C008C6BBC /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA348F1E28B3747C008C6BBC /* Montserrat-Medium.ttf */; };
 		BA348F2128B3748E008C6BBC /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA348F2028B3748E008C6BBC /* Montserrat-SemiBold.ttf */; };
 		BA348F2328B3749F008C6BBC /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA348F2228B3749F008C6BBC /* Montserrat-Regular.ttf */; };
 		BA396DF02817329800BD63A8 /* GetOutfits.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA396DEF2817329800BD63A8 /* GetOutfits.swift */; };
 		BA396DF22817461900BD63A8 /* AddGeneratedOutfit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA396DF12817461900BD63A8 /* AddGeneratedOutfit.swift */; };
+		BA39AE38294CC7A200E1E389 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA39AE37294CC7A200E1E389 /* SplashScreen.swift */; };
 		BA3CE08628149C9900D724BF /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3CE08528149C9900D724BF /* MainScreenView.swift */; };
 		BA3CE08928149DA300D724BF /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3CE08828149DA300D724BF /* Weather.swift */; };
 		BA3CE08B28149DB700D724BF /* Wardrobe.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3CE08A28149DB700D724BF /* Wardrobe.swift */; };
@@ -73,6 +75,8 @@
 		BA8614B128EF77CF0095F232 /* ColorImagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8614B028EF77CF0095F232 /* ColorImagesView.swift */; };
 		BA8614B328EF785A0095F232 /* image 35.svg in Resources */ = {isa = PBXBuildFile; fileRef = BA8614B228EF785A0095F232 /* image 35.svg */; };
 		BA86934A28F52C1A008F37EB /* ClothImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA86934928F52C1A008F37EB /* ClothImage.swift */; };
+		BA86934C28F69685008F37EB /* TestTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA86934B28F69685008F37EB /* TestTextView.swift */; };
+		BA86934E28F6B5A8008F37EB /* PlaceholderErrorCities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA86934D28F6B5A8008F37EB /* PlaceholderErrorCities.swift */; };
 		BA9C23C728D2514C00DDDB54 /* WaterfallGrid in Frameworks */ = {isa = PBXBuildFile; productRef = BA3336782799AFB200E88B68 /* WaterfallGrid */; };
 		BA9C23C928D265A100DDDB54 /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9C23C828D265A100DDDB54 /* MainScreenViewModel.swift */; };
 		BA9C23CC28D4E80C00DDDB54 /* StartScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9C23CB28D4E80C00DDDB54 /* StartScreenView.swift */; };
@@ -99,9 +103,6 @@
 		BAC3D64F2749082100DA1BAC /* ClothesApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC3D64E2749082100DA1BAC /* ClothesApi.swift */; };
 		BAC4BEA7286DF92F0076DFFC /* NewChosenTempView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC4BEA6286DF92F0076DFFC /* NewChosenTempView.swift */; };
 		BAC4BEA9286DF9ED0076DFFC /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC4BEA8286DF9EC0076DFFC /* Temperature.swift */; };
-		BAC4BEAC286E2B580076DFFC /* ParentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC4BEAB286E2B580076DFFC /* ParentView.swift */; };
-		BAC4BEAE286E2B620076DFFC /* ChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC4BEAD286E2B620076DFFC /* ChildView.swift */; };
-		BAC4BEB0286E2B700076DFFC /* SuperChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC4BEAF286E2B700076DFFC /* SuperChildView.swift */; };
 		BADE87C12795FEE8001DE300 /* NewClothView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADE87C02795FEE8001DE300 /* NewClothView.swift */; };
 		BADE87C427960357001DE300 /* NoClothesCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADE87C327960357001DE300 /* NoClothesCollection.swift */; };
 		BADE87D7279886BD001DE300 /* ChooseTempView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADE87D6279886BD001DE300 /* ChooseTempView.swift */; };
@@ -151,12 +152,14 @@
 		BA1591F8273FE7560010CD56 /* ClowyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClowyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA1591FC273FE7560010CD56 /* ClowyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClowyUITests.swift; sourceTree = "<group>"; };
 		BA1591FE273FE7560010CD56 /* ClowyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClowyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BA23DF0828F737F8008C1A0B /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		BA348F1C28B37468008C6BBC /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Bold.ttf"; path = "../../../../Downloads/Montserrat/Montserrat-Bold.dataset/Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		BA348F1E28B3747C008C6BBC /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Medium.ttf"; path = "../../../../Downloads/Montserrat/Montserrat-Medium.dataset/Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		BA348F2028B3748E008C6BBC /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-SemiBold.ttf"; path = "../../../../Downloads/Montserrat/Montserrat-SemiBold.dataset/Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		BA348F2228B3749F008C6BBC /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Regular.ttf"; path = "../../../../Downloads/Montserrat/Montserrat-Regular.dataset/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		BA396DEF2817329800BD63A8 /* GetOutfits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetOutfits.swift; sourceTree = "<group>"; };
 		BA396DF12817461900BD63A8 /* AddGeneratedOutfit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGeneratedOutfit.swift; sourceTree = "<group>"; };
+		BA39AE37294CC7A200E1E389 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		BA3CE08528149C9900D724BF /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
 		BA3CE08828149DA300D724BF /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		BA3CE08A28149DB700D724BF /* Wardrobe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wardrobe.swift; sourceTree = "<group>"; };
@@ -204,6 +207,8 @@
 		BA8614B028EF77CF0095F232 /* ColorImagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorImagesView.swift; sourceTree = "<group>"; };
 		BA8614B228EF785A0095F232 /* image 35.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "image 35.svg"; sourceTree = "<group>"; };
 		BA86934928F52C1A008F37EB /* ClothImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothImage.swift; sourceTree = "<group>"; };
+		BA86934B28F69685008F37EB /* TestTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTextView.swift; sourceTree = "<group>"; };
+		BA86934D28F6B5A8008F37EB /* PlaceholderErrorCities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderErrorCities.swift; sourceTree = "<group>"; };
 		BA9C23C828D265A100DDDB54 /* MainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModel.swift; sourceTree = "<group>"; };
 		BA9C23CB28D4E80C00DDDB54 /* StartScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenView.swift; sourceTree = "<group>"; };
 		BA9C23CF28D8B91E00DDDB54 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -229,9 +234,6 @@
 		BAC3D64E2749082100DA1BAC /* ClothesApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesApi.swift; sourceTree = "<group>"; };
 		BAC4BEA6286DF92F0076DFFC /* NewChosenTempView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChosenTempView.swift; sourceTree = "<group>"; };
 		BAC4BEA8286DF9EC0076DFFC /* Temperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
-		BAC4BEAB286E2B580076DFFC /* ParentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentView.swift; sourceTree = "<group>"; };
-		BAC4BEAD286E2B620076DFFC /* ChildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildView.swift; sourceTree = "<group>"; };
-		BAC4BEAF286E2B700076DFFC /* SuperChildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperChildView.swift; sourceTree = "<group>"; };
 		BADE87C02795FEE8001DE300 /* NewClothView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewClothView.swift; sourceTree = "<group>"; };
 		BADE87C327960357001DE300 /* NoClothesCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoClothesCollection.swift; sourceTree = "<group>"; };
 		BADE87D6279886BD001DE300 /* ChooseTempView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseTempView.swift; sourceTree = "<group>"; };
@@ -336,6 +338,7 @@
 		BA1591E0273FE7530010CD56 /* Clowy */ = {
 			isa = PBXGroup;
 			children = (
+				BA39AE36294CC75700E1E389 /* SplashScreen */,
 				BA9C23CE28D8B90A00DDDB54 /* LocationManager */,
 				BA8614AF28EF77B00095F232 /* ColorImages */,
 				BA8201FB287F4F0300A3C66B /* ProfileView */,
@@ -418,6 +421,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		BA39AE36294CC75700E1E389 /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				BA39AE37294CC7A200E1E389 /* SplashScreen.swift */,
+			);
+			path = SplashScreen;
+			sourceTree = "<group>";
+		};
 		BA3CE08728149D8800D724BF /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -447,6 +458,7 @@
 				BA3E18492746B99E0070F4EF /* HEX.swift */,
 				BA8201F82874980600A3C66B /* ScroolViewModifier.swift */,
 				BA7E40AA28B4C63E00FB3730 /* CustomTextField.swift */,
+				BA23DF0828F737F8008C1A0B /* Buttons.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -473,6 +485,7 @@
 				BA649147286B279400B57F58 /* WardrobeCoreDataView.swift */,
 				BA649149286C4A6900B57F58 /* WardrobeClothesTestCardCollection.swift */,
 				BA64914B286C4B1E00B57F58 /* WardrobeTestClothCard.swift */,
+				BA86934B28F69685008F37EB /* TestTextView.swift */,
 			);
 			path = CoreDataFiles;
 			sourceTree = "<group>";
@@ -493,6 +506,7 @@
 			children = (
 				BA7E40B128B65B9500FB3730 /* DeviceLocationService.swift */,
 				BA7E40C028C2700400FB3730 /* PlaceholderCities.swift */,
+				BA86934D28F6B5A8008F37EB /* PlaceholderErrorCities.swift */,
 				BA7E40BC28C1130300FB3730 /* ChooseLocationView.swift */,
 				BA7E40B328B65BCD00FB3730 /* LocationTestView.swift */,
 			);
@@ -572,16 +586,6 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		BAC4BEAA286E2B470076DFFC /* TestViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				BAC4BEAB286E2B580076DFFC /* ParentView.swift */,
-				BAC4BEAD286E2B620076DFFC /* ChildView.swift */,
-				BAC4BEAF286E2B700076DFFC /* SuperChildView.swift */,
-			);
-			name = TestViewModel;
-			sourceTree = "<group>";
-		};
 		BADE87D527988692001DE300 /* AddClothesView */ = {
 			isa = PBXGroup;
 			children = (
@@ -597,7 +601,6 @@
 				BADE87D6279886BD001DE300 /* ChooseTempView.swift */,
 				BAC4BEA6286DF92F0076DFFC /* NewChosenTempView.swift */,
 				BADE87D9279886EA001DE300 /* TemperarureView.swift */,
-				BAC4BEAA286E2B470076DFFC /* TestViewModel */,
 				BADE87DB27988703001DE300 /* ChooseColorView.swift */,
 				BA8201EE2873857500A3C66B /* PhotoView */,
 				BADE87DD27988714001DE300 /* TagsView.swift */,
@@ -882,6 +885,7 @@
 				BA820200287F500200A3C66B /* ProfileNavBarView.swift in Sources */,
 				BA43D1FB28211D40008A4AF5 /* AppNavBarView.swift in Sources */,
 				BA5D8270283A5A7700A54005 /* PersistenceController.swift in Sources */,
+				BA86934E28F6B5A8008F37EB /* PlaceholderErrorCities.swift in Sources */,
 				BA5D826E28393D9400A54005 /* Stash.xcdatamodeld in Sources */,
 				BA715E1D283EA60900BD30FE /* CoreDataView.swift in Sources */,
 				BABEC86D27469CD000ECBF76 /* DaysForecastCell.swift in Sources */,
@@ -889,13 +893,13 @@
 				BA43D20328212862008A4AF5 /* CustomNavLink.swift in Sources */,
 				BA3CE08928149DA300D724BF /* Weather.swift in Sources */,
 				BABEC852274695D800ECBF76 /* GreetingView.swift in Sources */,
+				BA86934C28F69685008F37EB /* TestTextView.swift in Sources */,
 				BA12D0FE2776041600F91349 /* GetClothes.swift in Sources */,
 				BAC3C28628F29F2A00B32AE0 /* NoClothesPlaceholder.swift in Sources */,
 				BABEC84F2746955900ECBF76 /* AvatarView.swift in Sources */,
 				BA7E40C128C2700500FB3730 /* PlaceholderCities.swift in Sources */,
 				BA1591E2273FE7530010CD56 /* ClowyApp.swift in Sources */,
 				BA7812032819678F00D452DE /* Outfit.swift in Sources */,
-				BAC4BEB0286E2B700076DFFC /* SuperChildView.swift in Sources */,
 				BA6126312818733E0011ACF7 /* OutfitScreenView.swift in Sources */,
 				BAC19530287F605A00FB109B /* LocationView.swift in Sources */,
 				BADE87DC27988703001DE300 /* ChooseColorView.swift in Sources */,
@@ -910,12 +914,12 @@
 				BADE87C427960357001DE300 /* NoClothesCollection.swift in Sources */,
 				BA7E40AD28B6278700FB3730 /* Gender.swift in Sources */,
 				BAC1953A2880AACA00FB109B /* SwiftUISlider.swift in Sources */,
+				BA23DF0928F737F8008C1A0B /* Buttons.swift in Sources */,
 				BADE87DE27988714001DE300 /* TagsView.swift in Sources */,
 				BA12D0F427737D3000F91349 /* WardrobeScreenView.swift in Sources */,
 				BAC19532287F676400FB109B /* AvailableTypesView.swift in Sources */,
 				BA43D20128212718008A4AF5 /* CustomNavView.swift in Sources */,
 				BADE87D7279886BD001DE300 /* ChooseTempView.swift in Sources */,
-				BAC4BEAE286E2B620076DFFC /* ChildView.swift in Sources */,
 				BA3E184A2746B99E0070F4EF /* HEX.swift in Sources */,
 				BA9C23C928D265A100DDDB54 /* MainScreenViewModel.swift in Sources */,
 				BA64914C286C4B1E00B57F58 /* WardrobeTestClothCard.swift in Sources */,
@@ -929,7 +933,6 @@
 				BAC19536287F6B8E00FB109B /* NotificationsView.swift in Sources */,
 				BA9C23D228D8BACA00DDDB54 /* NewLocationView.swift in Sources */,
 				BA7E40B728B6A0BE00FB3730 /* ChosenClothesTypes.swift in Sources */,
-				BAC4BEAC286E2B580076DFFC /* ParentView.swift in Sources */,
 				BAC3D64F2749082100DA1BAC /* ClothesApi.swift in Sources */,
 				BA43D1FF28212457008A4AF5 /* CustomNavBarContainerView.swift in Sources */,
 				BA8201F92874980600A3C66B /* ScroolViewModifier.swift in Sources */,
@@ -938,6 +941,7 @@
 				BA8614B128EF77CF0095F232 /* ColorImagesView.swift in Sources */,
 				BADE87C12795FEE8001DE300 /* NewClothView.swift in Sources */,
 				BA8201F12873859A00A3C66B /* AddPhotoView.swift in Sources */,
+				BA39AE38294CC7A200E1E389 /* SplashScreen.swift in Sources */,
 				BA820202287F5B7400A3C66B /* TempPreferenceView.swift in Sources */,
 				BA396DF02817329800BD63A8 /* GetOutfits.swift in Sources */,
 				BA3CE08F28149DFA00D724BF /* Day.swift in Sources */,

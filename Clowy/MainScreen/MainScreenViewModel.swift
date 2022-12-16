@@ -19,7 +19,7 @@ class MainScreenViewModel: ObservableObject {
     
     @Published var cityNames = [String]()
     
-    @Published var chosenWeather: Weather = Weather(name: "Default", color: "#B1B4B8", icon: "cloud", temp: 20, humidity: 99, windSpeed: 2)
+    @Published var chosenWeather: Weather = Weather(code: 100, name: "Default", color: "#B1B4B8", icon: "cloud", temp: 20, humidity: 99, windSpeed: 2)
     @Published var selectedId: Int = 0
     @Published var days: [Day] = []
     @Published var clothes: [Wardrobe] = []
@@ -43,7 +43,7 @@ class MainScreenViewModel: ObservableObject {
             chosenWeather = weather
             self.selectedId = 0
         } else {
-            chosenWeather = Weather(name: "Clouds", color: "#B1B4B8", icon: "cloud", temp: 0, humidity: 99, windSpeed: 2)
+            chosenWeather = Weather(code: 100, name: "Clouds", color: "#B1B4B8", icon: "cloud", temp: 0, humidity: 99, windSpeed: 2)
         }
     }
         
@@ -72,7 +72,7 @@ class MainScreenViewModel: ObservableObject {
                     print("Failed to get data from url:", err)
                     withAnimation {
                         self.state = .error
-                        self.chosenWeather = Weather(name: "Clouds", color: "#B1B4B8", icon: "cloud", temp: 0, humidity: 99, windSpeed: 2)
+                        self.chosenWeather = Weather(code: 100, name: "Clouds", color: "#B1B4B8", icon: "cloud", temp: 0, humidity: 99, windSpeed: 2)
                     }
                     return
                 }
@@ -87,7 +87,7 @@ class MainScreenViewModel: ObservableObject {
                 } catch {
                     withAnimation {
                         self.state = .error
-                        self.chosenWeather = Weather(name: "Clouds", color: "#B1B4B8", icon: "cloud", temp: 0, humidity: 99, windSpeed: 2)
+                        self.chosenWeather = Weather(code: 100, name: "Clouds", color: "#B1B4B8", icon: "cloud", temp: 0, humidity: 99, windSpeed: 2)
                     }
                     print(error)
                 }
@@ -113,9 +113,7 @@ class MainScreenViewModel: ObservableObject {
             "X-RapidAPI-Key": "829a909363msh0b8c0e070645bf9p1034cajsn75d49f6d130b",
             "X-RapidAPI-Host": "wft-geo-db.p.rapidapi.com"
         ]
-        for (key, value) in headers {
-            request.setValue(value, forHTTPHeaderField: key)
-        }
+        
         URLSession.shared.dataTask(with: request) { ( data, response, err ) in
             DispatchQueue.main.async { // never, never, never sync !!
                 if let err = err {
@@ -284,12 +282,14 @@ class MainScreenViewModel: ObservableObject {
     func getAllDayWeather(nextDayTempList: [Day], weatherList: [String], days: [Day]) -> Day {
         let endName = nextDayTempList[0].name
         
+        
         var tempTemp = 0
         var tempHumidity = 0
         var tempWindSpeed = 0
         var icons = [String]()
         var colors = [String]()
         var weatherList2 = [String]()
+        var codes = [Double]()
         
         for item in nextDayTempList {
             tempTemp += item.weather.temp
@@ -299,6 +299,7 @@ class MainScreenViewModel: ObservableObject {
             icons.append(item.weather.icon)
             colors.append(item.weather.color)
             weatherList2.append(item.weather.name)
+            codes.append(item.weather.code)
         }
         
         let endTemp = tempTemp / nextDayTempList.count
@@ -312,8 +313,9 @@ class MainScreenViewModel: ObservableObject {
         let position = weatherList2.firstIndex(of: endWeather as! String)
         let endColor = colors[position!]
         let endIcon = icons[position!]
+        let endCode = codes[position!]
         
-        let firstDay = Day(id: days.count, name: endName, weather: Weather(name: endWeather as! String, color: endColor, icon: endIcon, temp: endTemp, humidity: endHumidity, windSpeed: endWindSpeed))
+        let firstDay = Day(id: days.count, name: endName, weather: Weather(code: endCode, name: endWeather as! String, color: endColor, icon: endIcon, temp: endTemp, humidity: endHumidity, windSpeed: endWindSpeed))
         return firstDay
     }
     
@@ -338,6 +340,7 @@ class MainScreenViewModel: ObservableObject {
             var weatherList = [String]()
             
             for item in (0..<data.list.count) {
+                print(data.list[item])
                 let newDaySeconds = Date(timeIntervalSince1970: TimeInterval(data.list[item].dt))
                 
                 let dateFormatter = DateFormatter()
@@ -348,6 +351,7 @@ class MainScreenViewModel: ObservableObject {
                 let id = item
                 let newFullDate = data.list[item].dt_txt.components(separatedBy: " ")
                 
+                let code = data.list[item].weather[0].id
                 let weather = data.list[item].weather[0].main
                 let temp = data.list[item].main.temp_min
                 let humidity = data.list[item].main.humidity
@@ -365,7 +369,7 @@ class MainScreenViewModel: ObservableObject {
                     if item == 0 {
                         let name = "Now"
                         let iconAndColor = getIconAndColor(statusCode: data.list[item].weather[0].id, dayTime: nil, hourInt: intHour)
-                        let day = Day(id: id, name: name, weather: Weather(name: weather, color: iconAndColor[1], icon: iconAndColor[0], temp: Int(temp), humidity: Int(humidity), windSpeed: Int(windSpeed)))
+                        let day = Day(id: id, name: name, weather: Weather(code: code, name: weather, color: iconAndColor[1], icon: iconAndColor[0], temp: Int(temp), humidity: Int(humidity), windSpeed: Int(windSpeed)))
                         
                         days.append(day)
                         
@@ -376,7 +380,7 @@ class MainScreenViewModel: ObservableObject {
                         weatherList.append(weather)
                         
                         if tempListResponse.isEmpty || tempListResponse.contains(where: {$0.name == name}) {
-                            let tempDay = Day(id: id, name: name, weather: Weather(name: weather, color: iconAndColor[1], icon: iconAndColor[0], temp: Int(temp), humidity: Int(humidity), windSpeed: Int(windSpeed)))
+                            let tempDay = Day(id: id, name: name, weather: Weather(code: code, name: weather, color: iconAndColor[1], icon: iconAndColor[0], temp: Int(temp), humidity: Int(humidity), windSpeed: Int(windSpeed)))
                             tempListResponse.append(tempDay)
                         } else {
                             let firstDay = getAllDayWeather(nextDayTempList: tempListResponse, weatherList: weatherList, days: days)
@@ -384,7 +388,7 @@ class MainScreenViewModel: ObservableObject {
                             
                             tempListResponse.removeAll()
                             weatherList.removeAll()
-                            let secondDay = Day(id: days.count, name: name, weather: Weather(name: weather, color: iconAndColor[1], icon: iconAndColor[0], temp: Int(temp), humidity: Int(humidity), windSpeed: Int(windSpeed)))
+                            let secondDay = Day(id: days.count, name: name, weather: Weather(code: code, name: weather, color: iconAndColor[1], icon: iconAndColor[0], temp: Int(temp), humidity: Int(humidity), windSpeed: Int(windSpeed)))
                             tempListResponse.append(secondDay)
                         }
                     }
@@ -407,10 +411,11 @@ class MainScreenViewModel: ObservableObject {
                         
                         weatherList.append(weather)
                         
+                        print(dayInt)
                         let name = dayInt <= 1 ? "Tomorrow" : getDayName(dayInt: dayInt)
-                        
+                        print(name)
                         if nextDayTempList.isEmpty || nextDayTempList.contains(where: {$0.name == name}) {
-                            let tempDay = Day(id: id, name: name, weather: Weather(name: weather, color: iconAndColor[1], icon: iconAndColor[0], temp: Int(temp), humidity: Int(humidity), windSpeed: Int(windSpeed)))
+                            let tempDay = Day(id: id, name: name, weather: Weather(code: code, name: weather, color: iconAndColor[1], icon: iconAndColor[0], temp: Int(temp), humidity: Int(humidity), windSpeed: Int(windSpeed)))
                             nextDayTempList.append(tempDay)
                             
                         } else {
@@ -419,7 +424,7 @@ class MainScreenViewModel: ObservableObject {
                             
                             nextDayTempList.removeAll()
                             weatherList.removeAll()
-                            let secondDay = Day(id: days.count, name: name, weather: Weather(name: weather, color: iconAndColor[1], icon: iconAndColor[0], temp: Int(temp), humidity: Int(humidity), windSpeed: Int(windSpeed)))
+                            let secondDay = Day(id: days.count, name: name, weather: Weather(code: code, name: weather, color: iconAndColor[1], icon: iconAndColor[0], temp: Int(temp), humidity: Int(humidity), windSpeed: Int(windSpeed)))
                             nextDayTempList.append(secondDay)
                         }
                             

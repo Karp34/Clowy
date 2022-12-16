@@ -94,22 +94,22 @@ struct NoOutfit : View {
             isShowingSheet.toggle()
         } label: {
             ZStack {
-                RoundedRectangle(cornerRadius: 24)
-                    .frame(height: 56)
-                    .foregroundColor(Color(hex: viewModel.chosenWeather.color))
+                Rectangle()
+                    .foregroundColor(.clear)
                 Text("Add")
                     .font(.custom("Montserrat-Bold", size: 16))
                     .foregroundColor(.white)
             }
-            .padding(.bottom, 24)
+            
         }
+        .padding(.bottom, 24)
+        .buttonStyle(DefaultColorButtonStyle(color: viewModel.chosenWeather.color))
         .sheet(isPresented: $isShowingSheet) {
             VStack (spacing: 0) {
                 AddClothesView(isShowingSheet: $isShowingSheet)
             }
             .background(Color(hex: "#F7F8FA").edgesIgnoringSafeArea(.all))
         }
-        
     }
 }
 

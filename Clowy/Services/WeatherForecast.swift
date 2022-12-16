@@ -52,13 +52,13 @@ class WeatherForecast {
         var daysList: [Day] = []
         let hour = Calendar.current.component(.hour, from: Date())
         let weatherList = [
-            Weather(name: "Cloudy", color: "#42AAFF", icon: "sun.max.fill", temp: 35, humidity: 99, windSpeed: 2),
-            Weather(name: "Cloudy", color: "#ABCDEF", icon: "sun.haze.fill", temp: 12, humidity: 99, windSpeed: 2),
-            Weather(name: "Cloudy", color: "#003153", icon: "cloud.moon.rain.fill", temp: 2, humidity: 99, windSpeed: 2),
-            Weather(name: "Cloudy", color: "#4285B4", icon: "cloud.bolt.fill", temp: 0, humidity: 99, windSpeed: 2),
-            Weather(name: "Cloudy", color: "#3E5F8A", icon: "cloud.drizzle.fill", temp: -3, humidity: 99, windSpeed: 2),
-            Weather(name: "Cloudy", color: "#606E8C", icon: "cloud.sun.rain.fill", temp: 27, humidity: 99, windSpeed: 2),
-            Weather(name: "Cloudy", color: "#1560BD", icon: "cloud.snow.fill", temp:-33, humidity: 99, windSpeed: 2)
+            Weather(code: 802, name: "Cloudy", color: "#42AAFF", icon: "sun.max.fill", temp: 35, humidity: 99, windSpeed: 2),
+            Weather(code: 802, name: "Cloudy", color: "#ABCDEF", icon: "sun.haze.fill", temp: 12, humidity: 99, windSpeed: 2),
+            Weather(code: 802, name: "Cloudy", color: "#003153", icon: "cloud.moon.rain.fill", temp: 2, humidity: 99, windSpeed: 2),
+            Weather(code: 802, name: "Cloudy", color: "#4285B4", icon: "cloud.bolt.fill", temp: 0, humidity: 99, windSpeed: 2),
+            Weather(code: 802, name: "Cloudy", color: "#3E5F8A", icon: "cloud.drizzle.fill", temp: -3, humidity: 99, windSpeed: 2),
+            Weather(code: 802, name: "Cloudy", color: "#606E8C", icon: "cloud.sun.rain.fill", temp: 27, humidity: 99, windSpeed: 2),
+            Weather(code: 802, name: "Cloudy", color: "#1560BD", icon: "cloud.snow.fill", temp:-33, humidity: 99, windSpeed: 2)
         ]
         
         let dayNumber = Calendar.current.component(.weekday, from: Date())
@@ -78,13 +78,13 @@ class WeatherForecast {
         }
         return daysList
 //        [
-//            Day(id: 0, name: "Now", weather: Weather(color: "#42AAFF", icon: "sun.max.fill", temp: "35°")),
-//            Day(id: 1, name: greetingLogic(hour), weather: Weather(color: "#ABCDEF", icon: "sun.haze.fill", temp: "12°")),
-//            Day(id: 2, name: "Night", weather: Weather(color: "#003153", icon: "cloud.moon.rain.fill", temp: "2°")),
-//            Day(id: 3, name: "Thursday", weather: Weather(color: "#4285B4", icon: "cloud.bolt.fill", temp: "0°")),
-//            Day(id: 4, name: "Friday", weather: Weather(color: "#3E5F8A", icon: "cloud.drizzle.fill", temp: "-3°")),
-//            Day(id: 5, name: "Saturday", weather: Weather(color: "#606E8C", icon: "cloud.sun.rain.fill", temp: "-27°")),
-//            Day(id: 6, name: "Sunday", weather: Weather(color: "#1560BD", icon: "cloud.snow.fill", temp: "-33°"))
+//            Day(id: 0, name: "Now", weather: Weather(code: 802, color: "#42AAFF", icon: "sun.max.fill", temp: "35°")),
+//            Day(id: 1, name: greetingLogic(hour), weather: Weather(code: 802, color: "#ABCDEF", icon: "sun.haze.fill", temp: "12°")),
+//            Day(id: 2, name: "Night", weather: Weather(code: 802, color: "#003153", icon: "cloud.moon.rain.fill", temp: "2°")),
+//            Day(id: 3, name: "Thursday", weather: Weather(code: 802, color: "#4285B4", icon: "cloud.bolt.fill", temp: "0°")),
+//            Day(id: 4, name: "Friday", weather: Weather(code: 802, color: "#3E5F8A", icon: "cloud.drizzle.fill", temp: "-3°")),
+//            Day(id: 5, name: "Saturday", weather: Weather(code: 802, color: "#606E8C", icon: "cloud.sun.rain.fill", temp: "-27°")),
+//            Day(id: 6, name: "Sunday", weather: Weather(code: 802, color: "#1560BD", icon: "cloud.snow.fill", temp: "-33°"))
 //        ]
     }
 }

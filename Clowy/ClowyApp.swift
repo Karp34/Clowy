@@ -18,9 +18,10 @@ struct Clowy2App: App {
     
     var body: some Scene {
         WindowGroup {
-            MainScreenView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
-                .preferredColorScheme(.light)
+//            MainScreenView()
+//                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+//                .preferredColorScheme(.light)
+            SplashScreen()
         }
         .onChange(of: scenePhase) { (newScenePhase) in
             switch newScenePhase {

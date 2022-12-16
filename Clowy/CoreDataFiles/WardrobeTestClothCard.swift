@@ -33,7 +33,6 @@ struct WardrobeTestClothCard: View {
                     ZStack {
                         RoundedRectangle(cornerRadius: 16)
                             .foregroundColor(.white)
-//                            .frame(width: 128, height: 164)
                         HStack {
                             Spacer()
                             VStack{
@@ -90,28 +89,26 @@ struct WardrobeTestClothCard: View {
                         .foregroundColor(.white)
                         .frame(width: 128, height: 164)
                 }
-                VStack {
+                VStack(spacing: 8) {
                     if cloth.image != nil {
                         ClothImage(imageName: cloth.image, isDeafult: cloth.isDefault, color: cloth.color ?? "#FFFFFF")
                             .scaledToFit()
-                            .frame(width: 70, height: 100)
+                            .frame(width: 96, height: 96)
                     } else {
                         Image(systemName: "t-shirt")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 70, height: 100)
+                            .frame(width: 96, height: 96)
                     }
                     
                     Text(cloth.name ?? "Cloth")
-                        .font(.custom("Montserrat-Regular", size: 14))
+                        .font(.custom("Montserrat-Regular", size: 12))
                         .multilineTextAlignment(.center)
+                        .frame(width: 96, height: 32, alignment: .center)
                         .lineLimit(2)
-                        .frame(width: 100)
-                        .scaledToFill()
-                        .padding(.vertical, 2)
                         .foregroundColor(Color(hex: "#606060"))
                 }
-                .frame(width: 96, height: 120)
+                .frame(height: 128)
         }
             .shadow(color:Color(hex: "#646C75").opacity(0.1), radius: 10, y: 4)
     }

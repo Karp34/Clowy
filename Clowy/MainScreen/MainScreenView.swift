@@ -79,13 +79,19 @@ struct MainScreenView: View, DaysForecastViewDelegate {
                             .padding(.top, 24)
                         
                     }
+                    .buttonStyle(NoAnimationButtonStyle())
                     
-                    WeatherForecastView(
-                        name: viewModel.chosenWeather.name,
-                        color: viewModel.chosenWeather.color,
-                        temp: viewModel.chosenWeather.temp,
-                        icon: viewModel.chosenWeather.icon,
-                        state: viewModel.state)
+                    Button {
+                    } label: {
+                        WeatherForecastView(
+                            name: viewModel.chosenWeather.name,
+                            color: viewModel.chosenWeather.color,
+                            temp: viewModel.chosenWeather.temp,
+                            icon: viewModel.chosenWeather.icon,
+                            state: viewModel.state)
+                    }
+                    .buttonStyle(ScaleButtonStyle())
+                    
 
                     WardrobeModuleView(color: viewModel.chosenWeather.color, numberOfClothes: items.count, numberOfOutfits: 0)
                         .padding(.horizontal, 24)
@@ -132,6 +138,7 @@ struct MainScreenView: View, DaysForecastViewDelegate {
                             print("geo")
                             print(viewModel.coordinates)
                             print(viewModel.weather)
+                            print(viewModel.days)
                         }
                     } else {
                         viewModel.getWeatherData(lat: nil, long: nil, locationName: UserDefaults.standard.string(forKey: "location") ) {
@@ -141,6 +148,7 @@ struct MainScreenView: View, DaysForecastViewDelegate {
                             }
                             print("loc")
                             print(UserDefaults.standard.string(forKey: "location"))
+                            print(viewModel.days)
                         }
                     }
                 }

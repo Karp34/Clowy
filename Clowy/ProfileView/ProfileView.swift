@@ -28,12 +28,12 @@ struct ProfileView: View {
                     Spacer(minLength: 180)
                     TempPreferenceView()
                     
-                    
                     Button {
                         showSheet.toggle()
                     } label: {
                         LocationView()
                     }
+                    .buttonStyle(ScaleButtonStyle())
                     .sheet(isPresented: $showSheet) {
                         ChooseLocationView()
                     }

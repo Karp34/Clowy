@@ -46,7 +46,7 @@ struct ChooseLocationView: View {
                             ZStack(alignment: .leading) {
                                 let textHint = viewModel.cityNames.isEmpty ? "" : viewModel.cityNames.first(where: { $0.starts(with: location)}) ?? ""
                                 if isChangingLocation == true {
-                                    if textHint.starts(with: location) {
+                                    if textHint.starts(with: location) && location.count > 0 {
                                         Text(textHint)
                                             .font(.custom("Montserrat-Semibold", size: 16))
                                             .foregroundColor(Color(hex: "#A6B3C2"))
@@ -61,9 +61,12 @@ struct ChooseLocationView: View {
                                     
                                     onEditingChanged: { isEditing in
                                         if isEditing {
-                                            viewModel.getCityName(prefixName: location)
-                                            print("CITY NAMES")
-                                            print(viewModel.cityNames)
+                                            print("isEditing")
+                                            if location.count > 2 {
+                                                viewModel.getCityName(prefixName: location)
+                                                print("CITY NAMES")
+                                                print(viewModel.cityNames)
+                                            }
                                             withAnimation {
                                                 isChangingLocation = true
                                             }
@@ -98,19 +101,21 @@ struct ChooseLocationView: View {
                                 .textFieldStyle(CustomFieldStyle())
                                 .multilineTextAlignment(.leading)
                                 .onChange(of: location, perform: { _ in
-                                    print(location)
-                                    viewModel.getCityName(prefixName: location)
-                                    print("CITY NAMES")
-                                    print(viewModel.cityNames)
+                                    if location != "" {
+                                        print("changed")
+                                        withAnimation {
+                                            isChangingLocation = true
+                                        }
+                                    }
+                                    if location.count > 2 {
+                                        print(location)
+                                        viewModel.getCityName(prefixName: location)
+                                        print("CITY NAMES")
+                                        print(viewModel.cityNames)
+                                    }
                                 })
                             }
                             
-    //                        .onReceive(location.publisher) { _ in
-    //                            print(location)
-    //                            viewModel.getCityName(prefixName: location)
-    //                            print("CITY NAMES")
-    //                            print(viewModel.cityNames)
-    //                        }
                             Spacer()
                             
                             if location.count > 0 {
@@ -136,7 +141,7 @@ struct ChooseLocationView: View {
                         if location.count > 0 {
                             if viewModel.stateCityName == .success {
                                 let capitals: [String] = viewModel.cityNames
-                                if capitals.count == 0 {
+                                if capitals.count < 3 {
                                     PlaceholderCities()
                                 } else {
                                     VStack (alignment: .leading, spacing: 16) {
@@ -172,7 +177,7 @@ struct ChooseLocationView: View {
                                 }
                             }
                             if viewModel.stateCityName == .error {
-                                Text("Error has occured")
+                                PlaceholderErrorCities()
                             }
                             if viewModel.stateCityName == .placeholder {
                                 PlaceholderCities()

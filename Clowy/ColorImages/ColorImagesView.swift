@@ -8,17 +8,115 @@
 import SwiftUI
 
 struct ColorImagesView: View {
-    @StateObject private var viewModel = AddClothesViewModel.shared
-    let colorList: [String] = ["#A5D469", "#C6FF7E", "#7DA150"]
+    @StateObject private var viewModel = MainScreenViewModel.shared
+    @State private var scaleValue = CGFloat(1)
+    @State var isShow = false
+    
+    @State var selection: Int? = nil
     
     var body: some View {
-        if viewModel.image != nil {
-            VStack {
-                Image(uiImage: UIImage(data: self.viewModel.image)!)
-                    .resizable()
-                    .scaledToFit()
-                    .colorMultiply(Color(hex: viewModel.chosenColor))
+        
+        
+        VStack {
+            NavigationLink(destination: WardrobeScreenView(), tag: 1, selection: $selection) {
+                Button(action: {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                        self.selection = 1
+                    }
+                }) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 24)
+                            .foregroundColor(.blue)
+                            .frame(width: 400, height: 32)
+                        Text("Add")
+                            .font(.custom("Montserrat-Bold", size: 16))
+                            .foregroundColor(.white)
+                    }
+                }
+                .buttonStyle(NoAnimationButtonStyle())
             }
+            .buttonStyle(ScaleButtonStyle())
+            
+            HStack {
+                Color(hex: "#678CD4")
+                Color(hex: "#425987")
+            }
+            
+            Button {
+                
+            } label: {
+                ZStack {
+                    Rectangle()
+                        .foregroundColor(.clear)
+                    Text("Add")
+                        .font(.custom("Montserrat-Bold", size: 16))
+                        .foregroundColor(.white)
+                }
+                
+            }
+            .padding(.bottom, 24)
+            .buttonStyle(DefaultColorButtonStyle(color: viewModel.chosenWeather.color))
+            
+            Button {
+                
+            } label: {
+                ZStack {
+                    Rectangle()
+                        .foregroundColor(.clear)
+                    Text("Add")
+                        .font(.custom("Montserrat-Bold", size: 16))
+                        .foregroundColor(.white)
+                }
+                
+            }
+            .padding(.bottom, 24)
+            .buttonStyle(DefaultColorButtonStyle(color: viewModel.chosenWeather.color))
+            .disabled(true)
         }
+        
+    }
+}
+
+
+struct TouchGestureViewModifier: ViewModifier {
+    let touchBegan: () -> Void
+    let touchEnd: (Bool) -> Void
+
+    @State private var hasBegun = false
+    @State private var hasEnded = false
+
+    private func isTooFar(_ translation: CGSize) -> Bool {
+        let distance = sqrt(pow(translation.width, 2) + pow(translation.height, 2))
+        return distance >= 20.0
+    }
+
+    func body(content: Content) -> some View {
+        content.gesture(DragGesture(minimumDistance: 0)
+                .onChanged { event in
+                    guard !self.hasEnded else { return }
+
+                    if self.hasBegun == false {
+                        self.hasBegun = true
+                        self.touchBegan()
+                    } else if self.isTooFar(event.translation) {
+                        self.hasEnded = true
+                        self.touchEnd(false)
+                    }
+                }
+                .onEnded { event in
+                    if !self.hasEnded {
+                        let success = !self.isTooFar(event.translation)
+                        self.touchEnd(success)
+                    }
+                    self.hasBegun = false
+                    self.hasEnded = false
+                })
+    }
+}
+
+extension View {
+    func onTouchGesture(touchBegan: @escaping () -> Void,
+                      touchEnd: @escaping (Bool) -> Void) -> some View {
+        modifier(TouchGestureViewModifier(touchBegan: touchBegan, touchEnd: touchEnd))
     }
 }

@@ -9,8 +9,6 @@
 import SwiftUI
 import AVFAudio
 
-class WardrobeCoreDataViewModel: ObservableObject {
-}
 
 
 
@@ -31,7 +29,7 @@ struct WardrobeCoreDataView: View {
     
     
     @State private var isShowingSheet = false
-    @ObservedObject private var viewModel = WardrobeScreenViewModel()
+    @ObservedObject private var viewModel = AddClothesViewModel.shared
     
     @State var clothes: [Wardrobe] = []
     private func getClothes() {
@@ -113,6 +111,6 @@ struct WardrobeCoreDataView: View {
         .background(Color(hex: "#F7F8FA").edgesIgnoringSafeArea(.all))
     }
     func didDismiss() {
-        // Handle the dismissing action.
+        viewModel.reset()
     }
 }
