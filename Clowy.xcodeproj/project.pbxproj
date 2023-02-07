@@ -84,6 +84,12 @@
 		BA9C23D228D8BACA00DDDB54 /* NewLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9C23D128D8BACA00DDDB54 /* NewLocationView.swift */; };
 		BA9C23D428D8BB0E00DDDB54 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9C23D328D8BB0D00DDDB54 /* WelcomeView.swift */; };
 		BA9D82AF28212D55009E43E8 /* CustomNavBarPreferenceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9D82AE28212D55009E43E8 /* CustomNavBarPreferenceKeys.swift */; };
+		BAB79A9E2992F7490042A107 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB79A9D2992F7490042A107 /* LoginScreen.swift */; };
+		BAB79AA12992F8FA0042A107 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = BAB79AA02992F8FA0042A107 /* FirebaseAuth */; };
+		BAB79AA32992F8FA0042A107 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = BAB79AA22992F8FA0042A107 /* FirebaseDatabase */; };
+		BAB79AA52992F8FA0042A107 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = BAB79AA42992F8FA0042A107 /* FirebaseStorage */; };
+		BAB79AA72992F9C70042A107 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BAB79AA62992F9C70042A107 /* GoogleService-Info.plist */; };
+		BAB79AA92992FDC20042A107 /* LogoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB79AA82992FDC20042A107 /* LogoutView.swift */; };
 		BAB8D37B28B3D032000E1717 /* ProfileNavBarContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB8D37A28B3D032000E1717 /* ProfileNavBarContent.swift */; };
 		BABEC84F2746955900ECBF76 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABEC84E2746955900ECBF76 /* AvatarView.swift */; };
 		BABEC852274695D800ECBF76 /* GreetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABEC851274695D800ECBF76 /* GreetingView.swift */; };
@@ -215,6 +221,9 @@
 		BA9C23D128D8BACA00DDDB54 /* NewLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLocationView.swift; sourceTree = "<group>"; };
 		BA9C23D328D8BB0D00DDDB54 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		BA9D82AE28212D55009E43E8 /* CustomNavBarPreferenceKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarPreferenceKeys.swift; sourceTree = "<group>"; };
+		BAB79A9D2992F7490042A107 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
+		BAB79AA62992F9C70042A107 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BAB79AA82992FDC20042A107 /* LogoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutView.swift; sourceTree = "<group>"; };
 		BAB8D37A28B3D032000E1717 /* ProfileNavBarContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNavBarContent.swift; sourceTree = "<group>"; };
 		BABEC84E2746955900ECBF76 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		BABEC851274695D800ECBF76 /* GreetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingView.swift; sourceTree = "<group>"; };
@@ -269,6 +278,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				17BA875CDEB0B390ABD9BE60 /* Pods_Clowy.framework in Frameworks */,
+				BAB79AA12992F8FA0042A107 /* FirebaseAuth in Frameworks */,
+				BAB79AA32992F8FA0042A107 /* FirebaseDatabase in Frameworks */,
+				BAB79AA52992F8FA0042A107 /* FirebaseStorage in Frameworks */,
 				BA9C23C728D2514C00DDDB54 /* WaterfallGrid in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -347,12 +359,15 @@
 				BA3CE08728149D8800D724BF /* Models */,
 				BADE87D527988692001DE300 /* AddClothesView */,
 				BA12D0F527737E0F00F91349 /* WardrobeScreen */,
+				BAB79A9C2992F7000042A107 /* LoginScreen */,
 				BA3E18482746B98E0070F4EF /* Extensions */,
 				BAEC625D274E751B009E69E5 /* Fonts */,
+				BA9C23CA28D4E7F800DDDB54 /* StartScreen */,
 				BA75B7DC2746AEC30091A797 /* MainScreen */,
 				BA1591E7273FE7560010CD56 /* Preview Content */,
 				BABEC86227469BA600ECBF76 /* Services */,
 				BA1591E5273FE7560010CD56 /* Assets.xcassets */,
+				BAB79AA62992F9C70042A107 /* GoogleService-Info.plist */,
 				BA1591E1273FE7530010CD56 /* ClowyApp.swift */,
 			);
 			path = Clowy;
@@ -493,7 +508,6 @@
 		BA75B7DC2746AEC30091A797 /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
-				BA9C23CA28D4E7F800DDDB54 /* StartScreen */,
 				BA31138F2808B51400BBCE97 /* Views */,
 				BA3CE08528149C9900D724BF /* MainScreenView.swift */,
 				BA9C23C828D265A100DDDB54 /* MainScreenViewModel.swift */,
@@ -539,6 +553,7 @@
 				BAB8D37A28B3D032000E1717 /* ProfileNavBarContent.swift */,
 				BA820201287F5B7400A3C66B /* TempPreferenceView.swift */,
 				BAC1952F287F605A00FB109B /* LocationView.swift */,
+				BAB79AA82992FDC20042A107 /* LogoutView.swift */,
 				BA7E40B028B65B7100FB3730 /* LocationSubViews */,
 				BAC19531287F676400FB109B /* AvailableTypesView.swift */,
 				BAC19535287F6B8E00FB109B /* NotificationsView.swift */,
@@ -572,6 +587,14 @@
 				BA9C23D328D8BB0D00DDDB54 /* WelcomeView.swift */,
 			);
 			path = LocationManager;
+			sourceTree = "<group>";
+		};
+		BAB79A9C2992F7000042A107 /* LoginScreen */ = {
+			isa = PBXGroup;
+			children = (
+				BAB79A9D2992F7490042A107 /* LoginScreen.swift */,
+			);
+			path = LoginScreen;
 			sourceTree = "<group>";
 		};
 		BABEC86227469BA600ECBF76 /* Services */ = {
@@ -640,6 +663,9 @@
 			name = Clowy;
 			packageProductDependencies = (
 				BA3336782799AFB200E88B68 /* WaterfallGrid */,
+				BAB79AA02992F8FA0042A107 /* FirebaseAuth */,
+				BAB79AA22992F8FA0042A107 /* FirebaseDatabase */,
+				BAB79AA42992F8FA0042A107 /* FirebaseStorage */,
 			);
 			productName = Clowy;
 			productReference = BA1591DE273FE7530010CD56 /* Clowy.app */;
@@ -718,6 +744,7 @@
 			mainGroup = BA1591D5273FE7530010CD56;
 			packageReferences = (
 				BA3336772799AFB200E88B68 /* XCRemoteSwiftPackageReference "WaterfallGrid" */,
+				BAB79A9F2992F8FA0042A107 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = BA1591DF273FE7530010CD56 /* Products */;
 			projectDirPath = "";
@@ -738,6 +765,7 @@
 				BA1591E9273FE7560010CD56 /* Preview Assets.xcassets in Resources */,
 				BA348F2328B3749F008C6BBC /* Montserrat-Regular.ttf in Resources */,
 				BA348F2128B3748E008C6BBC /* Montserrat-SemiBold.ttf in Resources */,
+				BAB79AA72992F9C70042A107 /* GoogleService-Info.plist in Resources */,
 				BA8614B328EF785A0095F232 /* image 35.svg in Resources */,
 				BA348F1F28B3747C008C6BBC /* Montserrat-Medium.ttf in Resources */,
 				BA1591E6273FE7560010CD56 /* Assets.xcassets in Resources */,
@@ -888,6 +916,7 @@
 				BA86934E28F6B5A8008F37EB /* PlaceholderErrorCities.swift in Sources */,
 				BA5D826E28393D9400A54005 /* Stash.xcdatamodeld in Sources */,
 				BA715E1D283EA60900BD30FE /* CoreDataView.swift in Sources */,
+				BAB79AA92992FDC20042A107 /* LogoutView.swift in Sources */,
 				BABEC86D27469CD000ECBF76 /* DaysForecastCell.swift in Sources */,
 				BA7E40C328C3E1D100FB3730 /* OpenWeatherModels.swift in Sources */,
 				BA43D20328212862008A4AF5 /* CustomNavLink.swift in Sources */,
@@ -934,6 +963,7 @@
 				BA9C23D228D8BACA00DDDB54 /* NewLocationView.swift in Sources */,
 				BA7E40B728B6A0BE00FB3730 /* ChosenClothesTypes.swift in Sources */,
 				BAC3D64F2749082100DA1BAC /* ClothesApi.swift in Sources */,
+				BAB79A9E2992F7490042A107 /* LoginScreen.swift in Sources */,
 				BA43D1FF28212457008A4AF5 /* CustomNavBarContainerView.swift in Sources */,
 				BA8201F92874980600A3C66B /* ScroolViewModifier.swift in Sources */,
 				BAC4BEA7286DF92F0076DFFC /* NewChosenTempView.swift in Sources */,
@@ -1335,6 +1365,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		BAB79A9F2992F8FA0042A107 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1342,6 +1380,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BA3336772799AFB200E88B68 /* XCRemoteSwiftPackageReference "WaterfallGrid" */;
 			productName = WaterfallGrid;
+		};
+		BAB79AA02992F8FA0042A107 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BAB79A9F2992F8FA0042A107 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		BAB79AA22992F8FA0042A107 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BAB79A9F2992F8FA0042A107 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		BAB79AA42992F8FA0042A107 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BAB79A9F2992F8FA0042A107 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
 		};
 /* End XCSwiftPackageProductDependency section */
 

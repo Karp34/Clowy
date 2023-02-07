@@ -8,6 +8,7 @@
 import SwiftUI
 import Foundation
 import Combine
+import Firebase
 
 class MainScreenViewModel: ObservableObject {
     static var shared = MainScreenViewModel()
@@ -482,4 +483,39 @@ class MainScreenViewModel: ObservableObject {
         sortDescriptors: [NSSortDescriptor(keyPath: \TestCloth.name, ascending: true)]
     ) var items: FetchedResults<TestCloth>
     
+
+    
+    
+    
+    //Log in feature
+    
+    @Published var userIsLoggedIn = false
+    @Published var userEmail: String = ""
+    @Published var userPassword: String = ""
+    
+    func register() {
+        Auth.auth().createUser(withEmail: userEmail, password: userPassword) { result, error in
+            if error != nil {
+                print(error!.localizedDescription)
+            }
+            
+        }
+    }
+    
+    func login() {
+        Auth.auth().signIn(withEmail: userEmail, password: userPassword) { result, error in
+            if error != nil {
+                print(error!.localizedDescription)
+            }
+        }
+    }
+    
+    func signOut() {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print("Error signing out: %@", signOutError)
+        }
+    }
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 @available(iOS 14.0, *)
 @main
@@ -15,6 +16,10 @@ struct Clowy2App: App {
     let persistenceController = PersistenceController.shared
     
     @Environment(\.scenePhase) var scenePhase
+    
+    init() {
+        FirebaseApp.configure()
+    }
     
     var body: some Scene {
         WindowGroup {

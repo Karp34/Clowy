@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SplashScreen: View {
+    @StateObject private var viewModel = MainScreenViewModel.shared
     @State var size = 0.8
     @State var opacity = 0.5
     @State var isActive = false
@@ -18,9 +19,13 @@ struct SplashScreen: View {
     
     var body: some View {
         if isActive {
-            MainScreenView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
-                .preferredColorScheme(.light)
+            if viewModel.userIsLoggedIn {
+                MainScreenView()
+                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                    .preferredColorScheme(.light)
+            } else {
+                LoginScreen()
+            }
         } else {
             VStack {
                 ZStack {

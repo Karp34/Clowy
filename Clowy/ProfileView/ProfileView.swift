@@ -17,9 +17,11 @@ class ProfileViewModel: ObservableObject {
 
 struct ProfileView: View {
     @StateObject private var viewModel = ProfileViewModel.shared
+    @StateObject private var mainViewModel = MainScreenViewModel.shared
     
     @State var showSheet = false
     @State var showSheet2 = false
+    @State private var showingAlert = false
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -41,6 +43,29 @@ struct ProfileView: View {
                     AvailableTypesView()
                     NotificationsView()
                     InformationView()
+                    
+                    Button {
+                        showingAlert = true
+                    } label: {
+                        LogoutView()
+                    }
+                    .buttonStyle(ScaleButtonStyle())
+                    .alert(isPresented: $showingAlert) {
+                        Alert(
+                            title: Text("Logout"),
+                            message: Text("Do you want to log out?"),
+                            primaryButton:  .default(Text("Yes")) {
+                                withAnimation {
+                                    mainViewModel.signOut()
+                                    mainViewModel.userIsLoggedIn = false
+                                }
+                                print("Logout")
+                            },
+                            secondaryButton:  .default(Text("Cancel")) {
+                                print("Cancel")
+                            }
+                        )
+                    }
                     
                     Button {
                         showSheet2.toggle()
