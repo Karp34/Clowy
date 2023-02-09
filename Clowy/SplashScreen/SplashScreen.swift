@@ -40,6 +40,7 @@ struct SplashScreen: View {
                         .padding(.top, textOffset)
 //                        .background(Color.red)
                 }
+                .opacity(opacity)
                 .ignoresSafeArea()
                 .onAppear {
                     Auth.auth().addStateDidChangeListener { auth, user in
@@ -48,7 +49,9 @@ struct SplashScreen: View {
                         }
                     }
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2.0 ) {
-                        self.isActive = true
+                        withAnimation(.linear(duration: 1)) {
+                            self.isActive = true
+                        }
                     }
                 }
             }

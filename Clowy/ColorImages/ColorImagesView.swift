@@ -55,7 +55,7 @@ struct ColorImagesView: View {
                 
             }
             .padding(.bottom, 24)
-            .buttonStyle(DefaultColorButtonStyle(color: viewModel.chosenWeather.color, radius: 16))
+            .buttonStyle(DefaultColorButtonStyle(color: viewModel.chosenWeather.color, radius: 24))
             
             Button {
                 
@@ -70,7 +70,7 @@ struct ColorImagesView: View {
                 
             }
             .padding(.bottom, 24)
-            .buttonStyle(DefaultColorButtonStyle(color: viewModel.chosenWeather.color, radius: 16))
+            .buttonStyle(DefaultColorButtonStyle(color: viewModel.chosenWeather.color, radius: 24))
             .disabled(true)
         }
         

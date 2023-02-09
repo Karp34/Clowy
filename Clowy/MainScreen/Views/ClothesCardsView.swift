@@ -97,13 +97,13 @@ struct NoOutfit : View {
                 Rectangle()
                     .foregroundColor(.clear)
                 Text("Add")
-                    .font(.custom("Montserrat-Bold", size: 16))
+                    .font(.custom("Montserrat-Bold", size: 24))
                     .foregroundColor(.white)
             }
             
         }
         .padding(.bottom, 24)
-        .buttonStyle(DefaultColorButtonStyle(color: viewModel.chosenWeather.color, radius: 16))
+        .buttonStyle(DefaultColorButtonStyle(color: viewModel.chosenWeather.color, radius: 24))
         .sheet(isPresented: $isShowingSheet) {
             VStack (spacing: 0) {
                 AddClothesView(isShowingSheet: $isShowingSheet)
