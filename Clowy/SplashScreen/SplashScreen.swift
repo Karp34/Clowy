@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct SplashScreen: View {
     @StateObject private var viewModel = MainScreenViewModel.shared
     @State var size = 0.8
-    @State var opacity = 0.5
+    @State var opacity = 1.0
+    @State var offset: CGFloat = 300
     @State var isActive = false
     
     let persistenceController = PersistenceController.shared
@@ -18,28 +20,33 @@ struct SplashScreen: View {
     @Environment(\.scenePhase) var scenePhase
     
     var body: some View {
-        if isActive {
-            if viewModel.userIsLoggedIn {
-                MainScreenView()
-                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
-                    .preferredColorScheme(.light)
-            } else {
-                LoginScreen()
-            }
-        } else {
-            VStack {
-                ZStack {
-                    Color(hex: "#5987DD")
-                        .edgesIgnoringSafeArea(.all)
-                    Text("Clowy")
-                        .font(.custom("Montserrat-SemiBold", size: 48))
-                        .foregroundColor(.white)
-                
+        GeometryReader { geometry in
+            if isActive {
+                if viewModel.userIsLoggedIn {
+                    MainScreenView()
+                        .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                        .preferredColorScheme(.light)
+                } else {
+    //                TestLoginScreen()
+                    LoginScreen()
                 }
-            }
-            .background(Color(hex: "#5987DD").edgesIgnoringSafeArea(.all))
-            .onAppear {
-                withAnimation {
+            } else {
+                let textOffset = geometry.size.height/2
+                ZStack(alignment: .top) {
+                    Color(hex: "#678CD4")
+                    Text("Clowy")
+                        .font(.custom("Montserrat-Bold", size: 40))
+                        .foregroundColor(.white)
+                        .padding(.top, textOffset)
+//                        .background(Color.red)
+                }
+                .ignoresSafeArea()
+                .onAppear {
+                    Auth.auth().addStateDidChangeListener { auth, user in
+                        if user != nil {
+                            viewModel.userIsLoggedIn.toggle()
+                        }
+                    }
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2.0 ) {
                         self.isActive = true
                     }

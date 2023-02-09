@@ -23,6 +23,16 @@ struct CustomFieldStyle2: TextFieldStyle {
     }
 }
 
+struct CustomFieldStyle3: TextFieldStyle {
+    var size: CGFloat
+    
+    func _body(configuration: TextField<Self._Label>) -> some View {
+        configuration
+            .font(.custom("Montserrat-Regular", size: size))
+            .foregroundColor(Color(hex: "#646C75"))
+    }
+}
+
 struct InputNameView: View {
     @State var newClothesName: String = ""
     @State var title = "Add item"

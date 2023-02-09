@@ -507,6 +507,7 @@ class MainScreenViewModel: ObservableObject {
             if error != nil {
                 print(error!.localizedDescription)
             }
+            self.userIsLoggedIn.toggle()
         }
     }
     

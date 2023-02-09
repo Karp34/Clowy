@@ -103,7 +103,7 @@ struct NoOutfit : View {
             
         }
         .padding(.bottom, 24)
-        .buttonStyle(DefaultColorButtonStyle(color: viewModel.chosenWeather.color))
+        .buttonStyle(DefaultColorButtonStyle(color: viewModel.chosenWeather.color, radius: 16))
         .sheet(isPresented: $isShowingSheet) {
             VStack (spacing: 0) {
                 AddClothesView(isShowingSheet: $isShowingSheet)

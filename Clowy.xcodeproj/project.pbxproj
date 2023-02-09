@@ -10,6 +10,7 @@
 		05570692DFA9D3C17D80F0C4 /* Pods_Clowy_ClowyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3272218E9A7BED41FC1A65A7 /* Pods_Clowy_ClowyUITests.framework */; };
 		17BA875CDEB0B390ABD9BE60 /* Pods_Clowy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE57C054442E593078CF1DA /* Pods_Clowy.framework */; };
 		45255EA2992C4BF4A3349C83 /* Pods_ClowyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 418BAECECD7A494A219E2BAD /* Pods_ClowyTests.framework */; };
+		BA10A3FD29958BDC00AC5C90 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA10A3FC29958BDC00AC5C90 /* LoginScreen.swift */; };
 		BA12D0F427737D3000F91349 /* WardrobeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA12D0F327737D3000F91349 /* WardrobeScreenView.swift */; };
 		BA12D0FA2773D19F00F91349 /* WardrobeClothesCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA12D0F92773D19F00F91349 /* WardrobeClothesCard.swift */; };
 		BA12D0FC2773D4DD00F91349 /* WardrobeClothesCardCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA12D0FB2773D4DD00F91349 /* WardrobeClothesCardCollection.swift */; };
@@ -84,7 +85,7 @@
 		BA9C23D228D8BACA00DDDB54 /* NewLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9C23D128D8BACA00DDDB54 /* NewLocationView.swift */; };
 		BA9C23D428D8BB0E00DDDB54 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9C23D328D8BB0D00DDDB54 /* WelcomeView.swift */; };
 		BA9D82AF28212D55009E43E8 /* CustomNavBarPreferenceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9D82AE28212D55009E43E8 /* CustomNavBarPreferenceKeys.swift */; };
-		BAB79A9E2992F7490042A107 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB79A9D2992F7490042A107 /* LoginScreen.swift */; };
+		BAB79A9E2992F7490042A107 /* TestLoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB79A9D2992F7490042A107 /* TestLoginScreen.swift */; };
 		BAB79AA12992F8FA0042A107 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = BAB79AA02992F8FA0042A107 /* FirebaseAuth */; };
 		BAB79AA32992F8FA0042A107 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = BAB79AA22992F8FA0042A107 /* FirebaseDatabase */; };
 		BAB79AA52992F8FA0042A107 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = BAB79AA42992F8FA0042A107 /* FirebaseStorage */; };
@@ -145,6 +146,7 @@
 		5B0D299ABFEEFCE8ED3092D1 /* Pods-ClowyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClowyTests.debug.xcconfig"; path = "Target Support Files/Pods-ClowyTests/Pods-ClowyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8941845D3FCE40E587945427 /* Pods-Clowy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clowy.debug.xcconfig"; path = "Target Support Files/Pods-Clowy/Pods-Clowy.debug.xcconfig"; sourceTree = "<group>"; };
 		AA418C9013A9538637C7389A /* Pods-Clowy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clowy.release.xcconfig"; path = "Target Support Files/Pods-Clowy/Pods-Clowy.release.xcconfig"; sourceTree = "<group>"; };
+		BA10A3FC29958BDC00AC5C90 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		BA12D0F327737D3000F91349 /* WardrobeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeScreenView.swift; sourceTree = "<group>"; };
 		BA12D0F92773D19F00F91349 /* WardrobeClothesCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeClothesCard.swift; sourceTree = "<group>"; };
 		BA12D0FB2773D4DD00F91349 /* WardrobeClothesCardCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeClothesCardCollection.swift; sourceTree = "<group>"; };
@@ -221,7 +223,7 @@
 		BA9C23D128D8BACA00DDDB54 /* NewLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLocationView.swift; sourceTree = "<group>"; };
 		BA9C23D328D8BB0D00DDDB54 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		BA9D82AE28212D55009E43E8 /* CustomNavBarPreferenceKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarPreferenceKeys.swift; sourceTree = "<group>"; };
-		BAB79A9D2992F7490042A107 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
+		BAB79A9D2992F7490042A107 /* TestLoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestLoginScreen.swift; sourceTree = "<group>"; };
 		BAB79AA62992F9C70042A107 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BAB79AA82992FDC20042A107 /* LogoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutView.swift; sourceTree = "<group>"; };
 		BAB8D37A28B3D032000E1717 /* ProfileNavBarContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNavBarContent.swift; sourceTree = "<group>"; };
@@ -592,7 +594,8 @@
 		BAB79A9C2992F7000042A107 /* LoginScreen */ = {
 			isa = PBXGroup;
 			children = (
-				BAB79A9D2992F7490042A107 /* LoginScreen.swift */,
+				BAB79A9D2992F7490042A107 /* TestLoginScreen.swift */,
+				BA10A3FC29958BDC00AC5C90 /* LoginScreen.swift */,
 			);
 			path = LoginScreen;
 			sourceTree = "<group>";
@@ -963,7 +966,7 @@
 				BA9C23D228D8BACA00DDDB54 /* NewLocationView.swift in Sources */,
 				BA7E40B728B6A0BE00FB3730 /* ChosenClothesTypes.swift in Sources */,
 				BAC3D64F2749082100DA1BAC /* ClothesApi.swift in Sources */,
-				BAB79A9E2992F7490042A107 /* LoginScreen.swift in Sources */,
+				BAB79A9E2992F7490042A107 /* TestLoginScreen.swift in Sources */,
 				BA43D1FF28212457008A4AF5 /* CustomNavBarContainerView.swift in Sources */,
 				BA8201F92874980600A3C66B /* ScroolViewModifier.swift in Sources */,
 				BAC4BEA7286DF92F0076DFFC /* NewChosenTempView.swift in Sources */,
@@ -982,6 +985,7 @@
 				BA7E40AB28B4C63E00FB3730 /* CustomTextField.swift in Sources */,
 				BA5D8272283C279400A54005 /* CameraView.swift in Sources */,
 				BA7E40AF28B6279E00FB3730 /* Emoji.swift in Sources */,
+				BA10A3FD29958BDC00AC5C90 /* LoginScreen.swift in Sources */,
 				BA7E40BF28C213AF00FB3730 /* CityNamesModel.swift in Sources */,
 				BA7E40B228B65B9500FB3730 /* DeviceLocationService.swift in Sources */,
 				BADE87DA279886EA001DE300 /* TemperarureView.swift in Sources */,

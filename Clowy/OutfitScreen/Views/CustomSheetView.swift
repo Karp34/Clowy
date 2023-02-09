@@ -11,21 +11,37 @@ struct CustomSheetView<Content: View>: View {
     var radius: CGFloat
     var color: String
     var clearCornerColor: String
+    var topLeftCorner: Bool? = true
+    var topRightCorner: Bool? = true
     let content: Content
     
-    init(radius: CGFloat, color: String, clearCornerColor: String, @ViewBuilder content: () -> Content) {
+    init(radius: CGFloat, color: String, clearCornerColor: String, topLeftCorner: Bool? = true, topRightCorner: Bool? = true, @ViewBuilder content: () -> Content) {
         self.content = content()
         self.radius = radius
         self.color = color
         self.clearCornerColor = clearCornerColor
+        self.topRightCorner = topRightCorner
+        self.topLeftCorner = topLeftCorner
     }
 
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
                 ZStack(alignment: .bottom) {
-                    RoundedRectangle(cornerRadius: radius)
-                        .frame(height: radius*2)
+                    ZStack(alignment: .trailing) {
+                        if topLeftCorner == true {
+                            Rectangle()
+                                .frame(width: radius)
+                        }
+                        RoundedRectangle(cornerRadius: radius)
+                        if topRightCorner == true {
+                            Rectangle()
+                                .frame(width: radius)
+                        }
+                    }
+                    .frame(height: radius*2)
+                    
+                    
                     Rectangle()
                         .frame(height: radius)
                 }
@@ -38,13 +54,17 @@ struct CustomSheetView<Content: View>: View {
             
             VStack {
                 HStack{
-                    sheetAngle(radius: radius)
-                        .frame(width: radius, height: radius)
-                        .rotationEffect(.degrees(180))
+                    if topLeftCorner == true {
+                        sheetAngle(radius: radius)
+                            .frame(width: radius, height: radius)
+                            .rotationEffect(.degrees(180))
+                    }
                     Spacer()
-                    sheetAngle(radius: radius)
-                        .frame(width: radius, height: radius)
-                        .rotationEffect(.degrees(-90))
+                    if topRightCorner == true {
+                        sheetAngle(radius: radius)
+                            .frame(width: radius, height: radius)
+                            .rotationEffect(.degrees(-90))
+                    }
                 }
                 .foregroundColor(Color(hex: clearCornerColor))
                 Spacer()

@@ -125,7 +125,7 @@ struct AddClothesView: View {
                         .foregroundColor(.white)
                 }
             }
-            .buttonStyle(DefaultColorButtonStyle(color: "#678CD4"))
+            .buttonStyle(DefaultColorButtonStyle(color: "#678CD4", radius: 16))
             .disabled(viewModel.name.count > 2 && viewModel.image != .init(count: 0) && viewModel.clothesType != "" && viewModel.temp != [] ? false : true)
             .padding(.horizontal, 24)
             .padding(.bottom, 40)
