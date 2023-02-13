@@ -407,12 +407,17 @@ class MainScreenViewModel: ObservableObject {
                     if newDayTime > 5 {
                         
                         let newDay = (newFullDate[0].components(separatedBy: "-")[2] as NSString).integerValue
-                        let dayInt = newDay - firstDay
+                        
+                        let calendar = Calendar.current
+                        let anchorComponents = calendar.dateComponents([.day, .month, .year], from: Date())
+                        let currentDateDay = anchorComponents.day!
+                        
+                        let dayInt = newDay - currentDateDay
                         
                         
                         weatherList.append(weather)
                         
-                        print(dayInt)
+                        
                         let name = dayInt <= 1 ? "Tomorrow" : getDayName(dayInt: dayInt)
                         print(name)
                         if nextDayTempList.isEmpty || nextDayTempList.contains(where: {$0.name == name}) {
@@ -492,6 +497,7 @@ class MainScreenViewModel: ObservableObject {
     @Published var userIsLoggedIn = false
     @Published var userEmail: String = ""
     @Published var userPassword: String = ""
+    @Published var showSecondPage = false
     
     func register() {
         Auth.auth().createUser(withEmail: userEmail, password: userPassword) { result, error in

@@ -51,6 +51,8 @@
 		BA649148286B279400B57F58 /* WardrobeCoreDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA649147286B279400B57F58 /* WardrobeCoreDataView.swift */; };
 		BA64914A286C4A6900B57F58 /* WardrobeClothesTestCardCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA649149286C4A6900B57F58 /* WardrobeClothesTestCardCollection.swift */; };
 		BA64914C286C4B1E00B57F58 /* WardrobeTestClothCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA64914B286C4B1E00B57F58 /* WardrobeTestClothCard.swift */; };
+		BA6E585D2999A9270043DA64 /* LoginFirstPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E585C2999A9270043DA64 /* LoginFirstPage.swift */; };
+		BA6E585F2999A9C00043DA64 /* LoginSecondPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E585E2999A9C00043DA64 /* LoginSecondPage.swift */; };
 		BA715E1D283EA60900BD30FE /* CoreDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA715E1C283EA60900BD30FE /* CoreDataView.swift */; };
 		BA7812012819656200D452DE /* AddNewOutfitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7812002819656100D452DE /* AddNewOutfitView.swift */; };
 		BA7812032819678F00D452DE /* Outfit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7812022819678F00D452DE /* Outfit.swift */; };
@@ -74,7 +76,6 @@
 		BA820200287F500200A3C66B /* ProfileNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8201FF287F500200A3C66B /* ProfileNavBarView.swift */; };
 		BA820202287F5B7400A3C66B /* TempPreferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA820201287F5B7400A3C66B /* TempPreferenceView.swift */; };
 		BA8614B128EF77CF0095F232 /* ColorImagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8614B028EF77CF0095F232 /* ColorImagesView.swift */; };
-		BA8614B328EF785A0095F232 /* image 35.svg in Resources */ = {isa = PBXBuildFile; fileRef = BA8614B228EF785A0095F232 /* image 35.svg */; };
 		BA86934A28F52C1A008F37EB /* ClothImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA86934928F52C1A008F37EB /* ClothImage.swift */; };
 		BA86934C28F69685008F37EB /* TestTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA86934B28F69685008F37EB /* TestTextView.swift */; };
 		BA86934E28F6B5A8008F37EB /* PlaceholderErrorCities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA86934D28F6B5A8008F37EB /* PlaceholderErrorCities.swift */; };
@@ -190,6 +191,8 @@
 		BA649147286B279400B57F58 /* WardrobeCoreDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeCoreDataView.swift; sourceTree = "<group>"; };
 		BA649149286C4A6900B57F58 /* WardrobeClothesTestCardCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeClothesTestCardCollection.swift; sourceTree = "<group>"; };
 		BA64914B286C4B1E00B57F58 /* WardrobeTestClothCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeTestClothCard.swift; sourceTree = "<group>"; };
+		BA6E585C2999A9270043DA64 /* LoginFirstPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFirstPage.swift; sourceTree = "<group>"; };
+		BA6E585E2999A9C00043DA64 /* LoginSecondPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSecondPage.swift; sourceTree = "<group>"; };
 		BA715E1C283EA60900BD30FE /* CoreDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataView.swift; sourceTree = "<group>"; };
 		BA7812002819656100D452DE /* AddNewOutfitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewOutfitView.swift; sourceTree = "<group>"; };
 		BA7812022819678F00D452DE /* Outfit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Outfit.swift; sourceTree = "<group>"; };
@@ -213,7 +216,6 @@
 		BA8201FF287F500200A3C66B /* ProfileNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNavBarView.swift; sourceTree = "<group>"; };
 		BA820201287F5B7400A3C66B /* TempPreferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempPreferenceView.swift; sourceTree = "<group>"; };
 		BA8614B028EF77CF0095F232 /* ColorImagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorImagesView.swift; sourceTree = "<group>"; };
-		BA8614B228EF785A0095F232 /* image 35.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "image 35.svg"; sourceTree = "<group>"; };
 		BA86934928F52C1A008F37EB /* ClothImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothImage.swift; sourceTree = "<group>"; };
 		BA86934B28F69685008F37EB /* TestTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTextView.swift; sourceTree = "<group>"; };
 		BA86934D28F6B5A8008F37EB /* PlaceholderErrorCities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderErrorCities.swift; sourceTree = "<group>"; };
@@ -596,6 +598,8 @@
 			children = (
 				BAB79A9D2992F7490042A107 /* TestLoginScreen.swift */,
 				BA10A3FC29958BDC00AC5C90 /* LoginScreen.swift */,
+				BA6E585C2999A9270043DA64 /* LoginFirstPage.swift */,
+				BA6E585E2999A9C00043DA64 /* LoginSecondPage.swift */,
 			);
 			path = LoginScreen;
 			sourceTree = "<group>";
@@ -603,7 +607,6 @@
 		BABEC86227469BA600ECBF76 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				BA8614B228EF785A0095F232 /* image 35.svg */,
 				BABEC86327469BB600ECBF76 /* WeatherForecast.swift */,
 				BAC3D64E2749082100DA1BAC /* ClothesApi.swift */,
 				BA12D0FD2776041600F91349 /* GetClothes.swift */,
@@ -769,7 +772,6 @@
 				BA348F2328B3749F008C6BBC /* Montserrat-Regular.ttf in Resources */,
 				BA348F2128B3748E008C6BBC /* Montserrat-SemiBold.ttf in Resources */,
 				BAB79AA72992F9C70042A107 /* GoogleService-Info.plist in Resources */,
-				BA8614B328EF785A0095F232 /* image 35.svg in Resources */,
 				BA348F1F28B3747C008C6BBC /* Montserrat-Medium.ttf in Resources */,
 				BA1591E6273FE7560010CD56 /* Assets.xcassets in Resources */,
 				BA348F1D28B37468008C6BBC /* Montserrat-Bold.ttf in Resources */,
@@ -913,6 +915,7 @@
 				BA3CE08628149C9900D724BF /* MainScreenView.swift in Sources */,
 				BABEC86A27469C8300ECBF76 /* DaysForecastView.swift in Sources */,
 				BA86934A28F52C1A008F37EB /* ClothImage.swift in Sources */,
+				BA6E585D2999A9270043DA64 /* LoginFirstPage.swift in Sources */,
 				BA820200287F500200A3C66B /* ProfileNavBarView.swift in Sources */,
 				BA43D1FB28211D40008A4AF5 /* AppNavBarView.swift in Sources */,
 				BA5D8270283A5A7700A54005 /* PersistenceController.swift in Sources */,
@@ -920,6 +923,7 @@
 				BA5D826E28393D9400A54005 /* Stash.xcdatamodeld in Sources */,
 				BA715E1D283EA60900BD30FE /* CoreDataView.swift in Sources */,
 				BAB79AA92992FDC20042A107 /* LogoutView.swift in Sources */,
+				BA6E585F2999A9C00043DA64 /* LoginSecondPage.swift in Sources */,
 				BABEC86D27469CD000ECBF76 /* DaysForecastCell.swift in Sources */,
 				BA7E40C328C3E1D100FB3730 /* OpenWeatherModels.swift in Sources */,
 				BA43D20328212862008A4AF5 /* CustomNavLink.swift in Sources */,

@@ -91,6 +91,7 @@ struct MainScreenView: View, DaysForecastViewDelegate {
                             state: viewModel.state)
                     }
                     .buttonStyle(ScaleButtonStyle())
+                 
                     
 
                     WardrobeModuleView(color: viewModel.chosenWeather.color, numberOfClothes: items.count, numberOfOutfits: 0)
@@ -121,6 +122,18 @@ struct MainScreenView: View, DaysForecastViewDelegate {
                 
             }
             .coordinateSpace(name: "scroll")
+            .onAppear {
+                print("_________name")
+                print(viewModel.chosenWeather.name)
+                print("_________color")
+                print(viewModel.chosenWeather.color)
+                print("_________temp")
+                print(viewModel.chosenWeather.temp)
+                print("_________icon")
+                print(viewModel.chosenWeather.icon)
+                print("_________state")
+                print(viewModel.state)
+            }
             .onAppear {
                 viewModel.getOutfits()
                 viewModel.getClothes()

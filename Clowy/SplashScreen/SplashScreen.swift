@@ -11,7 +11,6 @@ import Firebase
 struct SplashScreen: View {
     @StateObject private var viewModel = MainScreenViewModel.shared
     @State var size = 0.8
-    @State var opacity = 1.0
     @State var offset: CGFloat = 300
     @State var isActive = false
     
@@ -40,8 +39,7 @@ struct SplashScreen: View {
                         .padding(.top, textOffset)
 //                        .background(Color.red)
                 }
-                .opacity(opacity)
-                .ignoresSafeArea()
+                .ignoresSafeArea(.all)
                 .onAppear {
                     Auth.auth().addStateDidChangeListener { auth, user in
                         if user != nil {
@@ -49,9 +47,9 @@ struct SplashScreen: View {
                         }
                     }
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2.0 ) {
-                        withAnimation(.linear(duration: 1)) {
+//                        withAnimation(.linear(duration: 1)) {
                             self.isActive = true
-                        }
+//                        }
                     }
                 }
             }
