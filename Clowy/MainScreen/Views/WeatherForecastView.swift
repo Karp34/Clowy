@@ -12,7 +12,7 @@ struct WeatherForecastView: View {
     var color: String
     var temp: Int
     var icon: String
-    var chosenLocation = UserDefaults.standard.string(forKey: "location")!
+    var chosenLocation = UserDefaults.standard.string(forKey: "location") ?? "Location not found"
     var state: PlaceHolderState
     
     var body: some View {
@@ -20,6 +20,13 @@ struct WeatherForecastView: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 16.0)
                     .foregroundColor((Color(hex: color)))
+                    .frame(height: 80.0)
+                GifImage(name: "snow")
+                    .frame(height: 80.0)
+                    .cornerRadius(16)
+                    .opacity(0.2)
+                RoundedRectangle(cornerRadius: 16.0)
+                    .foregroundColor(.clear)
                     .frame(height: 80.0)
                 HStack(spacing: 8) {
                     Text( (temp > 0 ? "+" : "") + String(temp) + "°")

@@ -7,8 +7,17 @@
 
 import SwiftUI
 
- struct Temperature: Identifiable, Equatable {
+struct Temperature: Identifiable, Equatable {
     var id: Int
     var name: String
     var temp: [Int]
+}
+
+enum TemperatureType: String {
+    case superCold = "SuperCold"
+    case cold = "Cold"
+    case coldy = "Coldy"
+    case regular = "Regular"
+    case warm = "Warm"
+    case hot = "Hot"
 }

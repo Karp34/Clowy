@@ -25,7 +25,7 @@ struct ProfileNavBarContent: View {
     var color = "#CEDAE1"
     
     let hint = "Enter your name"
-    @State var username = UserDefaults.standard.string(forKey: "username")!.trimmingCharacters(in: .whitespaces)
+    @State var username = UserDefaults.standard.string(forKey: "username")!.trimmingCharacters(in: .whitespaces) ?? "Username"
     
     @State var avatar = UserDefaults.standard.string(forKey: "avatar") ?? "Panda"
     
@@ -177,7 +177,7 @@ struct ProfileNavBarContent: View {
                                     ])
                                 }
                                 .sheet(isPresented: self.$show) {
-                                    ImagePicker(show: self.$show, image: $viewModel.image)
+                                    ImagePicker(show: self.$show, image: $viewModel.rawImage)
                                         .environment(\.managedObjectContext, self.moc)
                                 }
                                 

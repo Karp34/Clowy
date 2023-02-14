@@ -41,15 +41,20 @@ struct SplashScreen: View {
                 }
                 .ignoresSafeArea(.all)
                 .onAppear {
+                    viewModel.getCoordinates()
+                    viewModel.observeDeniedLocationAccess()
+                    viewModel.deviceLocationService.requestLocationUpdates()
+                    
+                    viewModel.getUserId()
+                    viewModel.fetchWardrobe()
+                    viewModel.fetchOutfits()
                     Auth.auth().addStateDidChangeListener { auth, user in
                         if user != nil {
                             viewModel.userIsLoggedIn.toggle()
                         }
                     }
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2.0 ) {
-//                        withAnimation(.linear(duration: 1)) {
-                            self.isActive = true
-//                        }
+                        self.isActive = true
                     }
                 }
             }

@@ -18,7 +18,7 @@ struct ColorImagesView: View {
         
         
         VStack {
-            NavigationLink(destination: WardrobeScreenView(), tag: 1, selection: $selection) {
+            NavigationLink(destination: NewWardrobeScreen(), tag: 1, selection: $selection) {
                 Button(action: {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                         self.selection = 1

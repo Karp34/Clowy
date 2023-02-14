@@ -24,7 +24,7 @@
       "location" : "https://github.com/firebase/firebase-ios-sdk.git",
       "state" : {
         "branch" : "master",
-        "revision" : "729eb40cb2afed03976db1f71c7c7193bb93c876"
+        "revision" : "5f7d81cc19a1c8a98aa281626a372da39a0b5fcd"
       }
     },
     {
@@ -70,6 +70,15 @@
       "state" : {
         "revision" : "5ccda3981422a84186387dbb763ba739178b529c",
         "version" : "2.3.0"
+      }
+    },
+    {
+      "identity" : "kingfisher",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/onevcat/Kingfisher.git",
+      "state" : {
+        "revision" : "415b1d97fb38bda1e5a6b2dde63354720832110b",
+        "version" : "7.6.1"
       }
     },
     {

@@ -1,58 +1,52 @@
 //
 //  ClothesCardsView.swift
-//  Clowy2
+//  FirebaseApp
 //
-//  Created by Егор Карпухин on 19.04.2022.
+//  Created by Егор Карпухин on 03.12.2022.
 //
 
 import SwiftUI
 import WaterfallGrid
 
-
 struct ClothesCardsView: View {
-    
-    func getRatio(name: ClothesType) -> Double {
-        let clothes = GetClothes.getClothes()
-        var output = 0.85
-        for cloth in clothes {
-            if name == cloth.clothesTypeName {
-                output = cloth.ratio.rawValue
-            }
-        }
-        return output
-    }
-    
     var outfit: [Cloth]
+    var textError: String?
     
     var body: some View {
-        if !outfit.isEmpty {
-            WaterfallGrid(outfit) { item in
-                ClothesCard(clothesName: item.name, clothesImage: item.image)
-                    .aspectRatio(getRatio(name: item.clothesType), contentMode: .fit)
+        ZStack {
+            if !outfit.isEmpty {
+                WaterfallGrid(outfit) { item in
+                    ClothesCard(cloth: item)
+                        .aspectRatio(GetRatio.getRatio(type: item.type).rawValue, contentMode: .fit)
+                }
+                .padding(.horizontal, 4)
+            } else {
+                NoOutfit(textError: textError)
+                    .padding(.horizontal, 8)
+                    
             }
-            .padding(.horizontal, 4)
-        } else {
-            NoOutfit()
-                .padding(.horizontal, 8)
         }
-        
+        .onAppear {
+            print("NO OUTFIT")
+            print(outfit)
+            print(textError)
+        }
     }
 }
 
 struct ClothesCard: View {
-    @State var clothesName: String
-    @State var clothesImage: String
+    @State var cloth: Cloth
 
     var body: some View {
         ZStack{
             RoundedRectangle(cornerRadius: 16)
                 .foregroundColor(.white)
             VStack (spacing: 12){
-                Image(clothesImage)
-                    .resizable()
+                ClothImage(imageName: cloth.image, isDeafult: cloth.isDefault, color: cloth.color, rawImage: cloth.rawImage)
+                    .scaledToFit()
                     .scaledToFit()
                     .frame(width: 120, height: 100)
-                Text(clothesName)
+                Text(cloth.name)
                     .font(.custom("Montserrat-Regular", size: 14))
                     .multilineTextAlignment(.center)
                     .frame(width: 120)
@@ -70,6 +64,7 @@ struct ClothesCard: View {
 struct NoOutfit : View {
     @StateObject private var viewModel = MainScreenViewModel.shared
     @State var isShowingSheet = false
+    var textError: String?
     
     var body: some View {
         VStack(alignment: .center, spacing: 16) {
@@ -83,12 +78,20 @@ struct NoOutfit : View {
                     .frame(width: 41)
                     .foregroundColor(Color(hex: viewModel.chosenWeather.color))
             }
-            Text("No items in wardrobe")
-                .font(.custom("Montserrat-SemiBold", size: 20))
-                .foregroundColor(Color(hex: "#646C75"))
-                .multilineTextAlignment(.center)
+            if let textError = textError {
+                Text(textError)
+                    .font(.custom("Montserrat-SemiBold", size: 20))
+                    .foregroundColor(Color(hex: "#646C75"))
+                    .multilineTextAlignment(.center)
+            } else {
+                Text("No items in wardrobe")
+                    .font(.custom("Montserrat-SemiBold", size: 20))
+                    .foregroundColor(Color(hex: "#646C75"))
+                    .multilineTextAlignment(.center)
+            }
+            
         }
-        .frame(idealHeight: 320)
+        .frame(idealWidth: 279 ,idealHeight: 320)
         
         Button {
             isShowingSheet.toggle()
@@ -97,10 +100,10 @@ struct NoOutfit : View {
                 Rectangle()
                     .foregroundColor(.clear)
                 Text("Add")
-                    .font(.custom("Montserrat-Bold", size: 24))
+                    .font(.custom("Montserrat-Bold", size: 16))
                     .foregroundColor(.white)
             }
-            
+
         }
         .padding(.bottom, 24)
         .buttonStyle(DefaultColorButtonStyle(color: viewModel.chosenWeather.color, radius: 24))
@@ -110,12 +113,5 @@ struct NoOutfit : View {
             }
             .background(Color(hex: "#F7F8FA").edgesIgnoringSafeArea(.all))
         }
-    }
-}
-
-struct MainClothesCard_Previews: PreviewProvider {
-    static var previews: some View {
-        ClothesCard(clothesName: "Черная шапка", clothesImage: "Cloth0")
-            .previewDevice("iPhone 12 mini")
     }
 }

@@ -1,21 +1,22 @@
 //
-//  Cloth.swift
-//  Clowy2
+//  Wardrobe.swift
+//  FirebaseApp
 //
-//  Created by Егор Карпухин on 23.04.2022.
+//  Created by Егор Карпухин on 02.10.2022.
 //
 
 import SwiftUI
 
-struct Cloth: Identifiable, Equatable {
-    var id: Int
+struct Cloth: Identifiable, Equatable, Hashable {
+    var id: String
     var name: String
-    var clothesType: ClothesType
-    var temp: String = "none"
-    var color: String = "none"
-    var image: String = "none"
+    var type: ClothesType
+    var color: String
+    var temperature: [String]
+    var isDefault: Bool
+    var image: String
+    var rawImage: UIImage?
 }
-
 
 enum ClothesType: String, CaseIterable, Codable {
     case headdresses = "Headdresses"
@@ -30,12 +31,9 @@ enum ClothesType: String, CaseIterable, Codable {
     case pants = "Pants"
     case thermalPants = "Thermal Pants"
     case socks = "Socks"
-    case sneakers = "Sneakers"
+    case sneakers = "Shoes"
     case umbrellas = "Umbrellas"
     case gloves = "Gloves"
     case accessories = "Accessories"
     case blank = ""
 }
-
-
-//"Headdresses", "Sunglasses", "Scarves", "Jackets", "Sweaters", "Thermals", "T-Shirts", "Dresses", "Skirts", "Pants", "Thermal Pants", "Socks", "Sneakers", "Umbrellas", "Gloves", "Accessories"])

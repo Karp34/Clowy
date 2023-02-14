@@ -21,6 +21,7 @@
 		BA1591F3273FE7560010CD56 /* ClowyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1591F2273FE7560010CD56 /* ClowyTests.swift */; };
 		BA1591FD273FE7560010CD56 /* ClowyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1591FC273FE7560010CD56 /* ClowyUITests.swift */; };
 		BA1591FF273FE7560010CD56 /* ClowyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1591FE273FE7560010CD56 /* ClowyUITestsLaunchTests.swift */; };
+		BA1D0511299AFD23000D2903 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA1D0510299AFD23000D2903 /* GoogleService-Info.plist */; };
 		BA23DF0928F737F8008C1A0B /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA23DF0828F737F8008C1A0B /* Buttons.swift */; };
 		BA348F1D28B37468008C6BBC /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA348F1C28B37468008C6BBC /* Montserrat-Bold.ttf */; };
 		BA348F1F28B3747C008C6BBC /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA348F1E28B3747C008C6BBC /* Montserrat-Medium.ttf */; };
@@ -46,17 +47,43 @@
 		BA5D8270283A5A7700A54005 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5D826F283A5A7700A54005 /* PersistenceController.swift */; };
 		BA5D8272283C279400A54005 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5D8271283C279400A54005 /* CameraView.swift */; };
 		BA5D8274283D641600A54005 /* CustomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5D8273283D641600A54005 /* CustomSheetView.swift */; };
-		BA61262F281868140011ACF7 /* OutfitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA61262E281868140011ACF7 /* OutfitView.swift */; };
-		BA6126312818733E0011ACF7 /* OutfitScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6126302818733E0011ACF7 /* OutfitScreenView.swift */; };
+		BA60ECC8299AE90200A8D14F /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = BA60ECC7299AE90200A8D14F /* FirebaseAnalytics */; };
+		BA60ECCA299AE90200A8D14F /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = BA60ECC9299AE90200A8D14F /* FirebaseAnalyticsOnDeviceConversion */; };
+		BA60ECCC299AE90200A8D14F /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BA60ECCB299AE90200A8D14F /* FirebaseAnalyticsSwift */; };
+		BA60ECCE299AE90200A8D14F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = BA60ECCD299AE90200A8D14F /* FirebaseAuth */; };
+		BA60ECD0299AE90200A8D14F /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = BA60ECCF299AE90200A8D14F /* FirebaseCrashlytics */; };
+		BA60ECD2299AE90200A8D14F /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = BA60ECD1299AE90200A8D14F /* FirebaseDatabase */; };
+		BA60ECD4299AE90200A8D14F /* FirebaseDynamicLinks in Frameworks */ = {isa = PBXBuildFile; productRef = BA60ECD3299AE90200A8D14F /* FirebaseDynamicLinks */; };
+		BA60ECD6299AE90200A8D14F /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = BA60ECD5299AE90200A8D14F /* FirebaseFirestore */; };
+		BA60ECD8299AE90200A8D14F /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = BA60ECD7299AE90200A8D14F /* FirebaseStorage */; };
+		BA61262F281868140011ACF7 /* OldOutfitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA61262E281868140011ACF7 /* OldOutfitView.swift */; };
+		BA6126312818733E0011ACF7 /* OldOutfitScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6126302818733E0011ACF7 /* OldOutfitScreenView.swift */; };
 		BA649148286B279400B57F58 /* WardrobeCoreDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA649147286B279400B57F58 /* WardrobeCoreDataView.swift */; };
 		BA64914A286C4A6900B57F58 /* WardrobeClothesTestCardCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA649149286C4A6900B57F58 /* WardrobeClothesTestCardCollection.swift */; };
 		BA64914C286C4B1E00B57F58 /* WardrobeTestClothCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA64914B286C4B1E00B57F58 /* WardrobeTestClothCard.swift */; };
 		BA6E585D2999A9270043DA64 /* LoginFirstPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E585C2999A9270043DA64 /* LoginFirstPage.swift */; };
 		BA6E585F2999A9C00043DA64 /* LoginSecondPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E585E2999A9C00043DA64 /* LoginSecondPage.swift */; };
+		BA6E5861299A99410043DA64 /* HTMLRenderingWebview.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E5860299A99410043DA64 /* HTMLRenderingWebview.swift */; };
+		BA6E5869299A9F9B0043DA64 /* GifImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E5868299A9F9B0043DA64 /* GifImage.swift */; };
+		BA6E586B299AAB3E0043DA64 /* snow.gif in Resources */ = {isa = PBXBuildFile; fileRef = BA6E586A299AAB3E0043DA64 /* snow.gif */; };
+		BA6E586F299AD7220043DA64 /* NewWardrobeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E586E299AD7220043DA64 /* NewWardrobeScreen.swift */; };
+		BA6E5872299AD7830043DA64 /* NewWardrobeScreenPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E5871299AD7830043DA64 /* NewWardrobeScreenPlaceholder.swift */; };
+		BA6E5874299AD7B70043DA64 /* ClothesCollectionPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E5873299AD7B70043DA64 /* ClothesCollectionPlaceholder.swift */; };
+		BA6E5876299AD8020043DA64 /* NewNoClothesCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E5875299AD8020043DA64 /* NewNoClothesCollection.swift */; };
+		BA6E5878299AD8290043DA64 /* NewClothView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E5877299AD8290043DA64 /* NewClothView.swift */; };
+		BA6E587A299AD8470043DA64 /* ClothesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E5879299AD8470043DA64 /* ClothesCollectionView.swift */; };
+		BA6E587C299AD8800043DA64 /* ClothesCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E587B299AD8800043DA64 /* ClothesCardView.swift */; };
+		BA6E587E299ADA580043DA64 /* CreateDefaultWardrobe.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E587D299ADA580043DA64 /* CreateDefaultWardrobe.swift */; };
+		BA6E5880299ADA7B0043DA64 /* GetRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E587F299ADA7A0043DA64 /* GetRatio.swift */; };
+		BA6E5883299ADA9E0043DA64 /* GetTemperatureRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E5882299ADA9E0043DA64 /* GetTemperatureRange.swift */; };
+		BA6E5885299ADAF60043DA64 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E5884299ADAF60043DA64 /* User.swift */; };
+		BA6E5887299ADB100043DA64 /* OutfitConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E5886299ADB100043DA64 /* OutfitConfig.swift */; };
+		BA6E5889299ADB350043DA64 /* FittingOutfit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E5888299ADB350043DA64 /* FittingOutfit.swift */; };
+		BA6E588C299ADCC30043DA64 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = BA6E588B299ADCC30043DA64 /* Kingfisher */; };
 		BA715E1D283EA60900BD30FE /* CoreDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA715E1C283EA60900BD30FE /* CoreDataView.swift */; };
-		BA7812012819656200D452DE /* AddNewOutfitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7812002819656100D452DE /* AddNewOutfitView.swift */; };
+		BA7812012819656200D452DE /* OldAddNewOutfitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7812002819656100D452DE /* OldAddNewOutfitView.swift */; };
 		BA7812032819678F00D452DE /* Outfit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7812022819678F00D452DE /* Outfit.swift */; };
-		BA7812052819777100D452DE /* MiniCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7812042819777100D452DE /* MiniCard.swift */; };
+		BA7812052819777100D452DE /* OldMiniCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7812042819777100D452DE /* OldMiniCard.swift */; };
 		BA7E40AB28B4C63E00FB3730 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E40AA28B4C63E00FB3730 /* CustomTextField.swift */; };
 		BA7E40AD28B6278700FB3730 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E40AC28B6278700FB3730 /* Gender.swift */; };
 		BA7E40AF28B6279E00FB3730 /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E40AE28B6279E00FB3730 /* Emoji.swift */; };
@@ -69,8 +96,8 @@
 		BA7E40BF28C213AF00FB3730 /* CityNamesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E40BE28C213AF00FB3730 /* CityNamesModel.swift */; };
 		BA7E40C128C2700500FB3730 /* PlaceholderCities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E40C028C2700400FB3730 /* PlaceholderCities.swift */; };
 		BA7E40C328C3E1D100FB3730 /* OpenWeatherModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7E40C228C3E1D000FB3730 /* OpenWeatherModels.swift */; };
-		BA8201F12873859A00A3C66B /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8201F02873859A00A3C66B /* AddPhotoView.swift */; };
-		BA8201F32873874500A3C66B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8201F22873874500A3C66B /* ImagePicker.swift */; };
+		BA8201F12873859A00A3C66B /* OldAddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8201F02873859A00A3C66B /* OldAddPhotoView.swift */; };
+		BA8201F32873874500A3C66B /* OldImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8201F22873874500A3C66B /* OldImagePicker.swift */; };
 		BA8201F92874980600A3C66B /* ScroolViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8201F82874980600A3C66B /* ScroolViewModifier.swift */; };
 		BA8201FD287F4F1700A3C66B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8201FC287F4F1600A3C66B /* ProfileView.swift */; };
 		BA820200287F500200A3C66B /* ProfileNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8201FF287F500200A3C66B /* ProfileNavBarView.swift */; };
@@ -87,10 +114,6 @@
 		BA9C23D428D8BB0E00DDDB54 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9C23D328D8BB0D00DDDB54 /* WelcomeView.swift */; };
 		BA9D82AF28212D55009E43E8 /* CustomNavBarPreferenceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9D82AE28212D55009E43E8 /* CustomNavBarPreferenceKeys.swift */; };
 		BAB79A9E2992F7490042A107 /* TestLoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB79A9D2992F7490042A107 /* TestLoginScreen.swift */; };
-		BAB79AA12992F8FA0042A107 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = BAB79AA02992F8FA0042A107 /* FirebaseAuth */; };
-		BAB79AA32992F8FA0042A107 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = BAB79AA22992F8FA0042A107 /* FirebaseDatabase */; };
-		BAB79AA52992F8FA0042A107 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = BAB79AA42992F8FA0042A107 /* FirebaseStorage */; };
-		BAB79AA72992F9C70042A107 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BAB79AA62992F9C70042A107 /* GoogleService-Info.plist */; };
 		BAB79AA92992FDC20042A107 /* LogoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB79AA82992FDC20042A107 /* LogoutView.swift */; };
 		BAB8D37B28B3D032000E1717 /* ProfileNavBarContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB8D37A28B3D032000E1717 /* ProfileNavBarContent.swift */; };
 		BABEC84F2746955900ECBF76 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABEC84E2746955900ECBF76 /* AvatarView.swift */; };
@@ -109,17 +132,37 @@
 		BAC3C28628F29F2A00B32AE0 /* NoClothesPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC3C28528F29F2A00B32AE0 /* NoClothesPlaceholder.swift */; };
 		BAC3C28828F2E96800B32AE0 /* ClothesLoadingPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC3C28728F2E96800B32AE0 /* ClothesLoadingPlaceholder.swift */; };
 		BAC3D64F2749082100DA1BAC /* ClothesApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC3D64E2749082100DA1BAC /* ClothesApi.swift */; };
-		BAC4BEA7286DF92F0076DFFC /* NewChosenTempView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC4BEA6286DF92F0076DFFC /* NewChosenTempView.swift */; };
+		BAC4BEA7286DF92F0076DFFC /* OlddNewChosenTempView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC4BEA6286DF92F0076DFFC /* OlddNewChosenTempView.swift */; };
 		BAC4BEA9286DF9ED0076DFFC /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC4BEA8286DF9EC0076DFFC /* Temperature.swift */; };
-		BADE87C12795FEE8001DE300 /* NewClothView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADE87C02795FEE8001DE300 /* NewClothView.swift */; };
+		BAD948B8299AEA5C00F2A047 /* NewOutfitScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD948B7299AEA5C00F2A047 /* NewOutfitScreen.swift */; };
+		BAD948BB299AEB4600F2A047 /* AddNewOutfitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD948BA299AEB4600F2A047 /* AddNewOutfitView.swift */; };
+		BAD948BD299AEB5C00F2A047 /* MiniCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD948BC299AEB5C00F2A047 /* MiniCard.swift */; };
+		BAD948BF299AEB6D00F2A047 /* OutfitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD948BE299AEB6D00F2A047 /* OutfitView.swift */; };
+		BAD948C1299AEB9700F2A047 /* OutfitScreenPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD948C0299AEB9700F2A047 /* OutfitScreenPlaceholder.swift */; };
+		BAD948C3299AEBA800F2A047 /* NoItemsOutfitScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD948C2299AEBA800F2A047 /* NoItemsOutfitScreen.swift */; };
+		BAD948C5299AEBBC00F2A047 /* ErrorOutfitScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD948C4299AEBBC00F2A047 /* ErrorOutfitScreen.swift */; };
+		BAD948C7299AEC7C00F2A047 /* WarningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD948C6299AEC7C00F2A047 /* WarningView.swift */; };
+		BAD948C9299AEF5D00F2A047 /* NewAddClothesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD948C8299AEF5D00F2A047 /* NewAddClothesView.swift */; };
+		BAD948CD299AEF9000F2A047 /* NewChooseTempView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD948CC299AEF9000F2A047 /* NewChooseTempView.swift */; };
+		BADE87C12795FEE8001DE300 /* OldNewClothView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADE87C02795FEE8001DE300 /* OldNewClothView.swift */; };
 		BADE87C427960357001DE300 /* NoClothesCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADE87C327960357001DE300 /* NoClothesCollection.swift */; };
-		BADE87D7279886BD001DE300 /* ChooseTempView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADE87D6279886BD001DE300 /* ChooseTempView.swift */; };
-		BADE87DA279886EA001DE300 /* TemperarureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADE87D9279886EA001DE300 /* TemperarureView.swift */; };
-		BADE87DC27988703001DE300 /* ChooseColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADE87DB27988703001DE300 /* ChooseColorView.swift */; };
-		BADE87DE27988714001DE300 /* TagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADE87DD27988714001DE300 /* TagsView.swift */; };
-		BADE87E027988726001DE300 /* UsePhotoFromGalary.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADE87DF27988726001DE300 /* UsePhotoFromGalary.swift */; };
-		BADE87E227988737001DE300 /* InputNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADE87E127988737001DE300 /* InputNameView.swift */; };
-		BADE87E52798876A001DE300 /* AddClothesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADE87E42798876A001DE300 /* AddClothesView.swift */; };
+		BADE87D7279886BD001DE300 /* OldChooseTempView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADE87D6279886BD001DE300 /* OldChooseTempView.swift */; };
+		BADE87DA279886EA001DE300 /* OlddTemperarureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADE87D9279886EA001DE300 /* OlddTemperarureView.swift */; };
+		BADE87DC27988703001DE300 /* OlddChooseColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADE87DB27988703001DE300 /* OlddChooseColorView.swift */; };
+		BADE87DE27988714001DE300 /* OldTagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADE87DD27988714001DE300 /* OldTagsView.swift */; };
+		BADE87E027988726001DE300 /* OldUsePhotoFromGalary.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADE87DF27988726001DE300 /* OldUsePhotoFromGalary.swift */; };
+		BADE87E227988737001DE300 /* OldInputNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADE87E127988737001DE300 /* OldInputNameView.swift */; };
+		BADE87E52798876A001DE300 /* OldAddClothesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADE87E42798876A001DE300 /* OldAddClothesView.swift */; };
+		BAE10137299AF1DE00670864 /* TemperatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE10136299AF1DE00670864 /* TemperatureView.swift */; };
+		BAE10139299AF1F500670864 /* ChooseColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE10138299AF1F500670864 /* ChooseColorView.swift */; };
+		BAE1013B299AF20B00670864 /* UsePhotoFromGalary.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE1013A299AF20B00670864 /* UsePhotoFromGalary.swift */; };
+		BAE1013D299AF21F00670864 /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE1013C299AF21F00670864 /* AddPhotoView.swift */; };
+		BAE1013F299AF24000670864 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE1013E299AF24000670864 /* ImagePicker.swift */; };
+		BAE10141299AF27000670864 /* NewTagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE10140299AF27000670864 /* NewTagsView.swift */; };
+		BAE10143299AF2C400670864 /* InputNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE10142299AF2C400670864 /* InputNameView.swift */; };
+		BAE10145299AF2F200670864 /* CustomFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE10144299AF2F200670864 /* CustomFieldStyle.swift */; };
+		BAE10147299AF3F600670864 /* PlaceholderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE10146299AF3F600670864 /* PlaceholderExtension.swift */; };
+		BAE1014B299AF5A700670864 /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE1014A299AF5A700670864 /* IndicatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +204,7 @@
 		BA1591F8273FE7560010CD56 /* ClowyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClowyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA1591FC273FE7560010CD56 /* ClowyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClowyUITests.swift; sourceTree = "<group>"; };
 		BA1591FE273FE7560010CD56 /* ClowyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClowyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BA1D0510299AFD23000D2903 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BA23DF0828F737F8008C1A0B /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		BA348F1C28B37468008C6BBC /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Bold.ttf"; path = "../../../../Downloads/Montserrat/Montserrat-Bold.dataset/Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		BA348F1E28B3747C008C6BBC /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Medium.ttf"; path = "../../../../Downloads/Montserrat/Montserrat-Medium.dataset/Montserrat-Medium.ttf"; sourceTree = "<group>"; };
@@ -186,17 +230,33 @@
 		BA5D826F283A5A7700A54005 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		BA5D8271283C279400A54005 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		BA5D8273283D641600A54005 /* CustomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheetView.swift; sourceTree = "<group>"; };
-		BA61262E281868140011ACF7 /* OutfitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutfitView.swift; sourceTree = "<group>"; };
-		BA6126302818733E0011ACF7 /* OutfitScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutfitScreenView.swift; sourceTree = "<group>"; };
+		BA61262E281868140011ACF7 /* OldOutfitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldOutfitView.swift; sourceTree = "<group>"; };
+		BA6126302818733E0011ACF7 /* OldOutfitScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldOutfitScreenView.swift; sourceTree = "<group>"; };
 		BA649147286B279400B57F58 /* WardrobeCoreDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeCoreDataView.swift; sourceTree = "<group>"; };
 		BA649149286C4A6900B57F58 /* WardrobeClothesTestCardCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeClothesTestCardCollection.swift; sourceTree = "<group>"; };
 		BA64914B286C4B1E00B57F58 /* WardrobeTestClothCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeTestClothCard.swift; sourceTree = "<group>"; };
 		BA6E585C2999A9270043DA64 /* LoginFirstPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFirstPage.swift; sourceTree = "<group>"; };
 		BA6E585E2999A9C00043DA64 /* LoginSecondPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSecondPage.swift; sourceTree = "<group>"; };
+		BA6E5860299A99410043DA64 /* HTMLRenderingWebview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLRenderingWebview.swift; sourceTree = "<group>"; };
+		BA6E5868299A9F9B0043DA64 /* GifImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifImage.swift; sourceTree = "<group>"; };
+		BA6E586A299AAB3E0043DA64 /* snow.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = snow.gif; sourceTree = "<group>"; };
+		BA6E586E299AD7220043DA64 /* NewWardrobeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWardrobeScreen.swift; sourceTree = "<group>"; };
+		BA6E5871299AD7830043DA64 /* NewWardrobeScreenPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWardrobeScreenPlaceholder.swift; sourceTree = "<group>"; };
+		BA6E5873299AD7B70043DA64 /* ClothesCollectionPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCollectionPlaceholder.swift; sourceTree = "<group>"; };
+		BA6E5875299AD8020043DA64 /* NewNoClothesCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewNoClothesCollection.swift; sourceTree = "<group>"; };
+		BA6E5877299AD8290043DA64 /* NewClothView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewClothView.swift; sourceTree = "<group>"; };
+		BA6E5879299AD8470043DA64 /* ClothesCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCollectionView.swift; sourceTree = "<group>"; };
+		BA6E587B299AD8800043DA64 /* ClothesCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCardView.swift; sourceTree = "<group>"; };
+		BA6E587D299ADA580043DA64 /* CreateDefaultWardrobe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDefaultWardrobe.swift; sourceTree = "<group>"; };
+		BA6E587F299ADA7A0043DA64 /* GetRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRatio.swift; sourceTree = "<group>"; };
+		BA6E5882299ADA9E0043DA64 /* GetTemperatureRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTemperatureRange.swift; sourceTree = "<group>"; };
+		BA6E5884299ADAF60043DA64 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		BA6E5886299ADB100043DA64 /* OutfitConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutfitConfig.swift; sourceTree = "<group>"; };
+		BA6E5888299ADB350043DA64 /* FittingOutfit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FittingOutfit.swift; sourceTree = "<group>"; };
 		BA715E1C283EA60900BD30FE /* CoreDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataView.swift; sourceTree = "<group>"; };
-		BA7812002819656100D452DE /* AddNewOutfitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewOutfitView.swift; sourceTree = "<group>"; };
+		BA7812002819656100D452DE /* OldAddNewOutfitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldAddNewOutfitView.swift; sourceTree = "<group>"; };
 		BA7812022819678F00D452DE /* Outfit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Outfit.swift; sourceTree = "<group>"; };
-		BA7812042819777100D452DE /* MiniCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniCard.swift; sourceTree = "<group>"; };
+		BA7812042819777100D452DE /* OldMiniCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldMiniCard.swift; sourceTree = "<group>"; };
 		BA7E40AA28B4C63E00FB3730 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		BA7E40AC28B6278700FB3730 /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		BA7E40AE28B6279E00FB3730 /* Emoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
@@ -209,8 +269,8 @@
 		BA7E40BE28C213AF00FB3730 /* CityNamesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityNamesModel.swift; sourceTree = "<group>"; };
 		BA7E40C028C2700400FB3730 /* PlaceholderCities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderCities.swift; sourceTree = "<group>"; };
 		BA7E40C228C3E1D000FB3730 /* OpenWeatherModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherModels.swift; sourceTree = "<group>"; };
-		BA8201F02873859A00A3C66B /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
-		BA8201F22873874500A3C66B /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		BA8201F02873859A00A3C66B /* OldAddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldAddPhotoView.swift; sourceTree = "<group>"; };
+		BA8201F22873874500A3C66B /* OldImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldImagePicker.swift; sourceTree = "<group>"; };
 		BA8201F82874980600A3C66B /* ScroolViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScroolViewModifier.swift; sourceTree = "<group>"; };
 		BA8201FC287F4F1600A3C66B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		BA8201FF287F500200A3C66B /* ProfileNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNavBarView.swift; sourceTree = "<group>"; };
@@ -226,7 +286,6 @@
 		BA9C23D328D8BB0D00DDDB54 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		BA9D82AE28212D55009E43E8 /* CustomNavBarPreferenceKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarPreferenceKeys.swift; sourceTree = "<group>"; };
 		BAB79A9D2992F7490042A107 /* TestLoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestLoginScreen.swift; sourceTree = "<group>"; };
-		BAB79AA62992F9C70042A107 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BAB79AA82992FDC20042A107 /* LogoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutView.swift; sourceTree = "<group>"; };
 		BAB8D37A28B3D032000E1717 /* ProfileNavBarContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNavBarContent.swift; sourceTree = "<group>"; };
 		BABEC84E2746955900ECBF76 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
@@ -245,17 +304,37 @@
 		BAC3C28528F29F2A00B32AE0 /* NoClothesPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoClothesPlaceholder.swift; sourceTree = "<group>"; };
 		BAC3C28728F2E96800B32AE0 /* ClothesLoadingPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesLoadingPlaceholder.swift; sourceTree = "<group>"; };
 		BAC3D64E2749082100DA1BAC /* ClothesApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesApi.swift; sourceTree = "<group>"; };
-		BAC4BEA6286DF92F0076DFFC /* NewChosenTempView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChosenTempView.swift; sourceTree = "<group>"; };
+		BAC4BEA6286DF92F0076DFFC /* OlddNewChosenTempView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OlddNewChosenTempView.swift; sourceTree = "<group>"; };
 		BAC4BEA8286DF9EC0076DFFC /* Temperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
-		BADE87C02795FEE8001DE300 /* NewClothView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewClothView.swift; sourceTree = "<group>"; };
+		BAD948B7299AEA5C00F2A047 /* NewOutfitScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOutfitScreen.swift; sourceTree = "<group>"; };
+		BAD948BA299AEB4600F2A047 /* AddNewOutfitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewOutfitView.swift; sourceTree = "<group>"; };
+		BAD948BC299AEB5C00F2A047 /* MiniCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniCard.swift; sourceTree = "<group>"; };
+		BAD948BE299AEB6D00F2A047 /* OutfitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutfitView.swift; sourceTree = "<group>"; };
+		BAD948C0299AEB9700F2A047 /* OutfitScreenPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutfitScreenPlaceholder.swift; sourceTree = "<group>"; };
+		BAD948C2299AEBA800F2A047 /* NoItemsOutfitScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoItemsOutfitScreen.swift; sourceTree = "<group>"; };
+		BAD948C4299AEBBC00F2A047 /* ErrorOutfitScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorOutfitScreen.swift; sourceTree = "<group>"; };
+		BAD948C6299AEC7C00F2A047 /* WarningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningView.swift; sourceTree = "<group>"; };
+		BAD948C8299AEF5D00F2A047 /* NewAddClothesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAddClothesView.swift; sourceTree = "<group>"; };
+		BAD948CC299AEF9000F2A047 /* NewChooseTempView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChooseTempView.swift; sourceTree = "<group>"; };
+		BADE87C02795FEE8001DE300 /* OldNewClothView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldNewClothView.swift; sourceTree = "<group>"; };
 		BADE87C327960357001DE300 /* NoClothesCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoClothesCollection.swift; sourceTree = "<group>"; };
-		BADE87D6279886BD001DE300 /* ChooseTempView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseTempView.swift; sourceTree = "<group>"; };
-		BADE87D9279886EA001DE300 /* TemperarureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperarureView.swift; sourceTree = "<group>"; };
-		BADE87DB27988703001DE300 /* ChooseColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseColorView.swift; sourceTree = "<group>"; };
-		BADE87DD27988714001DE300 /* TagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsView.swift; sourceTree = "<group>"; };
-		BADE87DF27988726001DE300 /* UsePhotoFromGalary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsePhotoFromGalary.swift; sourceTree = "<group>"; };
-		BADE87E127988737001DE300 /* InputNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNameView.swift; sourceTree = "<group>"; };
-		BADE87E42798876A001DE300 /* AddClothesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClothesView.swift; sourceTree = "<group>"; };
+		BADE87D6279886BD001DE300 /* OldChooseTempView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldChooseTempView.swift; sourceTree = "<group>"; };
+		BADE87D9279886EA001DE300 /* OlddTemperarureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OlddTemperarureView.swift; sourceTree = "<group>"; };
+		BADE87DB27988703001DE300 /* OlddChooseColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OlddChooseColorView.swift; sourceTree = "<group>"; };
+		BADE87DD27988714001DE300 /* OldTagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldTagsView.swift; sourceTree = "<group>"; };
+		BADE87DF27988726001DE300 /* OldUsePhotoFromGalary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldUsePhotoFromGalary.swift; sourceTree = "<group>"; };
+		BADE87E127988737001DE300 /* OldInputNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldInputNameView.swift; sourceTree = "<group>"; };
+		BADE87E42798876A001DE300 /* OldAddClothesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldAddClothesView.swift; sourceTree = "<group>"; };
+		BAE10136299AF1DE00670864 /* TemperatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureView.swift; sourceTree = "<group>"; };
+		BAE10138299AF1F500670864 /* ChooseColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseColorView.swift; sourceTree = "<group>"; };
+		BAE1013A299AF20B00670864 /* UsePhotoFromGalary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsePhotoFromGalary.swift; sourceTree = "<group>"; };
+		BAE1013C299AF21F00670864 /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
+		BAE1013E299AF24000670864 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		BAE10140299AF27000670864 /* NewTagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTagsView.swift; sourceTree = "<group>"; };
+		BAE10142299AF2C400670864 /* InputNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNameView.swift; sourceTree = "<group>"; };
+		BAE10144299AF2F200670864 /* CustomFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFieldStyle.swift; sourceTree = "<group>"; };
+		BAE10146299AF3F600670864 /* PlaceholderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderExtension.swift; sourceTree = "<group>"; };
+		BAE1014A299AF5A700670864 /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		C0A08B7F4192E3A52E473CCA /* Pods-ClowyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClowyTests.release.xcconfig"; path = "Target Support Files/Pods-ClowyTests/Pods-ClowyTests.release.xcconfig"; sourceTree = "<group>"; };
 		DB761446FBD8D763411B19B6 /* Pods-Clowy-ClowyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clowy-ClowyUITests.release.xcconfig"; path = "Target Support Files/Pods-Clowy-ClowyUITests/Pods-Clowy-ClowyUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -281,11 +360,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA60ECCC299AE90200A8D14F /* FirebaseAnalyticsSwift in Frameworks */,
+				BA6E588C299ADCC30043DA64 /* Kingfisher in Frameworks */,
 				17BA875CDEB0B390ABD9BE60 /* Pods_Clowy.framework in Frameworks */,
-				BAB79AA12992F8FA0042A107 /* FirebaseAuth in Frameworks */,
-				BAB79AA32992F8FA0042A107 /* FirebaseDatabase in Frameworks */,
-				BAB79AA52992F8FA0042A107 /* FirebaseStorage in Frameworks */,
+				BA60ECCA299AE90200A8D14F /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
+				BA60ECC8299AE90200A8D14F /* FirebaseAnalytics in Frameworks */,
+				BA60ECD8299AE90200A8D14F /* FirebaseStorage in Frameworks */,
+				BA60ECD0299AE90200A8D14F /* FirebaseCrashlytics in Frameworks */,
+				BA60ECD2299AE90200A8D14F /* FirebaseDatabase in Frameworks */,
+				BA60ECCE299AE90200A8D14F /* FirebaseAuth in Frameworks */,
 				BA9C23C728D2514C00DDDB54 /* WaterfallGrid in Frameworks */,
+				BA60ECD6299AE90200A8D14F /* FirebaseFirestore in Frameworks */,
+				BA60ECD4299AE90200A8D14F /* FirebaseDynamicLinks in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,9 +407,8 @@
 				BA12D0F327737D3000F91349 /* WardrobeScreenView.swift */,
 				BA12D0F92773D19F00F91349 /* WardrobeClothesCard.swift */,
 				BA12D0FB2773D4DD00F91349 /* WardrobeClothesCardCollection.swift */,
-				BADE87C02795FEE8001DE300 /* NewClothView.swift */,
+				BADE87C02795FEE8001DE300 /* OldNewClothView.swift */,
 				BADE87C327960357001DE300 /* NoClothesCollection.swift */,
-				BA5D8271283C279400A54005 /* CameraView.swift */,
 			);
 			path = WardrobeScreen;
 			sourceTree = "<group>";
@@ -354,15 +439,15 @@
 		BA1591E0273FE7530010CD56 /* Clowy */ = {
 			isa = PBXGroup;
 			children = (
+				BAD948CA299AEF6300F2A047 /* NewAddClothesView */,
+				BA60ECD9299AEA0C00A8D14F /* NewOutfitScreen */,
+				BA6E586D299AD6EC0043DA64 /* NewWardrobeScreen */,
 				BA39AE36294CC75700E1E389 /* SplashScreen */,
 				BA9C23CE28D8B90A00DDDB54 /* LocationManager */,
 				BA8614AF28EF77B00095F232 /* ColorImages */,
 				BA8201FB287F4F0300A3C66B /* ProfileView */,
-				BA5D826B28393D6800A54005 /* CoreDataFiles */,
-				BA396DF6281867A800BD63A8 /* OutfitScreen */,
+				BA6E586C299AD6C80043DA64 /* Deprecated */,
 				BA3CE08728149D8800D724BF /* Models */,
-				BADE87D527988692001DE300 /* AddClothesView */,
-				BA12D0F527737E0F00F91349 /* WardrobeScreen */,
 				BAB79A9C2992F7000042A107 /* LoginScreen */,
 				BA3E18482746B98E0070F4EF /* Extensions */,
 				BAEC625D274E751B009E69E5 /* Fonts */,
@@ -371,7 +456,7 @@
 				BA1591E7273FE7560010CD56 /* Preview Content */,
 				BABEC86227469BA600ECBF76 /* Services */,
 				BA1591E5273FE7560010CD56 /* Assets.xcassets */,
-				BAB79AA62992F9C70042A107 /* GoogleService-Info.plist */,
+				BA1D0510299AFD23000D2903 /* GoogleService-Info.plist */,
 				BA1591E1273FE7530010CD56 /* ClowyApp.swift */,
 			);
 			path = Clowy;
@@ -415,6 +500,7 @@
 				BA3CE09028149F7F00D724BF /* WardrobeModuleView.swift */,
 				BABEC8542746996B00ECBF76 /* WeatherForecastView.swift */,
 				BA396DF12817461900BD63A8 /* AddGeneratedOutfit.swift */,
+				BAE1014A299AF5A700670864 /* IndicatorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -422,7 +508,7 @@
 		BA396DF6281867A800BD63A8 /* OutfitScreen */ = {
 			isa = PBXGroup;
 			children = (
-				BA6126302818733E0011ACF7 /* OutfitScreenView.swift */,
+				BA6126302818733E0011ACF7 /* OldOutfitScreenView.swift */,
 				BA396DF7281867BF00BD63A8 /* Views */,
 			);
 			path = OutfitScreen;
@@ -431,11 +517,9 @@
 		BA396DF7281867BF00BD63A8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BA61262E281868140011ACF7 /* OutfitView.swift */,
-				BA5D8273283D641600A54005 /* CustomSheetView.swift */,
-				BA7812042819777100D452DE /* MiniCard.swift */,
-				BA7812002819656100D452DE /* AddNewOutfitView.swift */,
-				BAC19533287F68AA00FB109B /* CleanTagsView.swift */,
+				BA61262E281868140011ACF7 /* OldOutfitView.swift */,
+				BA7812042819777100D452DE /* OldMiniCard.swift */,
+				BA7812002819656100D452DE /* OldAddNewOutfitView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -454,10 +538,13 @@
 				BA7E40B828C0AC3B00FB3730 /* YandexModels.swift */,
 				BA3CE08828149DA300D724BF /* Weather.swift */,
 				BA3CE08A28149DB700D724BF /* Wardrobe.swift */,
+				BA6E5886299ADB100043DA64 /* OutfitConfig.swift */,
 				BA7812022819678F00D452DE /* Outfit.swift */,
+				BA6E5888299ADB350043DA64 /* FittingOutfit.swift */,
 				BAC4BEA8286DF9EC0076DFFC /* Temperature.swift */,
 				BA3CE09228156B4000D724BF /* Forecast.swift */,
 				BA3CE08C28149DE400D724BF /* Cloth.swift */,
+				BA6E5884299ADAF60043DA64 /* User.swift */,
 				BA7E40AC28B6278700FB3730 /* Gender.swift */,
 				BA7E40B628B6A0BE00FB3730 /* ChosenClothesTypes.swift */,
 				BA7E40AE28B6279E00FB3730 /* Emoji.swift */,
@@ -472,12 +559,20 @@
 		BA3E18482746B98E0070F4EF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				BA5D8273283D641600A54005 /* CustomSheetView.swift */,
+				BAE10146299AF3F600670864 /* PlaceholderExtension.swift */,
+				BA5D8271283C279400A54005 /* CameraView.swift */,
+				BA6E5867299A9F840043DA64 /* GifImageView */,
+				BA6E5864299A9F4C0043DA64 /* GIFs */,
 				BA86934928F52C1A008F37EB /* ClothImage.swift */,
+				BA6E5860299A99410043DA64 /* HTMLRenderingWebview.swift */,
 				BA43D1F928211D18008A4AF5 /* CustomNavBar */,
 				BA3E18492746B99E0070F4EF /* HEX.swift */,
 				BA8201F82874980600A3C66B /* ScroolViewModifier.swift */,
 				BA7E40AA28B4C63E00FB3730 /* CustomTextField.swift */,
 				BA23DF0828F737F8008C1A0B /* Buttons.swift */,
+				BAD948C6299AEC7C00F2A047 /* WarningView.swift */,
+				BAE10144299AF2F200670864 /* CustomFieldStyle.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -509,6 +604,64 @@
 			path = CoreDataFiles;
 			sourceTree = "<group>";
 		};
+		BA60ECD9299AEA0C00A8D14F /* NewOutfitScreen */ = {
+			isa = PBXGroup;
+			children = (
+				BAD948B7299AEA5C00F2A047 /* NewOutfitScreen.swift */,
+				BAD948B9299AEA7600F2A047 /* Views */,
+			);
+			path = NewOutfitScreen;
+			sourceTree = "<group>";
+		};
+		BA6E5864299A9F4C0043DA64 /* GIFs */ = {
+			isa = PBXGroup;
+			children = (
+				BA6E586A299AAB3E0043DA64 /* snow.gif */,
+			);
+			path = GIFs;
+			sourceTree = "<group>";
+		};
+		BA6E5867299A9F840043DA64 /* GifImageView */ = {
+			isa = PBXGroup;
+			children = (
+				BA6E5868299A9F9B0043DA64 /* GifImage.swift */,
+			);
+			path = GifImageView;
+			sourceTree = "<group>";
+		};
+		BA6E586C299AD6C80043DA64 /* Deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				BA5D826B28393D6800A54005 /* CoreDataFiles */,
+				BADE87D527988692001DE300 /* AddClothesView */,
+				BA396DF6281867A800BD63A8 /* OutfitScreen */,
+				BA12D0F527737E0F00F91349 /* WardrobeScreen */,
+			);
+			name = Deprecated;
+			sourceTree = "<group>";
+		};
+		BA6E586D299AD6EC0043DA64 /* NewWardrobeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				BA6E5870299AD72F0043DA64 /* Views */,
+				BA6E586E299AD7220043DA64 /* NewWardrobeScreen.swift */,
+			);
+			path = NewWardrobeScreen;
+			sourceTree = "<group>";
+		};
+		BA6E5870299AD72F0043DA64 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BA6E5871299AD7830043DA64 /* NewWardrobeScreenPlaceholder.swift */,
+				BA6E5873299AD7B70043DA64 /* ClothesCollectionPlaceholder.swift */,
+				BA6E5875299AD8020043DA64 /* NewNoClothesCollection.swift */,
+				BA6E5877299AD8290043DA64 /* NewClothView.swift */,
+				BA6E5879299AD8470043DA64 /* ClothesCollectionView.swift */,
+				BA6E587B299AD8800043DA64 /* ClothesCardView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		BA75B7DC2746AEC30091A797 /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -534,9 +687,9 @@
 		BA8201EE2873857500A3C66B /* PhotoView */ = {
 			isa = PBXGroup;
 			children = (
-				BADE87DF27988726001DE300 /* UsePhotoFromGalary.swift */,
-				BA8201F02873859A00A3C66B /* AddPhotoView.swift */,
-				BA8201F22873874500A3C66B /* ImagePicker.swift */,
+				BADE87DF27988726001DE300 /* OldUsePhotoFromGalary.swift */,
+				BA8201F02873859A00A3C66B /* OldAddPhotoView.swift */,
+				BA8201F22873874500A3C66B /* OldImagePicker.swift */,
 			);
 			name = PhotoView;
 			sourceTree = "<group>";
@@ -553,6 +706,7 @@
 		BA8201FE287F4F2700A3C66B /* ProfileSubViews */ = {
 			isa = PBXGroup;
 			children = (
+				BAC19533287F68AA00FB109B /* CleanTagsView.swift */,
 				BA8201FF287F500200A3C66B /* ProfileNavBarView.swift */,
 				BAB8D37A28B3D032000E1717 /* ProfileNavBarContent.swift */,
 				BA820201287F5B7400A3C66B /* TempPreferenceView.swift */,
@@ -611,14 +765,54 @@
 				BAC3D64E2749082100DA1BAC /* ClothesApi.swift */,
 				BA12D0FD2776041600F91349 /* GetClothes.swift */,
 				BA396DEF2817329800BD63A8 /* GetOutfits.swift */,
+				BA6E587D299ADA580043DA64 /* CreateDefaultWardrobe.swift */,
+				BA6E587F299ADA7A0043DA64 /* GetRatio.swift */,
+				BA6E5882299ADA9E0043DA64 /* GetTemperatureRange.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		BAD948B9299AEA7600F2A047 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BAD948BA299AEB4600F2A047 /* AddNewOutfitView.swift */,
+				BAD948BC299AEB5C00F2A047 /* MiniCard.swift */,
+				BAD948BE299AEB6D00F2A047 /* OutfitView.swift */,
+				BAD948C0299AEB9700F2A047 /* OutfitScreenPlaceholder.swift */,
+				BAD948C2299AEBA800F2A047 /* NoItemsOutfitScreen.swift */,
+				BAD948C4299AEBBC00F2A047 /* ErrorOutfitScreen.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BAD948CA299AEF6300F2A047 /* NewAddClothesView */ = {
+			isa = PBXGroup;
+			children = (
+				BAD948C8299AEF5D00F2A047 /* NewAddClothesView.swift */,
+				BAD948CB299AEF7100F2A047 /* Views */,
+			);
+			path = NewAddClothesView;
+			sourceTree = "<group>";
+		};
+		BAD948CB299AEF7100F2A047 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BAD948CC299AEF9000F2A047 /* NewChooseTempView.swift */,
+				BAE10136299AF1DE00670864 /* TemperatureView.swift */,
+				BAE10138299AF1F500670864 /* ChooseColorView.swift */,
+				BAE1013A299AF20B00670864 /* UsePhotoFromGalary.swift */,
+				BAE1013C299AF21F00670864 /* AddPhotoView.swift */,
+				BAE1013E299AF24000670864 /* ImagePicker.swift */,
+				BAE10140299AF27000670864 /* NewTagsView.swift */,
+				BAE10142299AF2C400670864 /* InputNameView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		BADE87D527988692001DE300 /* AddClothesView */ = {
 			isa = PBXGroup;
 			children = (
-				BADE87E42798876A001DE300 /* AddClothesView.swift */,
+				BADE87E42798876A001DE300 /* OldAddClothesView.swift */,
 				BADE87E32798874D001DE300 /* Views */,
 			);
 			name = AddClothesView;
@@ -627,13 +821,13 @@
 		BADE87E32798874D001DE300 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BADE87D6279886BD001DE300 /* ChooseTempView.swift */,
-				BAC4BEA6286DF92F0076DFFC /* NewChosenTempView.swift */,
-				BADE87D9279886EA001DE300 /* TemperarureView.swift */,
-				BADE87DB27988703001DE300 /* ChooseColorView.swift */,
+				BADE87D6279886BD001DE300 /* OldChooseTempView.swift */,
+				BAC4BEA6286DF92F0076DFFC /* OlddNewChosenTempView.swift */,
+				BADE87D9279886EA001DE300 /* OlddTemperarureView.swift */,
+				BADE87DB27988703001DE300 /* OlddChooseColorView.swift */,
 				BA8201EE2873857500A3C66B /* PhotoView */,
-				BADE87DD27988714001DE300 /* TagsView.swift */,
-				BADE87E127988737001DE300 /* InputNameView.swift */,
+				BADE87DD27988714001DE300 /* OldTagsView.swift */,
+				BADE87E127988737001DE300 /* OldInputNameView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -669,9 +863,16 @@
 			name = Clowy;
 			packageProductDependencies = (
 				BA3336782799AFB200E88B68 /* WaterfallGrid */,
-				BAB79AA02992F8FA0042A107 /* FirebaseAuth */,
-				BAB79AA22992F8FA0042A107 /* FirebaseDatabase */,
-				BAB79AA42992F8FA0042A107 /* FirebaseStorage */,
+				BA6E588B299ADCC30043DA64 /* Kingfisher */,
+				BA60ECC7299AE90200A8D14F /* FirebaseAnalytics */,
+				BA60ECC9299AE90200A8D14F /* FirebaseAnalyticsOnDeviceConversion */,
+				BA60ECCB299AE90200A8D14F /* FirebaseAnalyticsSwift */,
+				BA60ECCD299AE90200A8D14F /* FirebaseAuth */,
+				BA60ECCF299AE90200A8D14F /* FirebaseCrashlytics */,
+				BA60ECD1299AE90200A8D14F /* FirebaseDatabase */,
+				BA60ECD3299AE90200A8D14F /* FirebaseDynamicLinks */,
+				BA60ECD5299AE90200A8D14F /* FirebaseFirestore */,
+				BA60ECD7299AE90200A8D14F /* FirebaseStorage */,
 			);
 			productName = Clowy;
 			productReference = BA1591DE273FE7530010CD56 /* Clowy.app */;
@@ -750,7 +951,8 @@
 			mainGroup = BA1591D5273FE7530010CD56;
 			packageReferences = (
 				BA3336772799AFB200E88B68 /* XCRemoteSwiftPackageReference "WaterfallGrid" */,
-				BAB79A9F2992F8FA0042A107 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				BA6E588A299ADCC20043DA64 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				BA60ECC6299AE90200A8D14F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = BA1591DF273FE7530010CD56 /* Products */;
 			projectDirPath = "";
@@ -769,11 +971,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA1591E9273FE7560010CD56 /* Preview Assets.xcassets in Resources */,
+				BA1D0511299AFD23000D2903 /* GoogleService-Info.plist in Resources */,
 				BA348F2328B3749F008C6BBC /* Montserrat-Regular.ttf in Resources */,
 				BA348F2128B3748E008C6BBC /* Montserrat-SemiBold.ttf in Resources */,
-				BAB79AA72992F9C70042A107 /* GoogleService-Info.plist in Resources */,
 				BA348F1F28B3747C008C6BBC /* Montserrat-Medium.ttf in Resources */,
 				BA1591E6273FE7560010CD56 /* Assets.xcassets in Resources */,
+				BA6E586B299AAB3E0043DA64 /* snow.gif in Resources */,
 				BA348F1D28B37468008C6BBC /* Montserrat-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -905,16 +1108,23 @@
 				BA3CE09128149F7F00D724BF /* WardrobeModuleView.swift in Sources */,
 				BA9C23D428D8BB0E00DDDB54 /* WelcomeView.swift in Sources */,
 				BA3CE08D28149DE400D724BF /* Cloth.swift in Sources */,
+				BAE1013F299AF24000670864 /* ImagePicker.swift in Sources */,
 				BABEC87027469D7C00ECBF76 /* ClothesCardsView.swift in Sources */,
-				BA8201F32873874500A3C66B /* ImagePicker.swift in Sources */,
+				BA8201F32873874500A3C66B /* OldImagePicker.swift in Sources */,
+				BA6E5876299AD8020043DA64 /* NewNoClothesCollection.swift in Sources */,
+				BA6E587A299AD8470043DA64 /* ClothesCollectionView.swift in Sources */,
 				BA3CE08B28149DB700D724BF /* Wardrobe.swift in Sources */,
 				BA3CE09328156B4000D724BF /* Forecast.swift in Sources */,
 				BA649148286B279400B57F58 /* WardrobeCoreDataView.swift in Sources */,
 				BA396DF22817461900BD63A8 /* AddGeneratedOutfit.swift in Sources */,
 				BAC19534287F68AA00FB109B /* CleanTagsView.swift in Sources */,
+				BAE10139299AF1F500670864 /* ChooseColorView.swift in Sources */,
+				BA6E5869299A9F9B0043DA64 /* GifImage.swift in Sources */,
 				BA3CE08628149C9900D724BF /* MainScreenView.swift in Sources */,
 				BABEC86A27469C8300ECBF76 /* DaysForecastView.swift in Sources */,
 				BA86934A28F52C1A008F37EB /* ClothImage.swift in Sources */,
+				BAE1013D299AF21F00670864 /* AddPhotoView.swift in Sources */,
+				BAE10147299AF3F600670864 /* PlaceholderExtension.swift in Sources */,
 				BA6E585D2999A9270043DA64 /* LoginFirstPage.swift in Sources */,
 				BA820200287F500200A3C66B /* ProfileNavBarView.swift in Sources */,
 				BA43D1FB28211D40008A4AF5 /* AppNavBarView.swift in Sources */,
@@ -922,62 +1132,88 @@
 				BA86934E28F6B5A8008F37EB /* PlaceholderErrorCities.swift in Sources */,
 				BA5D826E28393D9400A54005 /* Stash.xcdatamodeld in Sources */,
 				BA715E1D283EA60900BD30FE /* CoreDataView.swift in Sources */,
+				BAE10143299AF2C400670864 /* InputNameView.swift in Sources */,
+				BAD948C3299AEBA800F2A047 /* NoItemsOutfitScreen.swift in Sources */,
 				BAB79AA92992FDC20042A107 /* LogoutView.swift in Sources */,
 				BA6E585F2999A9C00043DA64 /* LoginSecondPage.swift in Sources */,
 				BABEC86D27469CD000ECBF76 /* DaysForecastCell.swift in Sources */,
 				BA7E40C328C3E1D100FB3730 /* OpenWeatherModels.swift in Sources */,
 				BA43D20328212862008A4AF5 /* CustomNavLink.swift in Sources */,
+				BAD948BD299AEB5C00F2A047 /* MiniCard.swift in Sources */,
 				BA3CE08928149DA300D724BF /* Weather.swift in Sources */,
+				BA6E587E299ADA580043DA64 /* CreateDefaultWardrobe.swift in Sources */,
 				BABEC852274695D800ECBF76 /* GreetingView.swift in Sources */,
+				BA6E5872299AD7830043DA64 /* NewWardrobeScreenPlaceholder.swift in Sources */,
 				BA86934C28F69685008F37EB /* TestTextView.swift in Sources */,
 				BA12D0FE2776041600F91349 /* GetClothes.swift in Sources */,
 				BAC3C28628F29F2A00B32AE0 /* NoClothesPlaceholder.swift in Sources */,
+				BAD948BF299AEB6D00F2A047 /* OutfitView.swift in Sources */,
 				BABEC84F2746955900ECBF76 /* AvatarView.swift in Sources */,
+				BAE10141299AF27000670864 /* NewTagsView.swift in Sources */,
 				BA7E40C128C2700500FB3730 /* PlaceholderCities.swift in Sources */,
+				BAD948BB299AEB4600F2A047 /* AddNewOutfitView.swift in Sources */,
 				BA1591E2273FE7530010CD56 /* ClowyApp.swift in Sources */,
 				BA7812032819678F00D452DE /* Outfit.swift in Sources */,
-				BA6126312818733E0011ACF7 /* OutfitScreenView.swift in Sources */,
+				BA6126312818733E0011ACF7 /* OldOutfitScreenView.swift in Sources */,
+				BA6E5880299ADA7B0043DA64 /* GetRatio.swift in Sources */,
 				BAC19530287F605A00FB109B /* LocationView.swift in Sources */,
-				BADE87DC27988703001DE300 /* ChooseColorView.swift in Sources */,
+				BADE87DC27988703001DE300 /* OlddChooseColorView.swift in Sources */,
+				BA6E587C299AD8800043DA64 /* ClothesCardView.swift in Sources */,
 				BA43D1FD28211F95008A4AF5 /* CustomNavBarView.swift in Sources */,
+				BAE1013B299AF20B00670864 /* UsePhotoFromGalary.swift in Sources */,
+				BA6E5861299A99410043DA64 /* HTMLRenderingWebview.swift in Sources */,
 				BA7E40B428B65BCD00FB3730 /* LocationTestView.swift in Sources */,
+				BAD948C1299AEB9700F2A047 /* OutfitScreenPlaceholder.swift in Sources */,
+				BA6E5883299ADA9E0043DA64 /* GetTemperatureRange.swift in Sources */,
 				BA12D0FC2773D4DD00F91349 /* WardrobeClothesCardCollection.swift in Sources */,
-				BADE87E227988737001DE300 /* InputNameView.swift in Sources */,
-				BA7812052819777100D452DE /* MiniCard.swift in Sources */,
+				BADE87E227988737001DE300 /* OldInputNameView.swift in Sources */,
+				BA7812052819777100D452DE /* OldMiniCard.swift in Sources */,
 				BAC4BEA9286DF9ED0076DFFC /* Temperature.swift in Sources */,
 				BA9C23CC28D4E80C00DDDB54 /* StartScreenView.swift in Sources */,
-				BA7812012819656200D452DE /* AddNewOutfitView.swift in Sources */,
+				BA7812012819656200D452DE /* OldAddNewOutfitView.swift in Sources */,
 				BADE87C427960357001DE300 /* NoClothesCollection.swift in Sources */,
 				BA7E40AD28B6278700FB3730 /* Gender.swift in Sources */,
 				BAC1953A2880AACA00FB109B /* SwiftUISlider.swift in Sources */,
 				BA23DF0928F737F8008C1A0B /* Buttons.swift in Sources */,
-				BADE87DE27988714001DE300 /* TagsView.swift in Sources */,
+				BAE1014B299AF5A700670864 /* IndicatorView.swift in Sources */,
+				BAE10137299AF1DE00670864 /* TemperatureView.swift in Sources */,
+				BADE87DE27988714001DE300 /* OldTagsView.swift in Sources */,
+				BA6E5878299AD8290043DA64 /* NewClothView.swift in Sources */,
 				BA12D0F427737D3000F91349 /* WardrobeScreenView.swift in Sources */,
 				BAC19532287F676400FB109B /* AvailableTypesView.swift in Sources */,
 				BA43D20128212718008A4AF5 /* CustomNavView.swift in Sources */,
-				BADE87D7279886BD001DE300 /* ChooseTempView.swift in Sources */,
+				BA6E5874299AD7B70043DA64 /* ClothesCollectionPlaceholder.swift in Sources */,
+				BA6E586F299AD7220043DA64 /* NewWardrobeScreen.swift in Sources */,
+				BADE87D7279886BD001DE300 /* OldChooseTempView.swift in Sources */,
 				BA3E184A2746B99E0070F4EF /* HEX.swift in Sources */,
 				BA9C23C928D265A100DDDB54 /* MainScreenViewModel.swift in Sources */,
+				BAE10145299AF2F200670864 /* CustomFieldStyle.swift in Sources */,
 				BA64914C286C4B1E00B57F58 /* WardrobeTestClothCard.swift in Sources */,
+				BAD948B8299AEA5C00F2A047 /* NewOutfitScreen.swift in Sources */,
+				BA6E5885299ADAF60043DA64 /* User.swift in Sources */,
 				BA7E40B928C0AC3B00FB3730 /* YandexModels.swift in Sources */,
 				BA7E40BB28C1055100FB3730 /* PlaceholderState.swift in Sources */,
 				BABEC86427469BB600ECBF76 /* WeatherForecast.swift in Sources */,
-				BADE87E027988726001DE300 /* UsePhotoFromGalary.swift in Sources */,
+				BADE87E027988726001DE300 /* OldUsePhotoFromGalary.swift in Sources */,
 				BA64914A286C4A6900B57F58 /* WardrobeClothesTestCardCollection.swift in Sources */,
 				BAC3C28828F2E96800B32AE0 /* ClothesLoadingPlaceholder.swift in Sources */,
+				BA6E5887299ADB100043DA64 /* OutfitConfig.swift in Sources */,
 				BABEC8552746996B00ECBF76 /* WeatherForecastView.swift in Sources */,
 				BAC19536287F6B8E00FB109B /* NotificationsView.swift in Sources */,
+				BA6E5889299ADB350043DA64 /* FittingOutfit.swift in Sources */,
 				BA9C23D228D8BACA00DDDB54 /* NewLocationView.swift in Sources */,
 				BA7E40B728B6A0BE00FB3730 /* ChosenClothesTypes.swift in Sources */,
 				BAC3D64F2749082100DA1BAC /* ClothesApi.swift in Sources */,
 				BAB79A9E2992F7490042A107 /* TestLoginScreen.swift in Sources */,
 				BA43D1FF28212457008A4AF5 /* CustomNavBarContainerView.swift in Sources */,
 				BA8201F92874980600A3C66B /* ScroolViewModifier.swift in Sources */,
-				BAC4BEA7286DF92F0076DFFC /* NewChosenTempView.swift in Sources */,
+				BAC4BEA7286DF92F0076DFFC /* OlddNewChosenTempView.swift in Sources */,
+				BAD948C5299AEBBC00F2A047 /* ErrorOutfitScreen.swift in Sources */,
 				BAB8D37B28B3D032000E1717 /* ProfileNavBarContent.swift in Sources */,
+				BAD948C7299AEC7C00F2A047 /* WarningView.swift in Sources */,
 				BA8614B128EF77CF0095F232 /* ColorImagesView.swift in Sources */,
-				BADE87C12795FEE8001DE300 /* NewClothView.swift in Sources */,
-				BA8201F12873859A00A3C66B /* AddPhotoView.swift in Sources */,
+				BADE87C12795FEE8001DE300 /* OldNewClothView.swift in Sources */,
+				BA8201F12873859A00A3C66B /* OldAddPhotoView.swift in Sources */,
 				BA39AE38294CC7A200E1E389 /* SplashScreen.swift in Sources */,
 				BA820202287F5B7400A3C66B /* TempPreferenceView.swift in Sources */,
 				BA396DF02817329800BD63A8 /* GetOutfits.swift in Sources */,
@@ -985,18 +1221,20 @@
 				BAC19538287F6DD500FB109B /* InformationView.swift in Sources */,
 				BA7E40BD28C1130300FB3730 /* ChooseLocationView.swift in Sources */,
 				BA8201FD287F4F1700A3C66B /* ProfileView.swift in Sources */,
-				BA61262F281868140011ACF7 /* OutfitView.swift in Sources */,
+				BA61262F281868140011ACF7 /* OldOutfitView.swift in Sources */,
 				BA7E40AB28B4C63E00FB3730 /* CustomTextField.swift in Sources */,
 				BA5D8272283C279400A54005 /* CameraView.swift in Sources */,
 				BA7E40AF28B6279E00FB3730 /* Emoji.swift in Sources */,
 				BA10A3FD29958BDC00AC5C90 /* LoginScreen.swift in Sources */,
 				BA7E40BF28C213AF00FB3730 /* CityNamesModel.swift in Sources */,
 				BA7E40B228B65B9500FB3730 /* DeviceLocationService.swift in Sources */,
-				BADE87DA279886EA001DE300 /* TemperarureView.swift in Sources */,
+				BADE87DA279886EA001DE300 /* OlddTemperarureView.swift in Sources */,
+				BAD948C9299AEF5D00F2A047 /* NewAddClothesView.swift in Sources */,
 				BA12D0FA2773D19F00F91349 /* WardrobeClothesCard.swift in Sources */,
 				BA9C23D028D8B91E00DDDB54 /* LocationManager.swift in Sources */,
-				BADE87E52798876A001DE300 /* AddClothesView.swift in Sources */,
+				BADE87E52798876A001DE300 /* OldAddClothesView.swift in Sources */,
 				BA9D82AF28212D55009E43E8 /* CustomNavBarPreferenceKeys.swift in Sources */,
+				BAD948CD299AEF9000F2A047 /* NewChooseTempView.swift in Sources */,
 				BA5D8274283D641600A54005 /* CustomSheetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1373,12 +1611,20 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		BAB79A9F2992F8FA0042A107 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		BA60ECC6299AE90200A8D14F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
 			requirement = {
 				branch = master;
 				kind = branch;
+			};
+		};
+		BA6E588A299ADCC20043DA64 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -1389,20 +1635,55 @@
 			package = BA3336772799AFB200E88B68 /* XCRemoteSwiftPackageReference "WaterfallGrid" */;
 			productName = WaterfallGrid;
 		};
-		BAB79AA02992F8FA0042A107 /* FirebaseAuth */ = {
+		BA60ECC7299AE90200A8D14F /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BAB79A9F2992F8FA0042A107 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = BA60ECC6299AE90200A8D14F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		BA60ECC9299AE90200A8D14F /* FirebaseAnalyticsOnDeviceConversion */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BA60ECC6299AE90200A8D14F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsOnDeviceConversion;
+		};
+		BA60ECCB299AE90200A8D14F /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BA60ECC6299AE90200A8D14F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
+		BA60ECCD299AE90200A8D14F /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BA60ECC6299AE90200A8D14F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
 		};
-		BAB79AA22992F8FA0042A107 /* FirebaseDatabase */ = {
+		BA60ECCF299AE90200A8D14F /* FirebaseCrashlytics */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BAB79A9F2992F8FA0042A107 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = BA60ECC6299AE90200A8D14F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		BA60ECD1299AE90200A8D14F /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BA60ECC6299AE90200A8D14F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseDatabase;
 		};
-		BAB79AA42992F8FA0042A107 /* FirebaseStorage */ = {
+		BA60ECD3299AE90200A8D14F /* FirebaseDynamicLinks */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BAB79A9F2992F8FA0042A107 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = BA60ECC6299AE90200A8D14F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDynamicLinks;
+		};
+		BA60ECD5299AE90200A8D14F /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BA60ECC6299AE90200A8D14F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		BA60ECD7299AE90200A8D14F /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BA60ECC6299AE90200A8D14F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		BA6E588B299ADCC30043DA64 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BA6E588A299ADCC20043DA64 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 

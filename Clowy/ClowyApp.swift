@@ -13,7 +13,7 @@ import Firebase
 
 struct Clowy2App: App {
     
-    let persistenceController = PersistenceController.shared
+//    let persistenceController = PersistenceController.shared
     
     @Environment(\.scenePhase) var scenePhase
     
@@ -32,7 +32,7 @@ struct Clowy2App: App {
             switch newScenePhase {
             case .background:
                 print("Scene is in background")
-                persistenceController.save()
+//                persistenceController.save()
             case .inactive:
                 print("Scene is inactive")
             case .active:
