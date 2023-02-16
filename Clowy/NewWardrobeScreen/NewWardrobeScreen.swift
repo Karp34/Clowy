@@ -66,6 +66,9 @@ struct NewWardrobeScreen: View {
 //        .onAppear {
 //            viewModel.wardrobe.removeAll()
 //        }
+        .navigationBarTitle("My Wardrobe")
+        .navigationBarHidden(false)
+        .navigationBarTitleDisplayMode(.inline)
         .navigationBarItems(leading: btnBack, trailing: btnAdd)
         .navigationBarBackButtonHidden(true)
         .background(Color(hex: "#F7F8FA").edgesIgnoringSafeArea(.all))

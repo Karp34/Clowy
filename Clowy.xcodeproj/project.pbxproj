@@ -451,7 +451,6 @@
 				BAB79A9C2992F7000042A107 /* LoginScreen */,
 				BA3E18482746B98E0070F4EF /* Extensions */,
 				BAEC625D274E751B009E69E5 /* Fonts */,
-				BA9C23CA28D4E7F800DDDB54 /* StartScreen */,
 				BA75B7DC2746AEC30091A797 /* MainScreen */,
 				BA1591E7273FE7560010CD56 /* Preview Content */,
 				BABEC86227469BA600ECBF76 /* Services */,
@@ -528,6 +527,7 @@
 			isa = PBXGroup;
 			children = (
 				BA39AE37294CC7A200E1E389 /* SplashScreen.swift */,
+				BA9C23CB28D4E80C00DDDB54 /* StartScreenView.swift */,
 			);
 			path = SplashScreen;
 			sourceTree = "<group>";
@@ -562,7 +562,7 @@
 				BA5D8273283D641600A54005 /* CustomSheetView.swift */,
 				BAE10146299AF3F600670864 /* PlaceholderExtension.swift */,
 				BA5D8271283C279400A54005 /* CameraView.swift */,
-				BA6E5867299A9F840043DA64 /* GifImageView */,
+				BA6E5868299A9F9B0043DA64 /* GifImage.swift */,
 				BA6E5864299A9F4C0043DA64 /* GIFs */,
 				BA86934928F52C1A008F37EB /* ClothImage.swift */,
 				BA6E5860299A99410043DA64 /* HTMLRenderingWebview.swift */,
@@ -619,14 +619,6 @@
 				BA6E586A299AAB3E0043DA64 /* snow.gif */,
 			);
 			path = GIFs;
-			sourceTree = "<group>";
-		};
-		BA6E5867299A9F840043DA64 /* GifImageView */ = {
-			isa = PBXGroup;
-			children = (
-				BA6E5868299A9F9B0043DA64 /* GifImage.swift */,
-			);
-			path = GifImageView;
 			sourceTree = "<group>";
 		};
 		BA6E586C299AD6C80043DA64 /* Deprecated */ = {
@@ -727,14 +719,6 @@
 				BA8614B028EF77CF0095F232 /* ColorImagesView.swift */,
 			);
 			path = ColorImages;
-			sourceTree = "<group>";
-		};
-		BA9C23CA28D4E7F800DDDB54 /* StartScreen */ = {
-			isa = PBXGroup;
-			children = (
-				BA9C23CB28D4E80C00DDDB54 /* StartScreenView.swift */,
-			);
-			path = StartScreen;
 			sourceTree = "<group>";
 		};
 		BA9C23CE28D8B90A00DDDB54 /* LocationManager */ = {

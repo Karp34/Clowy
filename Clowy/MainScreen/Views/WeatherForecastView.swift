@@ -14,6 +14,7 @@ struct WeatherForecastView: View {
     var icon: String
     var chosenLocation = UserDefaults.standard.string(forKey: "location") ?? "Location not found"
     var state: PlaceHolderState
+    let gifNames = ["snow"]
     
     var body: some View {
         if state == .success {
@@ -21,13 +22,15 @@ struct WeatherForecastView: View {
                 RoundedRectangle(cornerRadius: 16.0)
                     .foregroundColor((Color(hex: color)))
                     .frame(height: 80.0)
-                GifImage(name: "snow")
-                    .frame(height: 80.0)
-                    .cornerRadius(16)
-                    .opacity(0.2)
-                RoundedRectangle(cornerRadius: 16.0)
-                    .foregroundColor(.clear)
-                    .frame(height: 80.0)
+                if gifNames.contains(name.lowercased()) {
+                    GifImage(name: name.lowercased())
+                        .frame(height: 80.0)
+                        .cornerRadius(16)
+                        .opacity(0.2)
+                    RoundedRectangle(cornerRadius: 16.0)
+                        .foregroundColor(.clear)
+                        .frame(height: 80.0)
+                }
                 HStack(spacing: 8) {
                     Text( (temp > 0 ? "+" : "") + String(temp) + "°")
                         .font(.custom("Montserrat-Medium", size: 32))

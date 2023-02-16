@@ -217,7 +217,19 @@ let outfitConfig: [OutfitConfig] = [
             ClothesPref(type: .pants, temp: .warm),
             ClothesPref(type: .socks, temp: .warm),
             ClothesPref(type: .sneakers, temp: .warm),
-            ClothesPref(type: .umbrellas, temp: .regular)]
+            ClothesPref(type: .umbrellas, temp: .regular)],
+          // please delete it ASAP
+          [   ClothesPref(type: .jackets, temp: .superCold),
+             ClothesPref(type: .hoodies, temp: .cold),
+             ClothesPref(type: .thermals, temp: .superCold),
+             ClothesPref(type: .tshirts, temp: .regular),
+             ClothesPref(type: .pants, temp: .cold),
+             ClothesPref(type: .thermalPants, temp: .superCold),
+             ClothesPref(type: .socks, temp: .superCold),
+             ClothesPref(type: .sneakers, temp: .cold),
+             ClothesPref(type: .headdresses, temp: .superCold),
+             ClothesPref(type: .gloves, temp: .superCold),
+             ClothesPref(type: .scarves, temp: .superCold)]
         ]),
         
         WeatherConfig(weather: .rain, clothes: [
@@ -233,8 +245,7 @@ let outfitConfig: [OutfitConfig] = [
            [ ClothesPref(type: .tshirts, temp: .regular),
             ClothesPref(type: .pants, temp: .warm),
             ClothesPref(type: .socks, temp: .warm),
-            ClothesPref(type: .sneakers, temp: .warm),
-            ClothesPref(type: .umbrellas, temp: .regular)]
+            ClothesPref(type: .sneakers, temp: .warm)]
         ]),
         
         WeatherConfig(weather: .lightRain, clothes: [

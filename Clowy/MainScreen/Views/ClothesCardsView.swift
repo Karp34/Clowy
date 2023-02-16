@@ -11,6 +11,7 @@ import WaterfallGrid
 struct ClothesCardsView: View {
     var outfit: [Cloth]
     var textError: String?
+    var errorCode: Int?
     
     var body: some View {
         ZStack {
@@ -64,54 +65,65 @@ struct ClothesCard: View {
 struct NoOutfit : View {
     @StateObject private var viewModel = MainScreenViewModel.shared
     @State var isShowingSheet = false
+    @State var isPresented = false
     var textError: String?
+    var errorCode: Int?
     
     var body: some View {
-        VStack(alignment: .center, spacing: 16) {
-            ZStack {
-                Circle()
-                    .frame(width: 96, height: 96)
-                    .foregroundColor(Color(hex: viewModel.chosenWeather.color)).opacity(0.2)
-                Image("Veshalka")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 41)
-                    .foregroundColor(Color(hex: viewModel.chosenWeather.color))
+        VStack(alignment: .center) {
+            VStack(alignment: .center, spacing: 16) {
+                ZStack {
+                    Circle()
+                        .frame(width: 96, height: 96)
+                        .foregroundColor(Color(hex: viewModel.chosenWeather.color)).opacity(0.2)
+                    Image("Veshalka")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 41)
+                        .foregroundColor(Color(hex: viewModel.chosenWeather.color))
+                }
+                if let textError = textError {
+                    Text(textError)
+                        .font(.custom("Montserrat-SemiBold", size: 20))
+                        .foregroundColor(Color(hex: "#646C75"))
+                        .multilineTextAlignment(.center)
+                } else {
+                    Text("No items in wardrobe")
+                        .font(.custom("Montserrat-SemiBold", size: 20))
+                        .foregroundColor(Color(hex: "#646C75"))
+                        .multilineTextAlignment(.center)
+                }
+                
             }
-            if let textError = textError {
-                Text(textError)
-                    .font(.custom("Montserrat-SemiBold", size: 20))
-                    .foregroundColor(Color(hex: "#646C75"))
-                    .multilineTextAlignment(.center)
-            } else {
-                Text("No items in wardrobe")
-                    .font(.custom("Montserrat-SemiBold", size: 20))
-                    .foregroundColor(Color(hex: "#646C75"))
-                    .multilineTextAlignment(.center)
-            }
+            .frame(idealWidth: 279 ,idealHeight: 320)
             
-        }
-        .frame(idealWidth: 279 ,idealHeight: 320)
-        
-        Button {
-            isShowingSheet.toggle()
-        } label: {
-            ZStack {
-                Rectangle()
-                    .foregroundColor(.clear)
-                Text("Add")
-                    .font(.custom("Montserrat-Bold", size: 16))
-                    .foregroundColor(.white)
-            }
+            Spacer()
+            
+            Button {
+                if errorCode == 401 {
+                    isShowingSheet.toggle()
+                } else if errorCode == 402 {
+                    isPresented.toggle()
+                }
+            } label: {
+                ZStack {
+                    Rectangle()
+                        .foregroundColor(.clear)
+                    Text("Add")
+                        .font(.custom("Montserrat-Bold", size: 16))
+                        .foregroundColor(.white)
+                }
 
-        }
-        .padding(.bottom, 24)
-        .buttonStyle(DefaultColorButtonStyle(color: viewModel.chosenWeather.color, radius: 24))
-        .sheet(isPresented: $isShowingSheet) {
-            VStack (spacing: 0) {
+            }
+            .padding(.bottom, 24)
+            .buttonStyle(DefaultColorButtonStyle(color: viewModel.chosenWeather.color, radius: 24))
+            .sheet(isPresented: $isShowingSheet) {
                 AddClothesView(isShowingSheet: $isShowingSheet)
             }
             .background(Color(hex: "#F7F8FA").edgesIgnoringSafeArea(.all))
+            .fullScreenCover(isPresented: $isPresented) {
+                AddNewOutfitView()
+            }
         }
     }
 }

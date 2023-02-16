@@ -571,7 +571,7 @@ class MainScreenViewModel: ObservableObject {
     
     func fetchWardrobe() {
             wardrobe.removeAll()
-            print("Wardrobe clear")
+//            print("Wardrobe clear")
             fetchClothes() {
                 let allTypes = CreateDefaultWardrobe.getClothes()
 
@@ -703,8 +703,7 @@ class MainScreenViewModel: ObservableObject {
     }
     
     func getConfig(weather: Weather) -> [[ClothesPref]] {
-        let temp = weather.temp
-//                    + preference temp when it will be added to clowy
+        let temp = Double(weather.temp) + (( UserDefaults.standard.double(forKey: "prefTemp") - 0.5 ) * -10 )
         var config = [[ClothesPref]]()
         var configs: OutfitConfig
         
@@ -742,17 +741,17 @@ class MainScreenViewModel: ObservableObject {
             for day in days {
                 var fittingOutfits: FittingOutfitsResponse
                 let config = getConfig(weather: day.weather)
-                print(config)
+//                print(config)
                 fittingOutfits = getOutfitsForDay(config: config)
                 
                 
                 let fittingOutfitResponse = FittingOutfitsResponse(id: day.id, outfits: fittingOutfits.outfits, code: fittingOutfits.code, error: fittingOutfits.error)
-                print("______________")
-                print(day.name)
-                print("FITTING OUTFITS \(fittingOutfitResponse)")
+//                print("______________")
+//                print(day.name)
+//                print("FITTING OUTFITS \(fittingOutfitResponse)")
                 fittingOutfitsResponse.append(fittingOutfitResponse)
-                print("")
-                print("")
+//                print("")
+//                print("")
             }
            
 //        } else {
@@ -760,8 +759,8 @@ class MainScreenViewModel: ObservableObject {
 //        }
     }
     
-    func getRightOutfit(clothes: [Cloth], config: [[ClothesPref]]) -> PercentFittingOutfit {
-        var percentFittingOutfits = PercentFittingOutfit(outfit: [], percent: 0)
+    func getRightOutfit(clothes: [Cloth], config: [[ClothesPref]]) -> [PercentFittingOutfit] {
+        var percentFittingOutfits = [PercentFittingOutfit(outfit: [], percent: 0)]
         
         for list in config {
             var tempClothes = [Cloth]()
@@ -783,10 +782,13 @@ class MainScreenViewModel: ObservableObject {
                 if let accessories = clothes.first(where: {$0.type == .accessories}) {
                     tempClothes.append(accessories)
                 }
-                percentFittingOutfits = PercentFittingOutfit(outfit: tempClothes, percent: 100)
+                percentFittingOutfits.append(PercentFittingOutfit(outfit: tempClothes, percent: 100))
             } else {
                 let percent = (Double(tempClothes.count) / Double(list.count)) * 100
-                percentFittingOutfits = PercentFittingOutfit(outfit: tempClothes, percent: percent, absentTypes: absentTypes)
+                if let accessories = clothes.first(where: {$0.type == .accessories}) {
+                    tempClothes.append(accessories)
+                }
+                percentFittingOutfits.append(PercentFittingOutfit(outfit: tempClothes, percent: percent, absentTypes: absentTypes))
             }
         }
         
@@ -806,22 +808,23 @@ class MainScreenViewModel: ObservableObject {
         for outfit in outfits {
             
             let clothes = getClothesByIds(outfit.clothes)
-            let outfit = getRightOutfit(clothes: clothes, config: config)
+            let rightOutfits = getRightOutfit(clothes: clothes, config: config)
             
-            if outfit.percent == 100 {
-                if !outfit.outfit.isEmpty  {
-                    let fittingOutfit = FittingOutfit(id: count, outfit: outfit.outfit, isGenerated: false)
-                    if !fittingOutfits.contains(where: { $0.outfit == fittingOutfit.outfit}) {
-                        fittingOutfits.append(fittingOutfit)
-                        count += 1
+            for outfit in rightOutfits {
+                if outfit.percent == 100 {
+                    if !outfit.outfit.isEmpty  {
+                        let fittingOutfit = FittingOutfit(id: count, outfit: outfit.outfit, isGenerated: false)
+                        if !fittingOutfits.contains(where: { $0.outfit == fittingOutfit.outfit}) {
+                            fittingOutfits.append(fittingOutfit)
+                            count += 1
+                        }
+                    }
+                } else {
+                    if !outfit.outfit.isEmpty  {
+                        notFittingOutfits.append(outfit)
                     }
                 }
-            } else {
-                if !outfit.outfit.isEmpty  {
-                    notFittingOutfits.append(outfit)
-                }
             }
-            
         }
         
         if fittingOutfits.isEmpty {
@@ -834,10 +837,10 @@ class MainScreenViewModel: ObservableObject {
 //                var addedItemsCount = 0
                 if let absentTypes = outfit.absentTypes {
                     for type in absentTypes {
-                        print(type.type.rawValue)
+//                        print(type.type.rawValue)
                         let fittingClothes = clothes.filter { $0.type == type.type && $0.temperature.contains(type.temp.rawValue) }
                         if !fittingClothes.isEmpty {
-                            print("clothes exist")
+//                            print("clothes exist")
                             var fittingClothesOutfits = [PercentFittingOutfit]()
                             
                             for cloth in fittingClothes {
@@ -847,26 +850,26 @@ class MainScreenViewModel: ObservableObject {
                                 
                                 for outfit in outfits {
                                     let set = Set(outfit.clothes).intersection(newOutfitNames)
-                                    print(set)
-                                    print(set.count)
-                                    print(newOutfitNames.count)
+//                                    print(set)
+//                                    print(set.count)
+//                                    print(newOutfitNames.count)
                                     if set.contains(cloth.id) {
                                         let percent = Double(set.count - 1) / Double(newOutfitNames.count) * 100
                                         fittingClothesOutfits.append(PercentFittingOutfit(outfit: newOutfit, percent: percent))
-                                        print("\(cloth.name)")
-                                        print("appended to fittingClothesOutfits")
+//                                        print("\(cloth.name)")
+//                                        print("appended to fittingClothesOutfits")
                                     } else {
                                         fittingClothesOutfits.append(PercentFittingOutfit(outfit: newOutfit, percent: 0))
-                                        print("\(cloth.name)")
-                                        print("appended to fittingClothesOutfits with 0 percent")
+//                                        print("\(cloth.name)")
+//                                        print("appended to fittingClothesOutfits with 0 percent")
                                     }
                                 }
                             }
                             if !fittingClothesOutfits.isEmpty {
                                 fittingClothesOutfits.sort { $0.percent > $1.percent }
                                 changedOutfit = fittingClothesOutfits[0]
-                                print("New changed outfit")
-                                print(changedOutfit)
+//                                print("New changed outfit")
+//                                print(changedOutfit)
                                 
                             }
                         } else {
@@ -877,8 +880,8 @@ class MainScreenViewModel: ObservableObject {
                     }
                     if changedOutfit.outfit.count == outfit.outfit.count + absentTypes.count {
                         allFittingOutfits.append(changedOutfit)
-                        print("appended to allFittingOutfits")
-                        print(allFittingOutfits)
+//                        print("appended to allFittingOutfits")
+//                        print(allFittingOutfits)
                     }
                 }
             }
@@ -887,8 +890,8 @@ class MainScreenViewModel: ObservableObject {
                 let fittingOutfit = FittingOutfit(id: count, outfit: sortClothes(clothesList: bestOutfit.outfit), isGenerated: true)
                 if !fittingOutfits.contains(where: { $0.outfit == fittingOutfit.outfit}) {
                     fittingOutfits.append(fittingOutfit)
-                    print("appended to fittingOutfits")
-                    print(fittingOutfits)
+//                    print("appended to fittingOutfits")
+//                    print(fittingOutfits)
                     count += 1
                     if bestOutfit.percent == 0 || count >= 2 {
                         break
@@ -937,10 +940,10 @@ class MainScreenViewModel: ObservableObject {
         
         if clothes.isEmpty {
             error = "No items in wardrobe"
-            code = 400
+            code = 401
         } else if outfits.isEmpty {
-            error = "No items in outfits"
-            code = 400
+            error = "No outfits"
+            code = 402
         }
         
         return  FittingOutfitsResponse(id: 0, outfits: fittingOutfits, code: fittingOutfits.isEmpty ? code : 200, error: fittingOutfits.isEmpty ? error : "")

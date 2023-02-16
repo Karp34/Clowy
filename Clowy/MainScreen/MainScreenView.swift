@@ -74,7 +74,6 @@ struct MainScreenView: View, DaysForecastViewDelegate {
                         LazyVStack(alignment: .leading, spacing: 0, pinnedViews: [.sectionHeaders]) {
                             NavigationLink(
                                 destination: ProfileView()
-                                    .navigationBarHidden(true)
                             ) {
                                 GreetingView(color: viewModel.chosenWeather.color)
                                     .padding(.horizontal, 24)
@@ -98,7 +97,7 @@ struct MainScreenView: View, DaysForecastViewDelegate {
                             
                             
                             
-                            WardrobeModuleView(color: viewModel.chosenWeather.color, numberOfClothes: viewModel.wardrobe.count, numberOfOutfits: 0)
+                            WardrobeModuleView(color: viewModel.chosenWeather.color, numberOfClothes: viewModel.clothes.count, numberOfOutfits: viewModel.outfits.count)
                                 .padding(.horizontal, 24)
                                 .padding(.bottom, 32)
                             
@@ -125,7 +124,7 @@ struct MainScreenView: View, DaysForecastViewDelegate {
                                             .offset(x: -(self.backgroundOffset * g.size.width))
                                             .animation(.default)
                                         } else {
-                                            NoOutfit(textError: fittingOutfits.error)
+                                            NoOutfit(textError: fittingOutfits.error, errorCode: fittingOutfits.code)
                                                 .padding(.horizontal, 24)
                                         }
                                     }
@@ -150,11 +149,15 @@ struct MainScreenView: View, DaysForecastViewDelegate {
                         .onEnded({ value in
                             if value.translation.width > 10 {
                                 if backgroundOffset > 0 {
-                                    self.backgroundOffset -= 1
+//                                    withAnimation {
+                                        self.backgroundOffset -= 1
+//                                    }
                                 }
                             } else if value.translation.width < -10 {
                                 if Int(backgroundOffset) < listOfOutfits.count-1 {
-                                    self.backgroundOffset += 1
+//                                    withAnimation {
+                                        self.backgroundOffset += 1
+//                                    }
                                 }
                                 
                             }
@@ -165,7 +168,6 @@ struct MainScreenView: View, DaysForecastViewDelegate {
                         createWardrobe(wardrobe: viewModel.wardrobe)
                         //                    viewModel.fetchWardrobe()
                         //                    viewModel.fetchOutfits()
-                        
                         
                         UIApplication.shared.setStatusBarStyle(.darkContent, animated: false)
                         
@@ -182,6 +184,7 @@ struct MainScreenView: View, DaysForecastViewDelegate {
                                     print(viewModel.days)
                                     
                                     viewModel.getRightOutfits()
+                                    print("GET RIGHT OUFIT")
                                 }
                             }
                         } else {
@@ -196,22 +199,27 @@ struct MainScreenView: View, DaysForecastViewDelegate {
                                 print(viewModel.days)
                                 
                                 viewModel.getRightOutfits()
+                                print("GET RIGHT OUFIT")
                             }
                         }
                         
                         
                         
                     }
-                    .navigationBarHidden(true)
                     .background(Color(hex: "#F7F8FA").edgesIgnoringSafeArea(.all))
                 }
                 VStack {
                     Spacer()
                     if listOfOutfits.count > 1 {
                         IndicatorView(selectedId: Int(backgroundOffset), count: listOfOutfits.count)
+                            .animation(.easeInOut, value: backgroundOffset)
+                            .onDisappear {
+                                backgroundOffset = 0
+                            }
                     }
                 }
             }
+            .navigationBarHidden(true)
         }
     }
     

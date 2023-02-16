@@ -10,12 +10,15 @@ import WaterfallGrid
 
 struct NewOutfitScreen: View {
     @State private var isShowingSheet = false
+    @State private var isPresented = false
     @StateObject private var viewModel = MainScreenViewModel.shared
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
     var btnAdd : some View {
-        NavigationLink(destination: AddNewOutfitView()) {
+        Button {
+            isPresented.toggle()
+        } label: {
             ZStack{
                 RoundedRectangle(cornerRadius: 8)
                     .foregroundColor(.white)
@@ -93,6 +96,9 @@ struct NewOutfitScreen: View {
         .navigationBarItems(leading: btnBack, trailing: btnAdd)
         .navigationBarBackButtonHidden(true)
         .background(Color(hex: "#F7F8FA").edgesIgnoringSafeArea(.all))
+        .fullScreenCover(isPresented: $isPresented) {
+            AddNewOutfitView()
+        }
     }
     
     func didDismiss() {

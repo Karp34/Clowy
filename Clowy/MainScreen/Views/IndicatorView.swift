@@ -8,21 +8,21 @@
 import SwiftUI
 
 struct IndicatorView: View {
-    @State var isPressed = false
+    @StateObject var viewModel = MainScreenViewModel.shared
     var selectedId: Int
     let count: Int
     
     var body: some View {
         HStack(spacing: 8) {
             ForEach(0..<count, id:\.self) { id in
-                Circle()
-                    .foregroundColor( id == selectedId ? Color.white : Color(hex: "#E0E1E3"))
-                    .frame(width: 8, height: 8)
+                RoundedRectangle(cornerRadius: 16)
+                    .foregroundColor(Color.white.opacity(id == selectedId ? 1 : 0.5))
+                    .frame(width: id == selectedId ? 32 : 8, height: 8)
             }
         }
         .padding(.vertical, 16)
-        .padding(.horizontal, 24)
-        .background(Color(hex: "#EEEFF1"))
+        .padding(.horizontal, 16)
+        .background(Color(hex: viewModel.chosenWeather.color))
         .clipShape(
             Capsule()
         )

@@ -47,7 +47,7 @@ struct SplashScreen: View {
                     
                     viewModel.getUserId()
                     viewModel.fetchWardrobe()
-                    viewModel.fetchOutfits()
+//                    viewModel.fetchOutfits()
                     Auth.auth().addStateDidChangeListener { auth, user in
                         if user != nil {
                             viewModel.userIsLoggedIn.toggle()
