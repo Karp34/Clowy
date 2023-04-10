@@ -83,6 +83,7 @@ struct ProfileView: View {
                 ProfileNavBarContent()
             }
         }
+        .navigationBarHidden(true)
         .onAppear {
             UIApplication.shared.setStatusBarStyle(.lightContent, animated: false)
         }

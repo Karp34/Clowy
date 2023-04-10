@@ -10,7 +10,7 @@ import Combine
 
 class ProfileNavBarContentViewModel: ObservableObject {
     @Published var image: Data = .init(count: 0)
-    static var shared = AddClothesViewModel()
+    static var shared = ProfileNavBarContentViewModel()
 }
 
 struct ProfileNavBarContent: View {
@@ -176,10 +176,10 @@ struct ProfileNavBarContent: View {
                                         )
                                     ])
                                 }
-                                .sheet(isPresented: self.$show) {
-                                    ImagePicker(show: self.$show, image: $viewModel.rawImage)
-                                        .environment(\.managedObjectContext, self.moc)
-                                }
+//                                .sheet(isPresented: self.$show) {
+//                                    ImagePicker(show: self.$show, image: $viewModel.image)
+//                                        .environment(\.managedObjectContext, self.moc)
+//                                }
                                 
                                 
                                 

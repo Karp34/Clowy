@@ -93,6 +93,7 @@ struct NewOutfitScreen: View {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .navigationBarTitle("My outfits")
         .navigationBarItems(leading: btnBack, trailing: btnAdd)
         .navigationBarBackButtonHidden(true)
         .background(Color(hex: "#F7F8FA").edgesIgnoringSafeArea(.all))

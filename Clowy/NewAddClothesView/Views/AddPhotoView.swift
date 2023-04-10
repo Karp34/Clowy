@@ -11,16 +11,16 @@ struct AddPhotoView: View {
     @Environment(\.managedObjectContext) var moc
     @Environment(\.presentationMode) var presentationMode
     
-    @ObservedObject var viewModel: AddClothesViewModel
+    @ObservedObject var viewModel = AddClothesViewModel.shared
     @State var show = false
     
     var body: some View {
-        if self.viewModel.image != "" || self.viewModel.rawImage != nil {
+        if self.viewModel.cloth.image != "" || self.viewModel.cloth.rawImage != nil {
             ZStack {
                 RoundedRectangle(cornerRadius: 16)
                     .stroke(Color(hex: "#DADADA"), style: StrokeStyle(lineWidth: 1, dash: [4]))
                 VStack {
-                    ClothImage(imageName: viewModel.image, isDeafult: viewModel.isDefault, color: viewModel.chosenColor, rawImage: viewModel.rawImage)
+                    ClothImage(imageName: viewModel.cloth.image, isDeafult: viewModel.cloth.isDefault, color: viewModel.cloth.color, rawImage: viewModel.cloth.rawImage)
                         .scaledToFit()
                         .frame(width: 96, height: 96)
                 }
@@ -36,9 +36,10 @@ struct AddPhotoView: View {
                 .frame(height: 133)
                 .onTapGesture {
                     withAnimation {
-                        viewModel.rawImage = nil
-                        viewModel.isDefault = false
-                        viewModel.image = ""
+                        viewModel.cloth.rawImage = nil
+                        viewModel.cloth.isDefault = false
+                        viewModel.imageId = viewModel.cloth.image
+                        viewModel.cloth.image = ""
                     }
                 }
             }
@@ -54,7 +55,7 @@ struct AddPhotoView: View {
                 UseStockPhoto()
             }
             .sheet(isPresented: self.$show) {
-                ImagePicker(show: $show, image: $viewModel.rawImage)
+                ImagePicker(show: $show, image: $viewModel.cloth.rawImage)
                     .environment(\.managedObjectContext, self.moc)
             }
         }

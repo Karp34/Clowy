@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NewChooseTempView: View {
-    @ObservedObject var viewModel: AddClothesViewModel
+    @ObservedObject var viewModel = AddClothesViewModel.shared
     
     let insets = EdgeInsets(top: 8, leading: 24, bottom: 0, trailing: 24)
     
@@ -48,7 +48,7 @@ struct NewChooseTempView: View {
                             TemperatureView(tempList: id.temp, backColor: "#EFF0F2", textColor: "#646C75")
                                 .onTapGesture {
                                     viewModel.temp.append(id)
-                                    print(viewModel.temp)
+                                    print(viewModel.cloth.temperature)
                                 }
                         }
                     }

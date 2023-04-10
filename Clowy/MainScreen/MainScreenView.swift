@@ -107,7 +107,7 @@ struct MainScreenView: View, DaysForecastViewDelegate {
                                         if !fittingOutfits.outfits.isEmpty {
                                             HStack(alignment: .top, spacing: 0) {
                                                 ForEach(fittingOutfits.outfits) { outfit in
-                                                    VStack(spacing: 0) {
+                                                    VStack(spacing: 8) {
                                                         ClothesCardsView(outfit: outfit.outfit)
                                                             .padding(.horizontal, 16)
                                                         AddGeneratedOutfit(isGenerated: outfit.isGenerated, outfit: outfit.outfit)
@@ -136,7 +136,11 @@ struct MainScreenView: View, DaysForecastViewDelegate {
                                     .background((offset.y > 380 ? Color(hex: "#F7F8FA") : Color(.clear)).frame(height: 95).edgesIgnoringSafeArea(.all).offset(y: -30))
                                 }
                             } else if viewModel.state == .error {
-                                NoClothesDataPlaceholder()
+                                HStack {
+                                    Spacer()
+                                    NoClothesDataPlaceholder()
+                                    Spacer()
+                                }
                             } else {
                                 ClothesLoadingPlaceholder()
                             }
@@ -219,7 +223,6 @@ struct MainScreenView: View, DaysForecastViewDelegate {
                     }
                 }
             }
-            .navigationBarHidden(true)
         }
     }
     

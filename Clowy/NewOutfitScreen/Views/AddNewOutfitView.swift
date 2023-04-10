@@ -165,7 +165,7 @@ struct AddNewOutfitView: View{
                     NewOutfitNavBar()
                     OutfitView(outfit: outfitViewModel.defaultStringOutfit, isEditing: isEditing, delegate: outfitViewModel)
                 }
-                    .background(Color(hex: "#6286C9").frame(height: 1200).edgesIgnoringSafeArea(.all))
+                    
                 CustomSheetView(radius: 32, color: "#F7F8FA", clearCornerColor: "#6286C9", topLeftCorner: true, topRightCorner: false) {
                     ScrollView  (.vertical, showsIndicators: false) {
                         Spacer(minLength: 24)
@@ -175,7 +175,7 @@ struct AddNewOutfitView: View{
                             VStack {
                                 ForEach(viewModel.wardrobe) { cat in
                                     if cat.items.count > 0 {
-                                        ClothesCollectionView(name: cat.clothesTypeName.rawValue, clothes: cat.items, selectedClothes: outfitViewModel.defaultOutfit, delegate: outfitViewModel.self)
+                                        ClothesCollectionView(clothesTypeName: cat.clothesTypeName, clothes: cat.items, selectedClothes: outfitViewModel.defaultOutfit, delegate: outfitViewModel.self)
                                     } else {
                                         NoClothesCollection(name: cat.clothesTypeName.rawValue)
                                     }
@@ -184,14 +184,14 @@ struct AddNewOutfitView: View{
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                         }
                     }
-                }
+                }.background(Color(hex: "#F7F8FA").edgesIgnoringSafeArea(.all))
             }
             .navigationBarHidden(true)
             .onAppear() {
-                viewModel.fetchWardrobe()
+//                viewModel.fetchWardrobe()
                 outfitViewModel.defaultOutfit = newOutfit ?? outfitViewModel.defaultOutfit
             }
-            .background(Color(hex: "#F7F8FA").edgesIgnoringSafeArea(.all))
+            .background(Color(hex: "#6286C9").edgesIgnoringSafeArea(.all))
             
             if outfitViewModel.isSavingOutfit {
                 VStack(spacing: 0) {
@@ -283,7 +283,7 @@ struct AddNewOutfitView: View{
 struct OutfitWardrobeView: View {
     
     var delegate: WardrobeClothesCardCollectionDelegate
-    var clothesTypeName: String
+    var clothesTypeName: ClothesType
     var clothList: [Cloth]
     var defaultOutfit: [Cloth]
     
@@ -291,9 +291,9 @@ struct OutfitWardrobeView: View {
     
     var body: some View {
         if !clothList.isEmpty {
-            ClothesCollectionView(name: clothesTypeName, clothes: clothList, selectedClothes: defaultOutfit, delegate: delegate)
+            ClothesCollectionView(clothesTypeName: clothesTypeName, clothes: clothList, selectedClothes: defaultOutfit, delegate: delegate)
         } else {
-            NoClothesCollection(name: clothesTypeName)
+            NoClothesCollection(name: clothesTypeName.rawValue)
         }
     }
 }

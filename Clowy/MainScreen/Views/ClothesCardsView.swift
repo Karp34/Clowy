@@ -104,6 +104,9 @@ struct NoOutfit : View {
                     isShowingSheet.toggle()
                 } else if errorCode == 402 {
                     isPresented.toggle()
+                } else {
+                    print("TADA")
+                    isShowingSheet.toggle()
                 }
             } label: {
                 ZStack {

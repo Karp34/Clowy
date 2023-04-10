@@ -33,32 +33,30 @@ struct ChooseColorView: View {
             ]
             
             ScrollView (.horizontal, showsIndicators: false) {
-                HStack (spacing: 8) {
-                    ForEach(colorList, id: \.self) { id in
-                        if !id.isEmpty {
-                            if id.contains(viewModel.chosenColor) {
-                                ChosenColorView(colorList: id)
+                HStack(spacing: 8) {
+                    ForEach(colorList, id: \.self) { colorList in
+                        if !colorList.isEmpty {
+                            if colorList.contains(viewModel.cloth.color) {
+                                ChosenColorView(colorList: colorList)
+                            } else if colorList.first == "#FFFFFF" {
+                                Circle()
+                                    .stroke(Color.gray, style: StrokeStyle(lineWidth: 1))
+                                    .foregroundColor(Color(hex: colorList.first!))
+                                    .frame(width: 32, height: 32)
+                                    .onTapGesture {
+                                        withAnimation{
+                                            viewModel.cloth.color = colorList.first!
+                                        }
+                                    }
                             } else {
-                                if id.first == "#FFFFFF" {
-                                    Circle()
-                                        .stroke(Color.gray, style: StrokeStyle(lineWidth: 1))
-                                        .foregroundColor(Color(hex: id.first!))
-                                        .frame(width: 32, height: 32)
-                                        .onTapGesture {
-                                            withAnimation{
-                                                viewModel.chosenColor = id.first!
-                                            }
+                                Circle()
+                                    .frame(width: 32, height: 32)
+                                    .foregroundColor(Color(hex: colorList.first!))
+                                    .onTapGesture {
+                                        withAnimation {
+                                            viewModel.cloth.color = colorList.first!
                                         }
-                                } else {
-                                    Circle()
-                                        .frame(width: 32, height: 32)
-                                        .foregroundColor(Color(hex: id.first!))
-                                        .onTapGesture {
-                                            withAnimation {
-                                                viewModel.chosenColor = id.first!
-                                            }
-                                        }
-                                }
+                                    }
                             }
                         }
                     }
@@ -79,7 +77,7 @@ struct ChosenColorView: View {
             ZStack {
                 HStack(spacing: 4) {
                     ForEach(colorList, id:\.self) { color in
-                        if color == viewModel.chosenColor {
+                        if color == viewModel.cloth.color {
                             if color == "#FFFFFF" {
                                 ZStack {
                                     Circle()
@@ -94,7 +92,7 @@ struct ChosenColorView: View {
                                 }
                                 .onTapGesture {
                                     withAnimation {
-                                        viewModel.chosenColor = "#FFFFFF"
+                                        viewModel.cloth.color = "#FFFFFF"
                                     }
                                 }
                             } else {
@@ -110,7 +108,7 @@ struct ChosenColorView: View {
                                 }
                                 .onTapGesture {
                                     withAnimation {
-                                        viewModel.chosenColor = color
+                                        viewModel.cloth.color = color
                                     }
                                 }
                             }
@@ -120,7 +118,7 @@ struct ChosenColorView: View {
                                 .foregroundColor(Color(hex: color))
                                 .onTapGesture {
                                     withAnimation {
-                                        viewModel.chosenColor = color
+                                        viewModel.cloth.color = color
                                     }
                                 }
                         }
@@ -150,7 +148,7 @@ struct ChosenColorView: View {
                         }
                         .onTapGesture {
                             withAnimation {
-                                viewModel.chosenColor = "#FFFFFF"
+                                viewModel.cloth.color = "#FFFFFF"
                             }
                         }
                     } else {
@@ -166,7 +164,7 @@ struct ChosenColorView: View {
                         }
                         .onTapGesture {
                             withAnimation {
-                                viewModel.chosenColor = color
+                                viewModel.cloth.color = color
                             }
                         }
                     }

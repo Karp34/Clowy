@@ -9,11 +9,8 @@ import SwiftUI
 import WebKit
 
 struct GifImage: UIViewRepresentable {
-    private let name: String
+    var name: String
     
-    init(name: String) {
-        self.name = name
-    }
     func makeUIView(context: Context) -> WKWebView {
         let webview = WKWebView()
         let url = Bundle.main.url(forResource: name, withExtension: "gif")!

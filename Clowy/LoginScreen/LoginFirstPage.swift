@@ -136,7 +136,7 @@ struct LoginFirstPage: View {
             
             HStack(spacing: 40) {
                 Button {
-                    skip()
+                    viewModel.register()
                 } label: {
                     Image(systemName: "applelogo")
                         .resizable()

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NewTagsView: View {
-    @ObservedObject var viewModel: AddClothesViewModel
+    @ObservedObject var viewModel = AddClothesViewModel.shared
     
     @State var categoryNames: [String] = []
     
@@ -84,24 +84,24 @@ struct TagsView: View {
                             .padding(.horizontal, 10)
                             .padding(.vertical, 6)
                             .font(.custom("Montserrat-Regular", size: 12))
-                            .foregroundColor( viewModel.clothesType == ClothesType(rawValue: word) ? .white : Color(hex: "#646C75"))
-                            .background( viewModel.clothesType == ClothesType(rawValue: word) ? Color(hex: "#678CD4") : Color(hex: "#EFF0F2"))
+                            .foregroundColor( viewModel.cloth.type == ClothesType(rawValue: word) ? .white : Color(hex: "#646C75"))
+                            .background( viewModel.cloth.type == ClothesType(rawValue: word) ? Color(hex: "#678CD4") : Color(hex: "#EFF0F2"))
                             .clipShape(RoundedRectangle(cornerRadius: 6))
                             .onTapGesture {
                                 // if default cloth was added before - clean
-                                if viewModel.clothesType != .blank && viewModel.isDefault == true && viewModel.image != "" {
-                                    viewModel.clothesType = .blank
-                                    viewModel.image = ""
-                                    viewModel.isDefault = false
-                                    viewModel.rawImage = nil
+                                if viewModel.cloth.type != .blank && viewModel.cloth.isDefault == true && viewModel.cloth.image != "" {
+                                    viewModel.cloth.type = .blank
+                                    viewModel.cloth.image = ""
+                                    viewModel.cloth.isDefault = false
+                                    viewModel.cloth.rawImage = nil
                                 }
                                 
-                                viewModel.clothesType = ClothesType(rawValue: word) ?? .blank
+                                viewModel.cloth.type = ClothesType(rawValue: word) ?? .blank
                                 
                                 // if there is no image from galary set default cloth
-                                if viewModel.rawImage == nil {
-                                    viewModel.image = word
-                                    viewModel.isDefault = true
+                                if viewModel.cloth.rawImage == nil {
+                                    viewModel.cloth.image = word
+                                    viewModel.cloth.isDefault = true
                                 }
                             }
                     }

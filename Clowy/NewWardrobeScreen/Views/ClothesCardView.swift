@@ -32,7 +32,7 @@ struct ClothesCardView: View {
             if deletable == true {
                 HStack {
                     Spacer()
-                    VStack{
+                    VStack {
                         Image(systemName: "minus.circle")
                             .foregroundColor(.red)
                             .frame(width: 24, height: 24)
@@ -89,7 +89,7 @@ struct ClothesCardView: View {
             if selected == true {
                 HStack {
                     Spacer()
-                    VStack{
+                    VStack {
                         ZStack {
                             Circle()
                                 .foregroundColor(.green)
@@ -104,6 +104,7 @@ struct ClothesCardView: View {
                         Spacer()
                     }
                 }
+                .frame(width: 128, height: 164)
             }
         }
         .shadow(color:Color(hex: "#646C75").opacity(0.1), radius: 10, y: 4)

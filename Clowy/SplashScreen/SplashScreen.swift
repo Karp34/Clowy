@@ -31,23 +31,36 @@ struct SplashScreen: View {
                 }
             } else {
                 let textOffset = geometry.size.height/2
-                ZStack(alignment: .top) {
-                    Color(hex: "#678CD4")
-                    Text("Clowy")
-                        .font(.custom("Montserrat-Bold", size: 40))
+                ZStack(alignment: .bottom) {
+                    ZStack(alignment: .top) {
+                        Color(hex: "#678CD4")
+                        Text("Clowy")
+                            .font(.custom("Montserrat-Bold", size: 40))
+                            .foregroundColor(.white)
+                            .padding(.top, textOffset)
+    //                        .background(Color.red)
+                    }
+//                    Text("Dress smarter. Look better.")
+//                        .font(.custom("Montserrat-Medium", size: 14))
+//                        .foregroundColor(.white)
+//                        .padding(.bottom, 50)
+                    Text("Dress smarter. Look better.")
+                        .font(.custom("Montserrat-Medium", size: 14))
                         .foregroundColor(.white)
-                        .padding(.top, textOffset)
-//                        .background(Color.red)
+                        .padding(.bottom, 38)
                 }
+                
                 .ignoresSafeArea(.all)
                 .onAppear {
-                    viewModel.getCoordinates()
-                    viewModel.observeDeniedLocationAccess()
-                    viewModel.deviceLocationService.requestLocationUpdates()
-                    
-                    viewModel.getUserId()
-                    viewModel.fetchWardrobe()
-//                    viewModel.fetchOutfits()
+                    if UserDefaults.standard.bool(forKey: "launchedBefore") {
+                        viewModel.getCoordinates()
+                        viewModel.observeDeniedLocationAccess()
+                        viewModel.deviceLocationService.requestLocationUpdates()
+                        
+                        viewModel.getUserId()
+                        viewModel.fetchWardrobe() {}
+                        viewModel.fetchOutfits()
+                    }
                     Auth.auth().addStateDidChangeListener { auth, user in
                         if user != nil {
                             viewModel.userIsLoggedIn.toggle()

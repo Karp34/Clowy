@@ -38,7 +38,7 @@ struct Clowy2App: App {
             case .active:
                 print("Scene is active")
             @unknown default:
-                print("Apple musc have changed something")
+                print("Apple must have changed something")
             }
         }
     }

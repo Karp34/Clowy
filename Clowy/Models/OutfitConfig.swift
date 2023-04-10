@@ -10,216 +10,32 @@ import Foundation
 let outfitConfig: [OutfitConfig] = [
     OutfitConfig(name: "SuperCold", weatherConfig: [
         WeatherConfig(weather: .sunny, clothes: [
-           [ ClothesPref(type: .jackets, temp: .superCold),
-            ClothesPref(type: .hoodies, temp: .cold),
-            ClothesPref(type: .thermals, temp: .superCold),
-            ClothesPref(type: .tshirts, temp: .regular),
-            ClothesPref(type: .pants, temp: .cold),
-            ClothesPref(type: .thermalPants, temp: .superCold),
-            ClothesPref(type: .socks, temp: .superCold),
-            ClothesPref(type: .sneakers, temp: .cold),
-            ClothesPref(type: .headdresses, temp: .superCold),
-            ClothesPref(type: .gloves, temp: .superCold),
-            ClothesPref(type: .scarves, temp: .superCold)]
+            [ClothesPref(type: .jackets, temp: .superCold),
+             ClothesPref(type: .hoodies, temp: .cold),
+             ClothesPref(type: .thermals, temp: .superCold),
+             ClothesPref(type: .tshirts, temp: .regular),
+             ClothesPref(type: .pants, temp: .cold),
+             ClothesPref(type: .thermalPants, temp: .superCold),
+             ClothesPref(type: .socks, temp: .superCold),
+             ClothesPref(type: .sneakers, temp: .cold),
+             ClothesPref(type: .headdresses, temp: .superCold),
+             ClothesPref(type: .gloves, temp: .superCold),
+             ClothesPref(type: .scarves, temp: .superCold)],
+            
+            [ClothesPref(type: .jackets, temp: .superCold),
+             ClothesPref(type: .hoodies, temp: .cold),
+             ClothesPref(type: .thermals, temp: .superCold),
+             ClothesPref(type: .pants, temp: .cold),
+             ClothesPref(type: .thermalPants, temp: .superCold),
+             ClothesPref(type: .socks, temp: .superCold),
+             ClothesPref(type: .sneakers, temp: .cold),
+             ClothesPref(type: .headdresses, temp: .superCold),
+             ClothesPref(type: .gloves, temp: .superCold),
+             ClothesPref(type: .scarves, temp: .superCold)]
         ]),
         
         WeatherConfig(weather: .rain, clothes: [
-        [    ClothesPref(type: .jackets, temp: .superCold),
-            ClothesPref(type: .hoodies, temp: .cold),
-            ClothesPref(type: .thermals, temp: .superCold),
-            ClothesPref(type: .tshirts, temp: .regular),
-            ClothesPref(type: .pants, temp: .cold),
-            ClothesPref(type: .thermalPants, temp: .superCold),
-            ClothesPref(type: .socks, temp: .superCold),
-            ClothesPref(type: .sneakers, temp: .cold),
-            ClothesPref(type: .headdresses, temp: .superCold),
-            ClothesPref(type: .gloves, temp: .superCold),
-            ClothesPref(type: .scarves, temp: .superCold)]
-        ]),
-        
-        WeatherConfig(weather: .humidity, clothes: [
-         [   ClothesPref(type: .jackets, temp: .superCold),
-            ClothesPref(type: .hoodies, temp: .cold),
-            ClothesPref(type: .thermals, temp: .superCold),
-            ClothesPref(type: .tshirts, temp: .regular),
-            ClothesPref(type: .pants, temp: .cold),
-            ClothesPref(type: .thermalPants, temp: .superCold),
-            ClothesPref(type: .socks, temp: .superCold),
-            ClothesPref(type: .sneakers, temp: .cold),
-            ClothesPref(type: .headdresses, temp: .superCold),
-            ClothesPref(type: .gloves, temp: .superCold),
-            ClothesPref(type: .scarves, temp: .superCold)]
-        ]),
-        
-        WeatherConfig(weather: .lightRain, clothes: [
-         [   ClothesPref(type: .jackets, temp: .superCold),
-            ClothesPref(type: .hoodies, temp: .cold),
-            ClothesPref(type: .thermals, temp: .superCold),
-            ClothesPref(type: .tshirts, temp: .regular),
-            ClothesPref(type: .pants, temp: .cold),
-            ClothesPref(type: .thermalPants, temp: .superCold),
-            ClothesPref(type: .socks, temp: .superCold),
-            ClothesPref(type: .sneakers, temp: .cold),
-            ClothesPref(type: .headdresses, temp: .superCold),
-            ClothesPref(type: .gloves, temp: .superCold),
-            ClothesPref(type: .scarves, temp: .superCold)]
-        ]),
-    ]),
-    
-    OutfitConfig(name: "Cold", weatherConfig: [
-        WeatherConfig(weather: .sunny, clothes: [
-           [ ClothesPref(type: .jackets, temp: .cold),
-            ClothesPref(type: .hoodies, temp: .cold),
-            ClothesPref(type: .tshirts, temp: .regular),
-            ClothesPref(type: .pants, temp: .cold),
-            ClothesPref(type: .thermalPants, temp: .cold),
-            ClothesPref(type: .socks, temp: .cold),
-            ClothesPref(type: .sneakers, temp: .cold),
-            ClothesPref(type: .headdresses, temp: .cold),
-            ClothesPref(type: .gloves, temp: .cold),
-            ClothesPref(type: .scarves, temp: .cold)]
-        ]),
-        
-        WeatherConfig(weather: .rain, clothes: [
-           [ ClothesPref(type: .jackets, temp: .cold),
-            ClothesPref(type: .hoodies, temp: .cold),
-            ClothesPref(type: .tshirts, temp: .regular),
-            ClothesPref(type: .pants, temp: .cold),
-            ClothesPref(type: .thermalPants, temp: .cold),
-            ClothesPref(type: .socks, temp: .cold),
-            ClothesPref(type: .sneakers, temp: .cold),
-            ClothesPref(type: .headdresses, temp: .cold),
-            ClothesPref(type: .gloves, temp: .cold),
-            ClothesPref(type: .scarves, temp: .cold)]
-        ]),
-        
-        WeatherConfig(weather: .humidity, clothes: [
-           [ ClothesPref(type: .jackets, temp: .cold),
-            ClothesPref(type: .hoodies, temp: .cold),
-            ClothesPref(type: .tshirts, temp: .regular),
-            ClothesPref(type: .pants, temp: .cold),
-            ClothesPref(type: .thermalPants, temp: .cold),
-            ClothesPref(type: .socks, temp: .cold),
-            ClothesPref(type: .sneakers, temp: .cold),
-            ClothesPref(type: .headdresses, temp: .cold),
-            ClothesPref(type: .gloves, temp: .cold),
-            ClothesPref(type: .scarves, temp: .cold)]
-        ]),
-        
-        WeatherConfig(weather: .lightRain, clothes: [
-          [  ClothesPref(type: .jackets, temp: .cold),
-            ClothesPref(type: .hoodies, temp: .cold),
-            ClothesPref(type: .tshirts, temp: .regular),
-            ClothesPref(type: .pants, temp: .cold),
-            ClothesPref(type: .thermalPants, temp: .cold),
-            ClothesPref(type: .socks, temp: .cold),
-            ClothesPref(type: .sneakers, temp: .cold),
-            ClothesPref(type: .headdresses, temp: .cold),
-            ClothesPref(type: .gloves, temp: .cold),
-            ClothesPref(type: .scarves, temp: .cold)]
-        ]),
-    ]),
-    
-    OutfitConfig(name: "Coldy", weatherConfig: [
-        WeatherConfig(weather: .sunny, clothes: [
-           [ ClothesPref(type: .jackets, temp: .coldy),
-            ClothesPref(type: .hoodies, temp: .coldy),
-            ClothesPref(type: .tshirts, temp: .regular),
-            ClothesPref(type: .pants, temp: .coldy),
-            ClothesPref(type: .socks, temp: .coldy),
-            ClothesPref(type: .sneakers, temp: .regular),
-            ClothesPref(type: .headdresses, temp: .coldy),
-            ClothesPref(type: .gloves, temp: .coldy),
-            ClothesPref(type: .scarves, temp: .coldy)]
-        ]),
-        
-        WeatherConfig(weather: .rain, clothes: [
-          [  ClothesPref(type: .jackets, temp: .coldy),
-            ClothesPref(type: .hoodies, temp: .coldy),
-            ClothesPref(type: .tshirts, temp: .regular),
-            ClothesPref(type: .pants, temp: .coldy),
-            ClothesPref(type: .socks, temp: .coldy),
-            ClothesPref(type: .sneakers, temp: .coldy),
-            ClothesPref(type: .headdresses, temp: .coldy),
-            ClothesPref(type: .gloves, temp: .coldy),
-            ClothesPref(type: .scarves, temp: .coldy)]
-        ]),
-        
-        WeatherConfig(weather: .humidity, clothes: [
-           [ ClothesPref(type: .jackets, temp: .coldy),
-            ClothesPref(type: .hoodies, temp: .coldy),
-            ClothesPref(type: .tshirts, temp: .regular),
-            ClothesPref(type: .pants, temp: .coldy),
-            ClothesPref(type: .socks, temp: .coldy),
-            ClothesPref(type: .sneakers, temp: .regular),
-            ClothesPref(type: .headdresses, temp: .coldy),
-            ClothesPref(type: .gloves, temp: .coldy),
-            ClothesPref(type: .scarves, temp: .coldy)]
-        ]),
-        
-        WeatherConfig(weather: .lightRain, clothes: [
-           [ ClothesPref(type: .jackets, temp: .coldy),
-            ClothesPref(type: .hoodies, temp: .coldy),
-            ClothesPref(type: .tshirts, temp: .regular),
-            ClothesPref(type: .pants, temp: .coldy),
-            ClothesPref(type: .socks, temp: .coldy),
-            ClothesPref(type: .sneakers, temp: .coldy),
-            ClothesPref(type: .headdresses, temp: .coldy),
-            ClothesPref(type: .gloves, temp: .coldy),
-            ClothesPref(type: .scarves, temp: .coldy)]
-        ]),
-    ]),
-    
-    OutfitConfig(name: "Regular", weatherConfig: [
-        WeatherConfig(weather: .sunny, clothes: [
-          [  ClothesPref(type: .jackets, temp: .regular),
-            ClothesPref(type: .hoodies, temp: .regular),
-            ClothesPref(type: .tshirts, temp: .regular),
-            ClothesPref(type: .pants, temp: .regular),
-            ClothesPref(type: .socks, temp: .regular),
-            ClothesPref(type: .sneakers, temp: .regular)]
-        ]),
-        
-        WeatherConfig(weather: .rain, clothes: [
-          [  ClothesPref(type: .jackets, temp: .regular),
-            ClothesPref(type: .hoodies, temp: .regular),
-            ClothesPref(type: .tshirts, temp: .regular),
-            ClothesPref(type: .pants, temp: .regular),
-            ClothesPref(type: .socks, temp: .regular),
-            ClothesPref(type: .sneakers, temp: .regular),
-            ClothesPref(type: .umbrellas, temp: .regular)]
-        ]),
-        
-        WeatherConfig(weather: .humidity, clothes: [
-          [  ClothesPref(type: .jackets, temp: .regular),
-            ClothesPref(type: .hoodies, temp: .regular),
-            ClothesPref(type: .tshirts, temp: .regular),
-            ClothesPref(type: .pants, temp: .regular),
-            ClothesPref(type: .socks, temp: .regular),
-            ClothesPref(type: .sneakers, temp: .regular)]
-        ]),
-        
-        WeatherConfig(weather: .lightRain, clothes: [
-      [      ClothesPref(type: .jackets, temp: .regular),
-            ClothesPref(type: .hoodies, temp: .regular),
-            ClothesPref(type: .tshirts, temp: .regular),
-            ClothesPref(type: .pants, temp: .regular),
-            ClothesPref(type: .socks, temp: .regular),
-            ClothesPref(type: .sneakers, temp: .regular),
-            ClothesPref(type: .umbrellas, temp: .regular)]
-        ]),
-    ]),
-    
-    OutfitConfig(name: "Warm", weatherConfig: [
-        WeatherConfig(weather: .sunny, clothes: [
-          [  ClothesPref(type: .hoodies, temp: .warm),
-            ClothesPref(type: .tshirts, temp: .regular),
-            ClothesPref(type: .pants, temp: .warm),
-            ClothesPref(type: .socks, temp: .warm),
-            ClothesPref(type: .sneakers, temp: .warm),
-            ClothesPref(type: .umbrellas, temp: .regular)],
-          // please delete it ASAP
-          [   ClothesPref(type: .jackets, temp: .superCold),
+            [ClothesPref(type: .jackets, temp: .superCold),
              ClothesPref(type: .hoodies, temp: .cold),
              ClothesPref(type: .thermals, temp: .superCold),
              ClothesPref(type: .tshirts, temp: .regular),
@@ -232,66 +48,342 @@ let outfitConfig: [OutfitConfig] = [
              ClothesPref(type: .scarves, temp: .superCold)]
         ]),
         
-        WeatherConfig(weather: .rain, clothes: [
-           [ ClothesPref(type: .hoodies, temp: .warm),
-            ClothesPref(type: .tshirts, temp: .regular),
-            ClothesPref(type: .pants, temp: .warm),
-            ClothesPref(type: .socks, temp: .regular),
-            ClothesPref(type: .sneakers, temp: .regular),
-            ClothesPref(type: .umbrellas, temp: .regular)]
-        ]),
-        
         WeatherConfig(weather: .humidity, clothes: [
-           [ ClothesPref(type: .tshirts, temp: .regular),
-            ClothesPref(type: .pants, temp: .warm),
-            ClothesPref(type: .socks, temp: .warm),
-            ClothesPref(type: .sneakers, temp: .warm)]
+            [ClothesPref(type: .jackets, temp: .superCold),
+             ClothesPref(type: .hoodies, temp: .cold),
+             ClothesPref(type: .thermals, temp: .superCold),
+             ClothesPref(type: .tshirts, temp: .regular),
+             ClothesPref(type: .pants, temp: .cold),
+             ClothesPref(type: .thermalPants, temp: .superCold),
+             ClothesPref(type: .socks, temp: .superCold),
+             ClothesPref(type: .sneakers, temp: .cold),
+             ClothesPref(type: .headdresses, temp: .superCold),
+             ClothesPref(type: .gloves, temp: .superCold),
+             ClothesPref(type: .scarves, temp: .superCold)]
         ]),
         
         WeatherConfig(weather: .lightRain, clothes: [
-           [ ClothesPref(type: .hoodies, temp: .warm),
-            ClothesPref(type: .tshirts, temp: .regular),
-            ClothesPref(type: .pants, temp: .warm),
-            ClothesPref(type: .socks, temp: .regular),
-            ClothesPref(type: .sneakers, temp: .regular),
-            ClothesPref(type: .umbrellas, temp: .regular)]
+            [ClothesPref(type: .jackets, temp: .superCold),
+             ClothesPref(type: .hoodies, temp: .cold),
+             ClothesPref(type: .thermals, temp: .superCold),
+             ClothesPref(type: .tshirts, temp: .regular),
+             ClothesPref(type: .pants, temp: .cold),
+             ClothesPref(type: .thermalPants, temp: .superCold),
+             ClothesPref(type: .socks, temp: .superCold),
+             ClothesPref(type: .sneakers, temp: .cold),
+             ClothesPref(type: .headdresses, temp: .superCold),
+             ClothesPref(type: .gloves, temp: .superCold),
+             ClothesPref(type: .scarves, temp: .superCold)]
+        ]),
+    ]),
+    
+    OutfitConfig(name: "Cold", weatherConfig: [
+        WeatherConfig(weather: .sunny, clothes: [
+            [ClothesPref(type: .jackets, temp: .cold),
+             ClothesPref(type: .hoodies, temp: .cold),
+             ClothesPref(type: .tshirts, temp: .regular),
+             ClothesPref(type: .pants, temp: .cold),
+             ClothesPref(type: .thermalPants, temp: .cold),
+             ClothesPref(type: .socks, temp: .cold),
+             ClothesPref(type: .sneakers, temp: .cold),
+             ClothesPref(type: .headdresses, temp: .cold),
+             ClothesPref(type: .gloves, temp: .cold),
+             ClothesPref(type: .scarves, temp: .cold)]
+        ]),
+        
+        WeatherConfig(weather: .rain, clothes: [
+            [ClothesPref(type: .jackets, temp: .cold),
+             ClothesPref(type: .hoodies, temp: .cold),
+             ClothesPref(type: .tshirts, temp: .regular),
+             ClothesPref(type: .pants, temp: .cold),
+             ClothesPref(type: .thermalPants, temp: .cold),
+             ClothesPref(type: .socks, temp: .cold),
+             ClothesPref(type: .sneakers, temp: .cold),
+             ClothesPref(type: .headdresses, temp: .cold),
+             ClothesPref(type: .gloves, temp: .cold),
+             ClothesPref(type: .scarves, temp: .cold)]
+        ]),
+        
+        WeatherConfig(weather: .humidity, clothes: [
+            [ClothesPref(type: .jackets, temp: .cold),
+             ClothesPref(type: .hoodies, temp: .cold),
+             ClothesPref(type: .tshirts, temp: .regular),
+             ClothesPref(type: .pants, temp: .cold),
+             ClothesPref(type: .thermalPants, temp: .cold),
+             ClothesPref(type: .socks, temp: .cold),
+             ClothesPref(type: .sneakers, temp: .cold),
+             ClothesPref(type: .headdresses, temp: .cold),
+             ClothesPref(type: .gloves, temp: .cold),
+             ClothesPref(type: .scarves, temp: .cold)]
+        ]),
+        
+        WeatherConfig(weather: .lightRain, clothes: [
+            [ClothesPref(type: .jackets, temp: .cold),
+             ClothesPref(type: .hoodies, temp: .cold),
+             ClothesPref(type: .tshirts, temp: .regular),
+             ClothesPref(type: .pants, temp: .cold),
+             ClothesPref(type: .thermalPants, temp: .cold),
+             ClothesPref(type: .socks, temp: .cold),
+             ClothesPref(type: .sneakers, temp: .cold),
+             ClothesPref(type: .headdresses, temp: .cold),
+             ClothesPref(type: .gloves, temp: .cold),
+             ClothesPref(type: .scarves, temp: .cold)]
+        ]),
+    ]),
+    
+    OutfitConfig(name: "Coldy", weatherConfig: [
+        WeatherConfig(weather: .sunny, clothes: [
+            [ClothesPref(type: .jackets, temp: .coldy),
+             ClothesPref(type: .hoodies, temp: .coldy),
+             ClothesPref(type: .tshirts, temp: .regular),
+             ClothesPref(type: .pants, temp: .coldy),
+             ClothesPref(type: .socks, temp: .coldy),
+             ClothesPref(type: .sneakers, temp: .regular),
+             ClothesPref(type: .headdresses, temp: .coldy),
+             ClothesPref(type: .gloves, temp: .coldy),
+             ClothesPref(type: .scarves, temp: .coldy)],
+            
+            [ClothesPref(type: .jackets, temp: .regular),
+             ClothesPref(type: .dresses, temp: .regular),
+             ClothesPref(type: .sneakers, temp: .regular),
+             ClothesPref(type: .sunglasses, temp: .regular)],
+            
+            [ClothesPref(type: .jackets, temp: .warm),
+             ClothesPref(type: .hoodies, temp: .warm),
+             ClothesPref(type: .skirts, temp: .hot),
+             ClothesPref(type: .sneakers, temp: .hot),
+             ClothesPref(type: .sunglasses, temp: .regular)]
+        ]),
+        
+        WeatherConfig(weather: .rain, clothes: [
+            [ClothesPref(type: .jackets, temp: .coldy),
+             ClothesPref(type: .hoodies, temp: .coldy),
+             ClothesPref(type: .tshirts, temp: .regular),
+             ClothesPref(type: .pants, temp: .coldy),
+             ClothesPref(type: .socks, temp: .coldy),
+             ClothesPref(type: .sneakers, temp: .coldy),
+             ClothesPref(type: .headdresses, temp: .coldy),
+             ClothesPref(type: .gloves, temp: .coldy),
+             ClothesPref(type: .scarves, temp: .coldy)]
+        ]),
+        
+        WeatherConfig(weather: .humidity, clothes: [
+            [ClothesPref(type: .jackets, temp: .coldy),
+             ClothesPref(type: .hoodies, temp: .coldy),
+             ClothesPref(type: .tshirts, temp: .regular),
+             ClothesPref(type: .pants, temp: .coldy),
+             ClothesPref(type: .socks, temp: .coldy),
+             ClothesPref(type: .sneakers, temp: .regular),
+             ClothesPref(type: .headdresses, temp: .coldy),
+             ClothesPref(type: .gloves, temp: .coldy),
+             ClothesPref(type: .scarves, temp: .coldy)]
+        ]),
+        
+        WeatherConfig(weather: .lightRain, clothes: [
+            [ClothesPref(type: .jackets, temp: .coldy),
+             ClothesPref(type: .hoodies, temp: .coldy),
+             ClothesPref(type: .tshirts, temp: .regular),
+             ClothesPref(type: .pants, temp: .coldy),
+             ClothesPref(type: .socks, temp: .coldy),
+             ClothesPref(type: .sneakers, temp: .coldy),
+             ClothesPref(type: .headdresses, temp: .coldy),
+             ClothesPref(type: .gloves, temp: .coldy),
+             ClothesPref(type: .scarves, temp: .coldy)]
+        ]),
+    ]),
+    
+    OutfitConfig(name: "Regular", weatherConfig: [
+        WeatherConfig(weather: .sunny, clothes: [
+            [ClothesPref(type: .jackets, temp: .regular),
+             ClothesPref(type: .hoodies, temp: .regular),
+             ClothesPref(type: .tshirts, temp: .regular),
+             ClothesPref(type: .pants, temp: .regular),
+             ClothesPref(type: .socks, temp: .regular),
+             ClothesPref(type: .sneakers, temp: .regular)]
+        ]),
+        
+        WeatherConfig(weather: .rain, clothes: [
+            [ClothesPref(type: .jackets, temp: .regular),
+             ClothesPref(type: .hoodies, temp: .regular),
+             ClothesPref(type: .tshirts, temp: .regular),
+             ClothesPref(type: .pants, temp: .regular),
+             ClothesPref(type: .socks, temp: .regular),
+             ClothesPref(type: .sneakers, temp: .regular),
+             ClothesPref(type: .umbrellas, temp: .regular)]
+        ]),
+        
+        WeatherConfig(weather: .humidity, clothes: [
+            [ClothesPref(type: .jackets, temp: .regular),
+             ClothesPref(type: .hoodies, temp: .regular),
+             ClothesPref(type: .tshirts, temp: .regular),
+             ClothesPref(type: .pants, temp: .regular),
+             ClothesPref(type: .socks, temp: .regular),
+             ClothesPref(type: .sneakers, temp: .regular)]
+        ]),
+        
+        WeatherConfig(weather: .lightRain, clothes: [
+            [ClothesPref(type: .jackets, temp: .regular),
+             ClothesPref(type: .hoodies, temp: .regular),
+             ClothesPref(type: .tshirts, temp: .regular),
+             ClothesPref(type: .pants, temp: .regular),
+             ClothesPref(type: .socks, temp: .regular),
+             ClothesPref(type: .sneakers, temp: .regular),
+             ClothesPref(type: .umbrellas, temp: .regular)]
+        ]),
+    ]),
+    
+    OutfitConfig(name: "Warm", weatherConfig: [
+        WeatherConfig(weather: .sunny, clothes: [
+            [ClothesPref(type: .hoodies, temp: .warm),
+             ClothesPref(type: .tshirts, temp: .regular),
+             ClothesPref(type: .pants, temp: .warm),
+             ClothesPref(type: .socks, temp: .warm),
+             ClothesPref(type: .sneakers, temp: .warm),
+             ClothesPref(type: .umbrellas, temp: .regular)],
+            
+            [ClothesPref(type: .hoodies, temp: .warm),
+             ClothesPref(type: .tshirts, temp: .regular),
+             ClothesPref(type: .pants, temp: .hot),
+             ClothesPref(type: .socks, temp: .hot),
+             ClothesPref(type: .sneakers, temp: .hot),
+             ClothesPref(type: .sunglasses, temp: .regular)],
+            
+            [ClothesPref(type: .jackets, temp: .warm),
+             ClothesPref(type: .dresses, temp: .hot),
+             ClothesPref(type: .socks, temp: .hot),
+             ClothesPref(type: .sneakers, temp: .hot),
+             ClothesPref(type: .sunglasses, temp: .regular)],
+            
+            [ClothesPref(type: .jackets, temp: .warm),
+             ClothesPref(type: .dresses, temp: .hot),
+             ClothesPref(type: .sneakers, temp: .hot),
+             ClothesPref(type: .sunglasses, temp: .regular)]
+        ]),
+        
+        WeatherConfig(weather: .rain, clothes: [
+            [ClothesPref(type: .jackets, temp: .warm),
+             ClothesPref(type: .hoodies, temp: .warm),
+             ClothesPref(type: .tshirts, temp: .regular),
+             ClothesPref(type: .pants, temp: .warm),
+             ClothesPref(type: .socks, temp: .regular),
+             ClothesPref(type: .sneakers, temp: .regular),
+             ClothesPref(type: .umbrellas, temp: .regular)]
+        ]),
+        
+        WeatherConfig(weather: .humidity, clothes: [
+            [ClothesPref(type: .jackets, temp: .hot),
+             ClothesPref(type: .hoodies, temp: .warm),
+             ClothesPref(type: .tshirts, temp: .regular),
+             ClothesPref(type: .pants, temp: .warm),
+             ClothesPref(type: .socks, temp: .warm),
+             ClothesPref(type: .sneakers, temp: .warm)],
+            
+            [ClothesPref(type: .jackets, temp: .hot),
+             ClothesPref(type: .hoodies, temp: .warm),
+             ClothesPref(type: .tshirts, temp: .regular),
+             ClothesPref(type: .pants, temp: .hot),
+             ClothesPref(type: .socks, temp: .hot),
+             ClothesPref(type: .sneakers, temp: .hot),
+             ClothesPref(type: .sunglasses, temp: .regular)],
+            
+            [ClothesPref(type: .jackets, temp: .warm),
+             ClothesPref(type: .dresses, temp: .hot),
+             ClothesPref(type: .socks, temp: .hot),
+             ClothesPref(type: .sneakers, temp: .hot),
+             ClothesPref(type: .sunglasses, temp: .regular)],
+            
+            [ClothesPref(type: .jackets, temp: .warm),
+             ClothesPref(type: .dresses, temp: .hot),
+             ClothesPref(type: .sneakers, temp: .hot),
+             ClothesPref(type: .sunglasses, temp: .regular)]
+            ]),
+        
+        WeatherConfig(weather: .lightRain, clothes: [
+            [ClothesPref(type: .jackets, temp: .warm),
+             ClothesPref(type: .hoodies, temp: .warm),
+             ClothesPref(type: .tshirts, temp: .regular),
+             ClothesPref(type: .pants, temp: .warm),
+             ClothesPref(type: .socks, temp: .regular),
+             ClothesPref(type: .sneakers, temp: .regular),
+             ClothesPref(type: .umbrellas, temp: .regular)]
         ]),
     ]),
     
     OutfitConfig(name: "Hot", weatherConfig: [
         WeatherConfig(weather: .sunny, clothes: [
-           [ ClothesPref(type: .tshirts, temp: .regular),
-            ClothesPref(type: .pants, temp: .hot),
-            ClothesPref(type: .socks, temp: .hot),
-            ClothesPref(type: .sneakers, temp: .hot)]
+            [ClothesPref(type: .tshirts, temp: .regular),
+             ClothesPref(type: .pants, temp: .hot),
+             ClothesPref(type: .socks, temp: .hot),
+             ClothesPref(type: .sneakers, temp: .hot),
+             ClothesPref(type: .sunglasses, temp: .regular)],
+            
+            [ClothesPref(type: .dresses, temp: .hot),
+             ClothesPref(type: .socks, temp: .hot),
+             ClothesPref(type: .sneakers, temp: .hot),
+             ClothesPref(type: .sunglasses, temp: .regular)],
+            
+            [ClothesPref(type: .dresses, temp: .hot),
+             ClothesPref(type: .sneakers, temp: .hot),
+             ClothesPref(type: .sunglasses, temp: .regular)]
         ]),
         
         WeatherConfig(weather: .rain, clothes: [
-           [ ClothesPref(type: .jackets, temp: .warm),
-            ClothesPref(type: .tshirts, temp: .regular),
-            ClothesPref(type: .pants, temp: .warm),
-            ClothesPref(type: .socks, temp: .warm),
-            ClothesPref(type: .sneakers, temp: .hot),
-            ClothesPref(type: .umbrellas, temp: .regular)]
+            [ClothesPref(type: .jackets, temp: .hot),
+             ClothesPref(type: .tshirts, temp: .regular),
+             ClothesPref(type: .pants, temp: .warm),
+             ClothesPref(type: .socks, temp: .warm),
+             ClothesPref(type: .sneakers, temp: .hot),
+             ClothesPref(type: .umbrellas, temp: .regular)],
+            
+            [ClothesPref(type: .jackets, temp: .hot),
+             ClothesPref(type: .tshirts, temp: .regular),
+             ClothesPref(type: .skirts, temp: .hot),
+             ClothesPref(type: .socks, temp: .hot),
+             ClothesPref(type: .sneakers, temp: .hot),
+             ClothesPref(type: .umbrellas, temp: .regular)],
+            
+            [ClothesPref(type: .jackets, temp: .hot),
+             ClothesPref(type: .tshirts, temp: .regular),
+             ClothesPref(type: .skirts, temp: .hot),
+             ClothesPref(type: .sneakers, temp: .hot),
+             ClothesPref(type: .umbrellas, temp: .regular)]
         ]),
         
         WeatherConfig(weather: .humidity, clothes: [
-            [
-            ClothesPref(type: .tshirts, temp: .regular),
-            ClothesPref(type: .pants, temp: .hot),
-            ClothesPref(type: .socks, temp: .hot),
-            ClothesPref(type: .sneakers, temp: .hot)
-            ]
+            [ClothesPref(type: .tshirts, temp: .regular),
+             ClothesPref(type: .pants, temp: .hot),
+             ClothesPref(type: .socks, temp: .hot),
+             ClothesPref(type: .sneakers, temp: .hot),
+             ClothesPref(type: .sunglasses, temp: .regular)],
+            
+            [ClothesPref(type: .dresses, temp: .hot),
+             ClothesPref(type: .socks, temp: .hot),
+             ClothesPref(type: .sneakers, temp: .hot),
+             ClothesPref(type: .sunglasses, temp: .regular)],
+            
+            [ClothesPref(type: .dresses, temp: .hot),
+             ClothesPref(type: .sneakers, temp: .hot),
+             ClothesPref(type: .sunglasses, temp: .regular)]
         ]),
         
         WeatherConfig(weather: .lightRain, clothes: [
-            [
-            ClothesPref(type: .tshirts, temp: .regular),
-            ClothesPref(type: .pants, temp: .hot),
-            ClothesPref(type: .socks, temp: .hot),
-            ClothesPref(type: .sneakers, temp: .hot),
-            ClothesPref(type: .umbrellas, temp: .regular)
-            ]
+            [ClothesPref(type: .tshirts, temp: .regular),
+             ClothesPref(type: .pants, temp: .hot),
+             ClothesPref(type: .socks, temp: .hot),
+             ClothesPref(type: .sneakers, temp: .hot),
+             ClothesPref(type: .sunglasses, temp: .regular),
+             ClothesPref(type: .umbrellas, temp: .regular)],
+            
+            [ClothesPref(type: .dresses, temp: .hot),
+             ClothesPref(type: .socks, temp: .hot),
+             ClothesPref(type: .sneakers, temp: .hot),
+             ClothesPref(type: .sunglasses, temp: .regular),
+             ClothesPref(type: .umbrellas, temp: .regular)],
+            
+            [ClothesPref(type: .dresses, temp: .hot),
+             ClothesPref(type: .sneakers, temp: .hot),
+             ClothesPref(type: .sunglasses, temp: .regular),
+             ClothesPref(type: .umbrellas, temp: .regular)]
         ]),
     ]),
 ]

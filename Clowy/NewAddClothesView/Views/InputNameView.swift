@@ -9,26 +9,21 @@ import SwiftUI
 
 struct InputNameView: View {
     @State var newClothesName: String = ""
-    @State var title = "Add item"
     var hint = "Input clothes name"
     @State var name = ""
     
-    @ObservedObject var viewModel: AddClothesViewModel
+    @ObservedObject var viewModel = AddClothesViewModel.shared
     
     var body: some View {
         VStack (alignment: .leading) {
-            Text(title)
-                .font(.custom("Montserrat-SemiBold", size: 22))
-                .foregroundColor(Color(hex: "#646C75"))
-                .padding(.top, 24)
             
             HStack (alignment: .top) {
                 ZStack(alignment: .leading) {
-                    TextField(hint, text: $viewModel.name)
+                    TextField(hint, text: $viewModel.cloth.name)
                         .textFieldStyle(CustomFieldStyle())
                 }
                 Spacer()
-                if viewModel.name.count > 2 {
+                if viewModel.cloth.name.count > 2 {
                     ZStack{
                         Circle()
                             .frame(width: 18, height: 18)

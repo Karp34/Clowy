@@ -569,7 +569,7 @@ class MainScreenViewModel: ObservableObject {
         }
     }
     
-    func fetchWardrobe() {
+    func fetchWardrobe(completion: @escaping () -> ()) {
             wardrobe.removeAll()
 //            print("Wardrobe clear")
             fetchClothes() {
@@ -588,6 +588,7 @@ class MainScreenViewModel: ObservableObject {
                     self.wardrobe.append(Wardrobe(id: id, clothesTypeName: type, items: items, ratio: ratio))
                 }
                 self.wardrobeState = .success
+                completion()
             }
     }
     
@@ -643,7 +644,7 @@ class MainScreenViewModel: ObservableObject {
         let ref = db.collection("Users").document(userId).collection("Wardrobe").document(clothId)
         ref.delete { error in
             if error == nil {
-                self.fetchWardrobe()
+                self.fetchWardrobe() {}
                 self.deleteFromStorage(clothId: imageId)
             } else {
                 print(error?.localizedDescription)

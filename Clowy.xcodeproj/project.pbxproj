@@ -27,6 +27,7 @@
 		BA348F1F28B3747C008C6BBC /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA348F1E28B3747C008C6BBC /* Montserrat-Medium.ttf */; };
 		BA348F2128B3748E008C6BBC /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA348F2028B3748E008C6BBC /* Montserrat-SemiBold.ttf */; };
 		BA348F2328B3749F008C6BBC /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA348F2228B3749F008C6BBC /* Montserrat-Regular.ttf */; };
+		BA3699C529E32D3600678001 /* Repeate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3699C429E32D3600678001 /* Repeate.swift */; };
 		BA396DF02817329800BD63A8 /* GetOutfits.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA396DEF2817329800BD63A8 /* GetOutfits.swift */; };
 		BA396DF22817461900BD63A8 /* AddGeneratedOutfit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA396DF12817461900BD63A8 /* AddGeneratedOutfit.swift */; };
 		BA39AE38294CC7A200E1E389 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA39AE37294CC7A200E1E389 /* SplashScreen.swift */; };
@@ -43,6 +44,8 @@
 		BA43D1FF28212457008A4AF5 /* CustomNavBarContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA43D1FE28212457008A4AF5 /* CustomNavBarContainerView.swift */; };
 		BA43D20128212718008A4AF5 /* CustomNavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA43D20028212718008A4AF5 /* CustomNavView.swift */; };
 		BA43D20328212862008A4AF5 /* CustomNavLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA43D20228212862008A4AF5 /* CustomNavLink.swift */; };
+		BA5639DB29CB352200912361 /* rain.gif in Resources */ = {isa = PBXBuildFile; fileRef = BA5639D729CB352200912361 /* rain.gif */; };
+		BA5639E029CB5B1900912361 /* clouds.gif in Resources */ = {isa = PBXBuildFile; fileRef = BA5639DF29CB5B1900912361 /* clouds.gif */; };
 		BA5D826E28393D9400A54005 /* Stash.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BA5D826C28393D9400A54005 /* Stash.xcdatamodeld */; };
 		BA5D8270283A5A7700A54005 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5D826F283A5A7700A54005 /* PersistenceController.swift */; };
 		BA5D8272283C279400A54005 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5D8271283C279400A54005 /* CameraView.swift */; };
@@ -106,6 +109,9 @@
 		BA86934A28F52C1A008F37EB /* ClothImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA86934928F52C1A008F37EB /* ClothImage.swift */; };
 		BA86934C28F69685008F37EB /* TestTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA86934B28F69685008F37EB /* TestTextView.swift */; };
 		BA86934E28F6B5A8008F37EB /* PlaceholderErrorCities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA86934D28F6B5A8008F37EB /* PlaceholderErrorCities.swift */; };
+		BA91622029CCF4E20093D4B8 /* thunder.gif in Resources */ = {isa = PBXBuildFile; fileRef = BA91621F29CCF4E20093D4B8 /* thunder.gif */; };
+		BA91622229CCF6DD0093D4B8 /* sunset.gif in Resources */ = {isa = PBXBuildFile; fileRef = BA91622129CCF6DD0093D4B8 /* sunset.gif */; };
+		BA91622429CCF7CB0093D4B8 /* sunrise.gif in Resources */ = {isa = PBXBuildFile; fileRef = BA91622329CCF7CB0093D4B8 /* sunrise.gif */; };
 		BA9C23C728D2514C00DDDB54 /* WaterfallGrid in Frameworks */ = {isa = PBXBuildFile; productRef = BA3336782799AFB200E88B68 /* WaterfallGrid */; };
 		BA9C23C928D265A100DDDB54 /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9C23C828D265A100DDDB54 /* MainScreenViewModel.swift */; };
 		BA9C23CC28D4E80C00DDDB54 /* StartScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9C23CB28D4E80C00DDDB54 /* StartScreenView.swift */; };
@@ -210,6 +216,7 @@
 		BA348F1E28B3747C008C6BBC /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Medium.ttf"; path = "../../../../Downloads/Montserrat/Montserrat-Medium.dataset/Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		BA348F2028B3748E008C6BBC /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-SemiBold.ttf"; path = "../../../../Downloads/Montserrat/Montserrat-SemiBold.dataset/Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		BA348F2228B3749F008C6BBC /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Regular.ttf"; path = "../../../../Downloads/Montserrat/Montserrat-Regular.dataset/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		BA3699C429E32D3600678001 /* Repeate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repeate.swift; sourceTree = "<group>"; };
 		BA396DEF2817329800BD63A8 /* GetOutfits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetOutfits.swift; sourceTree = "<group>"; };
 		BA396DF12817461900BD63A8 /* AddGeneratedOutfit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGeneratedOutfit.swift; sourceTree = "<group>"; };
 		BA39AE37294CC7A200E1E389 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
@@ -226,6 +233,8 @@
 		BA43D1FE28212457008A4AF5 /* CustomNavBarContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarContainerView.swift; sourceTree = "<group>"; };
 		BA43D20028212718008A4AF5 /* CustomNavView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavView.swift; sourceTree = "<group>"; };
 		BA43D20228212862008A4AF5 /* CustomNavLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavLink.swift; sourceTree = "<group>"; };
+		BA5639D729CB352200912361 /* rain.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = rain.gif; sourceTree = "<group>"; };
+		BA5639DF29CB5B1900912361 /* clouds.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = clouds.gif; sourceTree = "<group>"; };
 		BA5D826D28393D9400A54005 /* Stash.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Stash.xcdatamodel; sourceTree = "<group>"; };
 		BA5D826F283A5A7700A54005 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		BA5D8271283C279400A54005 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
@@ -251,7 +260,7 @@
 		BA6E587F299ADA7A0043DA64 /* GetRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRatio.swift; sourceTree = "<group>"; };
 		BA6E5882299ADA9E0043DA64 /* GetTemperatureRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTemperatureRange.swift; sourceTree = "<group>"; };
 		BA6E5884299ADAF60043DA64 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		BA6E5886299ADB100043DA64 /* OutfitConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutfitConfig.swift; sourceTree = "<group>"; };
+		BA6E5886299ADB100043DA64 /* OutfitConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutfitConfig.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		BA6E5888299ADB350043DA64 /* FittingOutfit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FittingOutfit.swift; sourceTree = "<group>"; };
 		BA715E1C283EA60900BD30FE /* CoreDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataView.swift; sourceTree = "<group>"; };
 		BA7812002819656100D452DE /* OldAddNewOutfitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldAddNewOutfitView.swift; sourceTree = "<group>"; };
@@ -279,6 +288,9 @@
 		BA86934928F52C1A008F37EB /* ClothImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothImage.swift; sourceTree = "<group>"; };
 		BA86934B28F69685008F37EB /* TestTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTextView.swift; sourceTree = "<group>"; };
 		BA86934D28F6B5A8008F37EB /* PlaceholderErrorCities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderErrorCities.swift; sourceTree = "<group>"; };
+		BA91621F29CCF4E20093D4B8 /* thunder.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = thunder.gif; path = ../../../../../Downloads/thunder.gif; sourceTree = "<group>"; };
+		BA91622129CCF6DD0093D4B8 /* sunset.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sunset.gif; sourceTree = "<group>"; };
+		BA91622329CCF7CB0093D4B8 /* sunrise.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = sunrise.gif; path = ../../../../../Downloads/sunrise.gif; sourceTree = "<group>"; };
 		BA9C23C828D265A100DDDB54 /* MainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModel.swift; sourceTree = "<group>"; };
 		BA9C23CB28D4E80C00DDDB54 /* StartScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenView.swift; sourceTree = "<group>"; };
 		BA9C23CF28D8B91E00DDDB54 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -616,6 +628,11 @@
 		BA6E5864299A9F4C0043DA64 /* GIFs */ = {
 			isa = PBXGroup;
 			children = (
+				BA91621F29CCF4E20093D4B8 /* thunder.gif */,
+				BA5639DF29CB5B1900912361 /* clouds.gif */,
+				BA91622329CCF7CB0093D4B8 /* sunrise.gif */,
+				BA91622129CCF6DD0093D4B8 /* sunset.gif */,
+				BA5639D729CB352200912361 /* rain.gif */,
 				BA6E586A299AAB3E0043DA64 /* snow.gif */,
 			);
 			path = GIFs;
@@ -773,6 +790,7 @@
 			isa = PBXGroup;
 			children = (
 				BAD948C8299AEF5D00F2A047 /* NewAddClothesView.swift */,
+				BA3699C429E32D3600678001 /* Repeate.swift */,
 				BAD948CB299AEF7100F2A047 /* Views */,
 			);
 			path = NewAddClothesView;
@@ -954,9 +972,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA91622229CCF6DD0093D4B8 /* sunset.gif in Resources */,
 				BA1591E9273FE7560010CD56 /* Preview Assets.xcassets in Resources */,
 				BA1D0511299AFD23000D2903 /* GoogleService-Info.plist in Resources */,
 				BA348F2328B3749F008C6BBC /* Montserrat-Regular.ttf in Resources */,
+				BA5639E029CB5B1900912361 /* clouds.gif in Resources */,
+				BA91622429CCF7CB0093D4B8 /* sunrise.gif in Resources */,
+				BA91622029CCF4E20093D4B8 /* thunder.gif in Resources */,
+				BA5639DB29CB352200912361 /* rain.gif in Resources */,
 				BA348F2128B3748E008C6BBC /* Montserrat-SemiBold.ttf in Resources */,
 				BA348F1F28B3747C008C6BBC /* Montserrat-Medium.ttf in Resources */,
 				BA1591E6273FE7560010CD56 /* Assets.xcassets in Resources */,
@@ -1147,6 +1170,7 @@
 				BAE1013B299AF20B00670864 /* UsePhotoFromGalary.swift in Sources */,
 				BA6E5861299A99410043DA64 /* HTMLRenderingWebview.swift in Sources */,
 				BA7E40B428B65BCD00FB3730 /* LocationTestView.swift in Sources */,
+				BA3699C529E32D3600678001 /* Repeate.swift in Sources */,
 				BAD948C1299AEB9700F2A047 /* OutfitScreenPlaceholder.swift in Sources */,
 				BA6E5883299ADA9E0043DA64 /* GetTemperatureRange.swift in Sources */,
 				BA12D0FC2773D4DD00F91349 /* WardrobeClothesCardCollection.swift in Sources */,
