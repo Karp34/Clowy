@@ -290,13 +290,15 @@ struct ChooseLocationView: View {
         }
         .background(Color(hex: "#F7F8FA").edgesIgnoringSafeArea(.all))
         .onDisappear {
-            if isGeoposition == true {
-                viewModel.getWeatherData(lat: viewModel.coordinates.lat, long: viewModel.coordinates.lon, locationName: nil) {
-                    chosenLocation = viewModel.weather.city.name
-                    UserDefaults.standard.set(chosenLocation, forKey: "location")
-                    self.viewModel.days = viewModel.parseWeatherData(data: viewModel.weather)
-                    withAnimation {
-                        viewModel.changeWeather(id: viewModel.selectedId)
+            if isGeoposition {
+                if (viewModel.coordinates != nil) {
+                    viewModel.getWeatherData(lat: viewModel.coordinates!.lat, long: viewModel.coordinates!.lon, locationName: nil) {
+                        chosenLocation = viewModel.weather.city.name
+                        UserDefaults.standard.set(chosenLocation, forKey: "location")
+                        self.viewModel.days = viewModel.parseWeatherData(data: viewModel.weather)
+                        withAnimation {
+                            viewModel.changeWeather(id: viewModel.selectedId)
+                        }
                     }
                 }
             } else {

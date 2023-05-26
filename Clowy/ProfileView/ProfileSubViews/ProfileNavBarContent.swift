@@ -10,7 +10,7 @@ import Combine
 
 class ProfileNavBarContentViewModel: ObservableObject {
     @Published var image: Data = .init(count: 0)
-    static var shared = AddClothesViewModel()
+    static var shared = ProfileNavBarContentViewModel()
 }
 
 struct ProfileNavBarContent: View {
@@ -25,7 +25,7 @@ struct ProfileNavBarContent: View {
     var color = "#CEDAE1"
     
     let hint = "Enter your name"
-    @State var username = UserDefaults.standard.string(forKey: "username")!.trimmingCharacters(in: .whitespaces)
+    @State var username = UserDefaults.standard.string(forKey: "username")!.trimmingCharacters(in: .whitespaces) ?? "Username"
     
     @State var avatar = UserDefaults.standard.string(forKey: "avatar") ?? "Panda"
     
@@ -176,10 +176,10 @@ struct ProfileNavBarContent: View {
                                         )
                                     ])
                                 }
-                                .sheet(isPresented: self.$show) {
-                                    ImagePicker(show: self.$show, image: $viewModel.image)
-                                        .environment(\.managedObjectContext, self.moc)
-                                }
+//                                .sheet(isPresented: self.$show) {
+//                                    ImagePicker(show: self.$show, image: $viewModel.image)
+//                                        .environment(\.managedObjectContext, self.moc)
+//                                }
                                 
                                 
                                 

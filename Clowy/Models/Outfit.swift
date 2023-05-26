@@ -1,14 +1,16 @@
 //
 //  Outfit.swift
-//  Clowy
+//  FirebaseApp
 //
-//  Created by Егор Карпухин on 27.04.2022.
+//  Created by Егор Карпухин on 02.10.2022.
 //
 
 import SwiftUI
 
 struct Outfit: Identifiable {
-    var id: Int
-    var outfit: [Cloth]
+    var id: String
+    var name: String
     var isGenerated: Bool
+    var clothes: [String]
+    var createDTM : Double?
 }

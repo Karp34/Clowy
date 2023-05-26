@@ -5,6 +5,7 @@ target 'Clowy' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 pod 'WaterfallGrid', '~> 1.0.0'
+pod 'SSSwiftUIGIFView'
 
   # Pods for Clowy
 

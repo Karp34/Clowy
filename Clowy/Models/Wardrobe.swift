@@ -1,13 +1,13 @@
 //
-//  SwiftUIView.swift
-//  Clowy2
+//  Wardrobe.swift
+//  FirebaseApp
 //
-//  Created by Егор Карпухин on 19.04.2022.
+//  Created by Егор Карпухин on 15.10.2022.
 //
 
 import SwiftUI
 
-struct Wardrobe: Identifiable {
+struct Wardrobe: Identifiable, Equatable {
     var id: WardrobeOrder
     var clothesTypeName: ClothesType
     var items: [Cloth]
@@ -39,5 +39,5 @@ struct AspectRatioType {
 
 enum AspectRatioTypes: Double {
     case square = 0.95
-    case rectangle = 0.75
+    case rectangle = 0.8
 }

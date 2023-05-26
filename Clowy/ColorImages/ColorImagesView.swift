@@ -18,7 +18,7 @@ struct ColorImagesView: View {
         
         
         VStack {
-            NavigationLink(destination: WardrobeScreenView(), tag: 1, selection: $selection) {
+            NavigationLink(destination: NewWardrobeScreen(), tag: 1, selection: $selection) {
                 Button(action: {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                         self.selection = 1
@@ -55,7 +55,7 @@ struct ColorImagesView: View {
                 
             }
             .padding(.bottom, 24)
-            .buttonStyle(DefaultColorButtonStyle(color: viewModel.chosenWeather.color))
+            .buttonStyle(DefaultColorButtonStyle(color: viewModel.chosenWeather.color, radius: 24))
             
             Button {
                 
@@ -70,7 +70,7 @@ struct ColorImagesView: View {
                 
             }
             .padding(.bottom, 24)
-            .buttonStyle(DefaultColorButtonStyle(color: viewModel.chosenWeather.color))
+            .buttonStyle(DefaultColorButtonStyle(color: viewModel.chosenWeather.color, radius: 24))
             .disabled(true)
         }
         

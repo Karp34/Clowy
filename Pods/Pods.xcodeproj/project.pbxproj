@@ -7,50 +7,69 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F5B8B6B00C640F7BC0623DFCD78F0F7 /* Pods-Clowy-ClowyUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C3455822E00951C233A02953DB47DD /* Pods-Clowy-ClowyUITests-dummy.m */; };
-		240B6B85656AB2EA66EB0692E26F06F6 /* GridSyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C932DF62BBB915E7B299D0D4AADEB8 /* GridSyle.swift */; };
-		42415DB4420B4B8DF12F2203CEDF8619 /* ScrollOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B18245865B37A4BA5EA0A9629A8BEA /* ScrollOptions.swift */; };
-		4D0EDA4459266B2D1964A793F28B1236 /* WaterfallGrid-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F214919EBE7ED80EEB355A220F0FDB0 /* WaterfallGrid-dummy.m */; };
-		69253AC0C350004AD44D2BB9BCEC1C3D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7C7CBF4366B196F4F8B133C8319AB1 /* Foundation.framework */; };
-		7B8C72FE5FD177ECB8236A04BADA86EB /* WaterfallGrid-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AD0B87F60ADB8A6EFD2DA463774CE8C3 /* WaterfallGrid-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7EB51BEE3E8D413106A808D97946757F /* Pods-Clowy-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6511D12F1F6FE9D5B755DFF3F1AFE9C4 /* Pods-Clowy-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0E68670394E3DABA26127F57054384B0 /* Pods-Clowy-ClowyUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C3455822E00951C233A02953DB47DD /* Pods-Clowy-ClowyUITests-dummy.m */; };
+		14F321E50DEAA838D360FDF97EE2C7B0 /* SwiftUIGIFPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42352E43067556FE1FA3BF2A22B6AB28 /* SwiftUIGIFPlayerView.swift */; };
+		23558FC6EE0E1744D6F4CBCD0EDCA6B9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7C7CBF4366B196F4F8B133C8319AB1 /* Foundation.framework */; };
+		240B6B85656AB2EA66EB0692E26F06F6 /* GridSyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63904949967533DF23382B66BDF02A80 /* GridSyle.swift */; };
+		2FF7211C5466F8C30D4281D3C8A41670 /* SSSwiftUIGIFView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 30DD9769CD0998352A0117E68E087A58 /* SSSwiftUIGIFView-dummy.m */; };
+		34B17177E18D13CA6490CB9B56636788 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7C7CBF4366B196F4F8B133C8319AB1 /* Foundation.framework */; };
+		42415DB4420B4B8DF12F2203CEDF8619 /* ScrollOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75658E4C8BB53BFF7AA28FCB0B20DA5 /* ScrollOptions.swift */; };
+		4D0EDA4459266B2D1964A793F28B1236 /* WaterfallGrid-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2427CFD559FF1F335B9DF3EE0E7F179B /* WaterfallGrid-dummy.m */; };
+		6E4F1B46FA796A97ABA234837D36B6C2 /* Pods-Clowy-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6511D12F1F6FE9D5B755DFF3F1AFE9C4 /* Pods-Clowy-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7B8C72FE5FD177ECB8236A04BADA86EB /* WaterfallGrid-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A9070A8DBC41F9C298CC669F27934D11 /* WaterfallGrid-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		804EC94C47BD9029F24490A228E0ADE1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7C7CBF4366B196F4F8B133C8319AB1 /* Foundation.framework */; };
 		8C0BFC95F8448E93C849B84A623C8ABA /* Pods-ClowyTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DBA4461C3AEF18BA30EAA2044411B725 /* Pods-ClowyTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		92EF61AD66C57A131C0E2F8701575ECF /* WaterfallGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9545DBD3841C83320B5C03B700405D /* WaterfallGrid.swift */; };
-		94AC7C7A64B4B14E517296B29E2B31F8 /* PositiveNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D92D1802F9D80E80D14B0F87277CE5 /* PositiveNumber.swift */; };
-		9F6BF254A4EDA85104CCCFC18A360B38 /* View+GridStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF461CC8EA273D96110AB434F6C5407C /* View+GridStyle.swift */; };
-		B2471BDFF4833A772468BDEC517DADF6 /* Pods-Clowy-ClowyUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F7F30A1157084186DEFC8E84AC05C8B0 /* Pods-Clowy-ClowyUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B9E8BACD663D13058BDC508036853BF4 /* PreferenceSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E01A882AA8B8B5ADFCA4FA48A1E82E /* PreferenceSetter.swift */; };
-		BA2B7DCF22D05F75B9FDEE5651894CE4 /* View+ScrollOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA5EED765E08550609AF23F48999BFF /* View+ScrollOptions.swift */; };
-		C3628BE9BCD04172776CE2A9AFEE0A11 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7C7CBF4366B196F4F8B133C8319AB1 /* Foundation.framework */; };
+		908D9E786C0E3A791A872EB031390275 /* GIFPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A8CCBCA540E8E72D3061D7DA0ECFB0 /* GIFPlayerView.swift */; };
+		92EF61AD66C57A131C0E2F8701575ECF /* WaterfallGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5D918A3F370E3E348EB3DBA0C86DD3 /* WaterfallGrid.swift */; };
+		94AC7C7A64B4B14E517296B29E2B31F8 /* PositiveNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5850D782974855AB82C52DAFB719E28 /* PositiveNumber.swift */; };
+		9F6BF254A4EDA85104CCCFC18A360B38 /* View+GridStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A45BFC16214FFBF065B1AEB7AF283C8 /* View+GridStyle.swift */; };
+		A8DBA3AA4D8572F9CD0B3BEEA281654B /* Pods-Clowy-ClowyUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F7F30A1157084186DEFC8E84AC05C8B0 /* Pods-Clowy-ClowyUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC995504189161692616F9430985FDB0 /* SSSwiftUIGIFView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 45043EFA84F04B88E81D1A60C90ED7D9 /* SSSwiftUIGIFView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B9E8BACD663D13058BDC508036853BF4 /* PreferenceSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F63CE1D1060E215F6CF787641A1C954 /* PreferenceSetter.swift */; };
+		BA2B7DCF22D05F75B9FDEE5651894CE4 /* View+ScrollOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD79325C0EAD2C851FF0E632D0DCA92F /* View+ScrollOptions.swift */; };
 		CCCEB8D4403B01BEEA60A23C18B01D3B /* Pods-ClowyTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA5F913A81F8964088B64B036E291D4 /* Pods-ClowyTests-dummy.m */; };
+		D021532E41C8C84F943B78F095F91EA3 /* Pods-Clowy-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FB9C5F2E04C627F616A0690A4E4C265E /* Pods-Clowy-dummy.m */; };
 		D33CC2AA548A9DB4A3FA53A69949C969 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7C7CBF4366B196F4F8B133C8319AB1 /* Foundation.framework */; };
-		E5E6A39146E269C0982C9564F6634D4C /* Pods-Clowy-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FB9C5F2E04C627F616A0690A4E4C265E /* Pods-Clowy-dummy.m */; };
 		F4BA9B4C699BE32359C78801C3DBD5B9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7C7CBF4366B196F4F8B133C8319AB1 /* Foundation.framework */; };
 		F665A533746E0B3DF14CB71C3FE417E8 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20094AF9A05B5AFEE065EFE5403128D1 /* SwiftUI.framework */; };
-		FA8A5E1D916C152A62AB66FC3E97FECE /* ElementPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D2E34B5DFDF522D552A83D953351CC /* ElementPreference.swift */; };
+		FA8A5E1D916C152A62AB66FC3E97FECE /* ElementPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9D86DA66BFBA8F7121F586503AF75A /* ElementPreference.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0234CE62BB2E7056B7DD63A498268858 /* PBXContainerItemProxy */ = {
+		19C23CBF4451AFA669CAB58DCF81B2CF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 16DB0A490A61C833A70BDE2217E0D5FD;
+			remoteInfo = WaterfallGrid;
+		};
+		3A75AEA83806AF4F8D904AD79DF82F71 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 16DB0A490A61C833A70BDE2217E0D5FD;
+			remoteInfo = WaterfallGrid;
+		};
+		962AE8F1A77069643EB4CFEB26EE0241 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE69FE8AB101AD37628CA84F6EB71358;
+			remoteInfo = SSSwiftUIGIFView;
+		};
+		C4297CC821C3C0B042C2F38DEF9A308C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 10AD198FC245152CA845A4BEA6E93447;
 			remoteInfo = "Pods-Clowy";
 		};
-		354E583482757741B3F700EC2C77DA2F /* PBXContainerItemProxy */ = {
+		D382FC454EC6DCCB59BA9DE4810627B2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 16DB0A490A61C833A70BDE2217E0D5FD;
-			remoteInfo = WaterfallGrid;
-		};
-		DA883B728EDC846E983BB0C369997082 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 16DB0A490A61C833A70BDE2217E0D5FD;
-			remoteInfo = WaterfallGrid;
+			remoteGlobalIDString = BE69FE8AB101AD37628CA84F6EB71358;
+			remoteInfo = SSSwiftUIGIFView;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -59,58 +78,68 @@
 		02114C14A48BEF7D1B9EF0EEECBD2691 /* Pods-Clowy-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Clowy-acknowledgements.markdown"; sourceTree = "<group>"; };
 		06866614050345E50B55288A1555D6C2 /* Pods-ClowyTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ClowyTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		06C3455822E00951C233A02953DB47DD /* Pods-Clowy-ClowyUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Clowy-ClowyUITests-dummy.m"; sourceTree = "<group>"; };
+		0931189553B8BC972171C1EA3BE5FC1D /* WaterfallGrid-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WaterfallGrid-prefix.pch"; sourceTree = "<group>"; };
 		0BE6CAE0264FA11965C745FBAB1BC4B9 /* Pods-Clowy-ClowyUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Clowy-ClowyUITests-frameworks.sh"; sourceTree = "<group>"; };
-		0D236D0FD000434917FD472E8468C530 /* WaterfallGrid-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "WaterfallGrid-Info.plist"; sourceTree = "<group>"; };
+		0F63CE1D1060E215F6CF787641A1C954 /* PreferenceSetter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PreferenceSetter.swift; path = Sources/WaterfallGrid/Preference/PreferenceSetter.swift; sourceTree = "<group>"; };
 		1052727012F00B66672155683AE5A0E2 /* Pods-Clowy */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Clowy"; path = Pods_Clowy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		10A8CCBCA540E8E72D3061D7DA0ECFB0 /* GIFPlayerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GIFPlayerView.swift; path = Source/GIFPlayerView.swift; sourceTree = "<group>"; };
 		178385B405A7C7E7B4C5D96BECE160A8 /* Pods-Clowy-ClowyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Clowy-ClowyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		196D14D72F2FDCB04FC58EA07DDE7261 /* Pods-Clowy-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Clowy-frameworks.sh"; sourceTree = "<group>"; };
 		198C13CD0FD9B3E8503886368EDBA7CE /* Pods-Clowy-ClowyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Clowy-ClowyUITests.release.xcconfig"; sourceTree = "<group>"; };
+		1A45BFC16214FFBF065B1AEB7AF283C8 /* View+GridStyle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "View+GridStyle.swift"; path = "Sources/WaterfallGrid/View+GridStyle.swift"; sourceTree = "<group>"; };
 		1ADCE578DB1C89EEDF0387FAF8C5CADB /* Pods-Clowy.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Clowy.modulemap"; sourceTree = "<group>"; };
 		1BA5F913A81F8964088B64B036E291D4 /* Pods-ClowyTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ClowyTests-dummy.m"; sourceTree = "<group>"; };
-		1DA196D53D6833B25932A281E171BA10 /* WaterfallGrid.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = WaterfallGrid.release.xcconfig; sourceTree = "<group>"; };
-		1FA5EED765E08550609AF23F48999BFF /* View+ScrollOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "View+ScrollOptions.swift"; path = "Sources/WaterfallGrid/View+ScrollOptions.swift"; sourceTree = "<group>"; };
 		20094AF9A05B5AFEE065EFE5403128D1 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/SwiftUI.framework; sourceTree = DEVELOPER_DIR; };
 		21E09D2FEC3678EBAFAC59D8E4AEAC53 /* Pods-ClowyTests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-ClowyTests"; path = Pods_ClowyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2427CFD559FF1F335B9DF3EE0E7F179B /* WaterfallGrid-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "WaterfallGrid-dummy.m"; sourceTree = "<group>"; };
+		299C799AAF01E869CCD31BE26A175D1D /* WaterfallGrid-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "WaterfallGrid-Info.plist"; sourceTree = "<group>"; };
+		30DD9769CD0998352A0117E68E087A58 /* SSSwiftUIGIFView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SSSwiftUIGIFView-dummy.m"; sourceTree = "<group>"; };
 		32CF98CE863F88B8E274D6809F9B54E9 /* Pods-ClowyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ClowyTests.debug.xcconfig"; sourceTree = "<group>"; };
-		3F214919EBE7ED80EEB355A220F0FDB0 /* WaterfallGrid-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "WaterfallGrid-dummy.m"; sourceTree = "<group>"; };
+		42352E43067556FE1FA3BF2A22B6AB28 /* SwiftUIGIFPlayerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftUIGIFPlayerView.swift; path = Source/SwiftUIGIFPlayerView.swift; sourceTree = "<group>"; };
+		45043EFA84F04B88E81D1A60C90ED7D9 /* SSSwiftUIGIFView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SSSwiftUIGIFView-umbrella.h"; sourceTree = "<group>"; };
+		507B6DBCB7F7E6CBC05F6F5752D97E02 /* SSSwiftUIGIFView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SSSwiftUIGIFView.release.xcconfig; sourceTree = "<group>"; };
+		569E0EEFA8894C1616E0B64280FAAAB0 /* SSSwiftUIGIFView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SSSwiftUIGIFView-Info.plist"; sourceTree = "<group>"; };
+		580D3D2125266010B5D810160256AC35 /* WaterfallGrid.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = WaterfallGrid.release.xcconfig; sourceTree = "<group>"; };
+		58BF828FCF20BC76E9035015FED97CAE /* SSSwiftUIGIFView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SSSwiftUIGIFView.debug.xcconfig; sourceTree = "<group>"; };
 		5B8132DEE366CEDF8F9B8A4B26E75D1E /* Pods-Clowy-ClowyUITests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Clowy-ClowyUITests"; path = Pods_Clowy_ClowyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		63B18245865B37A4BA5EA0A9629A8BEA /* ScrollOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScrollOptions.swift; path = Sources/WaterfallGrid/Environment/ScrollOptions.swift; sourceTree = "<group>"; };
+		63904949967533DF23382B66BDF02A80 /* GridSyle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GridSyle.swift; path = Sources/WaterfallGrid/Environment/GridSyle.swift; sourceTree = "<group>"; };
 		6511D12F1F6FE9D5B755DFF3F1AFE9C4 /* Pods-Clowy-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Clowy-umbrella.h"; sourceTree = "<group>"; };
+		6D9D86DA66BFBA8F7121F586503AF75A /* ElementPreference.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ElementPreference.swift; path = Sources/WaterfallGrid/Preference/ElementPreference.swift; sourceTree = "<group>"; };
 		76194CECAB7E1AA4CC7D8A52036EAC78 /* Pods-Clowy-ClowyUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Clowy-ClowyUITests.modulemap"; sourceTree = "<group>"; };
 		7891818A3F7421366AEA27E54FE3EE9B /* Pods-Clowy-ClowyUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Clowy-ClowyUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		7E7819090620DCB5A17AE157FFA16CD9 /* Pods-Clowy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Clowy.release.xcconfig"; sourceTree = "<group>"; };
+		864829FD1A1CD523B4CD5EDCE217825E /* SSSwiftUIGIFView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SSSwiftUIGIFView-prefix.pch"; sourceTree = "<group>"; };
 		8B1AC5EC2D92AB7ADB17A8C42A127907 /* Pods-ClowyTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ClowyTests.modulemap"; sourceTree = "<group>"; };
-		8E9545DBD3841C83320B5C03B700405D /* WaterfallGrid.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WaterfallGrid.swift; path = Sources/WaterfallGrid/WaterfallGrid.swift; sourceTree = "<group>"; };
+		961270EF9323960E1A64EC3884909737 /* SSSwiftUIGIFView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SSSwiftUIGIFView.modulemap; sourceTree = "<group>"; };
 		99BFB5DFA8BA902B5F5C773C97662DFB /* Pods-Clowy-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Clowy-acknowledgements.plist"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A1C932DF62BBB915E7B299D0D4AADEB8 /* GridSyle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GridSyle.swift; path = Sources/WaterfallGrid/Environment/GridSyle.swift; sourceTree = "<group>"; };
-		A3F598F018BC5C09FFEC8627D8D60D04 /* WaterfallGrid-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WaterfallGrid-prefix.pch"; sourceTree = "<group>"; };
-		AD0B87F60ADB8A6EFD2DA463774CE8C3 /* WaterfallGrid-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WaterfallGrid-umbrella.h"; sourceTree = "<group>"; };
+		A9070A8DBC41F9C298CC669F27934D11 /* WaterfallGrid-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WaterfallGrid-umbrella.h"; sourceTree = "<group>"; };
+		AD79325C0EAD2C851FF0E632D0DCA92F /* View+ScrollOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "View+ScrollOptions.swift"; path = "Sources/WaterfallGrid/View+ScrollOptions.swift"; sourceTree = "<group>"; };
+		AE8952EADBBEC104F25DF8C60BADC964 /* WaterfallGrid.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = WaterfallGrid.modulemap; sourceTree = "<group>"; };
 		AED0A5EF69B31C20C05407426B17F2D3 /* Pods-Clowy-ClowyUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Clowy-ClowyUITests-Info.plist"; sourceTree = "<group>"; };
-		C3D2E34B5DFDF522D552A83D953351CC /* ElementPreference.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ElementPreference.swift; path = Sources/WaterfallGrid/Preference/ElementPreference.swift; sourceTree = "<group>"; };
-		C43AF7B4FFF85B381FC835E663606904 /* WaterfallGrid.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = WaterfallGrid.debug.xcconfig; sourceTree = "<group>"; };
 		C5AE604ADD4A69378BC78965263D2E75 /* Pods-ClowyTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ClowyTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		C5E13A1835AD221714D5F20F7CCF9D6A /* Pods-ClowyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ClowyTests.release.xcconfig"; sourceTree = "<group>"; };
 		C731B68D8312E3E18EF660F0FEDA62D2 /* Pods-ClowyTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ClowyTests-Info.plist"; sourceTree = "<group>"; };
-		CF461CC8EA273D96110AB434F6C5407C /* View+GridStyle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "View+GridStyle.swift"; path = "Sources/WaterfallGrid/View+GridStyle.swift"; sourceTree = "<group>"; };
 		D2E27C66ABEF7B199FE823AC8A678DFD /* Pods-Clowy-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Clowy-Info.plist"; sourceTree = "<group>"; };
-		D82D9342226C94B3AA6FE54EA3D0FFD3 /* WaterfallGrid.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = WaterfallGrid.modulemap; sourceTree = "<group>"; };
-		D8D92D1802F9D80E80D14B0F87277CE5 /* PositiveNumber.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PositiveNumber.swift; path = Sources/WaterfallGrid/Environment/PositiveNumber.swift; sourceTree = "<group>"; };
+		D5850D782974855AB82C52DAFB719E28 /* PositiveNumber.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PositiveNumber.swift; path = Sources/WaterfallGrid/Environment/PositiveNumber.swift; sourceTree = "<group>"; };
+		D75658E4C8BB53BFF7AA28FCB0B20DA5 /* ScrollOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScrollOptions.swift; path = Sources/WaterfallGrid/Environment/ScrollOptions.swift; sourceTree = "<group>"; };
 		DBA4461C3AEF18BA30EAA2044411B725 /* Pods-ClowyTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ClowyTests-umbrella.h"; sourceTree = "<group>"; };
 		DC7C7CBF4366B196F4F8B133C8319AB1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		E18F508C193F4E5CE049BA155FC30636 /* WaterfallGrid.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = WaterfallGrid.debug.xcconfig; sourceTree = "<group>"; };
 		E3A0609525C5B681751F703B88451CB1 /* WaterfallGrid */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = WaterfallGrid; path = WaterfallGrid.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E3E01A882AA8B8B5ADFCA4FA48A1E82E /* PreferenceSetter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PreferenceSetter.swift; path = Sources/WaterfallGrid/Preference/PreferenceSetter.swift; sourceTree = "<group>"; };
+		ED51E9C639C8FFA6E92E6BECC847BA7D /* SSSwiftUIGIFView */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SSSwiftUIGIFView; path = SSSwiftUIGIFView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF5D918A3F370E3E348EB3DBA0C86DD3 /* WaterfallGrid.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WaterfallGrid.swift; path = Sources/WaterfallGrid/WaterfallGrid.swift; sourceTree = "<group>"; };
 		F5EC6D6E340B513DEB995E59DF7270B4 /* Pods-Clowy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Clowy.debug.xcconfig"; sourceTree = "<group>"; };
 		F7F30A1157084186DEFC8E84AC05C8B0 /* Pods-Clowy-ClowyUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Clowy-ClowyUITests-umbrella.h"; sourceTree = "<group>"; };
 		FB9C5F2E04C627F616A0690A4E4C265E /* Pods-Clowy-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Clowy-dummy.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		435D1516BA435B42D57415B8E60754F1 /* Frameworks */ = {
+		3646D8939A772289ECBE41120CAB0EEE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69253AC0C350004AD44D2BB9BCEC1C3D /* Foundation.framework in Frameworks */,
+				34B17177E18D13CA6490CB9B56636788 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,11 +160,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C7F0B964B76FB15F81D5918256ADEDD1 /* Frameworks */ = {
+		BDBDB5E1A0C9BADD805241F95C3A91C2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3628BE9BCD04172776CE2A9AFEE0A11 /* Foundation.framework in Frameworks */,
+				804EC94C47BD9029F24490A228E0ADE1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF03036CD029B16C7ACE0F6709BE8B9D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23558FC6EE0E1744D6F4CBCD0EDCA6B9 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,19 +230,25 @@
 			path = "Target Support Files/Pods-Clowy-ClowyUITests";
 			sourceTree = "<group>";
 		};
-		55126B166F9D62E54B85A409CEF75998 /* Support Files */ = {
+		4E2855117BE3CF760208E987526FC534 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D82D9342226C94B3AA6FE54EA3D0FFD3 /* WaterfallGrid.modulemap */,
-				3F214919EBE7ED80EEB355A220F0FDB0 /* WaterfallGrid-dummy.m */,
-				0D236D0FD000434917FD472E8468C530 /* WaterfallGrid-Info.plist */,
-				A3F598F018BC5C09FFEC8627D8D60D04 /* WaterfallGrid-prefix.pch */,
-				AD0B87F60ADB8A6EFD2DA463774CE8C3 /* WaterfallGrid-umbrella.h */,
-				C43AF7B4FFF85B381FC835E663606904 /* WaterfallGrid.debug.xcconfig */,
-				1DA196D53D6833B25932A281E171BA10 /* WaterfallGrid.release.xcconfig */,
+				E93137377030EEC66B1975BE12CB8535 /* SSSwiftUIGIFView */,
+				CB8C4301EA8DE137FE6B258B451A2C81 /* WaterfallGrid */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/WaterfallGrid";
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		562296ACB74A1F303A7DC5D53C228167 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1052727012F00B66672155683AE5A0E2 /* Pods-Clowy */,
+				5B8132DEE366CEDF8F9B8A4B26E75D1E /* Pods-Clowy-ClowyUITests */,
+				21E09D2FEC3678EBAFAC59D8E4AEAC53 /* Pods-ClowyTests */,
+				ED51E9C639C8FFA6E92E6BECC847BA7D /* SSSwiftUIGIFView */,
+				E3A0609525C5B681751F703B88451CB1 /* WaterfallGrid */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		60501DA26517383D5F0B4601CBBED44C /* Targets Support Files */ = {
@@ -218,26 +261,48 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		6B9A8D4243AB27712BFF7B51E2FC3676 /* Pods */ = {
+		90B3EEE5D89C379DE561618EA3DD4728 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				83D332D3E5AE62563B15297E2CBCE61F /* WaterfallGrid */,
+				AE8952EADBBEC104F25DF8C60BADC964 /* WaterfallGrid.modulemap */,
+				2427CFD559FF1F335B9DF3EE0E7F179B /* WaterfallGrid-dummy.m */,
+				299C799AAF01E869CCD31BE26A175D1D /* WaterfallGrid-Info.plist */,
+				0931189553B8BC972171C1EA3BE5FC1D /* WaterfallGrid-prefix.pch */,
+				A9070A8DBC41F9C298CC669F27934D11 /* WaterfallGrid-umbrella.h */,
+				E18F508C193F4E5CE049BA155FC30636 /* WaterfallGrid.debug.xcconfig */,
+				580D3D2125266010B5D810160256AC35 /* WaterfallGrid.release.xcconfig */,
 			);
-			name = Pods;
+			name = "Support Files";
+			path = "../Target Support Files/WaterfallGrid";
 			sourceTree = "<group>";
 		};
-		83D332D3E5AE62563B15297E2CBCE61F /* WaterfallGrid */ = {
+		B50A79F841C2DB7C556C820F4A334806 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				C3D2E34B5DFDF522D552A83D953351CC /* ElementPreference.swift */,
-				A1C932DF62BBB915E7B299D0D4AADEB8 /* GridSyle.swift */,
-				D8D92D1802F9D80E80D14B0F87277CE5 /* PositiveNumber.swift */,
-				E3E01A882AA8B8B5ADFCA4FA48A1E82E /* PreferenceSetter.swift */,
-				63B18245865B37A4BA5EA0A9629A8BEA /* ScrollOptions.swift */,
-				CF461CC8EA273D96110AB434F6C5407C /* View+GridStyle.swift */,
-				1FA5EED765E08550609AF23F48999BFF /* View+ScrollOptions.swift */,
-				8E9545DBD3841C83320B5C03B700405D /* WaterfallGrid.swift */,
-				55126B166F9D62E54B85A409CEF75998 /* Support Files */,
+				961270EF9323960E1A64EC3884909737 /* SSSwiftUIGIFView.modulemap */,
+				30DD9769CD0998352A0117E68E087A58 /* SSSwiftUIGIFView-dummy.m */,
+				569E0EEFA8894C1616E0B64280FAAAB0 /* SSSwiftUIGIFView-Info.plist */,
+				864829FD1A1CD523B4CD5EDCE217825E /* SSSwiftUIGIFView-prefix.pch */,
+				45043EFA84F04B88E81D1A60C90ED7D9 /* SSSwiftUIGIFView-umbrella.h */,
+				58BF828FCF20BC76E9035015FED97CAE /* SSSwiftUIGIFView.debug.xcconfig */,
+				507B6DBCB7F7E6CBC05F6F5752D97E02 /* SSSwiftUIGIFView.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SSSwiftUIGIFView";
+			sourceTree = "<group>";
+		};
+		CB8C4301EA8DE137FE6B258B451A2C81 /* WaterfallGrid */ = {
+			isa = PBXGroup;
+			children = (
+				6D9D86DA66BFBA8F7121F586503AF75A /* ElementPreference.swift */,
+				63904949967533DF23382B66BDF02A80 /* GridSyle.swift */,
+				D5850D782974855AB82C52DAFB719E28 /* PositiveNumber.swift */,
+				0F63CE1D1060E215F6CF787641A1C954 /* PreferenceSetter.swift */,
+				D75658E4C8BB53BFF7AA28FCB0B20DA5 /* ScrollOptions.swift */,
+				1A45BFC16214FFBF065B1AEB7AF283C8 /* View+GridStyle.swift */,
+				AD79325C0EAD2C851FF0E632D0DCA92F /* View+ScrollOptions.swift */,
+				EF5D918A3F370E3E348EB3DBA0C86DD3 /* WaterfallGrid.swift */,
+				90B3EEE5D89C379DE561618EA3DD4728 /* Support Files */,
 			);
 			name = WaterfallGrid;
 			path = WaterfallGrid;
@@ -264,21 +329,21 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
-				6B9A8D4243AB27712BFF7B51E2FC3676 /* Pods */,
-				EE87BE247ACAF3EF8BDCBF66E4802F5E /* Products */,
+				4E2855117BE3CF760208E987526FC534 /* Pods */,
+				562296ACB74A1F303A7DC5D53C228167 /* Products */,
 				60501DA26517383D5F0B4601CBBED44C /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		EE87BE247ACAF3EF8BDCBF66E4802F5E /* Products */ = {
+		E93137377030EEC66B1975BE12CB8535 /* SSSwiftUIGIFView */ = {
 			isa = PBXGroup;
 			children = (
-				1052727012F00B66672155683AE5A0E2 /* Pods-Clowy */,
-				5B8132DEE366CEDF8F9B8A4B26E75D1E /* Pods-Clowy-ClowyUITests */,
-				21E09D2FEC3678EBAFAC59D8E4AEAC53 /* Pods-ClowyTests */,
-				E3A0609525C5B681751F703B88451CB1 /* WaterfallGrid */,
+				10A8CCBCA540E8E72D3061D7DA0ECFB0 /* GIFPlayerView.swift */,
+				42352E43067556FE1FA3BF2A22B6AB28 /* SwiftUIGIFPlayerView.swift */,
+				B50A79F841C2DB7C556C820F4A334806 /* Support Files */,
 			);
-			name = Products;
+			name = SSSwiftUIGIFView;
+			path = SSSwiftUIGIFView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,11 +357,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CE5B68AC1270AA4C92603F57B6540ABD /* Headers */ = {
+		C21FD22204059E85A997618E8E7A8E3C /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EB51BEE3E8D413106A808D97946757F /* Pods-Clowy-umbrella.h in Headers */,
+				6E4F1B46FA796A97ABA234837D36B6C2 /* Pods-Clowy-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCD85A72FE95748B26C725F7C778D57F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8DBA3AA4D8572F9CD0B3BEEA281654B /* Pods-Clowy-ClowyUITests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,11 +381,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EFBA5849B5E592001A38F45B7E7061A9 /* Headers */ = {
+		F2B63D90B1DE89F8076D6B6C817AFD65 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2471BDFF4833A772468BDEC517DADF6 /* Pods-Clowy-ClowyUITests-umbrella.h in Headers */,
+				AC995504189161692616F9430985FDB0 /* SSSwiftUIGIFView-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,17 +394,18 @@
 /* Begin PBXNativeTarget section */
 		10AD198FC245152CA845A4BEA6E93447 /* Pods-Clowy */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1F7AF2F59CE022ABA764AA14F9D1B930 /* Build configuration list for PBXNativeTarget "Pods-Clowy" */;
+			buildConfigurationList = D15293238B094F3657BFC603063AC6B9 /* Build configuration list for PBXNativeTarget "Pods-Clowy" */;
 			buildPhases = (
-				CE5B68AC1270AA4C92603F57B6540ABD /* Headers */,
-				1C731F1809DFEA05FBE4EBE0FE836E28 /* Sources */,
-				C7F0B964B76FB15F81D5918256ADEDD1 /* Frameworks */,
-				CB3117E86F467E56F09C06A7397F8937 /* Resources */,
+				C21FD22204059E85A997618E8E7A8E3C /* Headers */,
+				892E60BDF1A0794C4025DF8A34F4045F /* Sources */,
+				3646D8939A772289ECBE41120CAB0EEE /* Frameworks */,
+				2B4B92005D9388FB00714FE9FFCE7E0A /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				6C46FA1E67A15C1D72A7A7FA6793A11B /* PBXTargetDependency */,
+				01EF022BC5F04F7787BB50F7F731603B /* PBXTargetDependency */,
+				B7175AD6C28213FC3B7C8DC30C631190 /* PBXTargetDependency */,
 			);
 			name = "Pods-Clowy";
 			productName = Pods_Clowy;
@@ -358,17 +432,18 @@
 		};
 		6146F88A1A47C51081DBE8AA83F09C5A /* Pods-Clowy-ClowyUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0FE87A609DCB843D3FD40FEEBF72B7D2 /* Build configuration list for PBXNativeTarget "Pods-Clowy-ClowyUITests" */;
+			buildConfigurationList = A198780B778DA572427D2E9134997768 /* Build configuration list for PBXNativeTarget "Pods-Clowy-ClowyUITests" */;
 			buildPhases = (
-				EFBA5849B5E592001A38F45B7E7061A9 /* Headers */,
-				1A5E86E123F7C839280E18258B461D8D /* Sources */,
-				435D1516BA435B42D57415B8E60754F1 /* Frameworks */,
-				A73C48322E51413AB72A96CF31D9BB63 /* Resources */,
+				CCD85A72FE95748B26C725F7C778D57F /* Headers */,
+				9CCF2C24AFD8A44D328EBFCA24127C7F /* Sources */,
+				EF03036CD029B16C7ACE0F6709BE8B9D /* Frameworks */,
+				EE61D4F964FEED37AF768EC84DB266A4 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				1DE931637781160D04D80C145A10E230 /* PBXTargetDependency */,
+				7B330F88558A74607D51D4C313717241 /* PBXTargetDependency */,
+				3B65BBA9E5E112AD4157EC13FAF80D1D /* PBXTargetDependency */,
 			);
 			name = "Pods-Clowy-ClowyUITests";
 			productName = Pods_Clowy_ClowyUITests;
@@ -387,11 +462,29 @@
 			buildRules = (
 			);
 			dependencies = (
-				F91D3AE450C7A2558023489D0C9A226D /* PBXTargetDependency */,
+				53008EE0A3671532F6975CA91096C54B /* PBXTargetDependency */,
 			);
 			name = "Pods-ClowyTests";
 			productName = Pods_ClowyTests;
 			productReference = 21E09D2FEC3678EBAFAC59D8E4AEAC53 /* Pods-ClowyTests */;
+			productType = "com.apple.product-type.framework";
+		};
+		BE69FE8AB101AD37628CA84F6EB71358 /* SSSwiftUIGIFView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 734A38764C7D55F8767744B6790B68BD /* Build configuration list for PBXNativeTarget "SSSwiftUIGIFView" */;
+			buildPhases = (
+				F2B63D90B1DE89F8076D6B6C817AFD65 /* Headers */,
+				6A8FB687B998262C13451FE91EC63BB9 /* Sources */,
+				BDBDB5E1A0C9BADD805241F95C3A91C2 /* Frameworks */,
+				C5B2B2F1C8BD5BB65D1860D5C8C77BF7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SSSwiftUIGIFView;
+			productName = SSSwiftUIGIFView;
+			productReference = ED51E9C639C8FFA6E92E6BECC847BA7D /* SSSwiftUIGIFView */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -412,27 +505,28 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = EE87BE247ACAF3EF8BDCBF66E4802F5E /* Products */;
+			productRefGroup = 562296ACB74A1F303A7DC5D53C228167 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				10AD198FC245152CA845A4BEA6E93447 /* Pods-Clowy */,
 				6146F88A1A47C51081DBE8AA83F09C5A /* Pods-Clowy-ClowyUITests */,
 				BC931B6BA4304EBCAF88C31FA194D025 /* Pods-ClowyTests */,
+				BE69FE8AB101AD37628CA84F6EB71358 /* SSSwiftUIGIFView */,
 				16DB0A490A61C833A70BDE2217E0D5FD /* WaterfallGrid */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		38B25D350491498799F77702A621C084 /* Resources */ = {
+		2B4B92005D9388FB00714FE9FFCE7E0A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A73C48322E51413AB72A96CF31D9BB63 /* Resources */ = {
+		38B25D350491498799F77702A621C084 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -446,7 +540,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CB3117E86F467E56F09C06A7397F8937 /* Resources */ = {
+		C5B2B2F1C8BD5BB65D1860D5C8C77BF7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE61D4F964FEED37AF768EC84DB266A4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -456,22 +557,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		1A5E86E123F7C839280E18258B461D8D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1F5B8B6B00C640F7BC0623DFCD78F0F7 /* Pods-Clowy-ClowyUITests-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1C731F1809DFEA05FBE4EBE0FE836E28 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E5E6A39146E269C0982C9564F6634D4C /* Pods-Clowy-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		47FF7E66D1CFAD87BA15F49038E6BF0A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -488,6 +573,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6A8FB687B998262C13451FE91EC63BB9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				908D9E786C0E3A791A872EB031390275 /* GIFPlayerView.swift in Sources */,
+				2FF7211C5466F8C30D4281D3C8A41670 /* SSSwiftUIGIFView-dummy.m in Sources */,
+				14F321E50DEAA838D360FDF97EE2C7B0 /* SwiftUIGIFPlayerView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		892E60BDF1A0794C4025DF8A34F4045F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D021532E41C8C84F943B78F095F91EA3 /* Pods-Clowy-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9CCF2C24AFD8A44D328EBFCA24127C7F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E68670394E3DABA26127F57054384B0 /* Pods-Clowy-ClowyUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DB73D7169F4A423BCA8438D5DC016D00 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -499,23 +610,35 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1DE931637781160D04D80C145A10E230 /* PBXTargetDependency */ = {
+		01EF022BC5F04F7787BB50F7F731603B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SSSwiftUIGIFView;
+			target = BE69FE8AB101AD37628CA84F6EB71358 /* SSSwiftUIGIFView */;
+			targetProxy = D382FC454EC6DCCB59BA9DE4810627B2 /* PBXContainerItemProxy */;
+		};
+		3B65BBA9E5E112AD4157EC13FAF80D1D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = WaterfallGrid;
 			target = 16DB0A490A61C833A70BDE2217E0D5FD /* WaterfallGrid */;
-			targetProxy = 354E583482757741B3F700EC2C77DA2F /* PBXContainerItemProxy */;
+			targetProxy = 19C23CBF4451AFA669CAB58DCF81B2CF /* PBXContainerItemProxy */;
 		};
-		6C46FA1E67A15C1D72A7A7FA6793A11B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = WaterfallGrid;
-			target = 16DB0A490A61C833A70BDE2217E0D5FD /* WaterfallGrid */;
-			targetProxy = DA883B728EDC846E983BB0C369997082 /* PBXContainerItemProxy */;
-		};
-		F91D3AE450C7A2558023489D0C9A226D /* PBXTargetDependency */ = {
+		53008EE0A3671532F6975CA91096C54B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-Clowy";
 			target = 10AD198FC245152CA845A4BEA6E93447 /* Pods-Clowy */;
-			targetProxy = 0234CE62BB2E7056B7DD63A498268858 /* PBXContainerItemProxy */;
+			targetProxy = C4297CC821C3C0B042C2F38DEF9A308C /* PBXContainerItemProxy */;
+		};
+		7B330F88558A74607D51D4C313717241 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SSSwiftUIGIFView;
+			target = BE69FE8AB101AD37628CA84F6EB71358 /* SSSwiftUIGIFView */;
+			targetProxy = 962AE8F1A77069643EB4CFEB26EE0241 /* PBXContainerItemProxy */;
+		};
+		B7175AD6C28213FC3B7C8DC30C631190 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = WaterfallGrid;
+			target = 16DB0A490A61C833A70BDE2217E0D5FD /* WaterfallGrid */;
+			targetProxy = 3A75AEA83806AF4F8D904AD79DF82F71 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -558,42 +681,7 @@
 			};
 			name = Release;
 		};
-		360C1F80EDC3ED8D51E2CB27DEDEC2A1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C43AF7B4FFF85B381FC835E663606904 /* WaterfallGrid.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/WaterfallGrid/WaterfallGrid-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/WaterfallGrid/WaterfallGrid-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/WaterfallGrid/WaterfallGrid.modulemap";
-				PRODUCT_MODULE_NAME = WaterfallGrid;
-				PRODUCT_NAME = WaterfallGrid;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.1;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		490010D029CC93627A6FBD3D38B0D4FC /* Release */ = {
+		2296AED242CD43939C42709E41169812 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7E7819090620DCB5A17AE157FFA16CD9 /* Pods-Clowy.release.xcconfig */;
 			buildSettings = {
@@ -630,6 +718,41 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		360C1F80EDC3ED8D51E2CB27DEDEC2A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E18F508C193F4E5CE049BA155FC30636 /* WaterfallGrid.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/WaterfallGrid/WaterfallGrid-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/WaterfallGrid/WaterfallGrid-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/WaterfallGrid/WaterfallGrid.modulemap";
+				PRODUCT_MODULE_NAME = WaterfallGrid;
+				PRODUCT_NAME = WaterfallGrid;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 		4BC7450F9457737EE3E637BA155B56F7 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -697,9 +820,9 @@
 			};
 			name = Debug;
 		};
-		53D18DB9B80072A32B8970E9871466DF /* Debug */ = {
+		5564E664E81D8300D6B30D678B4BFD0E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 178385B405A7C7E7B4C5D96BECE160A8 /* Pods-Clowy-ClowyUITests.debug.xcconfig */;
+			baseConfigurationReference = F5EC6D6E340B513DEB995E59DF7270B4 /* Pods-Clowy.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -711,7 +834,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Clowy-ClowyUITests/Pods-Clowy-ClowyUITests-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-Clowy/Pods-Clowy-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -720,7 +843,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Clowy-ClowyUITests/Pods-Clowy-ClowyUITests.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-Clowy/Pods-Clowy.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -734,9 +857,45 @@
 			};
 			name = Debug;
 		};
+		712CFDAE51CE672A3670578C368E8BA0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 507B6DBCB7F7E6CBC05F6F5752D97E02 /* SSSwiftUIGIFView.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SSSwiftUIGIFView/SSSwiftUIGIFView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SSSwiftUIGIFView/SSSwiftUIGIFView-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SSSwiftUIGIFView/SSSwiftUIGIFView.modulemap";
+				PRODUCT_MODULE_NAME = SSSwiftUIGIFView;
+				PRODUCT_NAME = SSSwiftUIGIFView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		7665C724D94350C4D9F881C0DF08342A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1DA196D53D6833B25932A281E171BA10 /* WaterfallGrid.release.xcconfig */;
+			baseConfigurationReference = 580D3D2125266010B5D810160256AC35 /* WaterfallGrid.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -832,11 +991,10 @@
 			};
 			name = Release;
 		};
-		8FE9054CDDA4ABE4B2D927465BBB34B7 /* Debug */ = {
+		B2A60D27F0142B7CBBDC8F7FCA48BDA7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F5EC6D6E340B513DEB995E59DF7270B4 /* Pods-Clowy.debug.xcconfig */;
+			baseConfigurationReference = 58BF828FCF20BC76E9035015FED97CAE /* SSSwiftUIGIFView.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -846,30 +1004,29 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Clowy/Pods-Clowy-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/SSSwiftUIGIFView/SSSwiftUIGIFView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SSSwiftUIGIFView/SSSwiftUIGIFView-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Clowy/Pods-Clowy.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				MODULEMAP_FILE = "Target Support Files/SSSwiftUIGIFView/SSSwiftUIGIFView.modulemap";
+				PRODUCT_MODULE_NAME = SSSwiftUIGIFView;
+				PRODUCT_NAME = SSSwiftUIGIFView;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		9C3A520E51A3246621ECEE30577C6CA6 /* Release */ = {
+		DD4C449E27B3BB3E5AE0F678AFEF0A8B /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 198C13CD0FD9B3E8503886368EDBA7CE /* Pods-Clowy-ClowyUITests.release.xcconfig */;
 			buildSettings = {
@@ -944,32 +1101,60 @@
 			};
 			name = Debug;
 		};
+		ED789CBB874A46B1576F5242B5A08194 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 178385B405A7C7E7B4C5D96BECE160A8 /* Pods-Clowy-ClowyUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Clowy-ClowyUITests/Pods-Clowy-ClowyUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Clowy-ClowyUITests/Pods-Clowy-ClowyUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0FE87A609DCB843D3FD40FEEBF72B7D2 /* Build configuration list for PBXNativeTarget "Pods-Clowy-ClowyUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				53D18DB9B80072A32B8970E9871466DF /* Debug */,
-				9C3A520E51A3246621ECEE30577C6CA6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1F7AF2F59CE022ABA764AA14F9D1B930 /* Build configuration list for PBXNativeTarget "Pods-Clowy" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8FE9054CDDA4ABE4B2D927465BBB34B7 /* Debug */,
-				490010D029CC93627A6FBD3D38B0D4FC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4BC7450F9457737EE3E637BA155B56F7 /* Debug */,
 				8B5A46FF8D3C1289CDEE3BAFACABCD2A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		734A38764C7D55F8767744B6790B68BD /* Build configuration list for PBXNativeTarget "SSSwiftUIGIFView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B2A60D27F0142B7CBBDC8F7FCA48BDA7 /* Debug */,
+				712CFDAE51CE672A3670578C368E8BA0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -983,11 +1168,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		A198780B778DA572427D2E9134997768 /* Build configuration list for PBXNativeTarget "Pods-Clowy-ClowyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED789CBB874A46B1576F5242B5A08194 /* Debug */,
+				DD4C449E27B3BB3E5AE0F678AFEF0A8B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A9822BE617121A71B4959D70C6DA0296 /* Build configuration list for PBXNativeTarget "WaterfallGrid" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				360C1F80EDC3ED8D51E2CB27DEDEC2A1 /* Debug */,
 				7665C724D94350C4D9F881C0DF08342A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D15293238B094F3657BFC603063AC6B9 /* Build configuration list for PBXNativeTarget "Pods-Clowy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5564E664E81D8300D6B30D678B4BFD0E /* Debug */,
+				2296AED242CD43939C42709E41169812 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

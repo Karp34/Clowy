@@ -17,9 +17,7 @@ struct WardrobeModuleView: View {
     var body: some View {
         HStack(alignment: .top, spacing: 8) {
             NavigationLink(
-                destination: WardrobeCoreDataView()
-                    .navigationBarTitle("My Outfits")
-                    .navigationBarTitleDisplayMode(.inline),
+                destination: NewWardrobeScreen(),
                 tag: 1,
                 selection: $selection) {
                     Button(action: {
@@ -34,9 +32,7 @@ struct WardrobeModuleView: View {
                 .buttonStyle(ScaleButtonStyle())
             
             NavigationLink(
-                destination: OutfitScreenView()
-                    .navigationBarTitle("My Outfits")
-                    .navigationBarTitleDisplayMode(.inline),
+                destination: NewOutfitScreen(),
                 tag: 2,
                 selection: $selection) {
                     Button(action: {

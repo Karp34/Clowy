@@ -8,6 +8,9 @@
 import SwiftUI
 import Foundation
 import Combine
+import Firebase
+import FirebaseStorage
+import Kingfisher
 
 class MainScreenViewModel: ObservableObject {
     static var shared = MainScreenViewModel()
@@ -22,18 +25,6 @@ class MainScreenViewModel: ObservableObject {
     @Published var chosenWeather: Weather = Weather(code: 100, name: "Default", color: "#B1B4B8", icon: "cloud", temp: 20, humidity: 99, windSpeed: 2)
     @Published var selectedId: Int = 0
     @Published var days: [Day] = []
-    @Published var clothes: [Wardrobe] = []
-    @Published var outfits: [Outfit] = [Outfit(id: 0, outfit: [], isGenerated: false)]
-    
-    func getOutfits() {
-        let resultOutfits = GetOutfits.getOutfits()
-        outfits = resultOutfits
-    }
-    
-    func getClothes() {
-        let resultClothes = GetClothes.getClothes()
-        clothes = resultClothes
-    }
     
     func changeWeather(id:Int) {
         selectedId = id
@@ -340,7 +331,7 @@ class MainScreenViewModel: ObservableObject {
             var weatherList = [String]()
             
             for item in (0..<data.list.count) {
-                print(data.list[item])
+//                print(data.list[item])
                 let newDaySeconds = Date(timeIntervalSince1970: TimeInterval(data.list[item].dt))
                 
                 let dateFormatter = DateFormatter()
@@ -406,14 +397,19 @@ class MainScreenViewModel: ObservableObject {
                     if newDayTime > 5 {
                         
                         let newDay = (newFullDate[0].components(separatedBy: "-")[2] as NSString).integerValue
-                        let dayInt = newDay - firstDay
+                        
+                        let calendar = Calendar.current
+                        let anchorComponents = calendar.dateComponents([.day, .month, .year], from: Date())
+                        let currentDateDay = anchorComponents.day!
+                        
+                        let dayInt = newDay - currentDateDay
                         
                         
                         weatherList.append(weather)
                         
-                        print(dayInt)
+                        
                         let name = dayInt <= 1 ? "Tomorrow" : getDayName(dayInt: dayInt)
-                        print(name)
+//                        print(name)
                         if nextDayTempList.isEmpty || nextDayTempList.contains(where: {$0.name == name}) {
                             let tempDay = Day(id: id, name: name, weather: Weather(code: code, name: weather, color: iconAndColor[1], icon: iconAndColor[0], temp: Int(temp), humidity: Int(humidity), windSpeed: Int(windSpeed)))
                             nextDayTempList.append(tempDay)
@@ -449,12 +445,12 @@ class MainScreenViewModel: ObservableObject {
     
     @Published var deviceLocationService = DeviceLocationService.shared
     @Published var tokens: Set<AnyCancellable> = []
-    @Published var coordinates: (lat: Double, lon: Double) = (0, 0)
+    @Published var coordinates: (lat: Double, lon: Double)? = nil
+    @Published var coordinatesReceived: Bool = false
     
-    func getCoordinates(completion: @escaping ((lat: Double, lon: Double)) -> () ) {
+    func getCoordinates() {
         observeCoordinateUpdates()
         observeDeniedLocationAccess()
-        completion(self.coordinates)
     }
     
     func observeCoordinateUpdates() {
@@ -464,6 +460,7 @@ class MainScreenViewModel: ObservableObject {
                 print("Handle \(completion) for error and finished subscription.")
             } receiveValue: { coordinates in
                 self.coordinates = (coordinates.latitude, coordinates.longitude)
+                self.coordinatesReceived = true
             }
             .store(in: &tokens)
     }
@@ -482,4 +479,502 @@ class MainScreenViewModel: ObservableObject {
         sortDescriptors: [NSSortDescriptor(keyPath: \TestCloth.name, ascending: true)]
     ) var items: FetchedResults<TestCloth>
     
+
+    
+    
+    
+    //Log in feature
+    
+    @Published var userIsLoggedIn = false
+    @Published var userEmail: String = ""
+    @Published var userPassword: String = ""
+    @Published var showSecondPage = false
+    @Published var userId: String = ""
+    
+    func register() {
+        Auth.auth().createUser(withEmail: userEmail, password: userPassword) { result, error in
+            if error != nil {
+                print(error!.localizedDescription)
+            }
+            
+        }
+    }
+    
+    func login() {
+        Auth.auth().signIn(withEmail: userEmail, password: userPassword) { result, error in
+            if error != nil {
+                print(error!.localizedDescription)
+            }
+            self.userIsLoggedIn.toggle()
+        }
+    }
+    
+    func signOut() {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print("Error signing out: %@", signOutError)
+        }
+    }
+    
+    func getUserId() {
+        guard let userID = Auth.auth().currentUser?.uid else { return }
+        userId = userID
+    }
+    
+    
+    
+    
+    
+    
+    //Wardrobe feature
+    
+    @Published var clothes:  [Cloth] = []
+    @Published var wardrobe:  [Wardrobe] = []
+    @Published var wardrobeState: PlaceHolderState = .placeholder
+    
+    
+    func fetchClothes(completion: @escaping () -> ()) {
+        clothes.removeAll()
+        let db = Firestore.firestore()
+        let ref = db.collection("Users").document(userId).collection("Wardrobe")
+        
+        ref.getDocuments { snapshot, error in
+            guard error == nil else {
+                print("HERE")
+                print(error!.localizedDescription)
+                self.wardrobeState = .error
+                return
+            }
+
+            if let snapshot = snapshot {
+                for document in snapshot.documents {
+                    let data = document.data()
+
+                    let id = document.documentID
+                    let name = data["name"] as? String ?? ""
+                    let type = data["type"] as? String ?? ""
+                    let color = data["color"] as? String ?? ""
+                    let temperature = data["temp"] as? [String] ?? []
+                    let isDefault = data["isDefault"] as? Bool ?? true
+                    let image = data["image"] as? String ?? ""
+                    
+                    let cloth = Cloth(id: id, name: name, type: ClothesType(rawValue: type) ?? ClothesType.blank, color: color, temperature: temperature, isDefault: isDefault, image: image)
+                    self.clothes.append(cloth)
+                    
+                }
+                completion()
+            }
+        }
+    }
+    
+    func fetchWardrobe(completion: @escaping () -> ()) {
+            wardrobe.removeAll()
+//            print("Wardrobe clear")
+            fetchClothes() {
+                let allTypes = CreateDefaultWardrobe.getClothes()
+
+                for type in allTypes {
+                    let id = type.id
+                    let type = type.clothesTypeName
+                    let ratio = GetRatio.getRatio(type: type)
+                    var items: [Cloth] = []
+                    for cloth in self.clothes {
+                        if cloth.type == type {
+                            items.append(cloth)
+                        }
+                    }
+                    self.wardrobe.append(Wardrobe(id: id, clothesTypeName: type, items: items, ratio: ratio))
+                }
+                self.wardrobeState = .success
+                completion()
+            }
+    }
+    
+    func getImage(image: String, completion: @escaping (UIImage?) -> () ) {
+        let urlString = "https://firebasestorage.googleapis.com:443/v0/b/fir-app-17e8c.appspot.com/o/" + image + "?alt=media&token=2158a184-ea2d-4300-8927-8569d153101c"
+        if let url = URL.init(string: urlString) {
+            print("URL IS OK")
+            let resource = ImageResource(downloadURL: url)
+            
+            KingfisherManager.shared.retrieveImage(with: resource, options: nil, progressBlock: nil) { result in
+                switch result {
+                case .success(let value):
+                    print(value.source)
+                    completion(value.image)
+                case .failure(let value):
+                    completion(nil)
+                }
+            }
+        }
+    }
+    
+    func getClothesByIds(_ list: [String]) -> [Cloth] {
+        var clothes: [Cloth] = []
+        let defaultOutfit: [String] = ["1100","1101","1102"]
+        for id in list {
+            if defaultOutfit.contains(id) {
+                switch id {
+                case "1100" :
+                    clothes.append(Cloth(id: "1100", name: "", type: .tshirts, color: "#000000", temperature: ["Cold"], isDefault: true, image: "DefaultUpperWear"))
+
+                case "1101":
+                    clothes.append(Cloth(id: "1101", name: "", type: .pants, color: "#000000", temperature: ["Cold"], isDefault: true, image: "DefaultPants"))
+                    
+                case "1102":
+                    clothes.append(Cloth(id: "1102", name: "", type: .sneakers, color: "#00000", temperature: ["Cold"], isDefault: true, image: "DefaultSneaker"))
+                default:
+                    print("Logic error when creating default outfit")
+                }
+            } else {
+                for category in wardrobe {
+                    if let cloth = category.items.first(where: { $0.id == id }) {
+                        clothes.append(cloth)
+                    }
+                }
+            }
+        }
+        return clothes
+    }
+    
+    func deleteCloth(clothId: String, imageId: String) {
+//      thnik how to delete from each outfit and delete from storage
+        let db = Firestore.firestore()
+        let ref = db.collection("Users").document(userId).collection("Wardrobe").document(clothId)
+        ref.delete { error in
+            if error == nil {
+                self.fetchWardrobe() {}
+                self.deleteFromStorage(clothId: imageId)
+            } else {
+                print(error?.localizedDescription)
+            }
+        }
+    }
+    
+    func deleteFromStorage(clothId: String) {
+        let ref = Storage.storage().reference()
+        let desertRef = ref.child(clothId)
+
+        desertRef.delete { error in
+          if let error = error {
+              print(error.localizedDescription)
+          } else {
+              print("Success")
+          }
+        }
+    }
+    
+    
+    
+    
+    // Outfit feature
+    
+    @Published var outfits = [Outfit]()
+    @Published var outfitState: PlaceHolderState = .placeholder
+    
+    func fetchOutfits() {
+        outfits.removeAll()
+        let db = Firestore.firestore()
+        let ref = db.collection("Users").document(userId).collection("Outfits")
+        ref.getDocuments { snapshot, error in
+            guard error == nil else {
+                print("Error outfits")
+                print(error!.localizedDescription)
+                self.outfitState = .error
+                return
+            }
+            
+            if let snapshot = snapshot {
+                for document in snapshot.documents {
+                    let data = document.data()
+                    
+                    let id = document.documentID
+                    let name = data["name"] as? String ?? "No name"
+                    let isGenerated = data["isGenerated"] as? Bool ?? false
+                    let clothes = data["clothes"] as? [String] ?? []
+                    let createDTM = data["createDTM"] as? Double ?? 0
+                    
+                    let outfit = Outfit(id: id, name: name, isGenerated: isGenerated, clothes: clothes, createDTM: createDTM)
+                    self.outfits.append(outfit)
+                }
+                self.outfitState = .success
+            }
+        }
+    }
+    
+    func getConfig(weather: Weather) -> [[ClothesPref]] {
+        let temp = Double(weather.temp) + (( UserDefaults.standard.double(forKey: "prefTemp") - 0.5 ) * -10 )
+        var config = [[ClothesPref]]()
+        var configs: OutfitConfig
+        
+        if temp <= -20 {
+            configs = outfitConfig.first(where: {$0.name == "SuperCold"})!
+        } else if temp <= -10 && temp > -20 {
+            configs = outfitConfig.first(where: {$0.name == "Cold"})!
+        } else if temp <= 0 && temp > -10 {
+            configs = outfitConfig.first(where: {$0.name == "Coldy"})!
+        } else if temp <= 10 && temp > 0 {
+            configs = outfitConfig.first(where: {$0.name == "Regular"})!
+        } else if temp <= 20 && temp > 10 {
+            configs = outfitConfig.first(where: {$0.name == "Warm"})!
+        } else {
+            configs = outfitConfig.first(where: {$0.name == "Hot"})!
+        }
+        
+        if weather.code.description.hasPrefix("2") || weather.code.description.hasPrefix("5") || weather.code.description.hasPrefix("6") || weather.windSpeed > 15  {
+            config = configs.weatherConfig.first(where: {$0.weather == .rain})!.clothes
+        } else if weather.humidity > 65 {
+            config = configs.weatherConfig.first(where: {$0.weather == .humidity})!.clothes
+        } else if weather.code == 804 {
+            config = configs.weatherConfig.first(where: {$0.weather == .lightRain})!.clothes
+        } else {
+            config = configs.weatherConfig.first(where: {$0.weather == .sunny})!.clothes
+        }
+                    
+        return config
+    }
+    
+    @Published var fittingOutfitsResponse = [FittingOutfitsResponse]()
+    func getRightOutfits() {
+        fittingOutfitsResponse = []
+//        if !self.wardrobe.isEmpty && !self.clothes.isEmpty && !self.days.isEmpty {
+            for day in days {
+                var fittingOutfits: FittingOutfitsResponse
+                let config = getConfig(weather: day.weather)
+//                print(config)
+                fittingOutfits = getOutfitsForDay(config: config)
+                
+                
+                let fittingOutfitResponse = FittingOutfitsResponse(id: day.id, outfits: fittingOutfits.outfits, code: fittingOutfits.code, error: fittingOutfits.error)
+//                print("______________")
+//                print(day.name)
+//                print("FITTING OUTFITS \(fittingOutfitResponse)")
+                fittingOutfitsResponse.append(fittingOutfitResponse)
+//                print("")
+//                print("")
+            }
+           
+//        } else {
+//            print("Error something is missing")
+//        }
+    }
+    
+    func getRightOutfit(clothes: [Cloth], config: [[ClothesPref]]) -> [PercentFittingOutfit] {
+        var percentFittingOutfits = [PercentFittingOutfit(outfit: [], percent: 0)]
+        
+        for list in config {
+            var tempClothes = [Cloth]()
+            var absentTypes = [ClothesPref]()
+            
+            for pref in list {
+                if let fitingCloth = clothes.first(where: {$0.type == pref.type}) {
+                    if fitingCloth.temperature.contains(pref.temp.rawValue) {
+                        tempClothes.append(fitingCloth)
+                    } else {
+                        absentTypes.append(pref)
+                    }
+                } else {
+                    absentTypes.append(pref)
+                }
+            }
+            
+            if tempClothes.count == list.count {
+                if let accessories = clothes.first(where: {$0.type == .accessories}) {
+                    tempClothes.append(accessories)
+                }
+                percentFittingOutfits.append(PercentFittingOutfit(outfit: tempClothes, percent: 100))
+            } else {
+                let percent = (Double(tempClothes.count) / Double(list.count)) * 100
+                if let accessories = clothes.first(where: {$0.type == .accessories}) {
+                    tempClothes.append(accessories)
+                }
+                percentFittingOutfits.append(PercentFittingOutfit(outfit: tempClothes, percent: percent, absentTypes: absentTypes))
+            }
+        }
+        
+        return percentFittingOutfits
+    }
+    
+    
+    
+    func getOutfitsForDay(config: [[ClothesPref]]) -> FittingOutfitsResponse {
+        var code = 200
+        var error = ""
+        var fittingOutfits = [FittingOutfit]()
+        var notFittingOutfits = [PercentFittingOutfit]()
+        
+        
+        var count = 0
+        for outfit in outfits {
+            
+            let clothes = getClothesByIds(outfit.clothes)
+            let rightOutfits = getRightOutfit(clothes: clothes, config: config)
+            
+            for outfit in rightOutfits {
+                if outfit.percent == 100 {
+                    if !outfit.outfit.isEmpty  {
+                        let fittingOutfit = FittingOutfit(id: count, outfit: outfit.outfit, isGenerated: false)
+                        if !fittingOutfits.contains(where: { $0.outfit == fittingOutfit.outfit}) {
+                            fittingOutfits.append(fittingOutfit)
+                            count += 1
+                        }
+                    }
+                } else {
+                    if !outfit.outfit.isEmpty  {
+                        notFittingOutfits.append(outfit)
+                    }
+                }
+            }
+        }
+        
+        if fittingOutfits.isEmpty {
+            var allFittingOutfits = [PercentFittingOutfit]()
+            
+            notFittingOutfits.sort { $0.percent > $1.percent }
+            outerloop: for outfit in notFittingOutfits {
+//                var changedOutfit = outfit.outfit
+                var changedOutfit = PercentFittingOutfit(outfit: outfit.outfit, percent: 0)
+//                var addedItemsCount = 0
+                if let absentTypes = outfit.absentTypes {
+                    for type in absentTypes {
+//                        print(type.type.rawValue)
+                        let fittingClothes = clothes.filter { $0.type == type.type && $0.temperature.contains(type.temp.rawValue) }
+                        if !fittingClothes.isEmpty {
+//                            print("clothes exist")
+                            var fittingClothesOutfits = [PercentFittingOutfit]()
+                            
+                            for cloth in fittingClothes {
+                                var newOutfit = changedOutfit.outfit
+                                newOutfit.append(cloth)
+                                let newOutfitNames = Set(newOutfit.map { $0.id })
+                                
+                                for outfit in outfits {
+                                    let set = Set(outfit.clothes).intersection(newOutfitNames)
+//                                    print(set)
+//                                    print(set.count)
+//                                    print(newOutfitNames.count)
+                                    if set.contains(cloth.id) {
+                                        let percent = Double(set.count - 1) / Double(newOutfitNames.count) * 100
+                                        fittingClothesOutfits.append(PercentFittingOutfit(outfit: newOutfit, percent: percent))
+//                                        print("\(cloth.name)")
+//                                        print("appended to fittingClothesOutfits")
+                                    } else {
+                                        fittingClothesOutfits.append(PercentFittingOutfit(outfit: newOutfit, percent: 0))
+//                                        print("\(cloth.name)")
+//                                        print("appended to fittingClothesOutfits with 0 percent")
+                                    }
+                                }
+                            }
+                            if !fittingClothesOutfits.isEmpty {
+                                fittingClothesOutfits.sort { $0.percent > $1.percent }
+                                changedOutfit = fittingClothesOutfits[0]
+//                                print("New changed outfit")
+//                                print(changedOutfit)
+                                
+                            }
+                        } else {
+                            error = "No suitable \(type.type.rawValue) for temperatures \(GetTemperatureRange.getTemperatureRange(type: type.temp))"
+                            code = 400
+                            break
+                        }
+                    }
+                    if changedOutfit.outfit.count == outfit.outfit.count + absentTypes.count {
+                        allFittingOutfits.append(changedOutfit)
+//                        print("appended to allFittingOutfits")
+//                        print(allFittingOutfits)
+                    }
+                }
+            }
+            allFittingOutfits.sort { $0.percent > $1.percent }
+            for bestOutfit in allFittingOutfits {
+                let fittingOutfit = FittingOutfit(id: count, outfit: sortClothes(clothesList: bestOutfit.outfit), isGenerated: true)
+                if !fittingOutfits.contains(where: { $0.outfit == fittingOutfit.outfit}) {
+                    fittingOutfits.append(fittingOutfit)
+//                    print("appended to fittingOutfits")
+//                    print(fittingOutfits)
+                    count += 1
+                    if bestOutfit.percent == 0 || count >= 2 {
+                        break
+                    }
+                }
+            }
+        }
+                
+                    
+                    
+                                
+                                
+                                
+//                                    if set.count > 1 && set.contains(cloth.id) {
+//                                        changedOutfit.append(cloth)
+//                                        break
+//                                    }
+//                                }
+//                                if changedOutfit.count > outfit.outfit.count + addedItemsCount {
+//                                    addedItemsCount += 1
+//                                    break
+//                                }
+//                            }
+//
+//                            if changedOutfit.count == outfit.outfit.count + absentTypes.count {
+//                                count += 1
+//                                if count > 2 {
+//                                    break outerloop
+//                                }
+//                                let fittingOutfit = FittingOutfit(id: count, outfit: sortClothes(clothesList: changedOutfit), isGenerated: true)
+//                                if !fittingOutfits.contains(where: { $0.outfit == fittingOutfit.outfit}) {
+//                                    fittingOutfits.append(fittingOutfit)
+//                                }
+//                            }
+                                    
+//                        } else {
+//                            error = "No suitable \(type.type.rawValue) for temperatures \(GetTemperatureRange.getTemperatureRange(type: type.temp))"
+//                            code = 400
+//                            break
+//                        }
+//                    }
+//                }
+//            }
+//        }
+        
+        
+        if clothes.isEmpty {
+            error = "No items in wardrobe"
+            code = 401
+        } else if outfits.isEmpty {
+            error = "No outfits"
+            code = 402
+        }
+        
+        return  FittingOutfitsResponse(id: 0, outfits: fittingOutfits, code: fittingOutfits.isEmpty ? code : 200, error: fittingOutfits.isEmpty ? error : "")
+    }
+    
+    func sortClothes(clothesList: [Cloth]) -> [Cloth] {
+        let clothes = CreateDefaultWardrobe.getClothes()
+        var sortedClothes: [Cloth] = []
+        for clothesType in clothes {
+            if let index = clothesList.firstIndex(where: {$0.type == clothesType.clothesTypeName} ) {
+                sortedClothes.append(clothesList[index])
+            }
+        }
+        return sortedClothes
+    }
+    
+    
+    
+    //Deprecated
+    
+//    @Published var clothes: [Wardrobe] = []
+//    @Published var outfits: [Outfit] = [Outfit(id: 0, outfit: [], isGenerated: false)]
+//
+//    func getOutfits() {
+//        let resultOutfits = GetOutfits.getOutfits()
+//        outfits = resultOutfits
+//    }
+//
+//    func getClothes() {
+//        let resultClothes = GetClothes.getClothes()
+//        clothes = resultClothes
+//    }
 }
