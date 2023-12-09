@@ -11,7 +11,7 @@ import Firebase
 struct SplashScreen: View {
     @StateObject private var viewModel = MainScreenViewModel.shared
     @State var size = 0.8
-    @State var offset: CGFloat = 300
+//    @State var offset: CGFloat = 300
     @State var isActive = false
     
     let persistenceController = PersistenceController.shared
@@ -19,7 +19,7 @@ struct SplashScreen: View {
     @Environment(\.scenePhase) var scenePhase
     
     var body: some View {
-        GeometryReader { geometry in
+//        GeometryReader { geometry in
             if isActive {
                 if viewModel.userIsLoggedIn {
                     MainScreenView()
@@ -30,27 +30,9 @@ struct SplashScreen: View {
                     LoginScreen()
                 }
             } else {
-                let textOffset = geometry.size.height/2
-                ZStack(alignment: .bottom) {
-                    ZStack(alignment: .top) {
-                        Color(hex: "#678CD4")
-                        Text("Clowy")
-                            .font(.custom("Montserrat-Bold", size: 40))
-                            .foregroundColor(.white)
-                            .padding(.top, textOffset)
-    //                        .background(Color.red)
-                    }
-//                    Text("Dress smarter. Look better.")
-//                        .font(.custom("Montserrat-Medium", size: 14))
-//                        .foregroundColor(.white)
-//                        .padding(.bottom, 50)
-                    Text("Dress smarter. Look better.")
-                        .font(.custom("Montserrat-Medium", size: 14))
-                        .foregroundColor(.white)
-                        .padding(.bottom, 38)
-                }
-                
-                .ignoresSafeArea(.all)
+//                let textOffset = geometry.size.height/2
+//                StartScreenView(textOffset: textOffset)
+                SunSplachScreen()
                 .onAppear {
                     if UserDefaults.standard.bool(forKey: "launchedBefore") {
                         viewModel.getCoordinates()
@@ -66,12 +48,12 @@ struct SplashScreen: View {
                             viewModel.userIsLoggedIn.toggle()
                         }
                     }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0 ) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 5.0 ) {
                         self.isActive = true
                     }
                 }
             }
-        }
+//        } geometry
     }
 }
 

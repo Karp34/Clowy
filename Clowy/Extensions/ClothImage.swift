@@ -29,7 +29,7 @@ struct ClothImage: View {
     func getImage(image: String, completion: @escaping (UIImage?) -> () ) {
         let urlString = "https://firebasestorage.googleapis.com:443/v0/b/fir-app-17e8c.appspot.com/o/" + image + "?alt=media&token=2158a184-ea2d-4300-8927-8569d153101c"
         if let url = URL.init(string: urlString) {
-            let resource = ImageResource(downloadURL: url)
+            let resource = Kingfisher.ImageResource(downloadURL: url)
             
             KingfisherManager.shared.retrieveImage(with: resource, options: [.forceRefresh], progressBlock: nil) { result in
                 switch result {
