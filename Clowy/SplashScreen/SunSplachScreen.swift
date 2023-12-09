@@ -8,29 +8,26 @@
 import SwiftUI
 
 struct SunSplachScreen: View {
-    @State private var moveAlongPass = -90
+    @State private var moveAlongPass = -15
     var body: some View {
         ZStack {
-            ZStack {
-                Color(hex: "#678CD4")
-                Text("Clowy")
-                    .font(.custom("Montserrat-Bold", size: 40))
-                    .foregroundColor(.white)
-            }
-            .background(Color.green)
-            Image(systemName: "sun.max.fill")
+            Image("SplashSun")
                 .resizable()
-                .frame(width: 600, height: 600)
-                .foregroundColor(.yellow)
-                .offset(x: -400)
+                .offset(x: -900)
+                .frame(width: 900, height: 900)
                 .rotationEffect(.degrees(Double(moveAlongPass)))
-                .offset(x:300, y:300)
+                .offset(x:600, y:750)
+                .blur(radius: 75)
                 .onAppear {
                     withAnimation(Animation.easeInOut(duration: 5)) {
-                        moveAlongPass = 130
+                        moveAlongPass = 115
                     }
                 }
+            Text("clowy")
+                .font(.custom("Pacifico-Regular", size: 73))
+                .foregroundColor(.white)
         }
+        .background(Color(hex: "#678CD4"))
         .ignoresSafeArea(.all)
     }
 }

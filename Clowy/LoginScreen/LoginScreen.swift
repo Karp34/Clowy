@@ -12,7 +12,7 @@ struct LoginScreen: View {
     @StateObject private var viewModel = MainScreenViewModel.shared
     @State var offset: CGFloat = 500
     @State var startAnimation = false
-    @State var textOffset: CGFloat = 300
+    @State var textOffset: CGFloat = 10
     
     func skip() {}
     
@@ -21,13 +21,13 @@ struct LoginScreen: View {
             VStack(spacing: 0) {
                 ZStack {
                     Color(hex: "#678CD4")
-                    Text("Clowy")
-                        .font(.custom("Montserrat-Bold", size: 40))
+                    Text("clowy")
+                        .font(.custom("Pacifico-Regular", size: 73))
                         .foregroundColor(.white)
                         .padding(.top, textOffset)
                 }
                 .onAppear {
-                    textOffset = geometry.size.height/2
+                    textOffset = ( geometry.size.height/2 - 20 )
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.0 ) {
                         withAnimation(.easeInOut) {
