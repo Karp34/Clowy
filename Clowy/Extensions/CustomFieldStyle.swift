@@ -28,7 +28,7 @@ struct CustomFieldStyle3: TextFieldStyle {
     
     func _body(configuration: TextField<Self._Label>) -> some View {
         configuration
-            .font(.custom("Montserrat-Semibold", size: size))
+            .font(.custom("Montserrat-Regular", size: size))
             .foregroundColor(Color(hex: "#646C75"))
     }
 }

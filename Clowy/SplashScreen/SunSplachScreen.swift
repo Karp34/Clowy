@@ -13,13 +13,14 @@ struct SunSplachScreen: View {
         ZStack {
             Image("SplashSun")
                 .resizable()
+                .rotationEffect(.degrees(Double(125)))
                 .offset(x: -900)
                 .frame(width: 900, height: 900)
                 .rotationEffect(.degrees(Double(moveAlongPass)))
                 .offset(x:600, y:750)
                 .blur(radius: 75)
                 .onAppear {
-                    withAnimation(Animation.easeInOut(duration: 5)) {
+                    withAnimation(Animation.easeInOut(duration: 4).repeatForever(autoreverses: false)) {
                         moveAlongPass = 115
                     }
                 }

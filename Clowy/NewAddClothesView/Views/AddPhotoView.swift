@@ -13,51 +13,73 @@ struct AddPhotoView: View {
     
     @ObservedObject var viewModel = AddClothesViewModel.shared
     @State var show = false
+    @State var isCutOut = false
     
     var body: some View {
-        if self.viewModel.cloth.image != "" || self.viewModel.cloth.rawImage != nil {
-            ZStack {
-                RoundedRectangle(cornerRadius: 16)
-                    .stroke(Color(hex: "#DADADA"), style: StrokeStyle(lineWidth: 1, dash: [4]))
-                VStack {
-                    ClothImage(imageName: viewModel.cloth.image, isDeafult: viewModel.cloth.isDefault, color: viewModel.cloth.color, rawImage: viewModel.cloth.rawImage)
-                        .scaledToFit()
-                        .frame(width: 96, height: 96)
-                }
-                HStack (alignment: .top) {
-                    Spacer()
-                    VStack {
-                        Image(systemName: "trash")
-                            .foregroundColor(Color(hex: "#646C75"))
-                            .padding(16)
-                        Spacer()
+        if #available(iOS 16.0, *) {
+            if self.viewModel.cloth.image != "" || self.viewModel.cloth.rawImage != nil {
+                HStack (spacing: 16) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 16)
+                            .stroke(Color(hex: "#DADADA"), style: StrokeStyle(lineWidth: 1, dash: [4]))
+                        VStack {
+                            if isCutOut {
+                                if let rawImage = viewModel.cloth.rawImage {
+                                    ImageLift(imageName: rawImage)
+                                        .scaledToFit()
+                                        .interactiveDismissDisabled(false)
+                                        .clipShape(RoundedRectangle(cornerRadius: 16))
+                                }
+                            } else {
+                                ClothImage(imageName: viewModel.cloth.image, isDeafult: viewModel.cloth.isDefault, color: viewModel.cloth.color, rawImage: viewModel.cloth.rawImage)
+                                    .scaledToFit()
+                                    .frame(width: 120, height: 120)
+                            }
+                            
+                        }
+                        .frame(minHeight: 136)
+                        
+                        HStack (alignment: .top) {
+                            Spacer()
+                            VStack {
+                                Image(systemName: "trash")
+                                    .foregroundColor(Color(hex: "#D85858"))
+                                    .frame(width: 20, height: 20)
+                                    .padding(16)
+                                Spacer()
+                            }
+                            .contentShape(Rectangle())
+                        }
+                        .onTapGesture {
+                            withAnimation {
+                                viewModel.cloth.rawImage = nil
+                                viewModel.cloth.isDefault = false
+                                viewModel.imageId = viewModel.cloth.image
+                                viewModel.cloth.image = ""
+                                isCutOut = false
+                            }
+                        }
+                    }
+                    if !viewModel.cloth.isDefault {
+                        DragAndDrop() { image in
+                            viewModel.cloth.rawImage = image
+                            print(image)
+                        }
+                        .clipShape(RoundedRectangle(cornerRadius: 16))
                     }
                 }
-                .frame(height: 133)
-                .onTapGesture {
-                    withAnimation {
-                        viewModel.cloth.rawImage = nil
-                        viewModel.cloth.isDefault = false
-                        viewModel.imageId = viewModel.cloth.image
-                        viewModel.cloth.image = ""
+            } else {
+                HStack (spacing: 16) {
+                    ImagePickerV2() { image in
+                        viewModel.cloth.rawImage = image
+                        isCutOut = true
                     }
+                    
+                    UseStockPhoto()
                 }
             }
-            .frame(height: 133)
         } else {
-            HStack (spacing: 16) {
-                Button {
-                    show.toggle()
-                } label: {
-                    UsePhotoFromGalary()
-                }
-                
-                UseStockPhoto()
-            }
-            .sheet(isPresented: self.$show) {
-                ImagePicker(show: $show, image: $viewModel.cloth.rawImage)
-                    .environment(\.managedObjectContext, self.moc)
-            }
+            // Fallback on earlier versions
         }
     }
 }

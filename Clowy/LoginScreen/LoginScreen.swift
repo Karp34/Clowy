@@ -29,7 +29,7 @@ struct LoginScreen: View {
                 .onAppear {
                     textOffset = ( geometry.size.height/2 - 20 )
                     
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0 ) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1 ) {
                         withAnimation(.easeInOut) {
                             textOffset = 0
                         }
@@ -49,8 +49,8 @@ struct LoginScreen: View {
             
             .ignoresSafeArea()
             .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0 ) {
-                    withAnimation(.interactiveSpring(response: 1, dampingFraction: 0.5, blendDuration: 0.3)) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1 ) {
+                    withAnimation(.interactiveSpring(response: 1, dampingFraction: 0.7, blendDuration: 0.1)) {
                         offset = 0
                     }
                 }
