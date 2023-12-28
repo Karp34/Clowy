@@ -13,7 +13,7 @@ struct Temperature: Identifiable, Equatable {
     var temp: [Int]
 }
 
-enum TemperatureType: String {
+enum TemperatureType: String, Codable {
     case superCold = "SuperCold"
     case cold = "Cold"
     case coldy = "Coldy"

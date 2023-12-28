@@ -215,37 +215,15 @@ class MainScreenViewModel: ObservableObject {
         return list
     }
     
-    func dayName(_ weekDay: Int) -> String {
-        var dayName: String
-        
-        if weekDay == 1 {
-            dayName = "Sunday"
-        } else if weekDay == 2 {
-            dayName = "Monday"
-        } else if weekDay == 3 {
-            dayName = "Tuesday"
-        } else if weekDay == 4 {
-            dayName = "Wednesday"
-        } else if weekDay == 5 {
-            dayName = "Thursday"
-        } else if weekDay == 6 {
-            dayName = "Friday"
-        } else {
-            dayName = "Saturday"
-        }
-        
-        return dayName
-    }
     
-    func getDayName(dayInt: Int) -> String {
-        let dayNumber = Calendar.current.component(.weekday, from: Date())
-        var nextDayNumber = dayNumber + dayInt
+    func getDayName(date: String) -> String {
+        let dateFormatter0 = DateFormatter()
+        dateFormatter0.dateFormat = "yy-MM-dd"
+        let prepearedDate = dateFormatter0.date(from: date)!
         
-        if nextDayNumber > 7 {
-            nextDayNumber = nextDayNumber - 7
-        }
-        
-        let name = dayName(nextDayNumber)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        let name = dateFormatter.string(from: prepearedDate)
         return name
     }
     
@@ -403,12 +381,17 @@ class MainScreenViewModel: ObservableObject {
                         let currentDateDay = anchorComponents.day!
                         
                         let dayInt = newDay - currentDateDay
+                        let dayName = getDayName(date: newFullDate[0])
                         
                         
                         weatherList.append(weather)
                         
+                        let newMonth = (newFullDate[0].components(separatedBy: "-")[1] as NSString).integerValue
+                        let currentDateMonth = anchorComponents.month!
                         
-                        let name = dayInt <= 1 ? "Tomorrow" : getDayName(dayInt: dayInt)
+                        
+                        
+                        let name = newMonth == currentDateMonth && dayInt <= 1 ? "Tomorrow" : dayName
 //                        print(name)
                         if nextDayTempList.isEmpty || nextDayTempList.contains(where: {$0.name == name}) {
                             let tempDay = Day(id: id, name: name, weather: Weather(code: code, name: weather, color: iconAndColor[1], icon: iconAndColor[0], temp: Int(temp), humidity: Int(humidity), windSpeed: Int(windSpeed)))
@@ -704,6 +687,14 @@ class MainScreenViewModel: ObservableObject {
     }
     
     func getConfig(weather: Weather) -> [[ClothesPref]] {
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        let data = try! encoder.encode(outfitConfig)
+        print("JSON HERE")
+        print(String(data: data, encoding: .utf8)!)
+        print("JSON HERE")
+
+        
         let temp = Double(weather.temp) + (( UserDefaults.standard.double(forKey: "prefTemp") - 0.5 ) * -10 )
         var config = [[ClothesPref]]()
         var configs: OutfitConfig

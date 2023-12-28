@@ -22,6 +22,7 @@ let outfitConfig: [OutfitConfig] = [
              ClothesPref(type: .gloves, temp: .superCold),
              ClothesPref(type: .scarves, temp: .superCold)],
             
+            // I did it because some people do not wear t-shirts under hoodies. I need another way to do this
             [ClothesPref(type: .jackets, temp: .superCold),
              ClothesPref(type: .hoodies, temp: .cold),
              ClothesPref(type: .thermals, temp: .superCold),
@@ -238,8 +239,7 @@ let outfitConfig: [OutfitConfig] = [
              ClothesPref(type: .tshirts, temp: .regular),
              ClothesPref(type: .pants, temp: .warm),
              ClothesPref(type: .socks, temp: .warm),
-             ClothesPref(type: .sneakers, temp: .warm),
-             ClothesPref(type: .umbrellas, temp: .regular)],
+             ClothesPref(type: .sneakers, temp: .warm)],
             
             [ClothesPref(type: .hoodies, temp: .warm),
              ClothesPref(type: .tshirts, temp: .regular),
@@ -388,22 +388,22 @@ let outfitConfig: [OutfitConfig] = [
     ]),
 ]
 
-struct ClothesPref {
+struct ClothesPref: Codable {
     var type: ClothesType
     var temp: TemperatureType
 }
 
-struct OutfitConfig {
+struct OutfitConfig: Codable {
     var name: String
     var weatherConfig: [WeatherConfig]
 }
 
-struct WeatherConfig {
+struct WeatherConfig: Codable {
     var weather: WeatherType
     var clothes: [[ClothesPref]]
 }
 
-enum WeatherType {
+enum WeatherType: Codable {
     case sunny
     case rain
     case humidity

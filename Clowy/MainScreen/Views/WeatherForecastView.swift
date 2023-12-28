@@ -38,7 +38,7 @@ struct WeatherForecastView: View {
                         .opacity(0.4)
                         .disabled(true)
                 } else if viewModel.days.count > viewModel.selectedId && viewModel.days[viewModel.selectedId].name.description == "Evening" && name == "Clear" {
-                    SwiftUIGIFPlayerView(gifName: "sunrise")
+                    SwiftUIGIFPlayerView(gifName: "sunset")
                         .scaledToFill()
                         .frame(height: 80.0)
                         .cornerRadius(16)

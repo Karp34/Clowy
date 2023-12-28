@@ -15,6 +15,7 @@
 		757D58712B2669C600C53A6B /* ImagePickerV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757D58702B2669C600C53A6B /* ImagePickerV2.swift */; };
 		757D58732B2669DA00C53A6B /* ImageLift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757D58722B2669DA00C53A6B /* ImageLift.swift */; };
 		757D58752B266EF900C53A6B /* DragAndDrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757D58742B266EF900C53A6B /* DragAndDrop.swift */; };
+		758A1E0D2B330C2E006AE7B6 /* sunset.gif in Resources */ = {isa = PBXBuildFile; fileRef = 758A1E0C2B330C2E006AE7B6 /* sunset.gif */; };
 		75CAA6CD2AF6CB48003CA48C /* sunrise.gif in Resources */ = {isa = PBXBuildFile; fileRef = 75CAA6CC2AF6CB48003CA48C /* sunrise.gif */; };
 		75CAA6CF2AF6CB52003CA48C /* thunder.gif in Resources */ = {isa = PBXBuildFile; fileRef = 75CAA6CE2AF6CB52003CA48C /* thunder.gif */; };
 		75CAA6D42AF6CC4E003CA48C /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75CAA6D02AF6CC4E003CA48C /* Montserrat-Regular.ttf */; };
@@ -115,7 +116,6 @@
 		BA86934A28F52C1A008F37EB /* ClothImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA86934928F52C1A008F37EB /* ClothImage.swift */; };
 		BA86934C28F69685008F37EB /* TestTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA86934B28F69685008F37EB /* TestTextView.swift */; };
 		BA86934E28F6B5A8008F37EB /* PlaceholderErrorCities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA86934D28F6B5A8008F37EB /* PlaceholderErrorCities.swift */; };
-		BA91622229CCF6DD0093D4B8 /* sunset.gif in Resources */ = {isa = PBXBuildFile; fileRef = BA91622129CCF6DD0093D4B8 /* sunset.gif */; };
 		BA9C23C728D2514C00DDDB54 /* WaterfallGrid in Frameworks */ = {isa = PBXBuildFile; productRef = BA3336782799AFB200E88B68 /* WaterfallGrid */; };
 		BA9C23C928D265A100DDDB54 /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9C23C828D265A100DDDB54 /* MainScreenViewModel.swift */; };
 		BA9C23CC28D4E80C00DDDB54 /* StartScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9C23CB28D4E80C00DDDB54 /* StartScreenView.swift */; };
@@ -203,6 +203,7 @@
 		757D58702B2669C600C53A6B /* ImagePickerV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerV2.swift; sourceTree = "<group>"; };
 		757D58722B2669DA00C53A6B /* ImageLift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLift.swift; sourceTree = "<group>"; };
 		757D58742B266EF900C53A6B /* DragAndDrop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragAndDrop.swift; sourceTree = "<group>"; };
+		758A1E0C2B330C2E006AE7B6 /* sunset.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sunset.gif; sourceTree = "<group>"; };
 		75CAA6CC2AF6CB48003CA48C /* sunrise.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sunrise.gif; sourceTree = "<group>"; };
 		75CAA6CE2AF6CB52003CA48C /* thunder.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = thunder.gif; sourceTree = "<group>"; };
 		75CAA6D02AF6CC4E003CA48C /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
@@ -298,7 +299,6 @@
 		BA86934928F52C1A008F37EB /* ClothImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothImage.swift; sourceTree = "<group>"; };
 		BA86934B28F69685008F37EB /* TestTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTextView.swift; sourceTree = "<group>"; };
 		BA86934D28F6B5A8008F37EB /* PlaceholderErrorCities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderErrorCities.swift; sourceTree = "<group>"; };
-		BA91622129CCF6DD0093D4B8 /* sunset.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sunset.gif; sourceTree = "<group>"; };
 		BA9C23C828D265A100DDDB54 /* MainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModel.swift; sourceTree = "<group>"; };
 		BA9C23CB28D4E80C00DDDB54 /* StartScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenView.swift; sourceTree = "<group>"; };
 		BA9C23CF28D8B91E00DDDB54 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -649,9 +649,9 @@
 				75CAA6CE2AF6CB52003CA48C /* thunder.gif */,
 				75CAA6CC2AF6CB48003CA48C /* sunrise.gif */,
 				BA5639DF29CB5B1900912361 /* clouds.gif */,
-				BA91622129CCF6DD0093D4B8 /* sunset.gif */,
 				BA5639D729CB352200912361 /* rain.gif */,
 				BA6E586A299AAB3E0043DA64 /* snow.gif */,
+				758A1E0C2B330C2E006AE7B6 /* sunset.gif */,
 			);
 			path = GIFs;
 			sourceTree = "<group>";
@@ -992,13 +992,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA91622229CCF6DD0093D4B8 /* sunset.gif in Resources */,
 				BA1591E9273FE7560010CD56 /* Preview Assets.xcassets in Resources */,
 				BA1D0511299AFD23000D2903 /* GoogleService-Info.plist in Resources */,
 				BA5639E029CB5B1900912361 /* clouds.gif in Resources */,
 				75CAA6D72AF6CC4E003CA48C /* Montserrat-Bold.ttf in Resources */,
 				BA5639DB29CB352200912361 /* rain.gif in Resources */,
 				75CAA6CF2AF6CB52003CA48C /* thunder.gif in Resources */,
+				758A1E0D2B330C2E006AE7B6 /* sunset.gif in Resources */,
 				75CAA6D62AF6CC4E003CA48C /* Montserrat-SemiBold.ttf in Resources */,
 				75734C422B2484E0001DC535 /* Pacifico-Regular.ttf in Resources */,
 				75CAA6CD2AF6CB48003CA48C /* sunrise.gif in Resources */,
