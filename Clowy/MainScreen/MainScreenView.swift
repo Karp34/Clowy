@@ -187,7 +187,8 @@ struct MainScreenView: View, DaysForecastViewDelegate {
                                     print(viewModel.weather)
                                     print(viewModel.days)
                                     
-                                    viewModel.getRightOutfits()
+                                    // supermarket
+//                                    viewModel.getRightOutfits()
                                     print("GET RIGHT OUFIT")
                                 }
                             }
@@ -202,7 +203,8 @@ struct MainScreenView: View, DaysForecastViewDelegate {
                                 print(UserDefaults.standard.string(forKey: "location"))
                                 print(viewModel.days)
                                 
-                                viewModel.getRightOutfits()
+                                // supermarket
+//                                viewModel.getRightOutfits()
                                 print("GET RIGHT OUFIT")
                             }
                         }

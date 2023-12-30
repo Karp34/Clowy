@@ -22,9 +22,14 @@ struct SplashScreen: View {
 //        GeometryReader { geometry in
             if isActive {
                 if viewModel.userIsLoggedIn {
-                    MainScreenView()
-                        .environment(\.managedObjectContext, persistenceController.container.viewContext)
-                        .preferredColorScheme(.light)
+                    
+                    if viewModel.appIsLive == "false" {
+                        AppIsBlocked()
+                    } else {
+                        MainScreenView()
+                            .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                            .preferredColorScheme(.light)
+                    }
                 } else {
     //                TestLoginScreen()
                     LoginScreen()

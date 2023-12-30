@@ -16,7 +16,6 @@
 		757D58732B2669DA00C53A6B /* ImageLift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757D58722B2669DA00C53A6B /* ImageLift.swift */; };
 		757D58752B266EF900C53A6B /* DragAndDrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757D58742B266EF900C53A6B /* DragAndDrop.swift */; };
 		758A1E0D2B330C2E006AE7B6 /* sunset.gif in Resources */ = {isa = PBXBuildFile; fileRef = 758A1E0C2B330C2E006AE7B6 /* sunset.gif */; };
-		758A1E102B3F57A4006AE7B6 /* FetchWeatherConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758A1E0F2B3F57A4006AE7B6 /* FetchWeatherConfig.swift */; };
 		758A1E132B3F8FFF006AE7B6 /* remote_config_defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 758A1E122B3F8FFF006AE7B6 /* remote_config_defaults.plist */; };
 		75CAA6CD2AF6CB48003CA48C /* sunrise.gif in Resources */ = {isa = PBXBuildFile; fileRef = 75CAA6CC2AF6CB48003CA48C /* sunrise.gif */; };
 		75CAA6CF2AF6CB52003CA48C /* thunder.gif in Resources */ = {isa = PBXBuildFile; fileRef = 75CAA6CE2AF6CB52003CA48C /* thunder.gif */; };
@@ -24,6 +23,11 @@
 		75CAA6D52AF6CC4E003CA48C /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75CAA6D12AF6CC4E003CA48C /* Montserrat-Medium.ttf */; };
 		75CAA6D62AF6CC4E003CA48C /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75CAA6D22AF6CC4E003CA48C /* Montserrat-SemiBold.ttf */; };
 		75CAA6D72AF6CC4E003CA48C /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75CAA6D32AF6CC4E003CA48C /* Montserrat-Bold.ttf */; };
+		75F340362B3FA7A400A2C834 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 75F340352B3FA7A400A2C834 /* FirebaseRemoteConfig */; };
+		75F340382B3FA7A400A2C834 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 75F340372B3FA7A400A2C834 /* FirebaseRemoteConfigSwift */; };
+		75F3403A2B405D1F00A2C834 /* AppIsBlocked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F340392B405D1F00A2C834 /* AppIsBlocked.swift */; };
+		75F3403C2B405E0C00A2C834 /* RCKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F3403B2B405E0C00A2C834 /* RCKey.swift */; };
+		75F3403E2B405F0D00A2C834 /* RemoteConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F3403D2B405F0D00A2C834 /* RemoteConfigManager.swift */; };
 		BA10A3FD29958BDC00AC5C90 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA10A3FC29958BDC00AC5C90 /* LoginScreen.swift */; };
 		BA12D0F427737D3000F91349 /* WardrobeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA12D0F327737D3000F91349 /* WardrobeScreenView.swift */; };
 		BA12D0FA2773D19F00F91349 /* WardrobeClothesCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA12D0F92773D19F00F91349 /* WardrobeClothesCard.swift */; };
@@ -206,7 +210,6 @@
 		757D58722B2669DA00C53A6B /* ImageLift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLift.swift; sourceTree = "<group>"; };
 		757D58742B266EF900C53A6B /* DragAndDrop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragAndDrop.swift; sourceTree = "<group>"; };
 		758A1E0C2B330C2E006AE7B6 /* sunset.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sunset.gif; sourceTree = "<group>"; };
-		758A1E0F2B3F57A4006AE7B6 /* FetchWeatherConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchWeatherConfig.swift; sourceTree = "<group>"; };
 		758A1E122B3F8FFF006AE7B6 /* remote_config_defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = remote_config_defaults.plist; path = ../../../../../Downloads/remote_config_defaults.plist; sourceTree = "<group>"; };
 		75CAA6CC2AF6CB48003CA48C /* sunrise.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sunrise.gif; sourceTree = "<group>"; };
 		75CAA6CE2AF6CB52003CA48C /* thunder.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = thunder.gif; sourceTree = "<group>"; };
@@ -214,6 +217,9 @@
 		75CAA6D12AF6CC4E003CA48C /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		75CAA6D22AF6CC4E003CA48C /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		75CAA6D32AF6CC4E003CA48C /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		75F340392B405D1F00A2C834 /* AppIsBlocked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIsBlocked.swift; sourceTree = "<group>"; };
+		75F3403B2B405E0C00A2C834 /* RCKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCKey.swift; sourceTree = "<group>"; };
+		75F3403D2B405F0D00A2C834 /* RemoteConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigManager.swift; sourceTree = "<group>"; };
 		8941845D3FCE40E587945427 /* Pods-Clowy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clowy.debug.xcconfig"; path = "Target Support Files/Pods-Clowy/Pods-Clowy.debug.xcconfig"; sourceTree = "<group>"; };
 		AA418C9013A9538637C7389A /* Pods-Clowy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clowy.release.xcconfig"; path = "Target Support Files/Pods-Clowy/Pods-Clowy.release.xcconfig"; sourceTree = "<group>"; };
 		BA10A3FC29958BDC00AC5C90 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
@@ -387,6 +393,7 @@
 				BA60ECCC299AE90200A8D14F /* FirebaseAnalyticsSwift in Frameworks */,
 				BA6E588C299ADCC30043DA64 /* Kingfisher in Frameworks */,
 				17BA875CDEB0B390ABD9BE60 /* Pods_Clowy.framework in Frameworks */,
+				75F340382B3FA7A400A2C834 /* FirebaseRemoteConfigSwift in Frameworks */,
 				BA60ECCA299AE90200A8D14F /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 				BA60ECC8299AE90200A8D14F /* FirebaseAnalytics in Frameworks */,
 				BA60ECD8299AE90200A8D14F /* FirebaseStorage in Frameworks */,
@@ -394,6 +401,7 @@
 				BA60ECD2299AE90200A8D14F /* FirebaseDatabase in Frameworks */,
 				BA60ECCE299AE90200A8D14F /* FirebaseAuth in Frameworks */,
 				BA9C23C728D2514C00DDDB54 /* WaterfallGrid in Frameworks */,
+				75F340362B3FA7A400A2C834 /* FirebaseRemoteConfig in Frameworks */,
 				BA60ECD6299AE90200A8D14F /* FirebaseFirestore in Frameworks */,
 				BA60ECD4299AE90200A8D14F /* FirebaseDynamicLinks in Frameworks */,
 			);
@@ -422,18 +430,13 @@
 			path = "Drag and Drop";
 			sourceTree = "<group>";
 		};
-		758A1E0E2B3F5778006AE7B6 /* MainScreenViewModelFunctions */ = {
-			isa = PBXGroup;
-			children = (
-				758A1E0F2B3F57A4006AE7B6 /* FetchWeatherConfig.swift */,
-			);
-			path = MainScreenViewModelFunctions;
-			sourceTree = "<group>";
-		};
 		758A1E112B3F8FEC006AE7B6 /* RemoteConfig */ = {
 			isa = PBXGroup;
 			children = (
 				758A1E122B3F8FFF006AE7B6 /* remote_config_defaults.plist */,
+				75F3403B2B405E0C00A2C834 /* RCKey.swift */,
+				75F340392B405D1F00A2C834 /* AppIsBlocked.swift */,
+				75F3403D2B405F0D00A2C834 /* RemoteConfigManager.swift */,
 			);
 			path = RemoteConfig;
 			sourceTree = "<group>";
@@ -716,7 +719,6 @@
 				BA31138F2808B51400BBCE97 /* Views */,
 				BA3CE08528149C9900D724BF /* MainScreenView.swift */,
 				BA9C23C828D265A100DDDB54 /* MainScreenViewModel.swift */,
-				758A1E0E2B3F5778006AE7B6 /* MainScreenViewModelFunctions */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
@@ -917,6 +919,8 @@
 				BA60ECD3299AE90200A8D14F /* FirebaseDynamicLinks */,
 				BA60ECD5299AE90200A8D14F /* FirebaseFirestore */,
 				BA60ECD7299AE90200A8D14F /* FirebaseStorage */,
+				75F340352B3FA7A400A2C834 /* FirebaseRemoteConfig */,
+				75F340372B3FA7A400A2C834 /* FirebaseRemoteConfigSwift */,
 			);
 			productName = Clowy;
 			productReference = BA1591DE273FE7530010CD56 /* Clowy.app */;
@@ -1183,6 +1187,7 @@
 				BA5D826E28393D9400A54005 /* Stash.xcdatamodeld in Sources */,
 				BA715E1D283EA60900BD30FE /* CoreDataView.swift in Sources */,
 				BAE10143299AF2C400670864 /* InputNameView.swift in Sources */,
+				75F3403C2B405E0C00A2C834 /* RCKey.swift in Sources */,
 				BAD948C3299AEBA800F2A047 /* NoItemsOutfitScreen.swift in Sources */,
 				BAB79AA92992FDC20042A107 /* LogoutView.swift in Sources */,
 				BA6E585F2999A9C00043DA64 /* LoginSecondPage.swift in Sources */,
@@ -1194,6 +1199,7 @@
 				BA6E587E299ADA580043DA64 /* CreateDefaultWardrobe.swift in Sources */,
 				BABEC852274695D800ECBF76 /* GreetingView.swift in Sources */,
 				BA6E5872299AD7830043DA64 /* NewWardrobeScreenPlaceholder.swift in Sources */,
+				75F3403A2B405D1F00A2C834 /* AppIsBlocked.swift in Sources */,
 				BA86934C28F69685008F37EB /* TestTextView.swift in Sources */,
 				BA12D0FE2776041600F91349 /* GetClothes.swift in Sources */,
 				BAC3C28628F29F2A00B32AE0 /* NoClothesPlaceholder.swift in Sources */,
@@ -1237,6 +1243,7 @@
 				BA43D20128212718008A4AF5 /* CustomNavView.swift in Sources */,
 				75734C3C2B23DC4D001DC535 /* SunSplachScreen.swift in Sources */,
 				BA6E5874299AD7B70043DA64 /* ClothesCollectionPlaceholder.swift in Sources */,
+				75F3403E2B405F0D00A2C834 /* RemoteConfigManager.swift in Sources */,
 				BA6E586F299AD7220043DA64 /* NewWardrobeScreen.swift in Sources */,
 				BADE87D7279886BD001DE300 /* OldChooseTempView.swift in Sources */,
 				BA3E184A2746B99E0070F4EF /* HEX.swift in Sources */,
@@ -1287,7 +1294,6 @@
 				BAD948C9299AEF5D00F2A047 /* NewAddClothesView.swift in Sources */,
 				BA12D0FA2773D19F00F91349 /* WardrobeClothesCard.swift in Sources */,
 				BA9C23D028D8B91E00DDDB54 /* LocationManager.swift in Sources */,
-				758A1E102B3F57A4006AE7B6 /* FetchWeatherConfig.swift in Sources */,
 				BADE87E52798876A001DE300 /* OldAddClothesView.swift in Sources */,
 				BA9D82AF28212D55009E43E8 /* CustomNavBarPreferenceKeys.swift in Sources */,
 				BAD948CD299AEF9000F2A047 /* NewChooseTempView.swift in Sources */,
@@ -1690,6 +1696,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		75F340352B3FA7A400A2C834 /* FirebaseRemoteConfig */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BA60ECC6299AE90200A8D14F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseRemoteConfig;
+		};
+		75F340372B3FA7A400A2C834 /* FirebaseRemoteConfigSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BA60ECC6299AE90200A8D14F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseRemoteConfigSwift;
+		};
 		BA3336782799AFB200E88B68 /* WaterfallGrid */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BA3336772799AFB200E88B68 /* XCRemoteSwiftPackageReference "WaterfallGrid" */;

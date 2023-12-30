@@ -10,8 +10,8 @@ import Foundation
 import Combine
 import Firebase
 import FirebaseStorage
-import FirebaseRemoteConfig
 import Kingfisher
+
 
 class MainScreenViewModel: ObservableObject {
     static var shared = MainScreenViewModel()
@@ -687,67 +687,63 @@ class MainScreenViewModel: ObservableObject {
         }
     }
     
-    func getConfig(weather: Weather) -> [[ClothesPref]] {
-        let encoder = JSONEncoder()
-        encoder.outputFormatting = .prettyPrinted
-        let data = try! encoder.encode(outfitConfig)
-
-        
-        let temp = Double(weather.temp) + (( UserDefaults.standard.double(forKey: "prefTemp") - 0.5 ) * -10 )
-        var config = [[ClothesPref]]()
-        var configs: OutfitConfig
-        
-        if temp <= -20 {
-            configs = outfitConfig.first(where: {$0.name == "SuperCold"})!
-        } else if temp <= -10 && temp > -20 {
-            configs = outfitConfig.first(where: {$0.name == "Cold"})!
-        } else if temp <= 0 && temp > -10 {
-            configs = outfitConfig.first(where: {$0.name == "Coldy"})!
-        } else if temp <= 10 && temp > 0 {
-            configs = outfitConfig.first(where: {$0.name == "Regular"})!
-        } else if temp <= 20 && temp > 10 {
-            configs = outfitConfig.first(where: {$0.name == "Warm"})!
-        } else {
-            configs = outfitConfig.first(where: {$0.name == "Hot"})!
-        }
-        
-        if weather.code.description.hasPrefix("2") || weather.code.description.hasPrefix("5") || weather.code.description.hasPrefix("6") || weather.windSpeed > 15  {
-            config = configs.weatherConfig.first(where: {$0.weather == .rain})!.clothes
-        } else if weather.humidity > 65 {
-            config = configs.weatherConfig.first(where: {$0.weather == .humidity})!.clothes
-        } else if weather.code == 804 {
-            config = configs.weatherConfig.first(where: {$0.weather == .lightRain})!.clothes
-        } else {
-            config = configs.weatherConfig.first(where: {$0.weather == .sunny})!.clothes
-        }
-                    
-        return config
-    }
+//    func getConfig(weather: Weather) -> [[ClothesPref]] {
+//        
+//        let temp = Double(weather.temp) + (( UserDefaults.standard.double(forKey: "prefTemp") - 0.5 ) * -10 )
+//        var config = [[ClothesPref]]()
+//        var configs: OutfitConfig
+//        
+//        if temp <= -20 {
+//            configs = outfitConfig.first(where: {$0.name == "SuperCold"})!
+//        } else if temp <= -10 && temp > -20 {
+//            configs = outfitConfig.first(where: {$0.name == "Cold"})!
+//        } else if temp <= 0 && temp > -10 {
+//            configs = outfitConfig.first(where: {$0.name == "Coldy"})!
+//        } else if temp <= 10 && temp > 0 {
+//            configs = outfitConfig.first(where: {$0.name == "Regular"})!
+//        } else if temp <= 20 && temp > 10 {
+//            configs = outfitConfig.first(where: {$0.name == "Warm"})!
+//        } else {
+//            configs = outfitConfig.first(where: {$0.name == "Hot"})!
+//        }
+//        
+//        if weather.code.description.hasPrefix("2") || weather.code.description.hasPrefix("5") || weather.code.description.hasPrefix("6") || weather.windSpeed > 15  {
+//            config = configs.weatherConfig.first(where: {$0.weather == .rain})!.clothes
+//        } else if weather.humidity > 65 {
+//            config = configs.weatherConfig.first(where: {$0.weather == .humidity})!.clothes
+//        } else if weather.code == 804 {
+//            config = configs.weatherConfig.first(where: {$0.weather == .lightRain})!.clothes
+//        } else {
+//            config = configs.weatherConfig.first(where: {$0.weather == .sunny})!.clothes
+//        }
+//                    
+//        return config
+//    }
     
     @Published var fittingOutfitsResponse = [FittingOutfitsResponse]()
-    func getRightOutfits() {
-        fittingOutfitsResponse = []
-//        if !self.wardrobe.isEmpty && !self.clothes.isEmpty && !self.days.isEmpty {
-            for day in days {
-                var fittingOutfits: FittingOutfitsResponse
-                let config = getConfig(weather: day.weather)
-//                print(config)
-                fittingOutfits = getOutfitsForDay(config: config)
-                
-                
-                let fittingOutfitResponse = FittingOutfitsResponse(id: day.id, outfits: fittingOutfits.outfits, code: fittingOutfits.code, error: fittingOutfits.error)
-//                print("______________")
-//                print(day.name)
-//                print("FITTING OUTFITS \(fittingOutfitResponse)")
-                fittingOutfitsResponse.append(fittingOutfitResponse)
-//                print("")
-//                print("")
-            }
-           
-//        } else {
-//            print("Error something is missing")
-//        }
-    }
+//    func getRightOutfits() {
+//        fittingOutfitsResponse = []
+////        if !self.wardrobe.isEmpty && !self.clothes.isEmpty && !self.days.isEmpty {
+//            for day in days {
+//                var fittingOutfits: FittingOutfitsResponse
+//                let config = getConfig(weather: day.weather)
+////                print(config)
+//                fittingOutfits = getOutfitsForDay(config: config)
+//                
+//                
+//                let fittingOutfitResponse = FittingOutfitsResponse(id: day.id, outfits: fittingOutfits.outfits, code: fittingOutfits.code, error: fittingOutfits.error)
+////                print("______________")
+////                print(day.name)
+////                print("FITTING OUTFITS \(fittingOutfitResponse)")
+//                fittingOutfitsResponse.append(fittingOutfitResponse)
+////                print("")
+////                print("")
+//            }
+//           
+////        } else {
+////            print("Error something is missing")
+////        }
+//    }
     
     func getRightOutfit(clothes: [Cloth], config: [[ClothesPref]]) -> [PercentFittingOutfit] {
         var percentFittingOutfits = [PercentFittingOutfit(outfit: [], percent: 0)]
@@ -950,31 +946,9 @@ class MainScreenViewModel: ObservableObject {
         return sortedClothes
     }
     
-    
-    //Remote Config
-    static var remoteConfig: RemoteConfig = {
-        var remoteConfig = RemoteConfig.remoteConfig()
-        let settings = RemoteConfigSettings()
-        settings.minimumFetchInterval = 0
-        remoteConfig.configSettings = settings
-        remoteConfig.setDefaults(fromPlist: "remote_config_defaults")
-    }()
-    
-    static func fetchConfig() {
-        remoteConfig.fetch { (status, error) in
-            if status == .success {
-                print("Config fetched!")
-                self.remoteConfig.activate { changed, error in }
-            } else {
-                print("Config not fetched")
-                print("Error: \(error?.localizedDescription ?? "No error available.")")
-            }
-        }
-    }
-    
-    static func value(forKey key: String) -> String {
-        return remoteConfig.configValue(forKey: key).stringValue!
-    }
+    //Remote config
+    @Published var appIsLive = RemoteConfigManager.stringValue(forKey: RCKey.appIsLive)
+    @Published var NormalSuperColdConfig = RemoteConfigManager.getOutfitConfig(forKey: RCKey.NormalSuperColdConfig)
     
     //Deprecated
     

@@ -19,6 +19,7 @@ struct Clowy2App: App {
     
     init() {
         FirebaseApp.configure()
+        RemoteConfigManager.configure()
     }
     
     var body: some Scene {

@@ -398,21 +398,21 @@ struct WeatherConfig: Codable {
     var clothes: [StyleOutfits]
 }
 
-enum WeatherType: Codable {
-    case sunny
-    case rain
-    case humidity
-    case cloudyOrWindy
+enum WeatherType: String, CaseIterable, Codable {
+    case sunny = "sunny"
+    case rain = "rain"
+    case humidity = "humid"
+    case cloudyOrWindy = "cloudyOrWindy"
 }
 
 struct StyleOutfits: Codable {
     var style: OutfitStyle
-    var outfits: [ClothesPref]
+    var outfits: [[ClothesPref]]
 }
 
-enum OutfitStyle: Codable {
-    case business
-    case casual
+enum OutfitStyle: String, CaseIterable, Codable {
+    case business = "business"
+    case casual = "casual"
 }
 
 struct ClothesPref: Codable {
