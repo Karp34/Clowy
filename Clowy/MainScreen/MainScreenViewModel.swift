@@ -952,14 +952,29 @@ class MainScreenViewModel: ObservableObject {
     
     
     //Remote Config
-    remoteConfig = RemoteConfig.remoteConfig()
-
-    let settings = RemoteConfigSettings()
-    settings.minimumFetchInterval = 0
-    remoteConfig.configSettings = settings
-
-    remoteConfig.setDefaults(fromPlist: "RemoteConfigDefaults")
+    static var remoteConfig: RemoteConfig = {
+        var remoteConfig = RemoteConfig.remoteConfig()
+        let settings = RemoteConfigSettings()
+        settings.minimumFetchInterval = 0
+        remoteConfig.configSettings = settings
+        remoteConfig.setDefaults(fromPlist: "remote_config_defaults")
+    }()
     
+    static func fetchConfig() {
+        remoteConfig.fetch { (status, error) in
+            if status == .success {
+                print("Config fetched!")
+                self.remoteConfig.activate { changed, error in }
+            } else {
+                print("Config not fetched")
+                print("Error: \(error?.localizedDescription ?? "No error available.")")
+            }
+        }
+    }
+    
+    static func value(forKey key: String) -> String {
+        return remoteConfig.configValue(forKey: key).stringValue!
+    }
     
     //Deprecated
     

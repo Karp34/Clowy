@@ -6,6 +6,8 @@ target 'Clowy' do
   use_frameworks!
 pod 'WaterfallGrid', '~> 1.0.0'
 pod 'SSSwiftUIGIFView'
+pod 'Firebase/Analytics'
+pod 'Firebase/RemoteConfig'
 
   # Pods for Clowy
 
