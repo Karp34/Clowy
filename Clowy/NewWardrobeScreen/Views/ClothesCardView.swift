@@ -62,7 +62,7 @@ struct ClothesCardView: View {
                 if cloth.image != "" {
                     ClothImage(imageName: cloth.image, isDeafult: cloth.isDefault, color: cloth.color, rawImage: cloth.rawImage)
                         .scaledToFit()
-                        .frame(width: 96, height: 96)
+                        .frame(width: 98, height: 98)
                 } else {
                     ZStack {
                         Circle()

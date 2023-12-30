@@ -17,6 +17,7 @@ enum TemperatureType: String, Codable {
     case superCold = "SuperCold"
     case cold = "Cold"
     case coldy = "Coldy"
+    case cool = "Cool"
     case regular = "Regular"
     case warm = "Warm"
     case hot = "Hot"

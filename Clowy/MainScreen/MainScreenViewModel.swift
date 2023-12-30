@@ -10,6 +10,7 @@ import Foundation
 import Combine
 import Firebase
 import FirebaseStorage
+import FirebaseRemoteConfig
 import Kingfisher
 
 class MainScreenViewModel: ObservableObject {
@@ -690,9 +691,6 @@ class MainScreenViewModel: ObservableObject {
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
         let data = try! encoder.encode(outfitConfig)
-        print("JSON HERE")
-        print(String(data: data, encoding: .utf8)!)
-        print("JSON HERE")
 
         
         let temp = Double(weather.temp) + (( UserDefaults.standard.double(forKey: "prefTemp") - 0.5 ) * -10 )
@@ -952,6 +950,15 @@ class MainScreenViewModel: ObservableObject {
         return sortedClothes
     }
     
+    
+    //Remote Config
+    remoteConfig = RemoteConfig.remoteConfig()
+
+    let settings = RemoteConfigSettings()
+    settings.minimumFetchInterval = 0
+    remoteConfig.configSettings = settings
+
+    remoteConfig.setDefaults(fromPlist: "RemoteConfigDefaults")
     
     
     //Deprecated

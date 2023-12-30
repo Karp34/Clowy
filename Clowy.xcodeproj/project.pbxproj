@@ -16,6 +16,8 @@
 		757D58732B2669DA00C53A6B /* ImageLift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757D58722B2669DA00C53A6B /* ImageLift.swift */; };
 		757D58752B266EF900C53A6B /* DragAndDrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757D58742B266EF900C53A6B /* DragAndDrop.swift */; };
 		758A1E0D2B330C2E006AE7B6 /* sunset.gif in Resources */ = {isa = PBXBuildFile; fileRef = 758A1E0C2B330C2E006AE7B6 /* sunset.gif */; };
+		758A1E102B3F57A4006AE7B6 /* FetchWeatherConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758A1E0F2B3F57A4006AE7B6 /* FetchWeatherConfig.swift */; };
+		758A1E132B3F8FFF006AE7B6 /* remote_config_defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 758A1E122B3F8FFF006AE7B6 /* remote_config_defaults.plist */; };
 		75CAA6CD2AF6CB48003CA48C /* sunrise.gif in Resources */ = {isa = PBXBuildFile; fileRef = 75CAA6CC2AF6CB48003CA48C /* sunrise.gif */; };
 		75CAA6CF2AF6CB52003CA48C /* thunder.gif in Resources */ = {isa = PBXBuildFile; fileRef = 75CAA6CE2AF6CB52003CA48C /* thunder.gif */; };
 		75CAA6D42AF6CC4E003CA48C /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75CAA6D02AF6CC4E003CA48C /* Montserrat-Regular.ttf */; };
@@ -204,6 +206,8 @@
 		757D58722B2669DA00C53A6B /* ImageLift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLift.swift; sourceTree = "<group>"; };
 		757D58742B266EF900C53A6B /* DragAndDrop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragAndDrop.swift; sourceTree = "<group>"; };
 		758A1E0C2B330C2E006AE7B6 /* sunset.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sunset.gif; sourceTree = "<group>"; };
+		758A1E0F2B3F57A4006AE7B6 /* FetchWeatherConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchWeatherConfig.swift; sourceTree = "<group>"; };
+		758A1E122B3F8FFF006AE7B6 /* remote_config_defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = remote_config_defaults.plist; path = ../../../../../Downloads/remote_config_defaults.plist; sourceTree = "<group>"; };
 		75CAA6CC2AF6CB48003CA48C /* sunrise.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sunrise.gif; sourceTree = "<group>"; };
 		75CAA6CE2AF6CB52003CA48C /* thunder.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = thunder.gif; sourceTree = "<group>"; };
 		75CAA6D02AF6CC4E003CA48C /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
@@ -418,6 +422,22 @@
 			path = "Drag and Drop";
 			sourceTree = "<group>";
 		};
+		758A1E0E2B3F5778006AE7B6 /* MainScreenViewModelFunctions */ = {
+			isa = PBXGroup;
+			children = (
+				758A1E0F2B3F57A4006AE7B6 /* FetchWeatherConfig.swift */,
+			);
+			path = MainScreenViewModelFunctions;
+			sourceTree = "<group>";
+		};
+		758A1E112B3F8FEC006AE7B6 /* RemoteConfig */ = {
+			isa = PBXGroup;
+			children = (
+				758A1E122B3F8FFF006AE7B6 /* remote_config_defaults.plist */,
+			);
+			path = RemoteConfig;
+			sourceTree = "<group>";
+		};
 		AF1449F64DA5DFA17424FA90 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -589,6 +609,7 @@
 		BA3E18482746B98E0070F4EF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				758A1E112B3F8FEC006AE7B6 /* RemoteConfig */,
 				BA5D8273283D641600A54005 /* CustomSheetView.swift */,
 				BAE10146299AF3F600670864 /* PlaceholderExtension.swift */,
 				BA5D8271283C279400A54005 /* CameraView.swift */,
@@ -695,6 +716,7 @@
 				BA31138F2808B51400BBCE97 /* Views */,
 				BA3CE08528149C9900D724BF /* MainScreenView.swift */,
 				BA9C23C828D265A100DDDB54 /* MainScreenViewModel.swift */,
+				758A1E0E2B3F5778006AE7B6 /* MainScreenViewModelFunctions */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
@@ -997,6 +1019,7 @@
 				BA5639E029CB5B1900912361 /* clouds.gif in Resources */,
 				75CAA6D72AF6CC4E003CA48C /* Montserrat-Bold.ttf in Resources */,
 				BA5639DB29CB352200912361 /* rain.gif in Resources */,
+				758A1E132B3F8FFF006AE7B6 /* remote_config_defaults.plist in Resources */,
 				75CAA6CF2AF6CB52003CA48C /* thunder.gif in Resources */,
 				758A1E0D2B330C2E006AE7B6 /* sunset.gif in Resources */,
 				75CAA6D62AF6CC4E003CA48C /* Montserrat-SemiBold.ttf in Resources */,
@@ -1264,6 +1287,7 @@
 				BAD948C9299AEF5D00F2A047 /* NewAddClothesView.swift in Sources */,
 				BA12D0FA2773D19F00F91349 /* WardrobeClothesCard.swift in Sources */,
 				BA9C23D028D8B91E00DDDB54 /* LocationManager.swift in Sources */,
+				758A1E102B3F57A4006AE7B6 /* FetchWeatherConfig.swift in Sources */,
 				BADE87E52798876A001DE300 /* OldAddClothesView.swift in Sources */,
 				BA9D82AF28212D55009E43E8 /* CustomNavBarPreferenceKeys.swift in Sources */,
 				BAD948CD299AEF9000F2A047 /* NewChooseTempView.swift in Sources */,

@@ -45,8 +45,7 @@ struct ClothesCard: View {
             VStack (spacing: 12){
                 ClothImage(imageName: cloth.image, isDeafult: cloth.isDefault, color: cloth.color, rawImage: cloth.rawImage)
                     .scaledToFit()
-                    .scaledToFit()
-                    .frame(width: 120, height: 100)
+                    .frame(width: 100, height: 120)
                 Text(cloth.name)
                     .font(.custom("Montserrat-Regular", size: 14))
                     .multilineTextAlignment(.center)
