@@ -10,6 +10,8 @@
 		05570692DFA9D3C17D80F0C4 /* Pods_Clowy_ClowyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3272218E9A7BED41FC1A65A7 /* Pods_Clowy_ClowyUITests.framework */; };
 		17BA875CDEB0B390ABD9BE60 /* Pods_Clowy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE57C054442E593078CF1DA /* Pods_Clowy.framework */; };
 		45255EA2992C4BF4A3349C83 /* Pods_ClowyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 418BAECECD7A494A219E2BAD /* Pods_ClowyTests.framework */; };
+		755B234F2B3F9A59001794C5 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 755B234E2B3F9A59001794C5 /* FirebaseRemoteConfig */; };
+		755B23512B3F9A59001794C5 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 755B23502B3F9A59001794C5 /* FirebaseRemoteConfigSwift */; };
 		75734C3C2B23DC4D001DC535 /* SunSplachScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75734C3B2B23DC4D001DC535 /* SunSplachScreen.swift */; };
 		75734C422B2484E0001DC535 /* Pacifico-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75734C412B2484E0001DC535 /* Pacifico-Regular.ttf */; };
 		757D58712B2669C600C53A6B /* ImagePickerV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757D58702B2669C600C53A6B /* ImagePickerV2.swift */; };
@@ -383,6 +385,7 @@
 				BA60ECCC299AE90200A8D14F /* FirebaseAnalyticsSwift in Frameworks */,
 				BA6E588C299ADCC30043DA64 /* Kingfisher in Frameworks */,
 				17BA875CDEB0B390ABD9BE60 /* Pods_Clowy.framework in Frameworks */,
+				755B23512B3F9A59001794C5 /* FirebaseRemoteConfigSwift in Frameworks */,
 				BA60ECCA299AE90200A8D14F /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 				BA60ECC8299AE90200A8D14F /* FirebaseAnalytics in Frameworks */,
 				BA60ECD8299AE90200A8D14F /* FirebaseStorage in Frameworks */,
@@ -390,6 +393,7 @@
 				BA60ECD2299AE90200A8D14F /* FirebaseDatabase in Frameworks */,
 				BA60ECCE299AE90200A8D14F /* FirebaseAuth in Frameworks */,
 				BA9C23C728D2514C00DDDB54 /* WaterfallGrid in Frameworks */,
+				755B234F2B3F9A59001794C5 /* FirebaseRemoteConfig in Frameworks */,
 				BA60ECD6299AE90200A8D14F /* FirebaseFirestore in Frameworks */,
 				BA60ECD4299AE90200A8D14F /* FirebaseDynamicLinks in Frameworks */,
 			);
@@ -895,6 +899,8 @@
 				BA60ECD3299AE90200A8D14F /* FirebaseDynamicLinks */,
 				BA60ECD5299AE90200A8D14F /* FirebaseFirestore */,
 				BA60ECD7299AE90200A8D14F /* FirebaseStorage */,
+				755B234E2B3F9A59001794C5 /* FirebaseRemoteConfig */,
+				755B23502B3F9A59001794C5 /* FirebaseRemoteConfigSwift */,
 			);
 			productName = Clowy;
 			productReference = BA1591DE273FE7530010CD56 /* Clowy.app */;
@@ -1666,6 +1672,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		755B234E2B3F9A59001794C5 /* FirebaseRemoteConfig */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FirebaseRemoteConfig;
+		};
+		755B23502B3F9A59001794C5 /* FirebaseRemoteConfigSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FirebaseRemoteConfigSwift;
+		};
 		BA3336782799AFB200E88B68 /* WaterfallGrid */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BA3336772799AFB200E88B68 /* XCRemoteSwiftPackageReference "WaterfallGrid" */;
