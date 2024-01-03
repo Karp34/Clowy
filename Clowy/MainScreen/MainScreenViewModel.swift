@@ -566,6 +566,7 @@ class MainScreenViewModel: ObservableObject {
                     var items: [Cloth] = []
                     for cloth in self.clothes {
                         if cloth.type == type {
+                            print(cloth)
                             items.append(cloth)
                         }
                     }
@@ -687,103 +688,101 @@ class MainScreenViewModel: ObservableObject {
         }
     }
     
-//    func getConfig(weather: Weather) -> [[ClothesPref]] {
-//        
-//        let temp = Double(weather.temp) + (( UserDefaults.standard.double(forKey: "prefTemp") - 0.5 ) * -10 )
-//        var config = [[ClothesPref]]()
-//        var configs: OutfitConfig
-//        
-//        if temp <= -20 {
-//            configs = outfitConfig.first(where: {$0.name == "SuperCold"})!
-//        } else if temp <= -10 && temp > -20 {
-//            configs = outfitConfig.first(where: {$0.name == "Cold"})!
-//        } else if temp <= 0 && temp > -10 {
-//            configs = outfitConfig.first(where: {$0.name == "Coldy"})!
-//        } else if temp <= 10 && temp > 0 {
-//            configs = outfitConfig.first(where: {$0.name == "Regular"})!
-//        } else if temp <= 20 && temp > 10 {
-//            configs = outfitConfig.first(where: {$0.name == "Warm"})!
-//        } else {
-//            configs = outfitConfig.first(where: {$0.name == "Hot"})!
-//        }
-//        
-//        if weather.code.description.hasPrefix("2") || weather.code.description.hasPrefix("5") || weather.code.description.hasPrefix("6") || weather.windSpeed > 15  {
-//            config = configs.weatherConfig.first(where: {$0.weather == .rain})!.clothes
-//        } else if weather.humidity > 65 {
-//            config = configs.weatherConfig.first(where: {$0.weather == .humidity})!.clothes
-//        } else if weather.code == 804 {
-//            config = configs.weatherConfig.first(where: {$0.weather == .lightRain})!.clothes
-//        } else {
-//            config = configs.weatherConfig.first(where: {$0.weather == .sunny})!.clothes
-//        }
-//                    
-//        return config
-//    }
+    func getConfig(weather: Weather) -> [StyleOutfits] {
+        
+        let temp = Double(weather.temp) + (( UserDefaults.standard.double(forKey: "prefTemp") - 0.5 ) * -10 )
+        var config = [StyleOutfits]()
+        var configs: OutfitConfig
+        
+        if temp <= -20 {
+            configs = NormalSuperColdConfig
+        } else if temp <= -10 && temp > -20 {
+            configs = NormalColdConfig
+        } else if temp <= -5 && temp > -10 {
+            configs = NormalColdyConfig
+        } else if temp <= 5 && temp > -5 {
+            configs = NormalCoolConfig
+        } else if temp <= 15 && temp > 5 {
+            configs = NormalRegularConfig
+        } else if temp <= 25 && temp > 15 {
+            configs = NormalWarmConfig
+        } else {
+            configs = NormalHotConfig
+        }
+        
+        if weather.code.description.hasPrefix("2") || weather.code.description.hasPrefix("5") || weather.code.description.hasPrefix("6") {
+            config = configs.weatherConfig.first(where: {$0.weather == .rain})!.clothes
+        } else if weather.humidity > 65 {
+            config = configs.weatherConfig.first(where: {$0.weather == .humidity})!.clothes
+        } else if weather.code == 804 || weather.code == 803 || weather.windSpeed > 12 {
+            config = configs.weatherConfig.first(where: {$0.weather == .cloudyOrWindy})!.clothes
+        } else {
+            config = configs.weatherConfig.first(where: {$0.weather == .sunny})!.clothes
+        }
+                    
+        return config
+    }
     
     @Published var fittingOutfitsResponse = [FittingOutfitsResponse]()
-//    func getRightOutfits() {
-//        fittingOutfitsResponse = []
-////        if !self.wardrobe.isEmpty && !self.clothes.isEmpty && !self.days.isEmpty {
-//            for day in days {
-//                var fittingOutfits: FittingOutfitsResponse
-//                let config = getConfig(weather: day.weather)
-////                print(config)
-//                fittingOutfits = getOutfitsForDay(config: config)
-//                
-//                
-//                let fittingOutfitResponse = FittingOutfitsResponse(id: day.id, outfits: fittingOutfits.outfits, code: fittingOutfits.code, error: fittingOutfits.error)
-////                print("______________")
-////                print(day.name)
-////                print("FITTING OUTFITS \(fittingOutfitResponse)")
-//                fittingOutfitsResponse.append(fittingOutfitResponse)
-////                print("")
-////                print("")
-//            }
-//           
-////        } else {
-////            print("Error something is missing")
-////        }
-//    }
+    @Published var notRealClothesTemps = [NotRealCloth]()
+    func getRightOutfits() {
+        notRealClothesTemps = []
+        fittingOutfitsResponse = []
+            for day in days {
+                var fittingOutfits: FittingOutfitsResponse
+                let config = getConfig(weather: day.weather)
+                print("--------DAY--------")
+                print(day)
+                fittingOutfits = getOutfitsForDay(config: config)
+                
+                
+                let fittingOutfitResponse = FittingOutfitsResponse(id: day.id, outfits: fittingOutfits.outfits, code: fittingOutfits.code, error: fittingOutfits.error)
+                fittingOutfitsResponse.append(fittingOutfitResponse)
+            }
+    }
     
-    func getRightOutfit(clothes: [Cloth], config: [[ClothesPref]]) -> [PercentFittingOutfit] {
-        var percentFittingOutfits = [PercentFittingOutfit(outfit: [], percent: 0)]
+    func getRightOutfit(clothes: [Cloth], config: [StyleOutfits]) -> [PercentFittingOutfit] {
+        var percentFittingOutfits = [PercentFittingOutfit(style: .business, outfit: [], percent: 0)]
         
-        for list in config {
-            var tempClothes = [Cloth]()
-            var absentTypes = [ClothesPref]()
-            
-            for pref in list {
-                if let fitingCloth = clothes.first(where: {$0.type == pref.type}) {
-                    if fitingCloth.temperature.contains(pref.temp.rawValue) {
-                        tempClothes.append(fitingCloth)
+        for style in config {
+            let styleName = style.style
+            for list in style.outfits {
+                var tempClothes = [Cloth]()
+                var absentTypes = [ClothesPref]()
+                
+                for pref in list {
+                    if let fitingCloth = clothes.first(where: {$0.type == pref.type}) {
+                        if fitingCloth.temperature.contains(pref.temp.rawValue) {
+                            tempClothes.append(fitingCloth)
+                        } else {
+                            absentTypes.append(pref)
+                        }
                     } else {
                         absentTypes.append(pref)
                     }
+                }
+                
+                if tempClothes.count == list.count {
+                    if let accessories = clothes.first(where: {$0.type == .accessories}) {
+                        tempClothes.append(accessories)
+                    }
+                    percentFittingOutfits.append(PercentFittingOutfit(style: styleName, outfit: tempClothes, percent: 100))
                 } else {
-                    absentTypes.append(pref)
+                    let percent = (Double(tempClothes.count) / Double(list.count)) * 100
+                    if let accessories = clothes.first(where: {$0.type == .accessories}) {
+                        tempClothes.append(accessories)
+                    }
+                    percentFittingOutfits.append(PercentFittingOutfit(style: styleName, outfit: tempClothes, percent: percent, absentTypes: absentTypes))
                 }
-            }
-            
-            if tempClothes.count == list.count {
-                if let accessories = clothes.first(where: {$0.type == .accessories}) {
-                    tempClothes.append(accessories)
-                }
-                percentFittingOutfits.append(PercentFittingOutfit(outfit: tempClothes, percent: 100))
-            } else {
-                let percent = (Double(tempClothes.count) / Double(list.count)) * 100
-                if let accessories = clothes.first(where: {$0.type == .accessories}) {
-                    tempClothes.append(accessories)
-                }
-                percentFittingOutfits.append(PercentFittingOutfit(outfit: tempClothes, percent: percent, absentTypes: absentTypes))
             }
         }
-        
+
         return percentFittingOutfits
     }
     
     
     
-    func getOutfitsForDay(config: [[ClothesPref]]) -> FittingOutfitsResponse {
+    func getOutfitsForDay(config: [StyleOutfits]) -> FittingOutfitsResponse {
         var code = 200
         var error = ""
         var fittingOutfits = [FittingOutfit]()
@@ -794,12 +793,13 @@ class MainScreenViewModel: ObservableObject {
         for outfit in outfits {
             
             let clothes = getClothesByIds(outfit.clothes)
+            
             let rightOutfits = getRightOutfit(clothes: clothes, config: config)
             
             for outfit in rightOutfits {
                 if outfit.percent == 100 {
                     if !outfit.outfit.isEmpty  {
-                        let fittingOutfit = FittingOutfit(id: count, outfit: outfit.outfit, isGenerated: false)
+                        let fittingOutfit = FittingOutfit(id: count, style: outfit.style, outfit: sortClothes(clothesList: outfit.outfit), isGenerated: false)
                         if !fittingOutfits.contains(where: { $0.outfit == fittingOutfit.outfit}) {
                             fittingOutfits.append(fittingOutfit)
                             count += 1
@@ -815,18 +815,16 @@ class MainScreenViewModel: ObservableObject {
         
         if fittingOutfits.isEmpty {
             var allFittingOutfits = [PercentFittingOutfit]()
+            var notRealClothesOutfits = [PercentFittingOutfit]()
             
             notFittingOutfits.sort { $0.percent > $1.percent }
-            outerloop: for outfit in notFittingOutfits {
-//                var changedOutfit = outfit.outfit
-                var changedOutfit = PercentFittingOutfit(outfit: outfit.outfit, percent: 0)
-//                var addedItemsCount = 0
-                if let absentTypes = outfit.absentTypes {
+            outerloop: for bestOutfit in notFittingOutfits {
+                var changedOutfit = PercentFittingOutfit(style: bestOutfit.style, outfit: bestOutfit.outfit, percent: 0)
+
+                if let absentTypes = bestOutfit.absentTypes {
                     for type in absentTypes {
-//                        print(type.type.rawValue)
                         let fittingClothes = clothes.filter { $0.type == type.type && $0.temperature.contains(type.temp.rawValue) }
                         if !fittingClothes.isEmpty {
-//                            print("clothes exist")
                             var fittingClothesOutfits = [PercentFittingOutfit]()
                             
                             for cloth in fittingClothes {
@@ -834,28 +832,20 @@ class MainScreenViewModel: ObservableObject {
                                 newOutfit.append(cloth)
                                 let newOutfitNames = Set(newOutfit.map { $0.id })
                                 
-                                for outfit in outfits {
-                                    let set = Set(outfit.clothes).intersection(newOutfitNames)
-//                                    print(set)
-//                                    print(set.count)
-//                                    print(newOutfitNames.count)
+                                for userOutfit in outfits {
+                                    let set = Set(userOutfit.clothes).intersection(newOutfitNames)
+
                                     if set.contains(cloth.id) {
                                         let percent = Double(set.count - 1) / Double(newOutfitNames.count) * 100
-                                        fittingClothesOutfits.append(PercentFittingOutfit(outfit: newOutfit, percent: percent))
-//                                        print("\(cloth.name)")
-//                                        print("appended to fittingClothesOutfits")
+                                        fittingClothesOutfits.append(PercentFittingOutfit(style: bestOutfit.style, outfit: newOutfit, percent: percent))
                                     } else {
-                                        fittingClothesOutfits.append(PercentFittingOutfit(outfit: newOutfit, percent: 0))
-//                                        print("\(cloth.name)")
-//                                        print("appended to fittingClothesOutfits with 0 percent")
+                                        fittingClothesOutfits.append(PercentFittingOutfit(style: bestOutfit.style, outfit: newOutfit, percent: 0))
                                     }
                                 }
                             }
                             if !fittingClothesOutfits.isEmpty {
                                 fittingClothesOutfits.sort { $0.percent > $1.percent }
                                 changedOutfit = fittingClothesOutfits[0]
-//                                print("New changed outfit")
-//                                print(changedOutfit)
                                 
                             }
                         } else {
@@ -864,66 +854,73 @@ class MainScreenViewModel: ObservableObject {
                             break
                         }
                     }
-                    if changedOutfit.outfit.count == outfit.outfit.count + absentTypes.count {
+                    if changedOutfit.outfit.count == bestOutfit.outfit.count + absentTypes.count {
                         allFittingOutfits.append(changedOutfit)
-//                        print("appended to allFittingOutfits")
-//                        print(allFittingOutfits)
                     }
                 }
             }
+            
+            let hasBusinessOutfit = allFittingOutfits.map({$0.style}).contains(.business)
+            let hasCasualOutfit = allFittingOutfits.map({$0.style}).contains(.casual)
+            
+            if allFittingOutfits.isEmpty || !hasCasualOutfit || !hasBusinessOutfit {
+                print("allFittingOutfits is empty")
+                for bestOutfit in notFittingOutfits {
+                    if let absentTypes = bestOutfit.absentTypes {
+                        let fullOutfitCount = Double(bestOutfit.outfit.count + absentTypes.count)
+                        let percent = Double(bestOutfit.outfit.count) / fullOutfitCount * 100
+                        if percent >= 0 {
+                            var notRealClothesOutfit = PercentFittingOutfit(style: bestOutfit.style, outfit: bestOutfit.outfit, percent: percent)
+                            let id = "Not real cloth "
+                            var counter = 0
+                            for cloth in absentTypes {
+                                let newCloth = Cloth(id: id+cloth.type.rawValue+counter.description , name: cloth.type.rawValue, type: cloth.type, color: "#FFFFFF", temperature: [cloth.temp.rawValue] , isDefault: true, image: cloth.type.rawValue)
+                                notRealClothesOutfit.outfit.append(newCloth)
+                                
+                                let notRealCloth = NotRealCloth(id: id+cloth.type.rawValue+counter.description, type: cloth.type, temp: cloth.temp)
+                                notRealClothesTemps.append(notRealCloth)
+                                counter += 1
+                            }
+                            notRealClothesOutfits.append(notRealClothesOutfit)
+                        }
+                    }
+                }
+                
+                
+                notRealClothesOutfits.sort { $0.percent > $1.percent }
+                if let businessOutfit = notRealClothesOutfits.first(where: { $0.style == .business }) {
+                    if !hasBusinessOutfit {
+                        allFittingOutfits.append(businessOutfit)
+                        print("business added")
+                    }
+                }
+                
+                
+                if let casualOutfit = notRealClothesOutfits.first(where: { $0.style == .casual }) {
+                    if !hasCasualOutfit {
+                        allFittingOutfits.append(casualOutfit)
+                        print("casual added")
+                    }
+                }
+                
+            }
+            
             allFittingOutfits.sort { $0.percent > $1.percent }
             for bestOutfit in allFittingOutfits {
-                let fittingOutfit = FittingOutfit(id: count, outfit: sortClothes(clothesList: bestOutfit.outfit), isGenerated: true)
+                let fittingOutfit = FittingOutfit(id: count, style: bestOutfit.style, outfit: sortClothes(clothesList: bestOutfit.outfit), isGenerated: true)
                 if !fittingOutfits.contains(where: { $0.outfit == fittingOutfit.outfit}) {
                     fittingOutfits.append(fittingOutfit)
-//                    print("appended to fittingOutfits")
-//                    print(fittingOutfits)
+                    
                     count += 1
-                    if bestOutfit.percent == 0 || count >= 2 {
-                        break
-                    }
+                    // NOTICE rewrite to check both styles
+//                    if bestOutfit.percent == 0 || count >= 2 {
+//                        break
+//                    }
+//                    if fittingOutfits.filter({$0.style == .business}).count > 1 && fittingOutfits.count > 2 || fittingOutfits.filter({$0.style == .casual}).count > 1 && fittingOutfits.count > 2 { break }
                 }
             }
         }
                 
-                    
-                    
-                                
-                                
-                                
-//                                    if set.count > 1 && set.contains(cloth.id) {
-//                                        changedOutfit.append(cloth)
-//                                        break
-//                                    }
-//                                }
-//                                if changedOutfit.count > outfit.outfit.count + addedItemsCount {
-//                                    addedItemsCount += 1
-//                                    break
-//                                }
-//                            }
-//
-//                            if changedOutfit.count == outfit.outfit.count + absentTypes.count {
-//                                count += 1
-//                                if count > 2 {
-//                                    break outerloop
-//                                }
-//                                let fittingOutfit = FittingOutfit(id: count, outfit: sortClothes(clothesList: changedOutfit), isGenerated: true)
-//                                if !fittingOutfits.contains(where: { $0.outfit == fittingOutfit.outfit}) {
-//                                    fittingOutfits.append(fittingOutfit)
-//                                }
-//                            }
-                                    
-//                        } else {
-//                            error = "No suitable \(type.type.rawValue) for temperatures \(GetTemperatureRange.getTemperatureRange(type: type.temp))"
-//                            code = 400
-//                            break
-//                        }
-//                    }
-//                }
-//            }
-//        }
-        
-        
         if clothes.isEmpty {
             error = "No items in wardrobe"
             code = 401
@@ -949,6 +946,12 @@ class MainScreenViewModel: ObservableObject {
     //Remote config
     @Published var appIsLive = RemoteConfigManager.stringValue(forKey: RCKey.appIsLive)
     @Published var NormalSuperColdConfig = RemoteConfigManager.getOutfitConfig(forKey: RCKey.NormalSuperColdConfig)
+    @Published var NormalColdConfig = RemoteConfigManager.getOutfitConfig(forKey: RCKey.NormalColdConfig)
+    @Published var NormalColdyConfig = RemoteConfigManager.getOutfitConfig(forKey: RCKey.NormalColdyConfig)
+    @Published var NormalCoolConfig = RemoteConfigManager.getOutfitConfig(forKey: RCKey.NormalCoolConfig)
+    @Published var NormalRegularConfig = RemoteConfigManager.getOutfitConfig(forKey: RCKey.NormalRegularConfig)
+    @Published var NormalWarmConfig = RemoteConfigManager.getOutfitConfig(forKey: RCKey.NormalWarmConfig)
+    @Published var NormalHotConfig = RemoteConfigManager.getOutfitConfig(forKey: RCKey.NormalHotConfig)
     
     //Deprecated
     

@@ -38,7 +38,7 @@ struct LocationView: View {
                                 .scaledToFit()
                                 .frame(width: 12, height: 10)
                             
-                            Text( (viewModel.chosenWeather.temp > 0 ? "+" : viewModel.chosenWeather.temp == 0 ? "" : "-") + String(viewModel.chosenWeather.temp) + "°")
+                            Text( (viewModel.chosenWeather.temp > 0 ? "+" : "") + String(viewModel.chosenWeather.temp) + "°")
                                 .font(.custom("Montserrat-Medium", size: 12))
                                 
                         }

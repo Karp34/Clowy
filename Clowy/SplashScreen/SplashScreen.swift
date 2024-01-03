@@ -31,12 +31,9 @@ struct SplashScreen: View {
                             .preferredColorScheme(.light)
                     }
                 } else {
-    //                TestLoginScreen()
                     LoginScreen()
                 }
             } else {
-//                let textOffset = geometry.size.height/2
-//                StartScreenView(textOffset: textOffset)
                 SunSplachScreen()
                 .onAppear {
                     if UserDefaults.standard.bool(forKey: "launchedBefore") {

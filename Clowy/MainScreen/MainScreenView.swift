@@ -108,7 +108,7 @@ struct MainScreenView: View, DaysForecastViewDelegate {
                                             HStack(alignment: .top, spacing: 0) {
                                                 ForEach(fittingOutfits.outfits) { outfit in
                                                     VStack(spacing: 8) {
-                                                        ClothesCardsView(outfit: outfit.outfit)
+                                                        ClothesCardsView(outfit: outfit.outfit, notRealClothesTemps: viewModel.notRealClothesTemps, color: viewModel.chosenWeather.color)
                                                             .padding(.horizontal, 16)
                                                         AddGeneratedOutfit(isGenerated: outfit.isGenerated, outfit: outfit.outfit)
                                                         if fittingOutfits.outfits.count > 1 {
@@ -187,8 +187,8 @@ struct MainScreenView: View, DaysForecastViewDelegate {
                                     print(viewModel.weather)
                                     print(viewModel.days)
                                     
-                                    // supermarket
-//                                    viewModel.getRightOutfits()
+                                    
+                                    viewModel.getRightOutfits()
                                     print("GET RIGHT OUFIT")
                                 }
                             }
@@ -203,8 +203,8 @@ struct MainScreenView: View, DaysForecastViewDelegate {
                                 print(UserDefaults.standard.string(forKey: "location"))
                                 print(viewModel.days)
                                 
-                                // supermarket
-//                                viewModel.getRightOutfits()
+                                
+                                viewModel.getRightOutfits()
                                 print("GET RIGHT OUFIT")
                             }
                         }

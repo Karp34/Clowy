@@ -9,6 +9,7 @@ import Foundation
 
 struct FittingOutfit: Identifiable, Equatable {
     var id: Int
+    var style: OutfitStyle
     var outfit: [Cloth]
     var isGenerated: Bool
 }
@@ -21,6 +22,7 @@ struct FittingOutfitsResponse: Identifiable {
 }
 
 struct PercentFittingOutfit {
+    var style: OutfitStyle
     var outfit: [Cloth]
     var percent: Double
     var absentTypes: [ClothesPref]?

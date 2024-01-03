@@ -45,13 +45,13 @@ struct RemoteConfigManager {
     static func getOutfitConfig(forKey key: String) -> OutfitConfig {
         let data = remoteConfig.configValue(forKey: key).dataValue
         var outfitConfig = OutfitConfig(name: "", weatherConfig: [])
-        print("GOT CONFIG")
+//        print("GOT CONFIG")
         do {
             let json = try JSONSerialization.jsonObject(with: data, options: [])
             if let jsonDictionary = json as? [String: Any] {
                 let name = jsonDictionary["name"] as! String
                 outfitConfig.name = name //SuperCold
-                
+//                print(outfitConfig.name)
                 if let config = jsonDictionary["config"] as? [String: [String: [[String: String]]]] {
                     
                     for weathertype in config {
@@ -65,19 +65,19 @@ struct RemoteConfigManager {
                             for outfit in style.value {
                                 var clothesPref = [ClothesPref]()
                                 for cloth in outfit {
-                                    let clothType = ClothesType(rawValue: cloth.key) ?? ClothesType.blank
+                                    let clothType = ClothesType(rawValue: cloth.key)!
                                     let temp = TemperatureType(rawValue: cloth.value)!
                                     
                                     clothesPref.append(ClothesPref(type: clothType, temp: temp))
                                 }
                                 outfits.append(clothesPref)
                             }
-                            var clothes = StyleOutfits(style: styleName, outfits: outfits)
+                            let clothes = StyleOutfits(style: styleName, outfits: outfits)
                             weatherOutfits.append(clothes)
                         }
                         
                         
-                        var weatherConfig = WeatherConfig(weather: weather, clothes: weatherOutfits)
+                        let weatherConfig = WeatherConfig(weather: weather, clothes: weatherOutfits)
                         outfitConfig.weatherConfig.append(weatherConfig)
                     }
                 }
