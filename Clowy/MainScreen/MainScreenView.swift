@@ -108,7 +108,7 @@ struct MainScreenView: View, DaysForecastViewDelegate {
                                             HStack(alignment: .top, spacing: 0) {
                                                 ForEach(fittingOutfits.outfits) { outfit in
                                                     VStack(spacing: 8) {
-                                                        ClothesCardsView(outfit: outfit.outfit)
+                                                        ClothesCardsView(outfit: outfit.outfit, notRealClothesTemps: viewModel.notRealClothesTemps, color: viewModel.chosenWeather.color)
                                                             .padding(.horizontal, 16)
                                                         AddGeneratedOutfit(isGenerated: outfit.isGenerated, outfit: outfit.outfit)
                                                         if fittingOutfits.outfits.count > 1 {

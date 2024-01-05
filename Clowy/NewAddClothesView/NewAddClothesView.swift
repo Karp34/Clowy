@@ -64,6 +64,7 @@ class AddClothesViewModel: ObservableObject {
         ref.addDocument(data: ["name": name, "type": type, "image" : image, "temp": temp, "color": color, "isDefault": isDefault]) { error in
             if error == nil {
                 self.mainViewModel.fetchWardrobe() {
+                    
                     self.mainViewModel.getRightOutfits()
                 }
             } else {
@@ -79,6 +80,7 @@ class AddClothesViewModel: ObservableObject {
         ref.document(cloth.id).setData(["name": name, "type": type, "image" : image, "temp": temp, "color": color, "isDefault": isDefault]) { error in
             if error == nil {
                 self.mainViewModel.fetchWardrobe() {
+                     
                     self.mainViewModel.getRightOutfits()
                 }
             } else {
