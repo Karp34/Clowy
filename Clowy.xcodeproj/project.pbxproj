@@ -18,6 +18,10 @@
 		757D58732B2669DA00C53A6B /* ImageLift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757D58722B2669DA00C53A6B /* ImageLift.swift */; };
 		757D58752B266EF900C53A6B /* DragAndDrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757D58742B266EF900C53A6B /* DragAndDrop.swift */; };
 		758A1E0D2B330C2E006AE7B6 /* sunset.gif in Resources */ = {isa = PBXBuildFile; fileRef = 758A1E0C2B330C2E006AE7B6 /* sunset.gif */; };
+		75B803D32B48AC390018837B /* RCKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B803D22B48AC390018837B /* RCKey.swift */; };
+		75B803D52B48AC4C0018837B /* RemoteConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B803D42B48AC4C0018837B /* RemoteConfigManager.swift */; };
+		75B803D72B48AC7B0018837B /* remote_config_defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75B803D62B48AC7B0018837B /* remote_config_defaults.plist */; };
+		75B803D92B48ACD10018837B /* AppIsBlocked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B803D82B48ACD10018837B /* AppIsBlocked.swift */; };
 		75CAA6CD2AF6CB48003CA48C /* sunrise.gif in Resources */ = {isa = PBXBuildFile; fileRef = 75CAA6CC2AF6CB48003CA48C /* sunrise.gif */; };
 		75CAA6CF2AF6CB52003CA48C /* thunder.gif in Resources */ = {isa = PBXBuildFile; fileRef = 75CAA6CE2AF6CB52003CA48C /* thunder.gif */; };
 		75CAA6D42AF6CC4E003CA48C /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75CAA6D02AF6CC4E003CA48C /* Montserrat-Regular.ttf */; };
@@ -206,6 +210,10 @@
 		757D58722B2669DA00C53A6B /* ImageLift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLift.swift; sourceTree = "<group>"; };
 		757D58742B266EF900C53A6B /* DragAndDrop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragAndDrop.swift; sourceTree = "<group>"; };
 		758A1E0C2B330C2E006AE7B6 /* sunset.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sunset.gif; sourceTree = "<group>"; };
+		75B803D22B48AC390018837B /* RCKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCKey.swift; sourceTree = "<group>"; };
+		75B803D42B48AC4C0018837B /* RemoteConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigManager.swift; sourceTree = "<group>"; };
+		75B803D62B48AC7B0018837B /* remote_config_defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = remote_config_defaults.plist; sourceTree = "<group>"; };
+		75B803D82B48ACD10018837B /* AppIsBlocked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIsBlocked.swift; sourceTree = "<group>"; };
 		75CAA6CC2AF6CB48003CA48C /* sunrise.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sunrise.gif; sourceTree = "<group>"; };
 		75CAA6CE2AF6CB52003CA48C /* thunder.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = thunder.gif; sourceTree = "<group>"; };
 		75CAA6D02AF6CC4E003CA48C /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
@@ -422,6 +430,16 @@
 			path = "Drag and Drop";
 			sourceTree = "<group>";
 		};
+		75B803D12B48AC1D0018837B /* RemoteConfig */ = {
+			isa = PBXGroup;
+			children = (
+				75B803D22B48AC390018837B /* RCKey.swift */,
+				75B803D42B48AC4C0018837B /* RemoteConfigManager.swift */,
+				75B803D62B48AC7B0018837B /* remote_config_defaults.plist */,
+			);
+			path = RemoteConfig;
+			sourceTree = "<group>";
+		};
 		AF1449F64DA5DFA17424FA90 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -560,6 +578,7 @@
 			isa = PBXGroup;
 			children = (
 				BA39AE37294CC7A200E1E389 /* SplashScreen.swift */,
+				75B803D82B48ACD10018837B /* AppIsBlocked.swift */,
 				BA9C23CB28D4E80C00DDDB54 /* StartScreenView.swift */,
 				75734C3B2B23DC4D001DC535 /* SunSplachScreen.swift */,
 			);
@@ -593,6 +612,7 @@
 		BA3E18482746B98E0070F4EF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				75B803D12B48AC1D0018837B /* RemoteConfig */,
 				BA5D8273283D641600A54005 /* CustomSheetView.swift */,
 				BAE10146299AF3F600670864 /* PlaceholderExtension.swift */,
 				BA5D8271283C279400A54005 /* CameraView.swift */,
@@ -1003,6 +1023,7 @@
 				BA5639E029CB5B1900912361 /* clouds.gif in Resources */,
 				75CAA6D72AF6CC4E003CA48C /* Montserrat-Bold.ttf in Resources */,
 				BA5639DB29CB352200912361 /* rain.gif in Resources */,
+				75B803D72B48AC7B0018837B /* remote_config_defaults.plist in Resources */,
 				75CAA6CF2AF6CB52003CA48C /* thunder.gif in Resources */,
 				758A1E0D2B330C2E006AE7B6 /* sunset.gif in Resources */,
 				75CAA6D62AF6CC4E003CA48C /* Montserrat-SemiBold.ttf in Resources */,
@@ -1223,7 +1244,9 @@
 				BA6E586F299AD7220043DA64 /* NewWardrobeScreen.swift in Sources */,
 				BADE87D7279886BD001DE300 /* OldChooseTempView.swift in Sources */,
 				BA3E184A2746B99E0070F4EF /* HEX.swift in Sources */,
+				75B803D52B48AC4C0018837B /* RemoteConfigManager.swift in Sources */,
 				BA9C23C928D265A100DDDB54 /* MainScreenViewModel.swift in Sources */,
+				75B803D92B48ACD10018837B /* AppIsBlocked.swift in Sources */,
 				BAE10145299AF2F200670864 /* CustomFieldStyle.swift in Sources */,
 				BA64914C286C4B1E00B57F58 /* WardrobeTestClothCard.swift in Sources */,
 				BAD948B8299AEA5C00F2A047 /* NewOutfitScreen.swift in Sources */,
@@ -1263,6 +1286,7 @@
 				BA5D8272283C279400A54005 /* CameraView.swift in Sources */,
 				BA7E40AF28B6279E00FB3730 /* Emoji.swift in Sources */,
 				BA10A3FD29958BDC00AC5C90 /* LoginScreen.swift in Sources */,
+				75B803D32B48AC390018837B /* RCKey.swift in Sources */,
 				757D58752B266EF900C53A6B /* DragAndDrop.swift in Sources */,
 				BA7E40BF28C213AF00FB3730 /* CityNamesModel.swift in Sources */,
 				BA7E40B228B65B9500FB3730 /* DeviceLocationService.swift in Sources */,

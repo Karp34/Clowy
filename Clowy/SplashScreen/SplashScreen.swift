@@ -22,16 +22,18 @@ struct SplashScreen: View {
 //        GeometryReader { geometry in
             if isActive {
                 if viewModel.userIsLoggedIn {
-                    MainScreenView()
-                        .environment(\.managedObjectContext, persistenceController.container.viewContext)
-                        .preferredColorScheme(.light)
+                    
+                    if viewModel.appIsLive == "false" {
+                        AppIsBlocked()
+                    } else {
+                        MainScreenView()
+                            .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                            .preferredColorScheme(.light)
+                    }
                 } else {
-    //                TestLoginScreen()
                     LoginScreen()
                 }
             } else {
-//                let textOffset = geometry.size.height/2
-//                StartScreenView(textOffset: textOffset)
                 SunSplachScreen()
                 .onAppear {
                     if UserDefaults.standard.bool(forKey: "launchedBefore") {

@@ -14,10 +14,11 @@ struct Temperature: Identifiable, Equatable {
 }
 
 enum TemperatureType: String, Codable {
-    case superCold = "SuperCold"
-    case cold = "Cold"
-    case coldy = "Coldy"
-    case regular = "Regular"
-    case warm = "Warm"
-    case hot = "Hot"
+    case superCold = "superCold"
+    case cold = "cold"
+    case coldy = "coldy"
+    case cool = "cool"
+    case regular = "regular"
+    case warm = "warm"
+    case hot = "hot"
 }

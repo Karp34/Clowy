@@ -12,12 +12,14 @@ struct ClothesCardsView: View {
     var outfit: [Cloth]
     var textError: String?
     var errorCode: Int?
+    var notRealClothesTemps: [NotRealCloth]?
+    var color: String?
     
     var body: some View {
         ZStack {
             if !outfit.isEmpty {
                 WaterfallGrid(outfit) { item in
-                    ClothesCard(cloth: item)
+                    ClothesCard(cloth: item, notRealClothesTemps: notRealClothesTemps, color: color)
                         .aspectRatio(GetRatio.getRatio(type: item.type).rawValue, contentMode: .fit)
                 }
                 .padding(.horizontal, 4)
@@ -37,28 +39,81 @@ struct ClothesCardsView: View {
 
 struct ClothesCard: View {
     @State var cloth: Cloth
+    var notRealClothesTemps: [NotRealCloth]?
+    var color: String?
 
     var body: some View {
-        ZStack{
-            RoundedRectangle(cornerRadius: 16)
-                .foregroundColor(.white)
-            VStack (spacing: 12){
-                ClothImage(imageName: cloth.image, isDeafult: cloth.isDefault, color: cloth.color, rawImage: cloth.rawImage)
-                    .scaledToFit()
-                    .scaledToFit()
-                    .frame(width: 120, height: 100)
-                Text(cloth.name)
-                    .font(.custom("Montserrat-Regular", size: 14))
-                    .multilineTextAlignment(.center)
-                    .frame(width: 120)
-                    .scaledToFill()
-                    .foregroundColor(Color(hex: "#606060"))
-                
+        if cloth.id.starts(with: "Not real cloth") {
+            ZStack {
+                RoundedRectangle(cornerRadius: 16)
+                    .foregroundColor(.white)
+                VStack (spacing: 12){
+                    ClothImage(imageName: cloth.image, isDeafult: cloth.isDefault, color: cloth.color, rawImage: cloth.rawImage)
+                        .scaledToFit()
+                        .frame(width: 100, height: 120)
+                        .opacity(0.5)
+                    VStack(spacing: 4) {
+                        Text(cloth.name)
+                            .font(.custom("Montserrat-Regular", size: 14))
+                            .multilineTextAlignment(.center)
+                            .frame(width: 120)
+                            .scaledToFill()
+                            .foregroundColor(Color(hex: "#606060"))
+                        Text("Not real cloth. Tap to add yours")
+                            .font(.custom("Montserrat-Regular", size: 10))
+                            .multilineTextAlignment(.center)
+                            .frame(width: 120)
+                            .scaledToFill()
+                            .foregroundColor(Color(hex: "#646C75"))
+                    }
+                }
+                .padding()
+                if let notRealClothesTemps {
+                    if !notRealClothesTemps.isEmpty {
+                        VStack {
+                            HStack{
+                                Spacer()
+                                if let temp = notRealClothesTemps.first(where: {$0.id == cloth.id})?.temp {
+                                    let tempName = GetTemperatureRange.getTemperatureRange(type: temp).components(separatedBy: " ").dropLast().dropFirst().joined(separator: " ")
+                                    Text(tempName)
+                                        .font(.custom("Montserrat-Regular", size: 10))
+                                        .foregroundColor(Color(hex: "#FFFFFF"))
+                                        .padding(.horizontal, 6)
+                                        .padding(.vertical, 4)
+                                        .background(Color(hex: color ?? "#74A3FF"))
+                                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                                }
+                            }
+                            Spacer()
+                        }
+                        .padding(8)
+                    }
+                }
             }
-            .padding()
+            .shadow(color:Color(hex: "#646C75").opacity(0.15), radius: 30, y: 4)
+            .padding(4)
+        } else {
+            ZStack{
+                RoundedRectangle(cornerRadius: 16)
+                    .foregroundColor(.white)
+                VStack (spacing: 12) {
+                    ClothImage(imageName: cloth.image, isDeafult: cloth.isDefault, color: cloth.color, rawImage: cloth.rawImage)
+                        .scaledToFit()
+                        .frame(width: 100, height: 120)
+                    Text(cloth.name)
+                        .font(.custom("Montserrat-Regular", size: 14))
+                        .multilineTextAlignment(.center)
+                        .frame(width: 120)
+                        .scaledToFill()
+                        .foregroundColor(Color(hex: "#606060"))
+                    
+                }
+                .padding()
+            }
+            .shadow(color:Color(hex: "#646C75").opacity(0.15), radius: 30, y: 4)
+            .padding(4)
         }
-        .shadow(color:Color(hex: "#646C75").opacity(0.15), radius: 30, y: 4)
-        .padding(4)
+        
     }
 }
 
