@@ -60,64 +60,64 @@ class LocationTestViewModel: ObservableObject {
         }.resume()
     }
     
-    func getCityName(prefixName: String) {
-        var urlComponents = URLComponents(string: "https://wft-geo-db.p.rapidapi.com/v1/geo/cities")!
-        let queryItems = [URLQueryItem(name: "limit", value: "5"),
-                          URLQueryItem(name: "minPopulation", value: "100"),
-                          URLQueryItem(name: "namePrefix", value: prefixName),
-                          URLQueryItem(name: "sort", value: "-population"),
-                          URLQueryItem(name: "types", value: "City"),
-                          URLQueryItem(name: "distanceUnit", value: "KM")]
-        
-        urlComponents.queryItems = queryItems
-        
-        guard let url = urlComponents.url else { return }
-        
-        var request = URLRequest(url: url)
-        let headers = [
-            "X-RapidAPI-Key": "829a909363msh0b8c0e070645bf9p1034cajsn75d49f6d130b",
-            "X-RapidAPI-Host": "wft-geo-db.p.rapidapi.com"
-        ]
-        for (key, value) in headers {
-            request.setValue(value, forHTTPHeaderField: key)
-        }
-        URLSession.shared.dataTask(with: request) { ( data, response, err ) in
-            DispatchQueue.main.async { // never, never, never sync !!
-                if let err = err {
-                    print("Failed to get data from url:", err)
-                    withAnimation {
-                        self.stateCityName = .error
-                    }
-                    return
-                }
-                guard let data = data else { return }
-                do {
-                    let decoder = JSONDecoder()
-                    let result = try decoder.decode(CityNamesModel.self, from: data)
-                    self.cityNames.removeAll()
-                    if result.data != nil {
-                        for city in result.data! {
-                            let fullCityName = String(city.name + ", " + city.country)
-                            let shortCityName = String(city.name + ", " + city.countryCode)
-                            if fullCityName.count < 40 {
-                                self.cityNames.append(fullCityName)
-                            } else {
-                                self.cityNames.append(shortCityName)
-                            }
-                        }
-                        withAnimation {
-                            self.stateCityName = .success
-                        }
-                    }
-                } catch {
-                    withAnimation {
-                        self.stateCityName = .error
-                    }
-                    print(error)
-                }
-            }
-        }.resume()
-    }
+//    func getCityName(prefixName: String) {
+//        var urlComponents = URLComponents(string: "https://wft-geo-db.p.rapidapi.com/v1/geo/cities")!
+//        let queryItems = [URLQueryItem(name: "limit", value: "5"),
+//                          URLQueryItem(name: "minPopulation", value: "100"),
+//                          URLQueryItem(name: "namePrefix", value: prefixName),
+//                          URLQueryItem(name: "sort", value: "-population"),
+//                          URLQueryItem(name: "types", value: "City"),
+//                          URLQueryItem(name: "distanceUnit", value: "KM")]
+//        
+//        urlComponents.queryItems = queryItems
+//        
+//        guard let url = urlComponents.url else { return }
+//        
+//        var request = URLRequest(url: url)
+//        let headers = [
+//            "X-RapidAPI-Key": "829a909363msh0b8c0e070645bf9p1034cajsn75d49f6d130b",
+//            "X-RapidAPI-Host": "wft-geo-db.p.rapidapi.com"
+//        ]
+//        for (key, value) in headers {
+//            request.setValue(value, forHTTPHeaderField: key)
+//        }
+//        URLSession.shared.dataTask(with: request) { ( data, response, err ) in
+//            DispatchQueue.main.async { // never, never, never sync !!
+//                if let err = err {
+//                    print("Failed to get data from url:", err)
+//                    withAnimation {
+//                        self.stateCityName = .error
+//                    }
+//                    return
+//                }
+//                guard let data = data else { return }
+//                do {
+//                    let decoder = JSONDecoder()
+//                    let result = try decoder.decode(CityNamesModel.self, from: data)
+//                    self.cityNames.removeAll()
+//                    if result.data != nil {
+//                        for city in result.data! {
+////                            let fullCityName = String(city.name + ", " + city.country)
+//                            let shortCityName = String(city.name + ", " + city.countryCode)
+////                            if fullCityName.count < 40 {
+////                                self.cityNames.append(fullCityName)
+////                            } else {
+//                                self.cityNames.append(shortCityName)
+////                            }
+//                        }
+//                        withAnimation {
+//                            self.stateCityName = .success
+//                        }
+//                    }
+//                } catch {
+//                    withAnimation {
+//                        self.stateCityName = .error
+//                    }
+//                    print(error)
+//                }
+//            }
+//        }.resume()
+//    }
 }
     
 //    func loadData(latitude: CLLocationDegrees, longitude: CLLocationDegrees) -> ResponseBodyWeatherAPI{

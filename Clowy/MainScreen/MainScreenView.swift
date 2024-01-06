@@ -83,17 +83,12 @@ struct MainScreenView: View, DaysForecastViewDelegate {
                             }
                             .buttonStyle(NoAnimationButtonStyle())
                             
-                            Button {
-                            } label: {
-                                WeatherForecastView(
-                                    name: viewModel.chosenWeather.name,
-                                    color: viewModel.chosenWeather.color,
-                                    temp: viewModel.chosenWeather.temp,
-                                    icon: viewModel.chosenWeather.icon,
-                                    state: viewModel.state
-                                )
-                            }
-                            .buttonStyle(ScaleButtonStyle())
+                            WeatherForecastView(
+                                name: viewModel.chosenWeather.name,
+                                color: viewModel.chosenWeather.color,
+                                temp: viewModel.chosenWeather.temp,
+                                icon: viewModel.chosenWeather.icon,
+                                state: viewModel.state)
                             
                             
                             
@@ -133,7 +128,7 @@ struct MainScreenView: View, DaysForecastViewDelegate {
                                         delegate: self,
                                         days: viewModel.days,
                                         selectedId: viewModel.selectedId)
-                                    .background((offset.y > 380 ? Color(hex: "#F7F8FA") : Color(.clear)).frame(height: 95).edgesIgnoringSafeArea(.all).offset(y: -30))
+                                    .background((offset.y > 360 ? Color(hex: "#F7F8FA") : Color(.clear)).frame(height: 95).edgesIgnoringSafeArea(.all).offset(y: -30))
                                 }
                             } else if viewModel.state == .error {
                                 HStack {
@@ -172,7 +167,6 @@ struct MainScreenView: View, DaysForecastViewDelegate {
                         createWardrobe(wardrobe: viewModel.wardrobe)
                         //                    viewModel.fetchWardrobe()
                         //                    viewModel.fetchOutfits()
-                        
                         UIApplication.shared.setStatusBarStyle(.darkContent, animated: false)
                         
                         if UserDefaults.standard.bool(forKey: "isGeoposition") == true {

@@ -48,7 +48,7 @@ struct ChooseLocationView: View {
                                 if isChangingLocation == true {
                                     if textHint.starts(with: location) && location.count > 0 {
                                         Text(textHint)
-                                            .font(.custom("Montserrat-Semibold", size: 16))
+                                            .font(.custom("Montserrat-SemiBold", size: 16))
                                             .foregroundColor(Color(hex: "#A6B3C2"))
                                             .onTapGesture {
                                                 location = viewModel.cityNames[0]
@@ -98,22 +98,39 @@ struct ChooseLocationView: View {
                                         }
                                     }
                                 )
-                                .textFieldStyle(CustomFieldStyle())
-                                .multilineTextAlignment(.leading)
-                                .onChange(of: location, perform: { _ in
-                                    if location != "" {
+                                .onChange(of: location) { oldValue, newValue in
+                                    print(oldValue)
+                                    print(newValue)
+                                    if newValue != "" {
                                         print("changed")
                                         withAnimation {
                                             isChangingLocation = true
                                         }
                                     }
-                                    if location.count > 2 {
+                                    if newValue.count > 2 {
                                         print(location)
-                                        viewModel.getCityName(prefixName: location)
+                                        viewModel.getCityName(prefixName: newValue)
                                         print("CITY NAMES")
                                         print(viewModel.cityNames)
                                     }
-                                })
+                                }
+                                .textFieldStyle(CustomFieldStyle())
+                                .multilineTextAlignment(.leading)
+                                
+//                                .onChange(of: location, perform: { _ in
+//                                    if location != "" {
+//                                        print("changed")
+//                                        withAnimation {
+//                                            isChangingLocation = true
+//                                        }
+//                                    }
+//                                    if location.count > 2 {
+//                                        print(location)
+//                                        viewModel.getCityName(prefixName: location)
+//                                        print("CITY NAMES")
+//                                        print(viewModel.cityNames)
+//                                    }
+//                                })
                             }
                             
                             Spacer()
@@ -137,44 +154,40 @@ struct ChooseLocationView: View {
                     
                     
 
-                    if isChangingLocation == true {
+                    if isChangingLocation {
                         if location.count > 0 {
                             if viewModel.stateCityName == .success {
                                 let capitals: [String] = viewModel.cityNames
-                                if capitals.count < 3 {
-                                    PlaceholderCities()
-                                } else {
-                                    VStack (alignment: .leading, spacing: 16) {
-                                        ForEach (capitals, id:\.self) { city in
-                                            Text(city)
-                                                .foregroundColor(Color(hex: "#646C75"))
-                                                .font(.custom("Montserrat-Medium", size: 16))
-                                                .padding(.leading, 16)
-                                                .onTapGesture {
-                                                    withAnimation {
-                                                        chosenLocation = city
-                                                        UserDefaults.standard.set(chosenLocation, forKey: "location")
+                                VStack (alignment: .leading, spacing: 16) {
+                                    ForEach (capitals, id:\.self) { city in
+                                        Text(city)
+                                            .foregroundColor(Color(hex: "#646C75"))
+                                            .font(.custom("Montserrat-Medium", size: 16))
+                                            .padding(.leading, 16)
+                                            .onTapGesture {
+                                                withAnimation {
+                                                    chosenLocation = city
+                                                    UserDefaults.standard.set(chosenLocation, forKey: "location")
+                                                    
+                                                    if !locationHistory.contains(city) {
+                                                        locationHistory.remove(at: 4)
+                                                        locationHistory.insert(city, at: 0)
                                                         
-                                                        if !locationHistory.contains(city) {
-                                                            locationHistory.remove(at: 4)
-                                                            locationHistory.insert(city, at: 0)
-                                                            
-                                                            UserDefaults.standard.set(locationHistory, forKey: "locationHistory")
-                                                        }
-                                                        isChangingLocation = false
-                                                        location = ""
-                                                        viewModel.cityNames = []
+                                                        UserDefaults.standard.set(locationHistory, forKey: "locationHistory")
                                                     }
+                                                    isChangingLocation = false
+                                                    location = ""
+                                                    viewModel.cityNames = []
                                                 }
-                                            
-                                            RoundedRectangle(cornerRadius: 16)
-                                                .frame(height: 1)
-                                                .foregroundColor(Color(hex: "#DADADA")).opacity(0.5)
-                                        }
-                                       
+                                            }
+                                        
+                                        RoundedRectangle(cornerRadius: 16)
+                                            .frame(height: 1)
+                                            .foregroundColor(Color(hex: "#DADADA")).opacity(0.5)
                                     }
-                                    .padding(.top, 30)
+                                    
                                 }
+                                .padding(.top, 30)
                             }
                             if viewModel.stateCityName == .error {
                                 PlaceholderErrorCities()
@@ -182,7 +195,8 @@ struct ChooseLocationView: View {
                             if viewModel.stateCityName == .placeholder {
                                 PlaceholderCities()
                             }
-                        
+                        } else {
+                            PlaceholderCities()
                         }
                     } else {
                         ZStack {

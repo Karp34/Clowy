@@ -22,6 +22,8 @@
 		75B803D52B48AC4C0018837B /* RemoteConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B803D42B48AC4C0018837B /* RemoteConfigManager.swift */; };
 		75B803D72B48AC7B0018837B /* remote_config_defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75B803D62B48AC7B0018837B /* remote_config_defaults.plist */; };
 		75B803D92B48ACD10018837B /* AppIsBlocked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B803D82B48ACD10018837B /* AppIsBlocked.swift */; };
+		75B803DC2B498A790018837B /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B803DB2B498A790018837B /* LocationService.swift */; };
+		75B803DE2B49C3A30018837B /* GeoNamesModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B803DD2B49C3A30018837B /* GeoNamesModels.swift */; };
 		75CAA6CD2AF6CB48003CA48C /* sunrise.gif in Resources */ = {isa = PBXBuildFile; fileRef = 75CAA6CC2AF6CB48003CA48C /* sunrise.gif */; };
 		75CAA6CF2AF6CB52003CA48C /* thunder.gif in Resources */ = {isa = PBXBuildFile; fileRef = 75CAA6CE2AF6CB52003CA48C /* thunder.gif */; };
 		75CAA6D42AF6CC4E003CA48C /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75CAA6D02AF6CC4E003CA48C /* Montserrat-Regular.ttf */; };
@@ -214,6 +216,8 @@
 		75B803D42B48AC4C0018837B /* RemoteConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigManager.swift; sourceTree = "<group>"; };
 		75B803D62B48AC7B0018837B /* remote_config_defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = remote_config_defaults.plist; sourceTree = "<group>"; };
 		75B803D82B48ACD10018837B /* AppIsBlocked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIsBlocked.swift; sourceTree = "<group>"; };
+		75B803DB2B498A790018837B /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		75B803DD2B49C3A30018837B /* GeoNamesModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoNamesModels.swift; sourceTree = "<group>"; };
 		75CAA6CC2AF6CB48003CA48C /* sunrise.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sunrise.gif; sourceTree = "<group>"; };
 		75CAA6CE2AF6CB52003CA48C /* thunder.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = thunder.gif; sourceTree = "<group>"; };
 		75CAA6D02AF6CC4E003CA48C /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
@@ -440,6 +444,14 @@
 			path = RemoteConfig;
 			sourceTree = "<group>";
 		};
+		75B803DA2B498A640018837B /* LocationService */ = {
+			isa = PBXGroup;
+			children = (
+				75B803DB2B498A790018837B /* LocationService.swift */,
+			);
+			path = LocationService;
+			sourceTree = "<group>";
+		};
 		AF1449F64DA5DFA17424FA90 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -490,24 +502,24 @@
 		BA1591E0273FE7530010CD56 /* Clowy */ = {
 			isa = PBXGroup;
 			children = (
+				BA1591E5273FE7560010CD56 /* Assets.xcassets */,
+				BA1591E1273FE7530010CD56 /* ClowyApp.swift */,
+				BA8614AF28EF77B00095F232 /* ColorImages */,
+				BA6E586C299AD6C80043DA64 /* Deprecated */,
+				BA3E18482746B98E0070F4EF /* Extensions */,
+				BAEC625D274E751B009E69E5 /* Fonts */,
+				BA1D0510299AFD23000D2903 /* GoogleService-Info.plist */,
+				BA9C23CE28D8B90A00DDDB54 /* LocationManager */,
+				BAB79A9C2992F7000042A107 /* LoginScreen */,
+				BA75B7DC2746AEC30091A797 /* MainScreen */,
+				BA3CE08728149D8800D724BF /* Models */,
 				BAD948CA299AEF6300F2A047 /* NewAddClothesView */,
 				BA60ECD9299AEA0C00A8D14F /* NewOutfitScreen */,
 				BA6E586D299AD6EC0043DA64 /* NewWardrobeScreen */,
-				BA39AE36294CC75700E1E389 /* SplashScreen */,
-				BA9C23CE28D8B90A00DDDB54 /* LocationManager */,
-				BA8614AF28EF77B00095F232 /* ColorImages */,
-				BA8201FB287F4F0300A3C66B /* ProfileView */,
-				BA6E586C299AD6C80043DA64 /* Deprecated */,
-				BA3CE08728149D8800D724BF /* Models */,
-				BAB79A9C2992F7000042A107 /* LoginScreen */,
-				BA3E18482746B98E0070F4EF /* Extensions */,
-				BAEC625D274E751B009E69E5 /* Fonts */,
-				BA75B7DC2746AEC30091A797 /* MainScreen */,
 				BA1591E7273FE7560010CD56 /* Preview Content */,
+				BA8201FB287F4F0300A3C66B /* ProfileView */,
 				BABEC86227469BA600ECBF76 /* Services */,
-				BA1591E5273FE7560010CD56 /* Assets.xcassets */,
-				BA1D0510299AFD23000D2903 /* GoogleService-Info.plist */,
-				BA1591E1273FE7530010CD56 /* ClowyApp.swift */,
+				BA39AE36294CC75700E1E389 /* SplashScreen */,
 			);
 			path = Clowy;
 			sourceTree = "<group>";
@@ -605,6 +617,7 @@
 				BA7E40BA28C1055100FB3730 /* PlaceholderState.swift */,
 				BA7E40BE28C213AF00FB3730 /* CityNamesModel.swift */,
 				BA7E40C228C3E1D000FB3730 /* OpenWeatherModels.swift */,
+				75B803DD2B49C3A30018837B /* GeoNamesModels.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -627,6 +640,7 @@
 				BA23DF0828F737F8008C1A0B /* Buttons.swift */,
 				BAD948C6299AEC7C00F2A047 /* WarningView.swift */,
 				BAE10144299AF2F200670864 /* CustomFieldStyle.swift */,
+				75B803DA2B498A640018837B /* LocationService */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -762,8 +776,8 @@
 				BAB8D37A28B3D032000E1717 /* ProfileNavBarContent.swift */,
 				BA820201287F5B7400A3C66B /* TempPreferenceView.swift */,
 				BAC1952F287F605A00FB109B /* LocationView.swift */,
-				BAB79AA82992FDC20042A107 /* LogoutView.swift */,
 				BA7E40B028B65B7100FB3730 /* LocationSubViews */,
+				BAB79AA82992FDC20042A107 /* LogoutView.swift */,
 				BAC19531287F676400FB109B /* AvailableTypesView.swift */,
 				BAC19535287F6B8E00FB109B /* NotificationsView.swift */,
 				BAC19537287F6DD500FB109B /* InformationView.swift */,
@@ -1201,6 +1215,7 @@
 				BA86934C28F69685008F37EB /* TestTextView.swift in Sources */,
 				BA12D0FE2776041600F91349 /* GetClothes.swift in Sources */,
 				BAC3C28628F29F2A00B32AE0 /* NoClothesPlaceholder.swift in Sources */,
+				75B803DC2B498A790018837B /* LocationService.swift in Sources */,
 				BAD948BF299AEB6D00F2A047 /* OutfitView.swift in Sources */,
 				BABEC84F2746955900ECBF76 /* AvatarView.swift in Sources */,
 				BAE10141299AF27000670864 /* NewTagsView.swift in Sources */,
@@ -1281,6 +1296,7 @@
 				BAC19538287F6DD500FB109B /* InformationView.swift in Sources */,
 				BA7E40BD28C1130300FB3730 /* ChooseLocationView.swift in Sources */,
 				BA8201FD287F4F1700A3C66B /* ProfileView.swift in Sources */,
+				75B803DE2B49C3A30018837B /* GeoNamesModels.swift in Sources */,
 				BA61262F281868140011ACF7 /* OldOutfitView.swift in Sources */,
 				BA7E40AB28B4C63E00FB3730 /* CustomTextField.swift in Sources */,
 				BA5D8272283C279400A54005 /* CameraView.swift in Sources */,
@@ -1386,7 +1402,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				NEW_SETTING = "";
@@ -1444,7 +1460,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				"INFOPLIST_FILE[sdk=*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				NEW_SETTING = "";
@@ -1468,6 +1484,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Clowy/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = clowy;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Hook it up";
@@ -1477,7 +1494,7 @@
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1504,6 +1521,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Clowy/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = clowy;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Hook it up";
@@ -1513,7 +1531,7 @@
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

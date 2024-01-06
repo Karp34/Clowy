@@ -11,17 +11,15 @@ import Combine
 import Firebase
 import FirebaseStorage
 import Kingfisher
+import Alamofire
 
 
 class MainScreenViewModel: ObservableObject {
     static var shared = MainScreenViewModel()
     
     @Published var state: PlaceHolderState = .placeholder
-    @Published var stateCityName: PlaceHolderState = .placeholder
     
     @Published var weather = ResponseBodyForecastAPI(cod: "100", message: 0, cnt: 0, list: [], city: CityResponse(id: 0, name: "", country: "", population: 0, timezone: 0, sunrise: 0, sunset: 0))
-    
-    @Published var cityNames = [String]()
     
     @Published var chosenWeather: Weather = Weather(code: 100, name: "Default", color: "#B1B4B8", icon: "cloud", temp: 20, humidity: 99, windSpeed: 2)
     @Published var selectedId: Int = 0
@@ -87,29 +85,18 @@ class MainScreenViewModel: ObservableObject {
         }.resume()
     }
     
-    func getCityName(prefixName: String) {
-        var urlComponents = URLComponents(string: "https://wft-geo-db.p.rapidapi.com/v1/geo/cities")!
-        let queryItems = [URLQueryItem(name: "limit", value: "5"),
-                          URLQueryItem(name: "minPopulation", value: "100"),
-                          URLQueryItem(name: "namePrefix", value: prefixName),
-                          URLQueryItem(name: "sort", value: "-population"),
-                          URLQueryItem(name: "types", value: "City"),
-                          URLQueryItem(name: "distanceUnit", value: "KM")]
-        
-        urlComponents.queryItems = queryItems
-        
+    @Published var stateCityName: PlaceHolderState = .placeholder
+    @Published var geonamesResponse = GeonamesResponse(totalResultsCount: 0, geonames: [])
+    
+    func fetchData(prefixName: String, completion: @escaping () -> () ) {
+        let urlString = "https://secure.geonames.org/searchJSON?q=\(prefixName)&maxRows=10&username=clowy"
+        let urlComponents = URLComponents(string: urlString)!
         guard let url = urlComponents.url else { return }
         
-        var request = URLRequest(url: url)
-        let headers = [
-            "X-RapidAPI-Key": "829a909363msh0b8c0e070645bf9p1034cajsn75d49f6d130b",
-            "X-RapidAPI-Host": "wft-geo-db.p.rapidapi.com"
-        ]
-        
-        URLSession.shared.dataTask(with: request) { ( data, response, err ) in
-            DispatchQueue.main.async { // never, never, never sync !!
-                if let err = err {
-                    print("Failed to get data from url:", err)
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            DispatchQueue.main.async {
+                if let error = error {
+                    print("Failed to get data from url:", error)
                     withAnimation {
                         self.stateCityName = .error
                     }
@@ -118,32 +105,40 @@ class MainScreenViewModel: ObservableObject {
                 guard let data = data else { return }
                 do {
                     let decoder = JSONDecoder()
-                    let result = try decoder.decode(CityNamesModel.self, from: data)
-                    self.cityNames.removeAll()
-                    if result.data != nil {
-                        for city in result.data! {
-                            let fullCityName = String(city.name + ", " + city.country)
-                            let shortCityName = String(city.name + ", " + city.countryCode)
-                            if fullCityName.count < 40 {
-                                self.cityNames.append(fullCityName)
-                            } else {
-                                self.cityNames.append(shortCityName)
-                            }
-                            withAnimation {
-                                self.stateCityName = .success
-                            }
-                        }
+                    self.geonamesResponse = try decoder.decode(GeonamesResponse.self, from: data)
+                    withAnimation {
+                        self.stateCityName = .success
                     }
+                    completion()
                 } catch {
+                    print("Parsing error")
                     withAnimation {
                         self.stateCityName = .error
                     }
-                    print(error)
                 }
             }
-        }.resume()
+        }
+        .resume()
     }
     
+    @Published var cityNames = [String]()
+    func getCityName(prefixName: String) {
+        self.cityNames = []
+        fetchData(prefixName: prefixName) {
+            if self.stateCityName == .success {
+                for geoname in self.geonamesResponse.geonames {
+                    let fullCityName = String(geoname.name + ", " + geoname.countryName)
+                    let shortCityName = String(geoname.name + ", " + geoname.countryCode)
+                    if fullCityName.count < 40 {
+                        self.cityNames.append(fullCityName)
+                    } else {
+                        self.cityNames.append(shortCityName)
+                    }
+                }
+            }
+        }
+    }
+
     func getIconAndColor(statusCode: Double, dayTime: String?, hourInt: Int?) -> [String] {
         var list = [String]()
         var time: String = dayTime ?? ""

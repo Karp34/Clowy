@@ -1,20 +1,24 @@
 PODS:
+  - Alamofire (5.8.1)
   - SSSwiftUIGIFView (1.0.0)
   - WaterfallGrid (1.0.1)
 
 DEPENDENCIES:
+  - Alamofire
   - SSSwiftUIGIFView
   - WaterfallGrid (~> 1.0.0)
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - SSSwiftUIGIFView
     - WaterfallGrid
 
 SPEC CHECKSUMS:
+  Alamofire: 3ca42e259043ee0dc5c0cdd76c4bc568b8e42af7
   SSSwiftUIGIFView: f109262cd0baff190b58b519c0e94f7622c428d4
   WaterfallGrid: 0554a759d9a8aa136fc1769480ddb01bc6fb94b9
 
-PODFILE CHECKSUM: 696fdc924b0cd9b7209d45cda1cd75edacc3b7c0
+PODFILE CHECKSUM: edf501d6c8a9840841dd18b74637712e56410e65
 
 COCOAPODS: 1.12.1
