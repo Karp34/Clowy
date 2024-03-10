@@ -98,8 +98,7 @@ struct ChooseLocationView: View {
                                         }
                                     }
                                 )
-                                .onChange(of: location) { oldValue, newValue in
-                                    print(oldValue)
+                                .onChange(of: location) { newValue in
                                     print(newValue)
                                     if newValue != "" {
                                         print("changed")

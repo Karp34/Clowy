@@ -41,6 +41,8 @@
 		BA1591F3273FE7560010CD56 /* ClowyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1591F2273FE7560010CD56 /* ClowyTests.swift */; };
 		BA1591FD273FE7560010CD56 /* ClowyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1591FC273FE7560010CD56 /* ClowyUITests.swift */; };
 		BA1591FF273FE7560010CD56 /* ClowyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1591FE273FE7560010CD56 /* ClowyUITestsLaunchTests.swift */; };
+		BA18B2CB2B9E30D600B98161 /* ColorsExtesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA18B2CA2B9E30D600B98161 /* ColorsExtesion.swift */; };
+		BA18B2CE2B9E325600B98161 /* RandomCirclesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA18B2CD2B9E325500B98161 /* RandomCirclesView.swift */; };
 		BA1D0511299AFD23000D2903 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA1D0510299AFD23000D2903 /* GoogleService-Info.plist */; };
 		BA23DF0928F737F8008C1A0B /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA23DF0828F737F8008C1A0B /* Buttons.swift */; };
 		BA3699C529E32D3600678001 /* Repeate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3699C429E32D3600678001 /* Repeate.swift */; };
@@ -240,6 +242,8 @@
 		BA1591F8273FE7560010CD56 /* ClowyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClowyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA1591FC273FE7560010CD56 /* ClowyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClowyUITests.swift; sourceTree = "<group>"; };
 		BA1591FE273FE7560010CD56 /* ClowyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClowyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BA18B2CA2B9E30D600B98161 /* ColorsExtesion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsExtesion.swift; sourceTree = "<group>"; };
+		BA18B2CD2B9E325500B98161 /* RandomCirclesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomCirclesView.swift; sourceTree = "<group>"; };
 		BA1D0510299AFD23000D2903 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BA23DF0828F737F8008C1A0B /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		BA3699C429E32D3600678001 /* Repeate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repeate.swift; sourceTree = "<group>"; };
@@ -502,6 +506,7 @@
 		BA1591E0273FE7530010CD56 /* Clowy */ = {
 			isa = PBXGroup;
 			children = (
+				BA18B2CC2B9E322300B98161 /* OnboardingQuiz */,
 				BA1591E5273FE7560010CD56 /* Assets.xcassets */,
 				BA1591E1273FE7530010CD56 /* ClowyApp.swift */,
 				BA8614AF28EF77B00095F232 /* ColorImages */,
@@ -547,6 +552,14 @@
 				BA1591FE273FE7560010CD56 /* ClowyUITestsLaunchTests.swift */,
 			);
 			path = ClowyUITests;
+			sourceTree = "<group>";
+		};
+		BA18B2CC2B9E322300B98161 /* OnboardingQuiz */ = {
+			isa = PBXGroup;
+			children = (
+				BA18B2CD2B9E325500B98161 /* RandomCirclesView.swift */,
+			);
+			path = OnboardingQuiz;
 			sourceTree = "<group>";
 		};
 		BA31138F2808B51400BBCE97 /* Views */ = {
@@ -625,22 +638,23 @@
 		BA3E18482746B98E0070F4EF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				75B803D12B48AC1D0018837B /* RemoteConfig */,
-				BA5D8273283D641600A54005 /* CustomSheetView.swift */,
-				BAE10146299AF3F600670864 /* PlaceholderExtension.swift */,
-				BA5D8271283C279400A54005 /* CameraView.swift */,
-				BA6E5868299A9F9B0043DA64 /* GifImage.swift */,
-				BA6E5864299A9F4C0043DA64 /* GIFs */,
-				BA86934928F52C1A008F37EB /* ClothImage.swift */,
-				BA6E5860299A99410043DA64 /* HTMLRenderingWebview.swift */,
-				BA43D1F928211D18008A4AF5 /* CustomNavBar */,
-				BA3E18492746B99E0070F4EF /* HEX.swift */,
-				BA8201F82874980600A3C66B /* ScroolViewModifier.swift */,
-				BA7E40AA28B4C63E00FB3730 /* CustomTextField.swift */,
 				BA23DF0828F737F8008C1A0B /* Buttons.swift */,
-				BAD948C6299AEC7C00F2A047 /* WarningView.swift */,
+				BA5D8271283C279400A54005 /* CameraView.swift */,
+				BA86934928F52C1A008F37EB /* ClothImage.swift */,
 				BAE10144299AF2F200670864 /* CustomFieldStyle.swift */,
+				BA5D8273283D641600A54005 /* CustomSheetView.swift */,
+				BA7E40AA28B4C63E00FB3730 /* CustomTextField.swift */,
+				BA6E5868299A9F9B0043DA64 /* GifImage.swift */,
+				BA3E18492746B99E0070F4EF /* HEX.swift */,
+				BA6E5860299A99410043DA64 /* HTMLRenderingWebview.swift */,
+				BAE10146299AF3F600670864 /* PlaceholderExtension.swift */,
+				BA8201F82874980600A3C66B /* ScroolViewModifier.swift */,
+				BAD948C6299AEC7C00F2A047 /* WarningView.swift */,
+				BA43D1F928211D18008A4AF5 /* CustomNavBar */,
+				BA6E5864299A9F4C0043DA64 /* GIFs */,
 				75B803DA2B498A640018837B /* LocationService */,
+				75B803D12B48AC1D0018837B /* RemoteConfig */,
+				BA18B2CA2B9E30D600B98161 /* ColorsExtesion.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1183,6 +1197,7 @@
 				BA6E587A299AD8470043DA64 /* ClothesCollectionView.swift in Sources */,
 				BA3CE08B28149DB700D724BF /* Wardrobe.swift in Sources */,
 				BA3CE09328156B4000D724BF /* Forecast.swift in Sources */,
+				BA18B2CB2B9E30D600B98161 /* ColorsExtesion.swift in Sources */,
 				BA649148286B279400B57F58 /* WardrobeCoreDataView.swift in Sources */,
 				BA396DF22817461900BD63A8 /* AddGeneratedOutfit.swift in Sources */,
 				BAC19534287F68AA00FB109B /* CleanTagsView.swift in Sources */,
@@ -1190,6 +1205,7 @@
 				BA6E5869299A9F9B0043DA64 /* GifImage.swift in Sources */,
 				BA3CE08628149C9900D724BF /* MainScreenView.swift in Sources */,
 				BABEC86A27469C8300ECBF76 /* DaysForecastView.swift in Sources */,
+				BA18B2CE2B9E325600B98161 /* RandomCirclesView.swift in Sources */,
 				BA86934A28F52C1A008F37EB /* ClothImage.swift in Sources */,
 				BAE1013D299AF21F00670864 /* AddPhotoView.swift in Sources */,
 				BAE10147299AF3F600670864 /* PlaceholderExtension.swift in Sources */,

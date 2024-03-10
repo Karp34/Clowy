@@ -30,7 +30,7 @@ struct ImagePickerV2: View {
             .optionalViewModifier{ contentView in
                 if #available(iOS 17, *) {
                     contentView
-                        .onChange(of: photoItem) {oldValue, newValue in
+                        .onChange(of: photoItem) { newValue in
                             if let newValue {
                                 extractImage(newValue, size)
                             }

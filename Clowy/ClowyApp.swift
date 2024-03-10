@@ -26,8 +26,9 @@ struct Clowy2App: App {
 //            MainScreenView()
 //                .environment(\.managedObjectContext, persistenceController.container.viewContext)
 //                .preferredColorScheme(.light)
-            SplashScreen()
-                .preferredColorScheme(.light)
+//            SplashScreen()
+//                .preferredColorScheme(.light)
+            RandomCirclesView()
         }
         .onChange(of: scenePhase) { (newScenePhase) in
             switch newScenePhase {
