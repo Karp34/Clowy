@@ -118,21 +118,8 @@ struct ProfileNavBarContent: View {
             }
             
             if isChangingImage == true {
-                let emojiList = [
-                    Emoji(icon: "memoji1", color: "#CEDAE1"),
-                    Emoji(icon: "memoji2", color: "#B4E5BC"),
-                    Emoji(icon: "memoji3", color: "#CCC1F0"),
-                    Emoji(icon: "memoji4", color: "#F3ABA7"),
-                    Emoji(icon: "memoji5", color: "#B4E5BC"),
-                    Emoji(icon: "memoji6", color: "#CEDAE1"),
-                    Emoji(icon: "memoji7", color: "#F3ABA7"),
-                    Emoji(icon: "memoji8", color: "#B4E5BC"),
-                    Emoji(icon: "Panda", color: "#F4CE9B"),
-                    Emoji(icon: "Fox", color: "#CCC1F0"),
-                    Emoji(icon: "Frog", color: "#B4E5BC"),
-                    Emoji(icon: "Koala", color: "#F3ABA7"),
-                    Emoji(icon: "Cow Face", color: "#F4CE9B")
-                ]
+                let emojiList = GetEmojis.getEmojis()
+                
                 ZStack {
                     Rectangle()
                         .frame(width: 11, height: 11)
@@ -182,27 +169,26 @@ struct ProfileNavBarContent: View {
 //                                }
                                 
                                 
-                                
-                                ForEach (0..<emojiList.count, id:\.self) { id in
+                                ForEach(emojiList, id:\.self) { emoji in
                                     ZStack {
-                                        if avatar != emojiList[id].icon {
+                                        if avatar != emoji.icon {
                                             Circle()
                                                 .frame(width: 40, height: 40)
-                                                .foregroundColor(Color(hex: emojiList[id].color))
-                                            Image(emojiList[id].icon)
+                                                .foregroundColor(Color(hex: emoji.color))
+                                            Image(emoji.icon)
                                                 .resizable()
                                                 .scaledToFit()
-                                                .frame(width: (emojiList[id].icon.starts(with: "memoji") ? 35 : 28), height: (emojiList[id].icon.starts(with: "memoji") ? 35 : 28))
+                                                .frame(width: (emoji.icon.starts(with: "memoji") ? 35 : 28), height: (emoji.icon.starts(with: "memoji") ? 35 : 28))
                                         } else {
                                             Circle()
                                                 .stroke(Color(hex: "#9FA8AD"), style: StrokeStyle(lineWidth: 1))
-                                                .background(Circle().foregroundColor(Color(hex: emojiList[id].color)))
+                                                .background(Circle().foregroundColor(Color(hex: emoji.color)))
                                                 .frame(width: 40, height: 40)
                                                 
-                                            Image(emojiList[id].icon)
+                                            Image(emoji.icon)
                                                 .resizable()
                                                 .scaledToFit()
-                                                .frame(width: (emojiList[id].icon.starts(with: "memoji") ? 35 : 28), height: (emojiList[id].icon.starts(with: "memoji") ? 35 : 28))
+                                                .frame(width: (emoji.icon.starts(with: "memoji") ? 35 : 28), height: (emoji.icon.starts(with: "memoji") ? 35 : 28))
                                             
                                             HStack {
                                                 Spacer()
@@ -225,11 +211,10 @@ struct ProfileNavBarContent: View {
                                     .frame(width: 40, height: 42)
                                     .onTapGesture {
                                         withAnimation {
-                                            UserDefaults.standard.set(emojiList[id].icon, forKey: "avatar")
-                                            avatar = emojiList[id].icon
+                                            UserDefaults.standard.set(emoji.icon, forKey: "avatar")
+                                            avatar = emoji.icon
                                         }
                                     }
-                                    
                                 }
                             }
                             .padding(insets)

@@ -10,156 +10,86 @@ import SwiftUI
 struct RandomCirclesView: View {
     @State var chosenWeathers: [String] = []
 
-    let weathers: [WeatherCircle] = [
-        WeatherCircle(number: 0, weatherName: "Snow", weatherIcon: "", color: .secondaryBlueBrand),
-        WeatherCircle(number: 1, weatherName: "Windy", weatherIcon: "", color: .primaryOrangeBrand),
-        WeatherCircle(number: 2, weatherName: "Sunny", weatherIcon: "", color: .secondaryBlueBrand),
-        WeatherCircle(number: 3, weatherName: "Clouds", weatherIcon: "", color: .secondaryBlueBrand),
-        WeatherCircle(number: 4, weatherName: "Rain", weatherIcon: "", color: .secondaryBlueBrand)
+    let weathers: [WeatherCircleList] = [
+        WeatherCircleList(content: [
+            WeatherCircle(number: 0, weatherName: "Snow", weatherIcon: "", color: .secondaryBlueBrand, size: 152),
+            WeatherCircle(number: 1, weatherName: "Windy", weatherIcon: "", color: .primaryOrangeBrand, size: 152)], 
+                          widthOffset: 20, heightOffset: 0, padding: 0),
+        WeatherCircleList(content: [
+            WeatherCircle(number: 2, weatherName: "Sunny", weatherIcon: "", color: .secondaryBlueBrand, size: 212)], 
+                          widthOffset: 0, heightOffset: 0, padding: 0),
+        WeatherCircleList(content: [
+            WeatherCircle(number: 3, weatherName: "Clouds", weatherIcon: "", color: .secondaryBlueBrand, size: 152),
+            WeatherCircle(number: 4, weatherName: "Rain", weatherIcon: "", color: .secondaryBlueBrand, size: 144)],
+                          widthOffset: -20, heightOffset: 20, padding: 30)
+    ]
+    
+    let optionsWithSub: [QuizSubtitleOption] = [
+        QuizSubtitleOption(option: "Warmer", subtitle: "I prefer dressing for warmth, cozy and snug"),
+        QuizSubtitleOption(option: "Normal", subtitle: "I usually dress in a comfortable and moderate style"),
+        QuizSubtitleOption(option: "Cooler", subtitle: "I lean towards cooler attire, keeping things crisp and fresh")
     ]
     
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 0) {
-                VStack(spacing: 110) {
-                    ZStack {
-                        let weather = weathers.first(where: {$0.number == 0})!
-                        ZStack {
-                            Circle()
-                                .frame(width: 152)
-                                .foregroundStyle(chosenWeathers.contains(weather.weatherName) ? weather.color : Color.notChosenCircle)
-                            VStack(spacing: 10) {
-                                Image(weather.weatherIcon)
-                                Text(weather.weatherName)
-                                    .font(.custom("Montserrat-Bold", size: 14))
-                                    .foregroundColor(chosenWeathers.contains(weather.weatherName) ? Color.white : Color(hex: "#425987"))
+        VStack {
+            ScrollViewReader { scrollView in
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 0) {
+                        ForEach(weathers, id: \.self) { weatherList in
+                            VStack(spacing: 110) {
+                                ForEach(weatherList.content, id: \.self) { weather in
+                                    ZStack {
+                                        Circle()
+                                            .frame(width: weather.size)
+                                            .foregroundStyle(chosenWeathers.contains(weather.weatherName) ? weather.color : Color.notChosenCircle)
+                                        VStack(spacing: 10) {
+                                            Image(weather.weatherIcon)
+                                            Text(weather.weatherName)
+                                                .font(.custom("Montserrat-Bold", size: 14))
+                                                .foregroundColor(chosenWeathers.contains(weather.weatherName) ? Color.white : Color(hex: "#425987"))
+                                        }
+                                    }
+                                    .onTapGesture {
+                                        if chosenWeathers.contains(weather.weatherName) {
+                                            let index = chosenWeathers.firstIndex(of: weather.weatherName)!
+                                            chosenWeathers.remove(at: index)
+                                        } else {
+                                            chosenWeathers.append(weather.weatherName)
+                                        }
+                                    }
+                                }
                             }
-                        }
-                        .onTapGesture {
-                            if chosenWeathers.contains(weather.weatherName) {
-                                let index = chosenWeathers.firstIndex(of: weather.weatherName)!
-                                chosenWeathers.remove(at: index)
-                            } else {
-                                chosenWeathers.append(weather.weatherName)
-                            }
-                        }
-                    }
-                        
-                    
-                    ZStack {
-                        let weather = weathers.first(where: {$0.number == 1})!
-                        ZStack {
-                            Circle()
-                                .frame(width: 152)
-                                .foregroundStyle(chosenWeathers.contains(weather.weatherName) ? weather.color : Color.notChosenCircle)
-                            VStack(spacing: 10) {
-                                Image(weather.weatherIcon)
-                                Text(weather.weatherName)
-                                    .font(.custom("Montserrat-Bold", size: 14))
-                                    .foregroundColor(chosenWeathers.contains(weather.weatherName) ? Color.white : Color(hex: "#425987"))
-                            }
-                        }
-                        .onTapGesture {
-                            if chosenWeathers.contains(weather.weatherName) {
-                                let index = chosenWeathers.firstIndex(of: weather.weatherName)!
-                                chosenWeathers.remove(at: index)
-                            } else {
-                                chosenWeathers.append(weather.weatherName)
+                            .id(weatherList)
+                            .padding(.bottom, weatherList.padding)
+                            .offset(CGSize(width: weatherList.widthOffset, height:  weatherList.heightOffset))
+                            .onAppear {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                    withAnimation {
+                                        scrollView.scrollTo(weathers[1], anchor: .center)
+                                    }
+                                }
                             }
                         }
                     }
                 }
-                .offset(CGSize(width: 20 , height: 0))
-
-                ZStack {
-                    let weather = weathers.first(where: {$0.number == 2})!
-                    ZStack {
-                        Circle()
-                            .frame(width: 212)
-                            .foregroundStyle(chosenWeathers.contains(weather.weatherName) ? weather.color : Color.notChosenCircle)
-                        VStack(spacing: 10) {
-                            Image(weather.weatherIcon)
-                            Text(weather.weatherName)
-                                .font(.custom("Montserrat-Bold", size: 14))
-                                .foregroundColor(chosenWeathers.contains(weather.weatherName) ? Color.white : Color(hex: "#425987"))
-                        }
-                    }
-                    .onTapGesture {
-                        if chosenWeathers.contains(weather.weatherName) {
-                            let index = chosenWeathers.firstIndex(of: weather.weatherName)!
-                            chosenWeathers.remove(at: index)
-                        } else {
-                            chosenWeathers.append(weather.weatherName)
-                        }
-                    }
-                }
-                    
-                
-                VStack(spacing: 150) {
-                    ZStack {
-                        let weather = weathers.first(where: {$0.number == 3})!
-                        ZStack {
-                            Circle()
-                                .frame(width: 152)
-                                .foregroundStyle(chosenWeathers.contains(weather.weatherName) ? weather.color : Color.notChosenCircle)
-                            VStack(spacing: 10) {
-                                Image(weather.weatherIcon)
-                                Text(weather.weatherName)
-                                    .font(.custom("Montserrat-Bold", size: 14))
-                                    .foregroundColor(chosenWeathers.contains(weather.weatherName) ? Color.white : Color(hex: "#425987"))
-                            }
-                        }
-                        .onTapGesture {
-                            if chosenWeathers.contains(weather.weatherName) {
-                                let index = chosenWeathers.firstIndex(of: weather.weatherName)!
-                                chosenWeathers.remove(at: index)
-                            } else {
-                                chosenWeathers.append(weather.weatherName)
-                            }
-                        }
-                    }
-                    
-                    ZStack {
-                        let weather = weathers.first(where: {$0.number == 4})!
-                        ZStack {
-                            Circle()
-                                .frame(width: 152)
-                                .foregroundStyle(chosenWeathers.contains(weather.weatherName) ? weather.color : Color.notChosenCircle)
-                            VStack(spacing: 10) {
-                                Image(weather.weatherIcon)
-                                Text(weather.weatherName)
-                                    .font(.custom("Montserrat-Bold", size: 14))
-                                    .foregroundColor(chosenWeathers.contains(weather.weatherName) ? Color.white : Color(hex: "#425987"))
-                            }
-                        }
-                        .onTapGesture {
-                            if chosenWeathers.contains(weather.weatherName) {
-                                let index = chosenWeathers.firstIndex(of: weather.weatherName)!
-                                chosenWeathers.remove(at: index)
-                            } else {
-                                chosenWeathers.append(weather.weatherName)
-                            }
-                        }
-                    }
-                }
-                .padding(.bottom, 30)
-                .offset(CGSize(width: -20 , height: 20))
             }
         }
         .background(Color.primaryBackground)
     }
 }
 
-struct RandomCirclesView_Previews: PreviewProvider {
-    static var previews: some View {
-        RandomCirclesView()
-    }
-}
-
-struct WeatherCircle: Identifiable {
+struct WeatherCircle: Identifiable, Hashable {
     let id = UUID()
     let number: Int32
     let weatherName: String
     let weatherIcon: String
     let color: Color
+    let size: CGFloat
+}
+
+struct WeatherCircleList: Hashable {
+    let content: [WeatherCircle]
+    let widthOffset: Double
+    let heightOffset: Double
+    let padding: Double
 }

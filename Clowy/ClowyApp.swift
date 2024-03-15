@@ -28,7 +28,7 @@ struct Clowy2App: App {
 //                .preferredColorScheme(.light)
 //            SplashScreen()
 //                .preferredColorScheme(.light)
-            RandomCirclesView()
+            WideSliderView()
         }
         .onChange(of: scenePhase) { (newScenePhase) in
             switch newScenePhase {

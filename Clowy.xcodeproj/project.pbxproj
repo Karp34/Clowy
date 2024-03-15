@@ -31,6 +31,10 @@
 		75CAA6D62AF6CC4E003CA48C /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75CAA6D22AF6CC4E003CA48C /* Montserrat-SemiBold.ttf */; };
 		75CAA6D72AF6CC4E003CA48C /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75CAA6D32AF6CC4E003CA48C /* Montserrat-Bold.ttf */; };
 		BA10A3FD29958BDC00AC5C90 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA10A3FC29958BDC00AC5C90 /* LoginScreen.swift */; };
+		BA113BF52BA3ACAB00473936 /* WideSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA113BF42BA3ACAB00473936 /* WideSlider.swift */; };
+		BA113BF72BA3BD0900473936 /* ProgressBarQuiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA113BF62BA3BD0900473936 /* ProgressBarQuiz.swift */; };
+		BA113BF92BA3C12E00473936 /* AvatarCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA113BF82BA3C12E00473936 /* AvatarCarousel.swift */; };
+		BA113BFB2BA3C2EA00473936 /* GetEmojis.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA113BFA2BA3C2EA00473936 /* GetEmojis.swift */; };
 		BA12D0F427737D3000F91349 /* WardrobeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA12D0F327737D3000F91349 /* WardrobeScreenView.swift */; };
 		BA12D0FA2773D19F00F91349 /* WardrobeClothesCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA12D0F92773D19F00F91349 /* WardrobeClothesCard.swift */; };
 		BA12D0FC2773D4DD00F91349 /* WardrobeClothesCardCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA12D0FB2773D4DD00F91349 /* WardrobeClothesCardCollection.swift */; };
@@ -154,6 +158,9 @@
 		BAC3D64F2749082100DA1BAC /* ClothesApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC3D64E2749082100DA1BAC /* ClothesApi.swift */; };
 		BAC4BEA7286DF92F0076DFFC /* OlddNewChosenTempView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC4BEA6286DF92F0076DFFC /* OlddNewChosenTempView.swift */; };
 		BAC4BEA9286DF9ED0076DFFC /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC4BEA8286DF9EC0076DFFC /* Temperature.swift */; };
+		BACEF9822B9FC73B00C50CF4 /* QuizOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACEF9812B9FC73A00C50CF4 /* QuizOptionButton.swift */; };
+		BACEF9842B9FD31E00C50CF4 /* Montserrat-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BACEF9832B9FD2E100C50CF4 /* Montserrat-ExtraBold.ttf */; };
+		BACEF9862B9FD4DD00C50CF4 /* QuizOptionButtonWithSubtitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACEF9852B9FD4DD00C50CF4 /* QuizOptionButtonWithSubtitle.swift */; };
 		BAD948B8299AEA5C00F2A047 /* NewOutfitScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD948B7299AEA5C00F2A047 /* NewOutfitScreen.swift */; };
 		BAD948BB299AEB4600F2A047 /* AddNewOutfitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD948BA299AEB4600F2A047 /* AddNewOutfitView.swift */; };
 		BAD948BD299AEB5C00F2A047 /* MiniCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD948BC299AEB5C00F2A047 /* MiniCard.swift */; };
@@ -229,6 +236,10 @@
 		8941845D3FCE40E587945427 /* Pods-Clowy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clowy.debug.xcconfig"; path = "Target Support Files/Pods-Clowy/Pods-Clowy.debug.xcconfig"; sourceTree = "<group>"; };
 		AA418C9013A9538637C7389A /* Pods-Clowy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clowy.release.xcconfig"; path = "Target Support Files/Pods-Clowy/Pods-Clowy.release.xcconfig"; sourceTree = "<group>"; };
 		BA10A3FC29958BDC00AC5C90 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
+		BA113BF42BA3ACAB00473936 /* WideSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WideSlider.swift; sourceTree = "<group>"; };
+		BA113BF62BA3BD0900473936 /* ProgressBarQuiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarQuiz.swift; sourceTree = "<group>"; };
+		BA113BF82BA3C12E00473936 /* AvatarCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCarousel.swift; sourceTree = "<group>"; };
+		BA113BFA2BA3C2EA00473936 /* GetEmojis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEmojis.swift; sourceTree = "<group>"; };
 		BA12D0F327737D3000F91349 /* WardrobeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeScreenView.swift; sourceTree = "<group>"; };
 		BA12D0F92773D19F00F91349 /* WardrobeClothesCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeClothesCard.swift; sourceTree = "<group>"; };
 		BA12D0FB2773D4DD00F91349 /* WardrobeClothesCardCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeClothesCardCollection.swift; sourceTree = "<group>"; };
@@ -344,6 +355,9 @@
 		BAC3D64E2749082100DA1BAC /* ClothesApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesApi.swift; sourceTree = "<group>"; };
 		BAC4BEA6286DF92F0076DFFC /* OlddNewChosenTempView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OlddNewChosenTempView.swift; sourceTree = "<group>"; };
 		BAC4BEA8286DF9EC0076DFFC /* Temperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
+		BACEF9812B9FC73A00C50CF4 /* QuizOptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizOptionButton.swift; sourceTree = "<group>"; };
+		BACEF9832B9FD2E100C50CF4 /* Montserrat-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBold.ttf"; sourceTree = "<group>"; };
+		BACEF9852B9FD4DD00C50CF4 /* QuizOptionButtonWithSubtitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizOptionButtonWithSubtitle.swift; sourceTree = "<group>"; };
 		BAD948B7299AEA5C00F2A047 /* NewOutfitScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOutfitScreen.swift; sourceTree = "<group>"; };
 		BAD948BA299AEB4600F2A047 /* AddNewOutfitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewOutfitView.swift; sourceTree = "<group>"; };
 		BAD948BC299AEB5C00F2A047 /* MiniCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniCard.swift; sourceTree = "<group>"; };
@@ -558,6 +572,11 @@
 			isa = PBXGroup;
 			children = (
 				BA18B2CD2B9E325500B98161 /* RandomCirclesView.swift */,
+				BACEF9812B9FC73A00C50CF4 /* QuizOptionButton.swift */,
+				BACEF9852B9FD4DD00C50CF4 /* QuizOptionButtonWithSubtitle.swift */,
+				BA113BF42BA3ACAB00473936 /* WideSlider.swift */,
+				BA113BF62BA3BD0900473936 /* ProgressBarQuiz.swift */,
+				BA113BF82BA3C12E00473936 /* AvatarCarousel.swift */,
 			);
 			path = OnboardingQuiz;
 			sourceTree = "<group>";
@@ -839,6 +858,7 @@
 				BA6E587D299ADA580043DA64 /* CreateDefaultWardrobe.swift */,
 				BA6E587F299ADA7A0043DA64 /* GetRatio.swift */,
 				BA6E5882299ADA9E0043DA64 /* GetTemperatureRange.swift */,
+				BA113BFA2BA3C2EA00473936 /* GetEmojis.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -908,6 +928,7 @@
 		BAEC625D274E751B009E69E5 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				BACEF9832B9FD2E100C50CF4 /* Montserrat-ExtraBold.ttf */,
 				75CAA6D32AF6CC4E003CA48C /* Montserrat-Bold.ttf */,
 				75CAA6D12AF6CC4E003CA48C /* Montserrat-Medium.ttf */,
 				75CAA6D02AF6CC4E003CA48C /* Montserrat-Regular.ttf */,
@@ -1051,6 +1072,7 @@
 				BA5639E029CB5B1900912361 /* clouds.gif in Resources */,
 				75CAA6D72AF6CC4E003CA48C /* Montserrat-Bold.ttf in Resources */,
 				BA5639DB29CB352200912361 /* rain.gif in Resources */,
+				BACEF9842B9FD31E00C50CF4 /* Montserrat-ExtraBold.ttf in Resources */,
 				75B803D72B48AC7B0018837B /* remote_config_defaults.plist in Resources */,
 				75CAA6CF2AF6CB52003CA48C /* thunder.gif in Resources */,
 				758A1E0D2B330C2E006AE7B6 /* sunset.gif in Resources */,
@@ -1244,6 +1266,7 @@
 				BA6E5880299ADA7B0043DA64 /* GetRatio.swift in Sources */,
 				BAC19530287F605A00FB109B /* LocationView.swift in Sources */,
 				BADE87DC27988703001DE300 /* OlddChooseColorView.swift in Sources */,
+				BA113BF52BA3ACAB00473936 /* WideSlider.swift in Sources */,
 				BA6E587C299AD8800043DA64 /* ClothesCardView.swift in Sources */,
 				BA43D1FD28211F95008A4AF5 /* CustomNavBarView.swift in Sources */,
 				BAE1013B299AF20B00670864 /* UsePhotoFromGalary.swift in Sources */,
@@ -1266,6 +1289,7 @@
 				757D58732B2669DA00C53A6B /* ImageLift.swift in Sources */,
 				BAE10137299AF1DE00670864 /* TemperatureView.swift in Sources */,
 				BADE87DE27988714001DE300 /* OldTagsView.swift in Sources */,
+				BA113BF72BA3BD0900473936 /* ProgressBarQuiz.swift in Sources */,
 				BA6E5878299AD8290043DA64 /* NewClothView.swift in Sources */,
 				BA12D0F427737D3000F91349 /* WardrobeScreenView.swift in Sources */,
 				BAC19532287F676400FB109B /* AvailableTypesView.swift in Sources */,
@@ -1275,12 +1299,14 @@
 				BA6E586F299AD7220043DA64 /* NewWardrobeScreen.swift in Sources */,
 				BADE87D7279886BD001DE300 /* OldChooseTempView.swift in Sources */,
 				BA3E184A2746B99E0070F4EF /* HEX.swift in Sources */,
+				BA113BFB2BA3C2EA00473936 /* GetEmojis.swift in Sources */,
 				75B803D52B48AC4C0018837B /* RemoteConfigManager.swift in Sources */,
 				BA9C23C928D265A100DDDB54 /* MainScreenViewModel.swift in Sources */,
 				75B803D92B48ACD10018837B /* AppIsBlocked.swift in Sources */,
 				BAE10145299AF2F200670864 /* CustomFieldStyle.swift in Sources */,
 				BA64914C286C4B1E00B57F58 /* WardrobeTestClothCard.swift in Sources */,
 				BAD948B8299AEA5C00F2A047 /* NewOutfitScreen.swift in Sources */,
+				BACEF9822B9FC73B00C50CF4 /* QuizOptionButton.swift in Sources */,
 				BA6E5885299ADAF60043DA64 /* User.swift in Sources */,
 				BA7E40B928C0AC3B00FB3730 /* YandexModels.swift in Sources */,
 				BA7E40BB28C1055100FB3730 /* PlaceholderState.swift in Sources */,
@@ -1317,6 +1343,7 @@
 				BA7E40AB28B4C63E00FB3730 /* CustomTextField.swift in Sources */,
 				BA5D8272283C279400A54005 /* CameraView.swift in Sources */,
 				BA7E40AF28B6279E00FB3730 /* Emoji.swift in Sources */,
+				BA113BF92BA3C12E00473936 /* AvatarCarousel.swift in Sources */,
 				BA10A3FD29958BDC00AC5C90 /* LoginScreen.swift in Sources */,
 				75B803D32B48AC390018837B /* RCKey.swift in Sources */,
 				757D58752B266EF900C53A6B /* DragAndDrop.swift in Sources */,
@@ -1330,6 +1357,7 @@
 				BA9D82AF28212D55009E43E8 /* CustomNavBarPreferenceKeys.swift in Sources */,
 				BAD948CD299AEF9000F2A047 /* NewChooseTempView.swift in Sources */,
 				BA5D8274283D641600A54005 /* CustomSheetView.swift in Sources */,
+				BACEF9862B9FD4DD00C50CF4 /* QuizOptionButtonWithSubtitle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
