@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct Emoji: Hashable {
+    var id: Int
     var icon: String
     var color: String
 }

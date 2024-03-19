@@ -10,31 +10,10 @@ import SwiftUI
 struct WideSliderView: View {
     @State var sliderconfig: WideSliderConfig = .init()
     @Namespace private var namespace
-    let totalPages: CGFloat = 10
-    @State var currentPage: CGFloat = 1
     
     var body: some View {
-        VStack {
-            ProgressBarQuiz(totalPages: totalPages, currentPage: currentPage)
-                .onTapGesture {
-                    withAnimation(.easeInOut(duration: 1.5)) {
-                        if currentPage < totalPages {
-                            currentPage += 1
-                        } else {
-                            currentPage -= 9
-                        }
-                    }
-                }
-            Color.clear.frame(height: 40)
-            AvatarCarousel()
-            Color.clear.frame(height: 40)
             WideSlider(animationID: "EXPAND", namespacelD: namespace, config: $sliderconfig)
-                .frame(width: 124, height: 336)
-            Color.clear
-        }
-        .padding(.top, 8)
-        .padding(.horizontal, 24)
-        .background(Color.primaryBackground.ignoresSafeArea())
+            .frame(width: 124, height: 336)
     }
 }
 

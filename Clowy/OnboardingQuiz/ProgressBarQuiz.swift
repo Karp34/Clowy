@@ -22,6 +22,7 @@ struct ProgressBarQuiz: View {
                     .foregroundStyle(Color.primaryOrangeBrand)
                     .frame(width: currentPage/totalPages*size.width, height: 8)
             }
+            .frame(height: 8)
         }
     }
 }

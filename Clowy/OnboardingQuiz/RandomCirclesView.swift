@@ -9,18 +9,20 @@ import SwiftUI
 
 struct RandomCirclesView: View {
     @State var chosenWeathers: [String] = []
+    let index: Int
+    let currentPage: Int
 
     let weathers: [WeatherCircleList] = [
         WeatherCircleList(content: [
-            WeatherCircle(number: 0, weatherName: "Snow", weatherIcon: "", color: .secondaryBlueBrand, size: 152),
-            WeatherCircle(number: 1, weatherName: "Windy", weatherIcon: "", color: .primaryOrangeBrand, size: 152)], 
+            WeatherCircle(number: 0, weatherName: "Snow", weatherIcon: "CustomSnowIcon", color: .secondaryBlueBrand, size: 152, iconWidth: 74, iconHeight: 64),
+            WeatherCircle(number: 1, weatherName: "Windy", weatherIcon: "CustomWindIcon", color: .primaryOrangeBrand, size: 152, iconWidth: 70, iconHeight: 21)],
                           widthOffset: 20, heightOffset: 0, padding: 0),
         WeatherCircleList(content: [
-            WeatherCircle(number: 2, weatherName: "Sunny", weatherIcon: "", color: .secondaryBlueBrand, size: 212)], 
+            WeatherCircle(number: 2, weatherName: "Sunny", weatherIcon: "CustomSunIcon", color: .secondaryBlueBrand, size: 212, iconWidth: 61, iconHeight: 61)],
                           widthOffset: 0, heightOffset: 0, padding: 0),
         WeatherCircleList(content: [
-            WeatherCircle(number: 3, weatherName: "Clouds", weatherIcon: "", color: .secondaryBlueBrand, size: 152),
-            WeatherCircle(number: 4, weatherName: "Rain", weatherIcon: "", color: .secondaryBlueBrand, size: 144)],
+            WeatherCircle(number: 3, weatherName: "Mainly cloudy", weatherIcon: "CustomCloudIcon", color: .secondaryBlueBrand, size: 152, iconWidth: 80, iconHeight: 58),
+            WeatherCircle(number: 4, weatherName: "Rain", weatherIcon: "CustomRainIcon", color: .secondaryBlueBrand, size: 144, iconWidth: 66, iconHeight: 62)],
                           widthOffset: -20, heightOffset: 20, padding: 30)
     ]
     
@@ -44,6 +46,9 @@ struct RandomCirclesView: View {
                                             .foregroundStyle(chosenWeathers.contains(weather.weatherName) ? weather.color : Color.notChosenCircle)
                                         VStack(spacing: 10) {
                                             Image(weather.weatherIcon)
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: weather.iconWidth, height: weather.iconHeight)
                                             Text(weather.weatherName)
                                                 .font(.custom("Montserrat-Bold", size: 14))
                                                 .foregroundColor(chosenWeathers.contains(weather.weatherName) ? Color.white : Color(hex: "#425987"))
@@ -63,7 +68,7 @@ struct RandomCirclesView: View {
                             .padding(.bottom, weatherList.padding)
                             .offset(CGSize(width: weatherList.widthOffset, height:  weatherList.heightOffset))
                             .onAppear {
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                                     withAnimation {
                                         scrollView.scrollTo(weathers[1], anchor: .center)
                                     }
@@ -85,6 +90,8 @@ struct WeatherCircle: Identifiable, Hashable {
     let weatherIcon: String
     let color: Color
     let size: CGFloat
+    let iconWidth: CGFloat
+    let iconHeight: CGFloat
 }
 
 struct WeatherCircleList: Hashable {

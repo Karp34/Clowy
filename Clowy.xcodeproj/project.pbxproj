@@ -35,6 +35,13 @@
 		BA113BF72BA3BD0900473936 /* ProgressBarQuiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA113BF62BA3BD0900473936 /* ProgressBarQuiz.swift */; };
 		BA113BF92BA3C12E00473936 /* AvatarCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA113BF82BA3C12E00473936 /* AvatarCarousel.swift */; };
 		BA113BFB2BA3C2EA00473936 /* GetEmojis.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA113BFA2BA3C2EA00473936 /* GetEmojis.swift */; };
+		BA113BFD2BA5C54900473936 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA113BFC2BA5C54900473936 /* CustomSlider.swift */; };
+		BA113C002BA655A400473936 /* OnboardingQuiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA113BFF2BA655A400473936 /* OnboardingQuiz.swift */; };
+		BA113C022BA66F5600473936 /* TextFieldPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA113C012BA66F5600473936 /* TextFieldPlaceholder.swift */; };
+		BA113C042BA8E8C200473936 /* OnboardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA113C032BA8E8C200473936 /* OnboardingPage.swift */; };
+		BA113C062BA8EADE00473936 /* OnboardingQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA113C052BA8EADE00473936 /* OnboardingQuestion.swift */; };
+		BA113C082BA8F4F400473936 /* OnboardingStyleCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA113C072BA8F4F300473936 /* OnboardingStyleCircle.swift */; };
+		BA113C0A2BA8F94400473936 /* StyleCircles.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA113C092BA8F94400473936 /* StyleCircles.swift */; };
 		BA12D0F427737D3000F91349 /* WardrobeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA12D0F327737D3000F91349 /* WardrobeScreenView.swift */; };
 		BA12D0FA2773D19F00F91349 /* WardrobeClothesCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA12D0F92773D19F00F91349 /* WardrobeClothesCard.swift */; };
 		BA12D0FC2773D4DD00F91349 /* WardrobeClothesCardCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA12D0FB2773D4DD00F91349 /* WardrobeClothesCardCollection.swift */; };
@@ -240,6 +247,13 @@
 		BA113BF62BA3BD0900473936 /* ProgressBarQuiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarQuiz.swift; sourceTree = "<group>"; };
 		BA113BF82BA3C12E00473936 /* AvatarCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCarousel.swift; sourceTree = "<group>"; };
 		BA113BFA2BA3C2EA00473936 /* GetEmojis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetEmojis.swift; sourceTree = "<group>"; };
+		BA113BFC2BA5C54900473936 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
+		BA113BFF2BA655A400473936 /* OnboardingQuiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingQuiz.swift; sourceTree = "<group>"; };
+		BA113C012BA66F5600473936 /* TextFieldPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldPlaceholder.swift; sourceTree = "<group>"; };
+		BA113C032BA8E8C200473936 /* OnboardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage.swift; sourceTree = "<group>"; };
+		BA113C052BA8EADE00473936 /* OnboardingQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingQuestion.swift; sourceTree = "<group>"; };
+		BA113C072BA8F4F300473936 /* OnboardingStyleCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStyleCircle.swift; sourceTree = "<group>"; };
+		BA113C092BA8F94400473936 /* StyleCircles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleCircles.swift; sourceTree = "<group>"; };
 		BA12D0F327737D3000F91349 /* WardrobeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeScreenView.swift; sourceTree = "<group>"; };
 		BA12D0F92773D19F00F91349 /* WardrobeClothesCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeClothesCard.swift; sourceTree = "<group>"; };
 		BA12D0FB2773D4DD00F91349 /* WardrobeClothesCardCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeClothesCardCollection.swift; sourceTree = "<group>"; };
@@ -572,11 +586,15 @@
 			isa = PBXGroup;
 			children = (
 				BA18B2CD2B9E325500B98161 /* RandomCirclesView.swift */,
+				BA113C092BA8F94400473936 /* StyleCircles.swift */,
 				BACEF9812B9FC73A00C50CF4 /* QuizOptionButton.swift */,
 				BACEF9852B9FD4DD00C50CF4 /* QuizOptionButtonWithSubtitle.swift */,
 				BA113BF42BA3ACAB00473936 /* WideSlider.swift */,
 				BA113BF62BA3BD0900473936 /* ProgressBarQuiz.swift */,
 				BA113BF82BA3C12E00473936 /* AvatarCarousel.swift */,
+				BA113BFC2BA5C54900473936 /* CustomSlider.swift */,
+				BA113BFF2BA655A400473936 /* OnboardingQuiz.swift */,
+				BA113C032BA8E8C200473936 /* OnboardingPage.swift */,
 			);
 			path = OnboardingQuiz;
 			sourceTree = "<group>";
@@ -650,6 +668,8 @@
 				BA7E40BE28C213AF00FB3730 /* CityNamesModel.swift */,
 				BA7E40C228C3E1D000FB3730 /* OpenWeatherModels.swift */,
 				75B803DD2B49C3A30018837B /* GeoNamesModels.swift */,
+				BA113C052BA8EADE00473936 /* OnboardingQuestion.swift */,
+				BA113C072BA8F4F300473936 /* OnboardingStyleCircle.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -658,6 +678,7 @@
 			isa = PBXGroup;
 			children = (
 				BA23DF0828F737F8008C1A0B /* Buttons.swift */,
+				BA113C012BA66F5600473936 /* TextFieldPlaceholder.swift */,
 				BA5D8271283C279400A54005 /* CameraView.swift */,
 				BA86934928F52C1A008F37EB /* ClothImage.swift */,
 				BAE10144299AF2F200670864 /* CustomFieldStyle.swift */,
@@ -1236,6 +1257,7 @@
 				BA43D1FB28211D40008A4AF5 /* AppNavBarView.swift in Sources */,
 				BA5D8270283A5A7700A54005 /* PersistenceController.swift in Sources */,
 				BA86934E28F6B5A8008F37EB /* PlaceholderErrorCities.swift in Sources */,
+				BA113C082BA8F4F400473936 /* OnboardingStyleCircle.swift in Sources */,
 				BA5D826E28393D9400A54005 /* Stash.xcdatamodeld in Sources */,
 				BA715E1D283EA60900BD30FE /* CoreDataView.swift in Sources */,
 				BAE10143299AF2C400670864 /* InputNameView.swift in Sources */,
@@ -1270,6 +1292,7 @@
 				BA6E587C299AD8800043DA64 /* ClothesCardView.swift in Sources */,
 				BA43D1FD28211F95008A4AF5 /* CustomNavBarView.swift in Sources */,
 				BAE1013B299AF20B00670864 /* UsePhotoFromGalary.swift in Sources */,
+				BA113C0A2BA8F94400473936 /* StyleCircles.swift in Sources */,
 				BA6E5861299A99410043DA64 /* HTMLRenderingWebview.swift in Sources */,
 				BA7E40B428B65BCD00FB3730 /* LocationTestView.swift in Sources */,
 				BA3699C529E32D3600678001 /* Repeate.swift in Sources */,
@@ -1281,6 +1304,7 @@
 				BAC4BEA9286DF9ED0076DFFC /* Temperature.swift in Sources */,
 				BA9C23CC28D4E80C00DDDB54 /* StartScreenView.swift in Sources */,
 				BA7812012819656200D452DE /* OldAddNewOutfitView.swift in Sources */,
+				BA113C002BA655A400473936 /* OnboardingQuiz.swift in Sources */,
 				BADE87C427960357001DE300 /* NoClothesCollection.swift in Sources */,
 				BA7E40AD28B6278700FB3730 /* Gender.swift in Sources */,
 				BAC1953A2880AACA00FB109B /* SwiftUISlider.swift in Sources */,
@@ -1288,6 +1312,7 @@
 				BAE1014B299AF5A700670864 /* IndicatorView.swift in Sources */,
 				757D58732B2669DA00C53A6B /* ImageLift.swift in Sources */,
 				BAE10137299AF1DE00670864 /* TemperatureView.swift in Sources */,
+				BA113BFD2BA5C54900473936 /* CustomSlider.swift in Sources */,
 				BADE87DE27988714001DE300 /* OldTagsView.swift in Sources */,
 				BA113BF72BA3BD0900473936 /* ProgressBarQuiz.swift in Sources */,
 				BA6E5878299AD8290043DA64 /* NewClothView.swift in Sources */,
@@ -1299,6 +1324,7 @@
 				BA6E586F299AD7220043DA64 /* NewWardrobeScreen.swift in Sources */,
 				BADE87D7279886BD001DE300 /* OldChooseTempView.swift in Sources */,
 				BA3E184A2746B99E0070F4EF /* HEX.swift in Sources */,
+				BA113C022BA66F5600473936 /* TextFieldPlaceholder.swift in Sources */,
 				BA113BFB2BA3C2EA00473936 /* GetEmojis.swift in Sources */,
 				75B803D52B48AC4C0018837B /* RemoteConfigManager.swift in Sources */,
 				BA9C23C928D265A100DDDB54 /* MainScreenViewModel.swift in Sources */,
@@ -1330,6 +1356,7 @@
 				BAD948C7299AEC7C00F2A047 /* WarningView.swift in Sources */,
 				BA8614B128EF77CF0095F232 /* ColorImagesView.swift in Sources */,
 				BADE87C12795FEE8001DE300 /* OldNewClothView.swift in Sources */,
+				BA113C062BA8EADE00473936 /* OnboardingQuestion.swift in Sources */,
 				BA8201F12873859A00A3C66B /* OldAddPhotoView.swift in Sources */,
 				BA39AE38294CC7A200E1E389 /* SplashScreen.swift in Sources */,
 				BA820202287F5B7400A3C66B /* TempPreferenceView.swift in Sources */,
@@ -1342,6 +1369,7 @@
 				BA61262F281868140011ACF7 /* OldOutfitView.swift in Sources */,
 				BA7E40AB28B4C63E00FB3730 /* CustomTextField.swift in Sources */,
 				BA5D8272283C279400A54005 /* CameraView.swift in Sources */,
+				BA113C042BA8E8C200473936 /* OnboardingPage.swift in Sources */,
 				BA7E40AF28B6279E00FB3730 /* Emoji.swift in Sources */,
 				BA113BF92BA3C12E00473936 /* AvatarCarousel.swift in Sources */,
 				BA10A3FD29958BDC00AC5C90 /* LoginScreen.swift in Sources */,

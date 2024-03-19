@@ -61,12 +61,7 @@ struct QuizOptionButton: View {
                     }
                     .frame(height: 52)
                     .onTapGesture {
-                        if chosenOptions.contains(option) {
-                            let index = chosenOptions.firstIndex(of: option)!
-                            chosenOptions.remove(at: index)
-                        } else {
-                            chosenOptions.append(option)
-                        }
+                        chosenOptions = [option]
                     }
                 }
             }
