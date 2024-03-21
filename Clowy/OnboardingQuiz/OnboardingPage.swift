@@ -23,17 +23,12 @@ struct OnboardingPage<Content: View>: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            ZStack {
-                ForEach(viewModel.questions, id: \.self) { question in
-                    Text(question.question)
-                        .font(.custom("Montserrat-Bold", size: 24))
-                        .foregroundStyle(Color.black)
-                        .multilineTextAlignment(.center)
-                        .frame(width: 328)
-                        .opacity(question.id == currentPage ? 1 : 0)
-                        .animation(.interactiveSpring(response: 0.9, dampingFraction: 0.8, blendDuration: 0.3).delay(currentPage == index ? 0.2 : 0), value: currentPage)
-                }
-            }
+            Text(viewModel.questions[index-1].question)
+                .font(.custom("Montserrat-Bold", size: 24))
+                .foregroundStyle(Color.black)
+                .multilineTextAlignment(.center)
+                .frame(width: 328)
+                .animation(.interactiveSpring(response: 0.9, dampingFraction: 0.8, blendDuration: 0.1), value: currentPage)
             
             content
             

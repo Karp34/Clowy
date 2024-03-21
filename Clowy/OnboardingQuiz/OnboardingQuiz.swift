@@ -21,10 +21,16 @@ class OnboardingQuizViewModel: ObservableObject {
         OnboardingQuestion(id: 8, question: "Under what weather conditions do you wear a dress?"),
         OnboardingQuestion(id: 9, question: "With what types of clothes do you prefer to wear a dress? "),
         OnboardingQuestion(id: 10, question: "How would you describe your preference for dressing?"),
-        
+    ]
+    
+    let optionsWithSub: [QuizSubtitleOption] = [
+        QuizSubtitleOption(option: "Warmer", subtitle: "I prefer dressing for warmth, cozy and snug"),
+        QuizSubtitleOption(option: "Normal", subtitle: "I usually dress in a comfortable and moderate style"),
+        QuizSubtitleOption(option: "Cooler", subtitle: "I lean towards cooler attire, keeping things crisp and fresh")
     ]
     
     @Published var chosenStyle: OnboardingStyleCircle = OnboardingStyleCircle(icon: "", style: "", size: 0)
+    @Published var chosenWeathers: [String] = []
 }
 
 struct OnboardingQuiz: View {
@@ -160,7 +166,7 @@ struct OnboardingQuiz: View {
         OnboardingPage(size: size, index: index, currentPage: currentPage) {
             WideSliderView()
                 .padding(.top, 66)
-                .animation(.interactiveSpring(response: 0.9, dampingFraction: 0.8, blendDuration: 0.5).delay(0.1), value: currentPage)
+                .animation(.interactiveSpring(response: 0.9, dampingFraction: 0.8, blendDuration: 0.5).delay(currentPage == index ? 0.2 : 0), value: currentPage)
         }
         .offset(x: -size.width * CGFloat(currentPage - index))
     }
@@ -168,9 +174,8 @@ struct OnboardingQuiz: View {
     @ViewBuilder
     func OnboardingPage4(size: CGSize, index: Int, currentPage: Int) -> some View {
         OnboardingPage(size: size, index: index, currentPage: currentPage) {
-            QuizOptionButton(options: ["Yes", "No"], withCheckpoints: false)
+            QuizOptionButton(options: ["Yes", "No"], withCheckpoints: false, currentPage: currentPage, index: index)
                 .padding(.top, 66)
-                .animation(.interactiveSpring(response: 0.9, dampingFraction: 0.8, blendDuration: 0.5).delay(0.1), value: currentPage)
         }
         .offset(x: -size.width * CGFloat(currentPage - index))
     }
@@ -178,9 +183,8 @@ struct OnboardingQuiz: View {
     @ViewBuilder
     func OnboardingPage5(size: CGSize, index: Int, currentPage: Int) -> some View {
         OnboardingPage(size: size, index: index, currentPage: currentPage) {
-            QuizOptionButton(options: ["Yes", "Only skirts", "Only dresses", "I don’t wear"], withCheckpoints: false)
+            QuizOptionButton(options: ["Yes", "Only skirts", "Only dresses", "I don’t wear"], withCheckpoints: false, currentPage: currentPage, index: index)
                 .padding(.top, 66)
-                .animation(.interactiveSpring(response: 0.9, dampingFraction: 0.8, blendDuration: 0.5).delay(0.1), value: currentPage)
         }
         .offset(x: -size.width * CGFloat(currentPage - index))
     }
@@ -189,7 +193,8 @@ struct OnboardingQuiz: View {
     func OnboardingPage6(size: CGSize, index: Int, currentPage: Int) -> some View {
         OnboardingPage(size: size, index: index, currentPage: currentPage) {
             RandomCirclesView(index: index, currentPage: currentPage)
-                .animation(.interactiveSpring(response: 0.9, dampingFraction: 0.8, blendDuration: 0.5).delay(0.1), value: currentPage)
+                .padding(.top, 28)
+//                .animation(.interactiveSpring(response: 0.9, dampingFraction: 0.8, blendDuration: 0.5).delay(0.1), value: currentPage)
         }
         .offset(x: -size.width * CGFloat(currentPage - index))
     }
