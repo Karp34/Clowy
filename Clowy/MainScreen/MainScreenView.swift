@@ -27,24 +27,9 @@ struct MainScreenView: View, DaysForecastViewDelegate {
         Cloth(id: "1102", name: "", type: .sneakers, color: "", temperature: [], isDefault: true, image: "DefaultSneaker", rawImage: nil)
     ]
     
-    //    @FetchRequest(
-    //        entity: TestCloth.entity(),
-    //        sortDescriptors: [NSSortDescriptor(keyPath: \TestCloth.name, ascending: true)]
-    //    ) var items: FetchedResults<TestCloth>
-    //
-    //    @FetchRequest(
-    //        entity: TestWardrobe.entity(),
-    //        sortDescriptors: [NSSortDescriptor(keyPath: \TestWardrobe.id, ascending: true)]
-    //    ) var categories: FetchedResults<TestWardrobe>
-    
     private func createWardrobe(wardrobe: [Wardrobe]) {
         if UserDefaults.standard.bool(forKey: "launchedBefore") == false {
-            //            for clothesType in wardrobe {
-            //                let category = TestWardrobe(context: managedObjectContext)
-            //                category.name = clothesType.clothesTypeName.rawValue
-            //                category.id = Int16(clothesType.id.rawValue)
-            //                PersistenceController.shared.save()
-            //            }
+            
             UserDefaults.standard.set(0.5, forKey: "prefTemp")
             UserDefaults.standard.set("Username", forKey: "username")
             UserDefaults.standard.set("female", forKey: "gender")
@@ -165,9 +150,6 @@ struct MainScreenView: View, DaysForecastViewDelegate {
                     .onAppear {
                         
                         createWardrobe(wardrobe: viewModel.wardrobe)
-                        //                    viewModel.fetchWardrobe()
-                        //                    viewModel.fetchOutfits()
-                        UIApplication.shared.setStatusBarStyle(.darkContent, animated: false)
                         
                         if UserDefaults.standard.bool(forKey: "isGeoposition") == true {
                             if (viewModel.coordinates != nil) {

@@ -163,10 +163,6 @@ struct ProfileNavBarContent: View {
                                         )
                                     ])
                                 }
-//                                .sheet(isPresented: self.$show) {
-//                                    ImagePicker(show: self.$show, image: $viewModel.image)
-//                                        .environment(\.managedObjectContext, self.moc)
-//                                }
                                 
                                 
                                 ForEach(emojiList, id:\.self) { emoji in

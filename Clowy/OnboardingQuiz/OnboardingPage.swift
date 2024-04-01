@@ -30,6 +30,7 @@ struct OnboardingPage<Content: View>: View {
                 .frame(width: 328)
                 .animation(.interactiveSpring(response: 0.9, dampingFraction: 0.8, blendDuration: 0.1), value: currentPage)
             
+            
             content
             
             Spacer()

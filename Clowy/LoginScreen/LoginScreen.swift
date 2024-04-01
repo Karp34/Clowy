@@ -14,8 +14,6 @@ struct LoginScreen: View {
     @State var startAnimation = false
     @State var textOffset: CGFloat = 10
     
-    func skip() {}
-    
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 0) {
@@ -57,7 +55,6 @@ struct LoginScreen: View {
             }
         }
         .ignoresSafeArea(.keyboard)
-//        .ignoresSafeArea(.all)
     }
 }
 

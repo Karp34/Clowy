@@ -10,9 +10,10 @@ import SwiftUI
 struct WideSliderView: View {
     @State var sliderconfig: WideSliderConfig = .init()
     @Namespace private var namespace
+    let questionIndex: Int
     
     var body: some View {
-            WideSlider(animationID: "EXPAND", namespacelD: namespace, config: $sliderconfig)
+            WideSlider(animationID: "EXPAND", namespacelD: namespace, config: $sliderconfig, questionIndex: questionIndex)
             .frame(width: 124, height: 336)
     }
 }
@@ -22,27 +23,35 @@ struct degreeScale: View {
     @Binding var config: WideSliderConfig
     
     var body: some View {
-        VStack(spacing: 65) {
-            Text("0°C")
-                .font(.custom("Montserrat-Bold", size: 16))
-                .foregroundColor(config.progress > 0.75 ? Color.white : Color.primaryBlueBrand)
-            
-            Text("-10°C")
-                .font(.custom("Montserrat-Bold", size: 16))
-                .foregroundColor(config.progress > 0.5 ? Color.white : Color.primaryBlueBrand)
-            
-            Text("-20°C")
-                .font(.custom("Montserrat-Bold", size: 16))
-                .foregroundColor(config.progress > 0.25 ? Color.white : Color.primaryBlueBrand)
+        ZStack {
+            VStack {
+                
+            }
+            VStack(spacing: 65) {
+                Text("0°C")
+                    .font(.custom("Montserrat-Bold", size: 16))
+                    .foregroundColor(config.progress > 0.75 ? Color.white : Color.primaryBlueBrand)
+                
+                Text("-10°C")
+                    .font(.custom("Montserrat-Bold", size: 16))
+                    .foregroundColor(config.progress > 0.5 ? Color.white : Color.primaryBlueBrand)
+                
+                Text("-20°C")
+                    .font(.custom("Montserrat-Bold", size: 16))
+                    .foregroundColor(config.progress > 0.25 ? Color.white : Color.primaryBlueBrand)
+            }
         }
+        
     }
 }
 
 struct WideSlider: View {
+    @StateObject var viewModel = OnboardingQuizViewModel.shared
     var animationID: String
     var cornerRadius: CGFloat = 20
     var namespacelD: Namespace.ID
     @Binding var config: WideSliderConfig
+    let questionIndex: Int
     
     var body: some View {
         GeometryReader {
@@ -72,10 +81,30 @@ struct WideSlider: View {
                         }
                     }).onEnded({ value in
                         config.lastProgress = config.progress
+                        viewModel.questions[questionIndex-1].answer = getPreference(progress: config.progress)
                     }))
                 
             }
         }
+    }
+    
+    func getPreference(progress: CGFloat) -> [String] {
+        var result: [String] = []
+        
+        switch progress {
+        case _ where progress < 0.375:
+            result = ["-20°C and below"]
+        case _ where progress < 0.625:
+            result = ["-10°C and below"]
+        case _ where progress <= 0.875:
+            result = ["0°C and below"]
+        case _ where progress > 0.875:
+            result = ["0°C and above"]
+        default:
+            result = ["0°C and below"]
+        }
+        
+        return result
     }
 }
 

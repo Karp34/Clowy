@@ -9,7 +9,6 @@ import SwiftUI
 
 struct LoginFirstPage: View {
     @StateObject private var viewModel = MainScreenViewModel.shared
-    func skip() {}
     @State var emailIsValid = false
     @State var checkCount = 0
     @State var isEditing = false
@@ -81,8 +80,6 @@ struct LoginFirstPage: View {
                         .strokeBorder(emailIsValid ? Color(hex: "#DADADA") : viewModel.userEmail.count > 0 && checkCount > 0 ? Color(hex: "#D85858") : Color(hex: "#DADADA"))
                         .foregroundColor(.white)
                         .frame(height: 56)
-//                                    .border(Color(hex: "#DADADA"))
-                        
                 )
                 .padding(.bottom, 16)
                 
@@ -147,7 +144,7 @@ struct LoginFirstPage: View {
                 .buttonStyle(DefaultCircleColorButtonStyle(color: "#678CD4", size: 32))
                 
                 Button {
-                    skip()
+                    
                 } label: {
                     Image(systemName: "applelogo")
                         .resizable()
@@ -158,7 +155,7 @@ struct LoginFirstPage: View {
                 .buttonStyle(DefaultCircleColorButtonStyle(color: "#678CD4", size: 32))
                 
                 Button {
-                    skip()
+                    
                 } label: {
                     Image(systemName: "applelogo")
                         .resizable()
@@ -169,7 +166,7 @@ struct LoginFirstPage: View {
                 .buttonStyle(DefaultCircleColorButtonStyle(color: "#678CD4", size: 32))
                 
                 Button {
-                    skip()
+                    
                 } label: {
                     Image(systemName: "applelogo")
                         .resizable()

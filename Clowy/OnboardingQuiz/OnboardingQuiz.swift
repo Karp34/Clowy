@@ -10,33 +10,31 @@ import SwiftUI
 class OnboardingQuizViewModel: ObservableObject {
     static var shared = OnboardingQuizViewModel()
     
-    let questions: [OnboardingQuestion] = [
-        OnboardingQuestion(id: 1, question: "Tell us more about \nyourself"),
-        OnboardingQuestion(id: 2, question: "Which of the styles below\nsuits you best?"),
-        OnboardingQuestion(id: 3, question: "At what temperature do you wear your winter hat?"),
-        OnboardingQuestion(id: 4, question: "Do you wear T-Shirt under the Sweater?"),
-        OnboardingQuestion(id: 5, question: "Do you wear skirts / dresses?"),
-        OnboardingQuestion(id: 6, question: "Under what weather conditions do you wear a skirt?"),
-        OnboardingQuestion(id: 7, question: "With what types of clothes do you prefer to wear a skirt? "),
-        OnboardingQuestion(id: 8, question: "Under what weather conditions do you wear a dress?"),
-        OnboardingQuestion(id: 9, question: "With what types of clothes do you prefer to wear a dress? "),
-        OnboardingQuestion(id: 10, question: "How would you describe your preference for dressing?"),
+    @Published var questions: [OnboardingQuestion] = [
+        OnboardingQuestion(id: 1, question: "Tell us more about \nyourself", answer: []),
+        OnboardingQuestion(id: 2, question: "Which of the styles below\nsuits you best?", answer: []),
+        OnboardingQuestion(id: 3, question: "At what temperature do you wear your winter hat?", answer: []),
+        OnboardingQuestion(id: 4, question: "Do you wear T-Shirt under the Sweater?", answer: []),
+        OnboardingQuestion(id: 5, question: "Do you wear skirts / dresses?", answer: []),
+        OnboardingQuestion(id: 6, question: "Under what weather conditions do you wear a skirt?", answer: []),
+        OnboardingQuestion(id: 7, question: "With what types of clothes do you prefer to wear a skirt? ", answer: []),
+        OnboardingQuestion(id: 8, question: "Under what weather conditions do you wear a dress?", answer: []),
+        OnboardingQuestion(id: 9, question: "With what types of clothes do you prefer to wear a dress? ", answer: []),
+        OnboardingQuestion(id: 10, question: "How would you describe your preference for dressing?", answer: [])
     ]
     
-    let optionsWithSub: [QuizSubtitleOption] = [
-        QuizSubtitleOption(option: "Warmer", subtitle: "I prefer dressing for warmth, cozy and snug"),
-        QuizSubtitleOption(option: "Normal", subtitle: "I usually dress in a comfortable and moderate style"),
-        QuizSubtitleOption(option: "Cooler", subtitle: "I lean towards cooler attire, keeping things crisp and fresh")
-    ]
     
     @Published var chosenStyle: OnboardingStyleCircle = OnboardingStyleCircle(icon: "", style: "", size: 0)
     @Published var chosenWeathers: [String] = []
+    @Published var user: User = User(id: "", username: "", userIcon: "", config: "Normal")
 }
 
 struct OnboardingQuiz: View {
     @StateObject var viewModel = OnboardingQuizViewModel.shared
+    @StateObject var mainViewModel = MainScreenViewModel.shared
     @State var currentPage: Int = 1
     @State var username = ""
+    @State var showingAlert = false
     
     var body: some View {
         VStack(spacing: 0) {
@@ -47,15 +45,26 @@ struct OnboardingQuiz: View {
                     .frame(height: 8)
                 
                 Button {
-                    withAnimation(.easeInOut(duration: 1.5)) {
-                        currentPage = 9
-                    }
+                    showingAlert.toggle()
                 } label: {
                     Text("Skip")
                         .font(.custom("Montserrat-SemiBold", size: 14))
                         .foregroundStyle(Color.primaryBlueBrand)
                 }
                 .opacity(currentPage > 1 ? 1 : 0)
+                .alert(isPresented: $showingAlert) {
+                    Alert(
+                        title: Text("Want to skip the onboarding?"),
+                        message: Text("It is very important for the correct selection of outfits"),
+                        primaryButton:  .default(Text("Yes")) {
+                            mainViewModel.updateUser(username: viewModel.user.username, userIcon: viewModel.user.userIcon, config: viewModel.user.config)
+                            print("Yes, skip onboarding")
+                        },
+                        secondaryButton:  .default(Text("No, continue")) {
+                            print("No, continue")
+                        }
+                    )
+                }
             }
             .padding(.top, 8)
             .padding(.horizontal, 24)
@@ -88,6 +97,8 @@ struct OnboardingQuiz: View {
                     withAnimation(.easeInOut(duration: 1.5)) {
                         if currentPage < viewModel.questions.count {
                             currentPage += 1
+                        } else if currentPage == viewModel.questions.count {
+                            mainViewModel.updateUser(username: viewModel.user.username, userIcon: viewModel.user.userIcon, config: viewModel.user.config)
                         }
                     }
                 } label: {
@@ -120,6 +131,10 @@ struct OnboardingQuiz: View {
                 OnboardingPage4(size: size, index: 4, currentPage: currentPage)
                 OnboardingPage5(size: size, index: 5, currentPage: currentPage)
                 OnboardingPage6(size: size, index: 6, currentPage: currentPage)
+                OnboardingPage7(size: size, index: 7, currentPage: currentPage)
+                OnboardingPage8(size: size, index: 8, currentPage: currentPage)
+                OnboardingPage9(size: size, index: 9, currentPage: currentPage)
+                OnboardingPage10(size: size, index: 10, currentPage: currentPage)
             }
         }
     }
@@ -146,6 +161,10 @@ struct OnboardingQuiz: View {
                     .frame(height: 56)
                     .padding(.horizontal, 24)
                     .animation(.interactiveSpring(response: 0.9, dampingFraction: 0.8, blendDuration: 0.5).delay(currentPage == index ? 0 : 0.2), value: currentPage)
+                    .onChange(of: username) {
+                        viewModel.user.username = username
+                        print(viewModel.user)
+                    }
             }
             .padding(.top, 104)
         }
@@ -164,7 +183,7 @@ struct OnboardingQuiz: View {
     @ViewBuilder
     func OnboardingPage3(size: CGSize, index: Int, currentPage: Int) -> some View {
         OnboardingPage(size: size, index: index, currentPage: currentPage) {
-            WideSliderView()
+            WideSliderView(questionIndex: index)
                 .padding(.top, 66)
                 .animation(.interactiveSpring(response: 0.9, dampingFraction: 0.8, blendDuration: 0.5).delay(currentPage == index ? 0.2 : 0), value: currentPage)
         }
@@ -194,7 +213,48 @@ struct OnboardingQuiz: View {
         OnboardingPage(size: size, index: index, currentPage: currentPage) {
             RandomCirclesView(index: index, currentPage: currentPage)
                 .padding(.top, 28)
-//                .animation(.interactiveSpring(response: 0.9, dampingFraction: 0.8, blendDuration: 0.5).delay(0.1), value: currentPage)
+        }
+        .offset(x: -size.width * CGFloat(currentPage - index))
+    }
+    
+    @ViewBuilder
+    func OnboardingPage7(size: CGSize, index: Int, currentPage: Int) -> some View {
+        OnboardingPage(size: size, index: index, currentPage: currentPage) {
+            QuizOptionButton(options: ["Jacket", "Blazer", "Cardigan, Sweater, Tutrtleneck", "Shirt", "T-Shir, Top", "Leggins",  "With nothing"], withCheckpoints: true, currentPage: currentPage, index: index)
+                .padding(.top, 40)
+        }
+        .offset(x: -size.width * CGFloat(currentPage - index))
+    }
+    
+    @ViewBuilder
+    func OnboardingPage8(size: CGSize, index: Int, currentPage: Int) -> some View {
+        OnboardingPage(size: size, index: index, currentPage: currentPage) {
+            RandomCirclesView(index: index, currentPage: currentPage)
+                .padding(.top, 28)
+        }
+        .offset(x: -size.width * CGFloat(currentPage - index))
+    }
+    
+    @ViewBuilder
+    func OnboardingPage9(size: CGSize, index: Int, currentPage: Int) -> some View {
+        OnboardingPage(size: size, index: index, currentPage: currentPage) {
+            QuizOptionButton(options: ["Jacket", "Blazer", "Cardigan, Sweater, Tutrtleneck", "Shirt", "T-Shir, Top", "Leggins",  "With nothing"], withCheckpoints: true, currentPage: currentPage, index: index)
+                .padding(.top, 40)
+        }
+        .offset(x: -size.width * CGFloat(currentPage - index))
+    }
+    
+    @ViewBuilder
+    func OnboardingPage10(size: CGSize, index: Int, currentPage: Int) -> some View {
+        let options = [
+            ["Warmer", "I prefer dressing for warmth,\n cozy and snug"],
+            ["Normal", "I usually dress in a comfortable and\n moderate style"],
+            ["Cooler", "I lean towards cooler attire, keeping\n things crisp and fresh."]
+        ]
+        
+        OnboardingPage(size: size, index: index, currentPage: currentPage) {
+            QuizOptionButtonWithSubtitle(options: options, currentPage: currentPage, index: index)
+                .padding(.top, 40)
         }
         .offset(x: -size.width * CGFloat(currentPage - index))
     }

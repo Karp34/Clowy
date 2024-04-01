@@ -24,67 +24,55 @@ struct StyleCircles: View {
                 ZStack {
                     Circle()
                         .frame(width: styles[0].size)
-                        .foregroundStyle(viewModel.chosenStyle == styles[0] ? Color.secondaryBlueBrand : Color.notChosenCircle)
+                        .foregroundStyle(viewModel.questions[index-1].answer.contains(styles[0].style) ? Color.secondaryBlueBrand : Color.notChosenCircle)
                     VStack(spacing: 10) {
                         Text(styles[0].icon)
                             .font(.system(size: 55))
                         Text(styles[0].style)
                             .font(.custom("Montserrat-Bold", size: 14))
-                            .foregroundColor(viewModel.chosenStyle == styles[0] ? Color.white : Color(hex: "#425987"))
+                            .foregroundColor(viewModel.questions[index-1].answer.contains(styles[0].style) ? Color.white : Color(hex: "#425987"))
                     }
                 }
                 .animation(.interactiveSpring(response: 0.9, dampingFraction: 0.8, blendDuration: 0.5).delay(currentPage == index ? 0.15 : 0), value: currentPage)
                 .onTapGesture {
-                    if viewModel.chosenStyle == styles[0] {
-                        viewModel.chosenStyle = OnboardingStyleCircle(icon: "", style: "", size: 0)
-                    } else {
-                        viewModel.chosenStyle = styles[0]
-                    }
+                    viewModel.questions[index-1].answer = [styles[0].style]
                 }
                 
                 ZStack {
                     Circle()
                         .frame(width: styles[1].size)
-                        .foregroundStyle(viewModel.chosenStyle == styles[1] ? Color.secondaryBlueBrand : Color.notChosenCircle)
+                        .foregroundStyle(viewModel.questions[index-1].answer.contains(styles[1].style) ? Color.secondaryBlueBrand : Color.notChosenCircle)
                     VStack(spacing: 10) {
                         Text(styles[1].icon)
                             .font(.system(size: 55))
                         Text(styles[1].style)
                             .font(.custom("Montserrat-Bold", size: 14))
-                            .foregroundColor(viewModel.chosenStyle == styles[1] ? Color.white : Color(hex: "#425987"))
+                            .foregroundColor(viewModel.questions[index-1].answer.contains(styles[1].style) ? Color.white : Color(hex: "#425987"))
                     }
                     .padding(.bottom, 8)
                 }
                 .offset(CGSize(width: 44, height: 0))
                 .animation(.interactiveSpring(response: 0.9, dampingFraction: 0.8, blendDuration: 0.5).delay(currentPage == index ? 0.25 : 0), value: currentPage)
                 .onTapGesture {
-                    if viewModel.chosenStyle == styles[1] {
-                        viewModel.chosenStyle = OnboardingStyleCircle(icon: "", style: "", size: 0)
-                    } else {
-                        viewModel.chosenStyle = styles[1]
-                    }
+                    viewModel.questions[index-1].answer = [styles[1].style]
                 }
             }
             ZStack {
                 Circle()
                     .frame(width: styles[2].size)
-                    .foregroundStyle(viewModel.chosenStyle == styles[2] ? Color.secondaryBlueBrand : Color.notChosenCircle)
+                    .foregroundStyle(viewModel.questions[index-1].answer.contains(styles[2].style) ? Color.secondaryBlueBrand : Color.notChosenCircle)
                 VStack(spacing: 10) {
                     Text(styles[2].icon)
                         .font(.system(size: 55))
                     Text(styles[2].style)
                         .font(.custom("Montserrat-Bold", size: 14))
-                        .foregroundColor(viewModel.chosenStyle == styles[2] ? Color.white : Color(hex: "#425987"))
+                        .foregroundColor(viewModel.questions[index-1].answer.contains(styles[2].style) ? Color.white : Color(hex: "#425987"))
                 }
             }
             .offset(CGSize(width: 0, height: -35))
             .animation(.interactiveSpring(response: 0.9, dampingFraction: 0.8, blendDuration: 0.5).delay(currentPage == index ? 0.3 : 0), value: currentPage)
             .onTapGesture {
-                if viewModel.chosenStyle == styles[2] {
-                    viewModel.chosenStyle = OnboardingStyleCircle(icon: "", style: "", size: 0)
-                } else {
-                    viewModel.chosenStyle = styles[2]
-                }
+                viewModel.questions[index-1].answer = [styles[2].style]
             }
         }
     }

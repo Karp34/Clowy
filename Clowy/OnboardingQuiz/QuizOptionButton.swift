@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct QuizOptionButton: View {
+    @StateObject var viewModel = OnboardingQuizViewModel.shared
     let options: [String]
     let withCheckpoints: Bool
-    @State var chosenOptions: [String] = []
     let currentPage: Int
     let index: Int
     
     var body: some View {
         VStack(spacing: 24) {
+            let chosenOptions = viewModel.questions[index-1].answer
             ForEach(options, id:\.self) { option in
                 let delay = Double(options.firstIndex(of: option)!+1) * 0.15
                 if withCheckpoints {
@@ -35,22 +36,22 @@ struct QuizOptionButton: View {
                         
                         ZStack {
                             RoundedRectangle(cornerRadius: 43)
-                                .foregroundColor(Color.primaryBackground)
+                                .foregroundColor(chosenOptions.contains(option) ? Color.secondaryBlueBrand :Color.primaryBackground)
                             RoundedRectangle(cornerRadius: 43)
                                 .stroke(chosenOptions.contains(option) ? Color.secondaryBlueBrand : Color.secondaryBlueBrand.opacity(0.5), style: StrokeStyle(lineWidth: 3))
                             Text(option)
                                 .font(.custom("Montserrat-ExtraBold", size: 16))
-                                .foregroundColor(Color.secondaryBlueBrand)
+                                .foregroundColor(chosenOptions.contains(option) ? Color.white : Color.secondaryBlueBrand)
                         }
                     }
                     .frame(height: 52)
                     .animation(.interactiveSpring(response: 0.9, dampingFraction: 0.8, blendDuration: 0.5).delay(currentPage == index ? delay : 0), value: currentPage)
                     .onTapGesture {
-                        if chosenOptions.contains(option) {
-                            let index = chosenOptions.firstIndex(of: option)!
-                            chosenOptions.remove(at: index)
+                        if viewModel.questions[index-1].answer.contains(option) {
+                            let index = viewModel.questions[index-1].answer.firstIndex(of: option)!
+                            viewModel.questions[index-1].answer.remove(at: index)
                         } else {
-                            chosenOptions.append(option)
+                            viewModel.questions[index-1].answer.append(option)
                         }
                     }
                 } else {
@@ -66,11 +67,11 @@ struct QuizOptionButton: View {
                     .frame(height: 52)
                     .animation(.interactiveSpring(response: 0.9, dampingFraction: 0.8, blendDuration: 0.5).delay(currentPage == index ? delay : 0), value: currentPage)
                     .onTapGesture {
-                        chosenOptions = [option]
+                        viewModel.questions[index-1].answer = [option]
                     }
                 }
             }
         }
-        .padding(24)
+        .padding(.horizontal, 24)
     }
 }

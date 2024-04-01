@@ -10,4 +10,5 @@ import Foundation
 struct OnboardingQuestion: Hashable {
     var id: Int
     var question: String
+    var answer: [String]
 }

@@ -14,14 +14,8 @@ class AddClothesViewModel: ObservableObject {
     @StateObject private var mainViewModel = MainScreenViewModel.shared
     
     @Published var cloth: Cloth = Cloth(id:  UUID().uuidString, name: "", type: .blank, color: "#FFFFFF", temperature: [], isDefault: false, image: "", rawImage: nil)
-//    @Published var id: String = UUID().uuidString
-//    @Published var name: String = ""
-//    @Published var clothesType: ClothesType = .blank
     @Published var temp: [Temperature] = []
     @Published var imageId: String = ""
-//    @Published var rawImage: UIImage? = nil
-//    @Published var chosenColor: String = "#FFFFFF"
-//    @Published var isDefault: Bool = false
     
     
     

@@ -305,7 +305,6 @@ class MainScreenViewModel: ObservableObject {
             var weatherList = [String]()
             
             for item in (0..<data.list.count) {
-//                print(data.list[item])
                 let newDaySeconds = Date(timeIntervalSince1970: TimeInterval(data.list[item].dt))
                 
                 let dateFormatter = DateFormatter()
@@ -388,7 +387,6 @@ class MainScreenViewModel: ObservableObject {
                         
                         
                         let name = newMonth == currentDateMonth && dayInt <= 1 ? "Tomorrow" : dayName
-//                        print(name)
                         if nextDayTempList.isEmpty || nextDayTempList.contains(where: {$0.name == name}) {
                             let tempDay = Day(id: id, name: name, weather: Weather(code: code, name: weather, color: iconAndColor[1], icon: iconAndColor[0], temp: Int(temp), humidity: Int(humidity), windSpeed: Int(windSpeed)))
                             nextDayTempList.append(tempDay)
@@ -502,8 +500,78 @@ class MainScreenViewModel: ObservableObject {
         userId = userID
     }
     
+    func resetUserData() {
+        user = User(id: "", username: "", userIcon: "", config: "")
+        didOnboarding = false
+        clothes.removeAll()
+        outfits.removeAll()
+    }
     
     
+    
+    
+    //Create and edit user's data feature
+    @Published var user = User(id: "", username: "", userIcon: "", config: "")
+    @Published var didOnboarding = false
+    
+    func getUserInfo(completion: @escaping () -> ()) {
+        let db = Firestore.firestore()
+        let ref = db.collection("Users").document(userId)
+        
+        ref.getDocument { document, error in
+            guard error == nil else {
+                print("HERE")
+                print(error!.localizedDescription)
+                self.wardrobeState = .error
+                return
+            }
+            
+            if let document = document {
+                if let data = document.data() {
+                    let id = document.documentID
+                    let username = data["username"] as? String ?? ""
+                    let userIcon = data["userIcon"] as? String ?? ""
+                    let config = data["config"] as? String ?? ""
+                    
+                    self.user = User(id: id, username: username, userIcon: userIcon, config: config)
+                    print("User data received \(self.user)")
+                }
+                completion()
+            }
+        }
+    }
+    
+//    func createUser(username: String, userIcon: String, config: String) {
+//        let db = Firestore.firestore()
+//        let ref = db.collection("Users")
+//        
+//        ref.addDocument(data: ["username": username, "userIcon": userIcon, "config" : config]) { error in
+//            if error == nil {
+//                self.mainViewModel.fetchWardrobe() {
+//                    
+//                    self.mainViewModel.getRightOutfits()
+//                }
+//            } else {
+//                print(error?.localizedDescription)
+//            }
+//        }
+//    }
+    
+    func updateUser(username: String, userIcon: String, config: String) {
+        let db = Firestore.firestore()
+        let ref = db.collection("Users")
+        
+        ref.document(userId).setData(["username": username, "userIcon": userIcon, "config" : config]) { error in
+            if error == nil {
+                self.user.username = username
+                self.user.userIcon = userIcon
+                self.user.config = config
+                self.didOnboarding = true
+            } else {
+                print(error?.localizedDescription as Any)
+            }
+        }
+    }
     
     
     

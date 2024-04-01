@@ -26,9 +26,9 @@ struct Clowy2App: App {
 //            MainScreenView()
 //                .environment(\.managedObjectContext, persistenceController.container.viewContext)
 //                .preferredColorScheme(.light)
-//            SplashScreen()
-//                .preferredColorScheme(.light)
-            OnboardingQuiz()
+            SplashScreen()
+                .preferredColorScheme(.light)
+//            OnboardingQuiz() 
         }
         .onChange(of: scenePhase) { (newScenePhase) in
             switch newScenePhase {

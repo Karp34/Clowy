@@ -7,9 +7,11 @@
 
 import SwiftUI
 
-struct User: Identifiable {
+struct User: Codable, Identifiable {
     var id: String
-    var name: String
-    var gender: String
+    var username: String
+//    var gender: String
+    var userIcon: String
+    var config: String
 }
 

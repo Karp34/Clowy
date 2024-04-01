@@ -9,6 +9,7 @@ import SwiftUI
 import AudioToolbox
 
 struct CustomSliderView: View {
+    @StateObject var viewModel = OnboardingQuizViewModel.shared
     @State var offset: CGFloat = 0
     let emojiList = GetEmojis.getEmojis()
     
@@ -20,11 +21,11 @@ struct CustomSliderView: View {
                 .frame(width: 15, height: 10)
                 .foregroundStyle(Color.primaryOrangeBrand)
             let pickerCount = emojiList.count
+            let chosenEmojiId = Int(((offset)/100).rounded(.toNearestOrAwayFromZero))
             CustomSlider(pickerCount: pickerCount, offset: $offset) {
                 HStack(spacing: 20) {
                     ForEach(emojiList, id: \.self) { emoji in
-                        let isChosen = emoji.id == Int(((offset)/100).rounded(.toNearestOrAwayFromZero))
-//                        let isChosen = emoji.id * 100 == Int(offset)
+                        let isChosen = emoji.id == chosenEmojiId
                         ZStack {
                             Circle()
                                 .foregroundStyle(Color(hex: emoji.color))
@@ -47,6 +48,13 @@ struct CustomSliderView: View {
                 .padding(.trailing, getRect().width-100)
                 .frame(height: 120)
                 .background(Color.primaryBackground)
+                .onChange(of: chosenEmojiId) {
+                    viewModel.user.userIcon = emojiList.first(where: { $0.id == chosenEmojiId})!.icon
+                    print(viewModel.user)
+                }
+                .onAppear {
+                    viewModel.user.userIcon = emojiList[0].icon
+                }
             }
         }
     }

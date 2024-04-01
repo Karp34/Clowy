@@ -11,7 +11,6 @@ import Firebase
 struct SplashScreen: View {
     @StateObject private var viewModel = MainScreenViewModel.shared
     @State var size = 0.8
-//    @State var offset: CGFloat = 300
     @State var isActive = false
     
     let persistenceController = PersistenceController.shared
@@ -19,43 +18,53 @@ struct SplashScreen: View {
     @Environment(\.scenePhase) var scenePhase
     
     var body: some View {
-//        GeometryReader { geometry in
-            if isActive {
+        if isActive {
+            if viewModel.appIsLive == "true" {
                 if viewModel.userIsLoggedIn {
-                    
-                    if viewModel.appIsLive == "false" {
-                        AppIsBlocked()
-                    } else {
+                    if viewModel.didOnboarding {
                         MainScreenView()
                             .environment(\.managedObjectContext, persistenceController.container.viewContext)
                             .preferredColorScheme(.light)
+                    } else {
+                        OnboardingQuiz()
                     }
+                    
                 } else {
                     LoginScreen()
                 }
             } else {
-                SunSplachScreen()
-                .onAppear {
-                    if UserDefaults.standard.bool(forKey: "launchedBefore") {
-                        viewModel.getCoordinates()
-                        viewModel.observeDeniedLocationAccess()
-                        viewModel.deviceLocationService.requestLocationUpdates()
+                AppIsBlocked()
+            }
+        } else {
+            SunSplachScreen()
+            .onAppear {
+                if UserDefaults.standard.bool(forKey: "launchedBefore") {
+                    viewModel.getCoordinates()
+                    viewModel.observeDeniedLocationAccess()
+                    viewModel.deviceLocationService.requestLocationUpdates()
+                    
+                    
+                    viewModel.fetchWardrobe() {}
+                    viewModel.fetchOutfits()
+                    
+                }
+                Auth.auth().addStateDidChangeListener { auth, user in
+                    if let user {
+                        viewModel.userId = user.uid
+                        viewModel.userIsLoggedIn.toggle()
                         
-                        viewModel.getUserId()
-                        viewModel.fetchWardrobe() {}
-                        viewModel.fetchOutfits()
-                    }
-                    Auth.auth().addStateDidChangeListener { auth, user in
-                        if user != nil {
-                            viewModel.userIsLoggedIn.toggle()
+                        viewModel.getUserInfo {
+                            if !viewModel.user.config.isEmpty {
+                                viewModel.didOnboarding = true
+                            }
                         }
                     }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.5 ) {
-                        self.isActive = true
-                    }
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.5 ) {
+                    self.isActive = true
                 }
             }
-//        } geometry
+        }
     }
 }
 
