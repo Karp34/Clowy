@@ -16,9 +16,10 @@ struct CustomFieldStyle: TextFieldStyle {
 }
 
 struct CustomFieldStyle2: TextFieldStyle {
+    var isFocused: Bool
     func _body(configuration: TextField<Self._Label>) -> some View {
         configuration
-            .font(.custom("Montserrat-Semibold", size: 32))
+            .font(.custom("Montserrat-Semibold", size: isFocused ? 32: 20))
             .foregroundColor(Color(hex: "#FFFFFF"))
     }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 import Firebase
 
-@available(iOS 14.0, *)
+@available(iOS 17.0, *)
 @main
 
 struct Clowy2App: App {
@@ -23,15 +23,11 @@ struct Clowy2App: App {
     
     var body: some Scene {
         WindowGroup {
-//            MainScreenView()
-//                .environment(\.managedObjectContext, persistenceController.container.viewContext)
-//                .preferredColorScheme(.light)
             SplashScreen()
                 .preferredColorScheme(.light)
-//            OnboardingQuiz() 
         }
-        .onChange(of: scenePhase) { (newScenePhase) in
-            switch newScenePhase {
+        .onChange(of: scenePhase) {
+            switch scenePhase {
             case .background:
                 print("Scene is in background")
 //                persistenceController.save()

@@ -76,7 +76,8 @@ struct TestLoginScreen: View {
                 .offset(y: 100)
 
                 Button {
-                    viewModel.login()
+                    viewModel.login{ _ in
+                    }
                 } label: {
                     Text("Already have an account? Login")
                         .bold()
@@ -91,7 +92,7 @@ struct TestLoginScreen: View {
             .onAppear {
                 Auth.auth().addStateDidChangeListener { auth, user in
                     if user != nil {
-                        viewModel.userIsLoggedIn.toggle()
+//                        viewModel.userIsLoggedIn.toggle()
                     }
                 }
             }

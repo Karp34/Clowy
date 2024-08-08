@@ -57,7 +57,10 @@ struct ProfileView: View {
                             primaryButton:  .default(Text("Yes")) {
                                 withAnimation {
                                     mainViewModel.signOut()
-                                    mainViewModel.userIsLoggedIn = false
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                                        mainViewModel.userIsLoggedIn = false
+                                        mainViewModel.clearViewModel()
+                                    }
                                 }
                                 print("Logout")
                             },
@@ -84,9 +87,6 @@ struct ProfileView: View {
             }
         }
         .navigationBarHidden(true)
-        .onAppear {
-            UIApplication.shared.setStatusBarStyle(.lightContent, animated: false)
-        }
         .background(Color(hex: "#F7F8FA").edgesIgnoringSafeArea(.all))
     }
 }

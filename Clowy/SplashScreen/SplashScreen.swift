@@ -21,14 +21,11 @@ struct SplashScreen: View {
         if isActive {
             if viewModel.appIsLive == "true" {
                 if viewModel.userIsLoggedIn {
-                    if viewModel.didOnboarding {
+                    if viewModel.user.didOnboarding {
                         MainScreenView()
-                            .environment(\.managedObjectContext, persistenceController.container.viewContext)
-                            .preferredColorScheme(.light)
                     } else {
                         OnboardingQuiz()
                     }
-                    
                 } else {
                     LoginScreen()
                 }
@@ -38,38 +35,37 @@ struct SplashScreen: View {
         } else {
             SunSplachScreen()
             .onAppear {
-                if UserDefaults.standard.bool(forKey: "launchedBefore") {
-                    viewModel.getCoordinates()
-                    viewModel.observeDeniedLocationAccess()
-                    viewModel.deviceLocationService.requestLocationUpdates()
-                    
-                    
-                    viewModel.fetchWardrobe() {}
-                    viewModel.fetchOutfits()
-                    
-                }
                 Auth.auth().addStateDidChangeListener { auth, user in
                     if let user {
                         viewModel.userId = user.uid
-                        viewModel.userIsLoggedIn.toggle()
-                        
+                        viewModel.userIsLoggedIn = true
                         viewModel.getUserInfo {
-                            if !viewModel.user.config.isEmpty {
-                                viewModel.didOnboarding = true
+                            if viewModel.user.id != "" {
+                                viewModel.fetchWardrobe() {}
+                                viewModel.fetchOutfits()
                             }
                         }
                     }
                 }
+                viewModel.getCoordinates()
+                viewModel.observeDeniedLocationAccess()
+                viewModel.deviceLocationService.requestLocationUpdates()
+                
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.5 ) {
                     self.isActive = true
                 }
+               
+                
+//                if UserDefaults.standard.bool(forKey: "launchedBefore") {
+//                    viewModel.getCoordinates()
+//                    viewModel.observeDeniedLocationAccess()
+//                    viewModel.deviceLocationService.requestLocationUpdates()
+//                    
+//                    
+//                    viewModel.fetchWardrobe() {}
+//                    viewModel.fetchOutfits()
+//                }
             }
         }
-    }
-}
-
-struct SplashScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        SplashScreen()
     }
 }

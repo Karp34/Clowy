@@ -12,6 +12,7 @@ struct LoginFirstPage: View {
     @State var emailIsValid = false
     @State var checkCount = 0
     @State var isEditing = false
+    @State var showError = false
     
     func isValidEmail(_ email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
@@ -100,10 +101,17 @@ struct LoginFirstPage: View {
                     
                     .padding(.bottom, 16)
 
+                var loginError = ""
+                
                 Button {
                     withAnimation {
                         viewModel.showSecondPage = true
-                        viewModel.login()
+                        viewModel.login { errorMessage in
+                            if (errorMessage != nil) {
+                                loginError = errorMessage!
+                                showError.toggle()
+                            }
+                        }
                     }
                     
                 } label: {
@@ -119,7 +127,9 @@ struct LoginFirstPage: View {
                 .buttonStyle(DefaultColorButtonStyle(color: "#678CD4", radius: 24))
                 .disabled(emailIsValid && viewModel.userPassword.count > 2 ? false : true )
                 .padding(.vertical, 16)
-                
+                .alert(isPresented: $showError) {
+                    Alert(title: Text("Login Error"), message: Text(loginError), dismissButton: Alert.Button.cancel())
+                }
             }
             .shadow(color:Color(hex: "#646C75").opacity(0.1), radius: 30, y: 4)
             

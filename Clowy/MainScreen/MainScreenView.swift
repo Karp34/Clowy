@@ -14,7 +14,7 @@ struct MainScreenView: View, DaysForecastViewDelegate {
     
     @StateObject private var viewModel = MainScreenViewModel.shared
     @Environment(\.managedObjectContext) var managedObjectContext
-    
+    @State private var tabState: Visibility = .hidden
     
     
     
@@ -52,7 +52,7 @@ struct MainScreenView: View, DaysForecastViewDelegate {
     
     var body: some View {
         let listOfOutfits = viewModel.fittingOutfitsResponse.first(where: { $0.id == viewModel.selectedId })?.outfits ?? []
-        NavigationView {
+        NavigationStack {
             ZStack {
                 GeometryReader { g in
                     ScrollView(.vertical, showsIndicators: false) {
@@ -60,12 +60,11 @@ struct MainScreenView: View, DaysForecastViewDelegate {
                             NavigationLink(
                                 destination: ProfileView()
                             ) {
-                                GreetingView(color: viewModel.chosenWeather.color)
-                                    .padding(.horizontal, 24)
-                                    .padding(.bottom, 32)
-                                    .padding(.top, 24)
-                                
+                                GreetingView(color: viewModel.chosenWeather.color, username: viewModel.user.username, avatar: viewModel.user.userIcon)
                             }
+                            .padding(.horizontal, 24)
+                            .padding(.bottom, 32)
+                            .padding(.top, 24)
                             .buttonStyle(NoAnimationButtonStyle())
                             
                             WeatherForecastView(
@@ -200,19 +199,12 @@ struct MainScreenView: View, DaysForecastViewDelegate {
                 }
             }
         }
+        .navigationTitle("Hello")
+        .toolbar(tabState, for: .navigationBar)
     }
     
     func dayIsChanged(id: Int) {
         viewModel.changeWeather(id: id)
         backgroundOffset = 0
-    }
-}
-
-struct MainScreenView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            MainScreenView()
-                .previewDevice("iPhone 12 mini")
-        }
     }
 }

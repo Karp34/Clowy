@@ -54,7 +54,6 @@
 		BA1591FF273FE7560010CD56 /* ClowyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1591FE273FE7560010CD56 /* ClowyUITestsLaunchTests.swift */; };
 		BA18B2CB2B9E30D600B98161 /* ColorsExtesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA18B2CA2B9E30D600B98161 /* ColorsExtesion.swift */; };
 		BA18B2CE2B9E325600B98161 /* RandomCirclesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA18B2CD2B9E325500B98161 /* RandomCirclesView.swift */; };
-		BA1D0511299AFD23000D2903 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA1D0510299AFD23000D2903 /* GoogleService-Info.plist */; };
 		BA23DF0928F737F8008C1A0B /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA23DF0828F737F8008C1A0B /* Buttons.swift */; };
 		BA3699C529E32D3600678001 /* Repeate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3699C429E32D3600678001 /* Repeate.swift */; };
 		BA396DF02817329800BD63A8 /* GetOutfits.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA396DEF2817329800BD63A8 /* GetOutfits.swift */; };
@@ -137,6 +136,8 @@
 		BA86934A28F52C1A008F37EB /* ClothImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA86934928F52C1A008F37EB /* ClothImage.swift */; };
 		BA86934C28F69685008F37EB /* TestTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA86934B28F69685008F37EB /* TestTextView.swift */; };
 		BA86934E28F6B5A8008F37EB /* PlaceholderErrorCities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA86934D28F6B5A8008F37EB /* PlaceholderErrorCities.swift */; };
+		BA92992B2C628B3C00348548 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA1D0510299AFD23000D2903 /* GoogleService-Info.plist */; };
+		BA92992D2C63F0B700348548 /* RetryOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA92992C2C63F0B700348548 /* RetryOnboardingView.swift */; };
 		BA9C23C728D2514C00DDDB54 /* WaterfallGrid in Frameworks */ = {isa = PBXBuildFile; productRef = BA3336782799AFB200E88B68 /* WaterfallGrid */; };
 		BA9C23C928D265A100DDDB54 /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9C23C828D265A100DDDB54 /* MainScreenViewModel.swift */; };
 		BA9C23CC28D4E80C00DDDB54 /* StartScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9C23CB28D4E80C00DDDB54 /* StartScreenView.swift */; };
@@ -342,6 +343,7 @@
 		BA86934928F52C1A008F37EB /* ClothImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothImage.swift; sourceTree = "<group>"; };
 		BA86934B28F69685008F37EB /* TestTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTextView.swift; sourceTree = "<group>"; };
 		BA86934D28F6B5A8008F37EB /* PlaceholderErrorCities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderErrorCities.swift; sourceTree = "<group>"; };
+		BA92992C2C63F0B700348548 /* RetryOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryOnboardingView.swift; sourceTree = "<group>"; };
 		BA9C23C828D265A100DDDB54 /* MainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModel.swift; sourceTree = "<group>"; };
 		BA9C23CB28D4E80C00DDDB54 /* StartScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenView.swift; sourceTree = "<group>"; };
 		BA9C23CF28D8B91E00DDDB54 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -534,6 +536,7 @@
 		BA1591E0273FE7530010CD56 /* Clowy */ = {
 			isa = PBXGroup;
 			children = (
+				BA1D0510299AFD23000D2903 /* GoogleService-Info.plist */,
 				BA18B2CC2B9E322300B98161 /* OnboardingQuiz */,
 				BA1591E5273FE7560010CD56 /* Assets.xcassets */,
 				BA1591E1273FE7530010CD56 /* ClowyApp.swift */,
@@ -541,7 +544,6 @@
 				BA6E586C299AD6C80043DA64 /* Deprecated */,
 				BA3E18482746B98E0070F4EF /* Extensions */,
 				BAEC625D274E751B009E69E5 /* Fonts */,
-				BA1D0510299AFD23000D2903 /* GoogleService-Info.plist */,
 				BA9C23CE28D8B90A00DDDB54 /* LocationManager */,
 				BAB79A9C2992F7000042A107 /* LoginScreen */,
 				BA75B7DC2746AEC30091A797 /* MainScreen */,
@@ -836,6 +838,7 @@
 				BAC19535287F6B8E00FB109B /* NotificationsView.swift */,
 				BAC19537287F6DD500FB109B /* InformationView.swift */,
 				BAC195392880AACA00FB109B /* SwiftUISlider.swift */,
+				BA92992C2C63F0B700348548 /* RetryOnboardingView.swift */,
 			);
 			path = ProfileSubViews;
 			sourceTree = "<group>";
@@ -1089,7 +1092,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA1591E9273FE7560010CD56 /* Preview Assets.xcassets in Resources */,
-				BA1D0511299AFD23000D2903 /* GoogleService-Info.plist in Resources */,
 				BA5639E029CB5B1900912361 /* clouds.gif in Resources */,
 				75CAA6D72AF6CC4E003CA48C /* Montserrat-Bold.ttf in Resources */,
 				BA5639DB29CB352200912361 /* rain.gif in Resources */,
@@ -1098,6 +1100,7 @@
 				75CAA6CF2AF6CB52003CA48C /* thunder.gif in Resources */,
 				758A1E0D2B330C2E006AE7B6 /* sunset.gif in Resources */,
 				75CAA6D62AF6CC4E003CA48C /* Montserrat-SemiBold.ttf in Resources */,
+				BA92992B2C628B3C00348548 /* GoogleService-Info.plist in Resources */,
 				75734C422B2484E0001DC535 /* Pacifico-Regular.ttf in Resources */,
 				75CAA6CD2AF6CB48003CA48C /* sunrise.gif in Resources */,
 				BA1591E6273FE7560010CD56 /* Assets.xcassets in Resources */,
@@ -1274,6 +1277,7 @@
 				BA6E5872299AD7830043DA64 /* NewWardrobeScreenPlaceholder.swift in Sources */,
 				BA86934C28F69685008F37EB /* TestTextView.swift in Sources */,
 				BA12D0FE2776041600F91349 /* GetClothes.swift in Sources */,
+				BA92992D2C63F0B700348548 /* RetryOnboardingView.swift in Sources */,
 				BAC3C28628F29F2A00B32AE0 /* NoClothesPlaceholder.swift in Sources */,
 				75B803DC2B498A790018837B /* LocationService.swift in Sources */,
 				BAD948BF299AEB6D00F2A047 /* OutfitView.swift in Sources */,
@@ -1572,7 +1576,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = karpcorp.Clowy;
+				PRODUCT_BUNDLE_IDENTIFIER = karpcorp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1609,7 +1613,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = karpcorp.Clowy;
+				PRODUCT_BUNDLE_IDENTIFIER = karpcorp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

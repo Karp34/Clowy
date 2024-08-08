@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct InformationView: View {
+    @StateObject var onboardingViewModel = OnboardingQuizViewModel.shared
     var versionNumber = "1.0.0"
     
     var body: some View {
@@ -17,25 +18,39 @@ struct InformationView: View {
             VStack (alignment: .leading, spacing: 16){
                 NavigationLink {
                     ColorImagesView()
-////                        .foregroundColor(.red)
                 } label: {
                     Text("Privacy policy")
                         .foregroundColor(Color(hex: "#646C75"))
                         .font(.custom("Montserrat-Medium", size: 16))
                 }
-
-//                Text("Privacy policy")
-//                    .foregroundColor(Color(hex: "#646C75"))
-//                    .font(.custom("Montserrat-Medium", size: 16))
                 Rectangle()
                     .foregroundColor(Color(hex: "#DADADA"))
                     .frame(height: 1)
+                
                 Text("Documents")
                     .foregroundColor(Color(hex: "#646C75"))
                     .font(.custom("Montserrat-Medium", size: 16))
                 Rectangle()
                     .foregroundColor(Color(hex: "#DADADA"))
                     .frame(height: 1)
+                
+                Button {
+                    onboardingViewModel.didRetryOnboarding.toggle()
+                } label: {
+                    Text("Onboarding")
+                        .foregroundColor(Color(hex: "#646C75"))
+                        .font(.custom("Montserrat-Medium", size: 16))
+                }
+                .sheet(isPresented: $onboardingViewModel.didRetryOnboarding, onDismiss: {
+                    onboardingViewModel.clearViewModel()
+                }) {
+                    OnboardingQuiz()
+                        .padding(.top, 8)
+                }
+                Rectangle()
+                    .foregroundColor(Color(hex: "#DADADA"))
+                    .frame(height: 1)
+                
                 HStack {
                     Text("About the application")
                         .foregroundColor(Color(hex: "#646C75"))
@@ -50,11 +65,5 @@ struct InformationView: View {
             .padding(16)
         }
         .shadow(color: Color(hex: "#273145").opacity(0.1), radius: 35, x: 0, y: 8)
-    }
-}
-
-struct InformationView_Previews: PreviewProvider {
-    static var previews: some View {
-        InformationView()
     }
 }

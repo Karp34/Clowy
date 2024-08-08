@@ -32,7 +32,3 @@ struct SunSplachScreen: View {
         .ignoresSafeArea(.all)
     }
 }
-//
-//#Preview {
-//    SunSplachScreen()
-//}

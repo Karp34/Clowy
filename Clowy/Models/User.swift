@@ -13,5 +13,14 @@ struct User: Codable, Identifiable {
 //    var gender: String
     var userIcon: String
     var config: String
+    var didOnboarding: Bool
+    var preferedStyle: String
+    var hatTemperature: String
+    var isTshirtUnder: Bool
+    var excludedClothes: [String]
+    var skirtPairings: [String]
+    var skirtWeather: [String]
+    var dressPairings: [String]
+    var dressWeather: [String]
 }
 

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct NewWardrobeScreen: View {
     @StateObject private var viewModel = MainScreenViewModel.shared
-    @Environment(\.managedObjectContext) var managedObjectContext
+//    @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State private var isShowingSheet = false
     
@@ -73,9 +73,6 @@ struct NewWardrobeScreen: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
         }
-//        .onAppear {
-//            viewModel.wardrobe.removeAll()
-//        }
         .navigationBarTitle("My Wardrobe")
         .navigationBarHidden(false)
         .navigationBarTitleDisplayMode(.inline)

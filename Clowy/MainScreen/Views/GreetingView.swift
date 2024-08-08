@@ -9,8 +9,8 @@ import SwiftUI
 
 struct GreetingView: View {
     var color: String
-    var username = UserDefaults.standard.string(forKey: "username")
-    var avatar = UserDefaults.standard.string(forKey: "avatar") ?? "Panda"
+    var username: String
+    var avatar: String
     
     @State var identifier = "en"
     
@@ -48,17 +48,12 @@ struct GreetingView: View {
                 Text(myCurrentDate)
                     .font(.custom("Montserrat-Regular", size: 12))
                     .foregroundColor(Color(hex: "#646C75"))
-                Text("Hello, " + (username ?? "Username"))
+                Text("Hello, " + (username))
                     .font(.custom("Montserrat-SemiBold", size: 20))
                     .foregroundColor(Color(hex: "#23232D"))
             }
             Spacer()
         }
-    }
-}
-
-struct GreetingView_Previews: PreviewProvider {
-    static var previews: some View {
-        GreetingView(color: "")
+        .frame(height: 48)
     }
 }

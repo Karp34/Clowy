@@ -48,8 +48,9 @@ struct QuizOptionButton: View {
                     .animation(.interactiveSpring(response: 0.9, dampingFraction: 0.8, blendDuration: 0.5).delay(currentPage == index ? delay : 0), value: currentPage)
                     .onTapGesture {
                         if viewModel.questions[index-1].answer.contains(option) {
-                            let index = viewModel.questions[index-1].answer.firstIndex(of: option)!
-                            viewModel.questions[index-1].answer.remove(at: index)
+                            if let answerIndex = viewModel.questions[index-1].answer.firstIndex(of: option) {
+                                viewModel.questions[index-1].answer.remove(at: answerIndex)
+                            }
                         } else {
                             viewModel.questions[index-1].answer.append(option)
                         }

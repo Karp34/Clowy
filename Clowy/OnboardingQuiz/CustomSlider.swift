@@ -10,6 +10,7 @@ import AudioToolbox
 
 struct CustomSliderView: View {
     @StateObject var viewModel = OnboardingQuizViewModel.shared
+    @StateObject var mainViewModel = MainScreenViewModel.shared
     @State var offset: CGFloat = 0
     let emojiList = GetEmojis.getEmojis()
     
@@ -49,11 +50,10 @@ struct CustomSliderView: View {
                 .frame(height: 120)
                 .background(Color.primaryBackground)
                 .onChange(of: chosenEmojiId) {
-                    viewModel.user.userIcon = emojiList.first(where: { $0.id == chosenEmojiId})!.icon
-                    print(viewModel.user)
+                    mainViewModel.user.userIcon = emojiList.first(where: { $0.id == chosenEmojiId})!.icon
                 }
                 .onAppear {
-                    viewModel.user.userIcon = emojiList[0].icon
+                    mainViewModel.user.userIcon = emojiList[0].icon
                 }
             }
         }

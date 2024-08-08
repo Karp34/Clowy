@@ -477,12 +477,27 @@ class MainScreenViewModel: ObservableObject {
         }
     }
     
-    func login() {
+    func login(completion: @escaping (String?) -> ()) {
         Auth.auth().signIn(withEmail: userEmail, password: userPassword) { result, error in
+            var errorMessage: String? = nil
             if error != nil {
                 print(error!.localizedDescription)
+                errorMessage = error!.localizedDescription
+                completion(errorMessage)
+            } else {
+                self.getUserInfo() {
+                    if self.user.didOnboarding {
+//                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+                            print("did onboarding")
+                            self.user.didOnboarding = true
+                            self.userIsLoggedIn = true
+//                        }
+                    } else {
+                        self.userIsLoggedIn = true
+                    }
+                    completion(errorMessage)
+                }
             }
-            self.userIsLoggedIn.toggle()
         }
     }
     
@@ -501,8 +516,7 @@ class MainScreenViewModel: ObservableObject {
     }
     
     func resetUserData() {
-        user = User(id: "", username: "", userIcon: "", config: "")
-        didOnboarding = false
+        user = User(id: "", username: "", userIcon: "", config: "", didOnboarding: false, preferedStyle: "", hatTemperature: "", isTshirtUnder: true, excludedClothes: [], skirtPairings: [], skirtWeather: [], dressPairings: [], dressWeather: [])
         clothes.removeAll()
         outfits.removeAll()
     }
@@ -511,8 +525,7 @@ class MainScreenViewModel: ObservableObject {
     
     
     //Create and edit user's data feature
-    @Published var user = User(id: "", username: "", userIcon: "", config: "")
-    @Published var didOnboarding = false
+    @Published var user = User(id: "", username: "", userIcon: "", config: "", didOnboarding: false, preferedStyle: "", hatTemperature: "", isTshirtUnder: true, excludedClothes: [], skirtPairings: [], skirtWeather: [], dressPairings: [], dressWeather: [])
     
     func getUserInfo(completion: @escaping () -> ()) {
         let db = Firestore.firestore()
@@ -532,43 +545,49 @@ class MainScreenViewModel: ObservableObject {
                     let username = data["username"] as? String ?? ""
                     let userIcon = data["userIcon"] as? String ?? ""
                     let config = data["config"] as? String ?? ""
+                    let didOnboarding = data["didOnboarding"] as? Bool ?? false
+                    let preferedStyle = data["preferedStyle"] as? String ?? ""
+                    let hatTemperature = data["hatTemperature"] as? String ?? ""
+                    let isTshirtUnder = data["isTshirtUnder"] as? Bool ?? false
+                    let excludedClothes = data["excludedClothes"] as? [String] ?? []
+                    let skirtPairings = data["skirtPairings"] as? [String] ?? []
+                    let skirtWeather = data["skirtWeather"] as? [String] ?? []
+                    let dressPairings = data["dressPairings"] as? [String] ?? []
+                    let dressWeather = data["dressWeather"] as? [String] ?? []
                     
-                    self.user = User(id: id, username: username, userIcon: userIcon, config: config)
+                    self.user = User(id: id, username: username, userIcon: userIcon, config: config, didOnboarding: didOnboarding, preferedStyle: preferedStyle, hatTemperature: hatTemperature, isTshirtUnder: isTshirtUnder, excludedClothes: excludedClothes, skirtPairings: skirtPairings, skirtWeather: skirtWeather, dressPairings: dressPairings, dressWeather: dressWeather)
                     print("User data received \(self.user)")
+                    completion()
                 }
-                completion()
             }
         }
     }
     
-//    func createUser(username: String, userIcon: String, config: String) {
-//        let db = Firestore.firestore()
-//        let ref = db.collection("Users")
-//        
-//        ref.addDocument(data: ["username": username, "userIcon": userIcon, "config" : config]) { error in
-//            if error == nil {
-//                self.mainViewModel.fetchWardrobe() {
-//                    
-//                    self.mainViewModel.getRightOutfits()
-//                }
-//            } else {
-//                print(error?.localizedDescription)
-//            }
-//        }
-//    }
-    
-    func updateUser(username: String, userIcon: String, config: String) {
+    func updateUser(completion: @escaping (String?) -> ()) {
         let db = Firestore.firestore()
         let ref = db.collection("Users")
+        var errorMessage: String? = nil
         
-        ref.document(userId).setData(["username": username, "userIcon": userIcon, "config" : config]) { error in
-            if error == nil {
-                self.user.username = username
-                self.user.userIcon = userIcon
-                self.user.config = config
-                self.didOnboarding = true
-            } else {
+        ref.document(userId).setData([
+            "username": user.username,
+            "userIcon": user.userIcon,
+            "config" : user.config,
+            "didOnboarding" : user.didOnboarding,
+            "preferedStyle" : user.preferedStyle,
+            "hatTemperature" : user.hatTemperature,
+            "isTshirtUnder" : user.isTshirtUnder,
+            "excludedClothes": user.excludedClothes,
+            "skirtPairings": user.skirtPairings,
+            "skirtWeather": user.skirtWeather,
+            "dressPairings": user.dressPairings,
+            "dressWeather": user.dressWeather
+        ]) { error in
+            if error != nil {
                 print(error?.localizedDescription as Any)
+                errorMessage = error!.localizedDescription
+                completion(errorMessage)
+            } else {
+                completion(errorMessage)
             }
         }
     }
@@ -1015,6 +1034,41 @@ class MainScreenViewModel: ObservableObject {
     @Published var NormalRegularConfig = RemoteConfigManager.getOutfitConfig(forKey: RCKey.NormalRegularConfig)
     @Published var NormalWarmConfig = RemoteConfigManager.getOutfitConfig(forKey: RCKey.NormalWarmConfig)
     @Published var NormalHotConfig = RemoteConfigManager.getOutfitConfig(forKey: RCKey.NormalHotConfig)
+    
+    
+    //Clear ViewModel
+    func clearViewModel() {
+        weather = ResponseBodyForecastAPI(cod: "100", message: 0, cnt: 0, list: [], city: CityResponse(id: 0, name: "", country: "", population: 0, timezone: 0, sunrise: 0, sunset: 0))
+        chosenWeather = Weather(code: 100, name: "Clouds", color: "#B1B4B8", icon: "cloud", temp: 0, humidity: 99, windSpeed: 2)
+        selectedId = 0
+        days = []
+        
+        stateCityName = .placeholder
+        geonamesResponse = GeonamesResponse(totalResultsCount: 0, geonames: [])
+        cityNames = []
+        
+        deviceLocationService = DeviceLocationService.shared
+        tokens = []
+        coordinates = nil
+        coordinatesReceived = false
+        
+        userIsLoggedIn = false
+        userEmail = ""
+        userPassword = ""
+        showSecondPage = false
+        userId = ""
+        
+        user = User(id: "", username: "", userIcon: "", config: "", didOnboarding: false, preferedStyle: "", hatTemperature: "", isTshirtUnder: true, excludedClothes: [], skirtPairings: [], skirtWeather: [], dressPairings: [], dressWeather: [])
+        clothes = []
+        wardrobe = []
+        wardrobeState = .placeholder
+        
+        outfits = []
+        outfitState = .placeholder
+        
+        fittingOutfitsResponse = []
+        notRealClothesTemps = []
+    }
     
     //Deprecated
     
