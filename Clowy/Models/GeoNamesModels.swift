@@ -32,5 +32,5 @@ struct AdminCodes1: Codable {
 
 struct GeonamesResponse: Codable {
     let totalResultsCount: Int
-    let geonames: [Geoname]
+    var geonames: [Geoname]
 }

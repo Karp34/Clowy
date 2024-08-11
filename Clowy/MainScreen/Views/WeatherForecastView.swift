@@ -22,7 +22,7 @@ struct WeatherForecastView: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 16.0)
                     .foregroundColor((Color(hex: color)))
-                    .frame(height: 80.0)
+                    .frame(height: 80)
                 if name == "Rain" {
                     SwiftUIGIFPlayerView(gifName: "rain")
                         .scaledToFill()
@@ -85,8 +85,9 @@ struct WeatherForecastView: View {
                     
                     Spacer()
                     Image(systemName: icon)
-                        .font(.largeTitle)
-                        .frame(width: 56, height: 56)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 45, height: 40)
                 }
                 .multilineTextAlignment(.leading)
                 .foregroundColor(.white)

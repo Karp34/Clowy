@@ -15,9 +15,10 @@ struct ChooseLocationView: View {
     @State var chosenLocation = UserDefaults.standard.string(forKey: "location")
     @State var isGeoposition = UserDefaults.standard.bool(forKey: "isGeoposition")
     @State var locationHistory = UserDefaults.standard.object(forKey: "locationHistory") as? [String] ?? []
+    @FocusState private var isTextFieldFocused: Bool
     
     var body: some View {
-        VStack(spacing:0) {
+        VStack(alignment: .leading, spacing: 24) {
             HStack {
                 Spacer()
                 RoundedRectangle(cornerRadius: 16)
@@ -25,282 +26,258 @@ struct ChooseLocationView: View {
                     .foregroundColor(Color(hex: "#646C75"))
                 Spacer()
             }
-            .padding(.top, 8)
             
-            ScrollView(.vertical, showsIndicators: false) {
-                VStack (alignment: .leading, spacing: 16) {
-                    
-                    
-                    Text("Choose location")
-                        .foregroundColor(Color(hex: "#646C75"))
-                        .font(.custom("Montserrat-SemiBold", size: 22))
-                        .padding(.top, 8)
-                    
-                    VStack(alignment: .leading, spacing: 8) {
-                        if location.count > 0 {
-                            Text("Input location name")
-                                .font(.custom("Montserrat-Normal", size: 10))
-                                .foregroundColor(Color(hex: "#909BA8"))
+            Text("Choose location")
+                .foregroundColor(Color(hex: "#646C75"))
+                .font(.custom("Montserrat-SemiBold", size: 22))
+            
+            VStack(alignment: .leading, spacing: 8) {
+                HStack {
+                    ZStack(alignment: .leading) {
+                        let textHint = viewModel.cityNames.isEmpty ? "" : viewModel.cityNames.first(where: { $0.starts(with: location)}) ?? ""
+                        if isChangingLocation {
+                            if textHint.starts(with: location) && location.count > 0 {
+                                Text(textHint)
+                                    .font(.custom("Montserrat-SemiBold", size: 16))
+                                    .foregroundColor(Color(hex: "#A6B3C2"))
+                                    .onTapGesture {
+                                        location = viewModel.cityNames[0]
+                                    }
+                            }
                         }
-                        HStack {
-                            ZStack(alignment: .leading) {
-                                let textHint = viewModel.cityNames.isEmpty ? "" : viewModel.cityNames.first(where: { $0.starts(with: location)}) ?? ""
-                                if isChangingLocation == true {
-                                    if textHint.starts(with: location) && location.count > 0 {
-                                        Text(textHint)
-                                            .font(.custom("Montserrat-SemiBold", size: 16))
-                                            .foregroundColor(Color(hex: "#A6B3C2"))
-                                            .onTapGesture {
-                                                location = viewModel.cityNames[0]
-                                            }
-                                    }
-                                }
-                                TextField("Input location name",
-                                    
-                                    text: $location,
-                                    
-                                    onEditingChanged: { isEditing in
-                                        if isEditing {
-                                            print("isEditing")
-                                            if location.count > 2 {
-                                                viewModel.getCityName(prefixName: location)
-                                                print("CITY NAMES")
-                                                print(viewModel.cityNames)
-                                            }
-                                            withAnimation {
-                                                isChangingLocation = true
-                                            }
-                                        }
-                                    },
-                                    
-                                    onCommit: {
-                                        withAnimation {
-                                            if !viewModel.cityNames.isEmpty {
-                                                location = viewModel.cityNames[0]
-                                            }
-                                            if location.trimmingCharacters(in: .whitespaces).count > 0  && location.starts(with: " ") == false {
-                                                chosenLocation = location
-                                                UserDefaults.standard.set(chosenLocation, forKey: "location")
-                                                
-                                                if !locationHistory.contains(location) {
-                                                    locationHistory.remove(at: 4)
-                                                    locationHistory.insert(location, at: 0)
-                                                    
-                                                    UserDefaults.standard.set(locationHistory, forKey: "locationHistory")
-                                                }
-                                                
-                                                if isGeoposition == true {
-                                                    isGeoposition = false
-                                                    UserDefaults.standard.set(isGeoposition, forKey: "isGeoposition")
-                                                }
-                                            }
-                                            isChangingLocation = false
-                                        }
-                                    }
-                                )
-                                .onChange(of: location) { newValue in
-                                    print(newValue)
-                                    if newValue != "" {
-                                        print("changed")
-                                        withAnimation {
-                                            isChangingLocation = true
-                                        }
-                                    }
-                                    if newValue.count > 2 {
-                                        print(location)
-                                        viewModel.getCityName(prefixName: newValue)
-                                        print("CITY NAMES")
-                                        print(viewModel.cityNames)
-                                    }
-                                }
-                                .textFieldStyle(CustomFieldStyle())
-                                .multilineTextAlignment(.leading)
-                                
-//                                .onChange(of: location, perform: { _ in
-//                                    if location != "" {
-//                                        print("changed")
-//                                        withAnimation {
-//                                            isChangingLocation = true
+                        TextField("Input location name", text: $location,
+                            
+                            onEditingChanged: { isEditing in
+                                if isEditing {
+                                    print("isEditing")
+//                                    if location.count > 2 {
+//                                        viewModel.getCityName(prefixName: location) {
+//                                            print("onEditingChanged")
+//                                            print("CITY NAMES")
+//                                            print(viewModel.cityNames)
 //                                        }
 //                                    }
-//                                    if location.count > 2 {
-//                                        print(location)
-//                                        viewModel.getCityName(prefixName: location)
-//                                        print("CITY NAMES")
-//                                        print(viewModel.cityNames)
-//                                    }
-//                                })
-                            }
-                            
-                            Spacer()
-                            
-                            if location.count > 0 {
-                                Image(systemName: "xmark")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .foregroundColor(Color(hex: "#646C75"))
-                                    .frame(width: 14, height: 14)
-                                    .onTapGesture {
-                                        location = ""
+                                    withAnimation {
+                                        isChangingLocation = true
                                     }
-                            }
-                        }
-                        Rectangle()
-                            .frame(height: 1)
-                            .foregroundColor(location.count > 0 ? Color(hex: "#646C75") : Color(hex: "#DADADA"))
-                    }
-                    .frame(height: 52, alignment: .bottom)
-                    
-                    
-
-                    if isChangingLocation {
-                        if location.count > 0 {
-                            if viewModel.stateCityName == .success {
-                                let capitals: [String] = viewModel.cityNames
-                                VStack (alignment: .leading, spacing: 16) {
-                                    ForEach (capitals, id:\.self) { city in
-                                        Text(city)
-                                            .foregroundColor(Color(hex: "#646C75"))
-                                            .font(.custom("Montserrat-Medium", size: 16))
-                                            .padding(.leading, 16)
-                                            .onTapGesture {
-                                                withAnimation {
-                                                    chosenLocation = city
-                                                    UserDefaults.standard.set(chosenLocation, forKey: "location")
-                                                    
-                                                    if !locationHistory.contains(city) {
-                                                        locationHistory.remove(at: 4)
-                                                        locationHistory.insert(city, at: 0)
-                                                        
-                                                        UserDefaults.standard.set(locationHistory, forKey: "locationHistory")
-                                                    }
-                                                    isChangingLocation = false
-                                                    location = ""
-                                                    viewModel.cityNames = []
-                                                }
-                                            }
+                                }
+                            },
+                            
+                            onCommit: {
+                                withAnimation {
+                                    if !viewModel.cityNames.isEmpty {
+                                        location = viewModel.cityNames[0]
+                                    }
+                                    let finalLocation = location.trimmingCharacters(in: .whitespaces)
+                                    if finalLocation.count > 0 {
+                                        chosenLocation = finalLocation
+                                        UserDefaults.standard.set(chosenLocation, forKey: "location")
                                         
-                                        RoundedRectangle(cornerRadius: 16)
-                                            .frame(height: 1)
-                                            .foregroundColor(Color(hex: "#DADADA")).opacity(0.5)
-                                    }
-                                    
-                                }
-                                .padding(.top, 30)
-                            }
-                            if viewModel.stateCityName == .error {
-                                PlaceholderErrorCities()
-                            }
-                            if viewModel.stateCityName == .placeholder {
-                                PlaceholderCities()
-                            }
-                        } else {
-                            PlaceholderCities()
-                        }
-                    } else {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 16)
-                                .foregroundColor(.white)
-                            HStack {
-                                if isGeoposition == true {
-                                    Image(systemName: "location.fill")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .foregroundColor(Color(hex: "#678CD4"))
-                                        .frame(width: 20, height: 20)
-                                } else {
-                                    Image(systemName: "location")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .foregroundColor(Color(hex: "#646C75"))
-                                        .frame(width: 20, height: 20)
-                                }
-                                Text("Current geoposition")
-                                    .foregroundColor(Color(hex: "#646C75"))
-                                    .font(.custom("Montserrat-Medium", size: 14))
-                                Spacer()
-                                if isGeoposition == true {
-                                    ZStack {
-                                        Circle()
-                                            .foregroundColor(.green)
-                                            .frame(width: 18, height: 18)
-                                        Image("Ok")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .foregroundColor(.white)
-                                            .frame(width: 12, height: 12)
-                                    }
-                                }
-                                
-                            }
-                            .padding(.horizontal, 16)
-                        }
-                        .padding(.top, 8)
-                        .shadow(color: Color(hex: "#273145").opacity(0.1), radius: 35, x: 0, y: 8)
-                        .frame(height: 56)
-                        .onTapGesture {
-                            isGeoposition.toggle()
-                            UserDefaults.standard.set(isGeoposition, forKey: "isGeoposition")
-    //                        print(chosenLocation)
-    //                        print("AAAAAA")
-    //                        print(isGeoposition)
-    //                        print(UserDefaults.standard.string(forKey: "location"))
-                        }
-                        
-                        if !locationHistory.isEmpty {
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 16)
-                                    .foregroundColor(.white)
-                                VStack(spacing: 16) {
-                                    ForEach (0..<locationHistory.count, id:\.self) { item in
-                                        if item != 0 {
-                                            Rectangle()
-                                                .foregroundColor(Color(hex: "#DADADA")).opacity(0.5)
-                                                .frame(height: 1)
+                                        if !locationHistory.contains(location) {
+                                            locationHistory.remove(at: 4)
+                                            locationHistory.insert(location, at: 0)
+                                            
+                                            UserDefaults.standard.set(locationHistory, forKey: "locationHistory")
                                         }
-                                        ZStack {
-                                            Rectangle()
-                                                .foregroundColor(.white)
-                                            HStack {
-                                                Text(locationHistory[item])
-                                                    .foregroundColor(Color(hex: "#646C75"))
-                                                    .font(.custom("Montserrat-Medium", size: 14))
-                                                Spacer()
-                                                if chosenLocation == locationHistory[item] && isGeoposition == false {
-                                                    ZStack {
-                                                        Circle()
-                                                            .foregroundColor(.green)
-                                                            .frame(width: 18, height: 18)
-                                                        Image("Ok")
-                                                            .resizable()
-                                                            .scaledToFit()
-                                                            .foregroundColor(.white)
-                                                            .frame(width: 12, height: 12)
-                                                    }
-                                                }
-                                            }
-                                        }
-                                        .frame(height: 18)
-                                        .onTapGesture {
-                                            chosenLocation = locationHistory[item]
-                                            UserDefaults.standard.set(chosenLocation, forKey: "location")
+                                        
+                                        if isGeoposition {
                                             isGeoposition = false
                                             UserDefaults.standard.set(isGeoposition, forKey: "isGeoposition")
                                         }
                                     }
+                                    isChangingLocation = false
                                 }
-                                .padding(16)
                             }
-                            .padding(.top, 8)
-                            
+                        )
+                        .onChange(of: location) {
+                            print("location", location.isEmpty ? "is Empty" : location)
+                            if location.count > 2 {
+                                viewModel.getCityName(prefixName: location) {
+                                    print("location2", location.isEmpty ? "is Empty" : location)
+                                    print("Change of location")
+                                    print("CITY NAMES")
+                                    print(viewModel.cityNames)
+                                    print("-----------")
+                                }
+                            }
                         }
-                            
+                        .textFieldStyle(CustomFieldStyle())
+                        .multilineTextAlignment(.leading)
+                        .focused($isTextFieldFocused)
+                    }
+                    .overlay {
+                        if location.count > 0 {
+                            HStack {
+                                Text("Input location name")
+                                    .font(.custom("Montserrat-Normal", size: 10))
+                                    .foregroundColor(Color(hex: "#909BA8"))
+                                    .padding(.bottom, 34)
+                                Spacer()
+                            }
+                        }
                     }
                     
+                    Spacer()
+                    
+                    if location.count > 0 {
+                        Image(systemName: "xmark")
+                            .resizable()
+                            .scaledToFit()
+                            .foregroundColor(Color(hex: "#646C75"))
+                            .frame(width: 14, height: 14)
+                            .onTapGesture {
+                                location = ""
+                            }
+                    }
                 }
-                .padding(.horizontal, 24)
+                Rectangle()
+                    .frame(height: 1)
+                    .foregroundColor(isChangingLocation ? Color(hex: "#646C75") : Color(hex: "#DADADA"))
             }
+            .frame(height: 32, alignment: .bottom)
+            
+            if isChangingLocation {
+                if location.count > 1 {
+                    if viewModel.stateCityName == .success {
+                        let capitals: [String] = viewModel.cityNames
+                        ScrollView(showsIndicators: false) {
+                            VStack (alignment: .leading, spacing: 16) {
+                                ForEach (capitals, id:\.self) { city in
+                                    Text(city)
+                                        .foregroundColor(Color(hex: "#646C75"))
+                                        .font(.custom("Montserrat-Medium", size: 16))
+                                        .padding(.leading, 16)
+                                        .onTapGesture {
+                                            withAnimation {
+                                                location = ""
+                                                viewModel.cityNames = []
+                                                chosenLocation = city
+                                                UserDefaults.standard.set(chosenLocation, forKey: "location")
+                                                isChangingLocation = false
+                                                isTextFieldFocused = false
+                                                
+                                                
+                                                if !locationHistory.contains(city) {
+                                                    locationHistory.remove(at: 4)
+                                                    locationHistory.insert(city, at: 0)
+                                                    
+                                                    UserDefaults.standard.set(locationHistory, forKey: "locationHistory")
+                                                }
+                                            }
+                                        }
+                                    
+                                    RoundedRectangle(cornerRadius: 16)
+                                        .frame(height: 1)
+                                        .foregroundColor(Color(hex: "#DADADA")).opacity(0.5)
+                                }
+                            }
+                        }
+                        .padding(.top, 16)
+                    }
+                    if viewModel.stateCityName == .error {
+                        PlaceholderErrorCities()
+                    }
+                    if viewModel.stateCityName == .placeholder {
+                        PlaceholderCities()
+                    }
+                } else {
+                    PlaceholderCities()
+                }
+            } else {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 16)
+                        .foregroundColor(.white)
+                    HStack {
+                        if isGeoposition{
+                            Image(systemName: "location.fill")
+                                .resizable()
+                                .scaledToFit()
+                                .foregroundColor(Color(hex: "#678CD4"))
+                                .frame(width: 20, height: 20)
+                        } else {
+                            Image(systemName: "location")
+                                .resizable()
+                                .scaledToFit()
+                                .foregroundColor(Color(hex: "#646C75"))
+                                .frame(width: 20, height: 20)
+                        }
+                        Text("Current geoposition")
+                            .foregroundColor(Color(hex: "#646C75"))
+                            .font(.custom("Montserrat-Medium", size: 14))
+                        Spacer()
+                        if isGeoposition == true {
+                            ZStack {
+                                Circle()
+                                    .foregroundColor(.green)
+                                    .frame(width: 18, height: 18)
+                                Image("Ok")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .foregroundColor(.white)
+                                    .frame(width: 12, height: 12)
+                            }
+                        }
+                        
+                    }
+                    .padding(.horizontal, 16)
+                }
+                .padding(.top, 8)
+                .shadow(color: Color(hex: "#273145").opacity(0.1), radius: 35, x: 0, y: 8)
+                .frame(height: 56)
+                .onTapGesture {
+                    isGeoposition.toggle()
+                    UserDefaults.standard.set(isGeoposition, forKey: "isGeoposition")
+                }
+                
+                if !locationHistory.isEmpty {
+                    VStack(spacing: 16) {
+                        ForEach (0..<locationHistory.count, id:\.self) { item in
+                            if item != 0 {
+                                Rectangle()
+                                    .foregroundColor(Color(hex: "#DADADA")).opacity(0.5)
+                                    .frame(height: 1)
+                            }
+                            ZStack {
+                                HStack {
+                                    Text(locationHistory[item])
+                                        .foregroundColor(Color(hex: "#646C75"))
+                                        .font(.custom("Montserrat-Medium", size: 14))
+                                    Spacer()
+                                    if chosenLocation == locationHistory[item] && !isGeoposition {
+                                        ZStack {
+                                            Circle()
+                                                .foregroundColor(.green)
+                                                .frame(width: 18, height: 18)
+                                            Image("Ok")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .foregroundColor(.white)
+                                                .frame(width: 12, height: 12)
+                                        }
+                                        .padding(3)
+                                    }
+                                }
+                            }
+                            .frame(height: 18)
+                            .padding(.horizontal, 16)
+                            .onTapGesture {
+                                chosenLocation = locationHistory[item]
+                                UserDefaults.standard.set(chosenLocation, forKey: "location")
+                                isGeoposition = false
+                                UserDefaults.standard.set(isGeoposition, forKey: "isGeoposition")
+                            }
+                        }
+                    }
+                    .padding(.vertical, 16)
+                    .background(Color.white)
+                    .clipShape(RoundedRectangle(cornerRadius: 16))
+                    .shadow(color: Color(hex: "#273145").opacity(0.1), radius: 35, x: 0, y: 8)
+                }
+            }
+            Spacer()
         }
+        .padding(.top, 8)
+        .padding(.horizontal, 24)
         .background(Color(hex: "#F7F8FA").edgesIgnoringSafeArea(.all))
         .onDisappear {
             if isGeoposition {
@@ -311,6 +288,7 @@ struct ChooseLocationView: View {
                         self.viewModel.days = viewModel.parseWeatherData(data: viewModel.weather)
                         withAnimation {
                             viewModel.changeWeather(id: viewModel.selectedId)
+                            viewModel.getRightOutfits()
                         }
                     }
                 }
@@ -319,15 +297,10 @@ struct ChooseLocationView: View {
                     self.viewModel.days = viewModel.parseWeatherData(data: viewModel.weather)
                     withAnimation {
                         viewModel.changeWeather(id: viewModel.selectedId)
+                        viewModel.getRightOutfits()
                     }
                 }
             }
         }
-    }
-}
-
-struct ChooseLocationView_Previews: PreviewProvider {
-    static var previews: some View {
-        ChooseLocationView()
     }
 }

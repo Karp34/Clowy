@@ -536,14 +536,13 @@
 		BA1591E0273FE7530010CD56 /* Clowy */ = {
 			isa = PBXGroup;
 			children = (
-				BA1D0510299AFD23000D2903 /* GoogleService-Info.plist */,
-				BA18B2CC2B9E322300B98161 /* OnboardingQuiz */,
 				BA1591E5273FE7560010CD56 /* Assets.xcassets */,
 				BA1591E1273FE7530010CD56 /* ClowyApp.swift */,
 				BA8614AF28EF77B00095F232 /* ColorImages */,
 				BA6E586C299AD6C80043DA64 /* Deprecated */,
 				BA3E18482746B98E0070F4EF /* Extensions */,
 				BAEC625D274E751B009E69E5 /* Fonts */,
+				BA1D0510299AFD23000D2903 /* GoogleService-Info.plist */,
 				BA9C23CE28D8B90A00DDDB54 /* LocationManager */,
 				BAB79A9C2992F7000042A107 /* LoginScreen */,
 				BA75B7DC2746AEC30091A797 /* MainScreen */,
@@ -551,6 +550,7 @@
 				BAD948CA299AEF6300F2A047 /* NewAddClothesView */,
 				BA60ECD9299AEA0C00A8D14F /* NewOutfitScreen */,
 				BA6E586D299AD6EC0043DA64 /* NewWardrobeScreen */,
+				BA18B2CC2B9E322300B98161 /* OnboardingQuiz */,
 				BA1591E7273FE7560010CD56 /* Preview Content */,
 				BA8201FB287F4F0300A3C66B /* ProfileView */,
 				BABEC86227469BA600ECBF76 /* Services */,

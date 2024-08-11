@@ -22,7 +22,7 @@ struct PlaceholderErrorCities: View {
                         .frame(width: 64, height: 64)
                         .foregroundColor(Color(hex: "#C6C6C8"))
                 }
-                Text("Failed to get locations data")
+                Text("Failed to get location data")
                     .font(.custom("Montserrat-SemiBold", size: 20))
                     .foregroundColor(Color(hex: "#646C75"))
                     .multilineTextAlignment(.center)

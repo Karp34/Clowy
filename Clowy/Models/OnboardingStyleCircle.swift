@@ -11,4 +11,5 @@ struct OnboardingStyleCircle: Hashable {
     var icon: String
     var style: String
     var size: CGFloat
+    var styleRawValue: String
 }

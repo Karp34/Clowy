@@ -26,7 +26,7 @@ class OnboardingQuizViewModel: ObservableObject {
     ]
     
     
-    @Published var chosenStyle: OnboardingStyleCircle = OnboardingStyleCircle(icon: "", style: "", size: 0)
+    @Published var chosenStyle: OnboardingStyleCircle = OnboardingStyleCircle(icon: "", style: "", size: 0, styleRawValue: "")
     @Published var chosenWeathers: [String] = []
     @Published var didRetryOnboarding = false
     
@@ -44,7 +44,7 @@ class OnboardingQuizViewModel: ObservableObject {
             OnboardingQuestion(id: 10, question: "How would you describe your preference for dressing?", answer: [], isVisible: true)
         ]
         
-        chosenStyle = OnboardingStyleCircle(icon: "", style: "", size: 0)
+        chosenStyle = OnboardingStyleCircle(icon: "", style: "", size: 0, styleRawValue: "")
         chosenWeathers = []
         didRetryOnboarding = false
     }

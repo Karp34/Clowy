@@ -106,15 +106,52 @@ class MainScreenViewModel: ObservableObject {
                 do {
                     let decoder = JSONDecoder()
                     self.geonamesResponse = try decoder.decode(GeonamesResponse.self, from: data)
+                    
+                    // Create a mutable copy of geonames
+                    var mutableGeonames = self.geonamesResponse.geonames
+                    
+                    // Sort geonames by prefix match first, then by population
+                    mutableGeonames.sort { (geoname1, geoname2) -> Bool in
+                        let name1 = geoname1.name.lowercased()
+                        let name2 = geoname2.name.lowercased()
+                        let prefix = prefixName.lowercased()
+                        
+                        // If both start with prefix, sort by population
+                        if name1.hasPrefix(prefix) && name2.hasPrefix(prefix) {
+                            let pop1 = geoname1.population ?? 0
+                            let pop2 = geoname2.population ?? 0
+                            return pop1 > pop2
+                        }
+                        // If only one starts with prefix, it comes first
+                        else if name1.hasPrefix(prefix) {
+                            return true
+                        }
+                        else if name2.hasPrefix(prefix) {
+                            return false
+                        }
+                        // If neither starts with prefix, sort by population
+                        else {
+                            let pop1 = geoname1.population ?? 0
+                            let pop2 = geoname2.population ?? 0
+                            return pop1 > pop2
+                        }
+                    }
+                    
+                    // Remove duplicates
+                    mutableGeonames = mutableGeonames.reduce(into: [Geoname]()) { (result, geoname) in
+                        if !result.contains(where: { $0.name == geoname.name && $0.countryCode == geoname.countryCode }) {
+                            result.append(geoname)
+                        }
+                    }
+                    // Assign the sorted array back to geonamesResponse
+                    self.geonamesResponse.geonames = mutableGeonames
+                    
                     withAnimation {
                         self.stateCityName = .success
                     }
                     completion()
                 } catch {
                     print("Parsing error")
-                    withAnimation {
-                        self.stateCityName = .error
-                    }
                 }
             }
         }
@@ -122,10 +159,10 @@ class MainScreenViewModel: ObservableObject {
     }
     
     @Published var cityNames = [String]()
-    func getCityName(prefixName: String) {
-        self.cityNames = []
+    func getCityName(prefixName: String, completion: @escaping () -> ()) {
         fetchData(prefixName: prefixName) {
             if self.stateCityName == .success {
+                self.cityNames = []
                 for geoname in self.geonamesResponse.geonames {
                     let fullCityName = String(geoname.name + ", " + geoname.countryName)
                     let shortCityName = String(geoname.name + ", " + geoname.countryCode)
@@ -136,6 +173,7 @@ class MainScreenViewModel: ObservableObject {
                     }
                 }
             }
+            completion()
         }
     }
 
@@ -772,7 +810,8 @@ class MainScreenViewModel: ObservableObject {
     
     func getConfig(weather: Weather) -> [StyleOutfits] {
         
-        let temp = Double(weather.temp) + (( UserDefaults.standard.double(forKey: "prefTemp") - 0.5 ) * -10 )
+//        let temp = Double(weather.temp) + (( UserDefaults.standard.double(forKey: "prefTemp") - 0.5 ) * -10 )
+        let temp = Double(weather.temp)
         var config = [StyleOutfits]()
         var configs: OutfitConfig
         
@@ -801,8 +840,52 @@ class MainScreenViewModel: ObservableObject {
         } else {
             config = configs.weatherConfig.first(where: {$0.weather == .sunny})!.clothes
         }
-                    
+        
+        //user preferences
+        let winterHatTempTypes = ["superCold", "cold", "coldy", "cool"]
+        switch user.hatTemperature {
+        case _ where user.hatTemperature == "-20°C and below":
+            if temp > -20 {
+                config = removeClothFromConfig(config: config, type: .headdresses, tempTypes: winterHatTempTypes)
+            }
+        case _ where user.hatTemperature == "-10°C and below":
+            if temp > -10 {
+                config = removeClothFromConfig(config: config, type: .headdresses, tempTypes: winterHatTempTypes)
+            }
+        case _ where user.hatTemperature == "0°C and below":
+            if temp > 0 {
+                config = removeClothFromConfig(config: config, type: .headdresses, tempTypes: winterHatTempTypes)
+            }
+        case _ where user.hatTemperature == "0°C and above":
+            if temp > 4.9 {
+                config = removeClothFromConfig(config: config, type: .headdresses, tempTypes: winterHatTempTypes)
+            }
+        default:
+            if temp > 0 {
+                config = removeClothFromConfig(config: config, type: .headdresses, tempTypes: winterHatTempTypes)
+            }
+        }
+        
         return config
+    }
+    
+    func removeClothFromConfig(config :[StyleOutfits], type: ClothesType, tempTypes: [String]) -> [StyleOutfits] {
+        var updatedConfig = config
+        var excludedTempTypes = ["superCold", "cold", "coldy", "cool", "regular", "warm", "hot"]
+        if !tempTypes.isEmpty {
+            excludedTempTypes = tempTypes
+        }
+        
+        updatedConfig = config.map { styleOutfit in
+            var updatedStyleOutfit = styleOutfit
+            updatedStyleOutfit.outfits = styleOutfit.outfits.map { outfit in
+                outfit.filter { clothesPref in
+                    !(clothesPref.type == type && excludedTempTypes.contains(clothesPref.temp.rawValue))
+                }
+            }
+            return updatedStyleOutfit
+        }
+        return updatedConfig
     }
     
     @Published var fittingOutfitsResponse = [FittingOutfitsResponse]()
@@ -1009,6 +1092,18 @@ class MainScreenViewModel: ObservableObject {
         } else if outfits.isEmpty {
             error = "No outfits"
             code = 402
+        }
+        
+        //sort outfits depending on user prefered style
+        let preferedStyle = user.preferedStyle
+        fittingOutfits.sort { outfit1, outfit2 in
+            if outfit1.style.rawValue == preferedStyle && outfit2.style.rawValue != preferedStyle {
+                return true
+            } else if outfit1.style.rawValue != preferedStyle && outfit2.style.rawValue == preferedStyle {
+                return false
+            } else {
+                return outfit1.id < outfit2.id
+            }
         }
         
         return  FittingOutfitsResponse(id: 0, outfits: fittingOutfits, code: fittingOutfits.isEmpty ? code : 200, error: fittingOutfits.isEmpty ? error : "")

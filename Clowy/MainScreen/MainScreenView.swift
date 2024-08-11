@@ -20,6 +20,7 @@ struct MainScreenView: View, DaysForecastViewDelegate {
     
     @State var offset: CGPoint = .zero
     @State var backgroundOffset: CGFloat = 0
+    @State var showLocationSheet = false
     
     let defaultOutfit = [
         Cloth(id: "1100", name: "", type: .tshirts, color: "", temperature: [], isDefault: true, image: "DefaultUpperWear", rawImage: nil),
@@ -67,12 +68,20 @@ struct MainScreenView: View, DaysForecastViewDelegate {
                             .padding(.top, 24)
                             .buttonStyle(NoAnimationButtonStyle())
                             
-                            WeatherForecastView(
-                                name: viewModel.chosenWeather.name,
-                                color: viewModel.chosenWeather.color,
-                                temp: viewModel.chosenWeather.temp,
-                                icon: viewModel.chosenWeather.icon,
-                                state: viewModel.state)
+                            Button {
+                                showLocationSheet.toggle()
+                            } label: {
+                                WeatherForecastView(
+                                    name: viewModel.chosenWeather.name,
+                                    color: viewModel.chosenWeather.color,
+                                    temp: viewModel.chosenWeather.temp,
+                                    icon: viewModel.chosenWeather.icon,
+                                    state: viewModel.state)
+                            }
+                            .buttonStyle(ScaleButtonStyle())
+                            .sheet(isPresented: $showLocationSheet) {
+                                ChooseLocationView()
+                            }
                             
                             
                             

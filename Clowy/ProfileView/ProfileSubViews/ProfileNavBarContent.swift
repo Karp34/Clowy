@@ -97,11 +97,6 @@ struct ProfileNavBarContent: View {
                                 .padding(.horizontal, 38)
                                 .padding(.top, 83)
                                 .focused($isTextFieldFocused)
-//                                .onChange(of: isTextFieldFocused) {
-//                                    withAnimation(.easeInOut(duration: 0.7)) {
-//                                        isChangingName = isTextFieldFocused
-//                                    }
-//                                }
                                 .onSubmit {
                                     saveChanges()
                                     mainViewModel.updateUser { _ in }
