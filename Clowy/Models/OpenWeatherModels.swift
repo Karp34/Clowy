@@ -47,7 +47,7 @@ struct ListResponse: Codable {
     var weather: [WeatherResponse]
     var wind: WindResponse
     var clouds: CloudsResponse
-    var visibility: Double
+    var visibility: Double?
     var pop: Double
     var sys: [ String: String ]?
     var dt_txt: String

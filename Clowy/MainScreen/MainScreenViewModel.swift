@@ -25,6 +25,17 @@ class MainScreenViewModel: ObservableObject {
     @Published var selectedId: Int = 0
     @Published var days: [Day] = []
     
+    //Remote config
+    @Published var appIsLive = RemoteConfigManager.stringValue(forKey: RCKey.appIsLive)
+    @Published var openWeatherAppID = RemoteConfigManager.stringValue(forKey: RCKey.openWeatherAppID)
+    @Published var NormalSuperColdConfig = RemoteConfigManager.getOutfitConfig(forKey: RCKey.NormalSuperColdConfig)
+    @Published var NormalColdConfig = RemoteConfigManager.getOutfitConfig(forKey: RCKey.NormalColdConfig)
+    @Published var NormalColdyConfig = RemoteConfigManager.getOutfitConfig(forKey: RCKey.NormalColdyConfig)
+    @Published var NormalCoolConfig = RemoteConfigManager.getOutfitConfig(forKey: RCKey.NormalCoolConfig)
+    @Published var NormalRegularConfig = RemoteConfigManager.getOutfitConfig(forKey: RCKey.NormalRegularConfig)
+    @Published var NormalWarmConfig = RemoteConfigManager.getOutfitConfig(forKey: RCKey.NormalWarmConfig)
+    @Published var NormalHotConfig = RemoteConfigManager.getOutfitConfig(forKey: RCKey.NormalHotConfig)
+    
     func changeWeather(id:Int) {
         selectedId = id
         if let weather = days.first(where: { $0.id == id })?.weather {
@@ -37,36 +48,49 @@ class MainScreenViewModel: ObservableObject {
         }
     }
         
-    func getWeatherData(lat: Double?, long: Double?, locationName: String?, completion: @escaping () -> ()) {
-        
+    func getWeatherData(lat: Double?, long: Double?, locationName: String?, completion: @escaping () -> Void) {
         var urlComponents = URLComponents(string: "https://api.openweathermap.org/data/2.5/forecast")!
         
-        if lat != nil && long != nil {
-            let queryItems = [URLQueryItem(name: "lat", value: String(lat!)),
-                              URLQueryItem(name: "lon", value: String(long!)),
-                              URLQueryItem(name: "appid", value: "b2974b730a41c731572b6e8b3ba9327d"),
-                              URLQueryItem(name: "units", value: "metric")]
-            urlComponents.queryItems = queryItems
-            
-        } else if locationName != nil {
-            let queryItems = [URLQueryItem(name: "q", value: locationName),
-                              URLQueryItem(name: "appid", value: "b2974b730a41c731572b6e8b3ba9327d"),
-                              URLQueryItem(name: "units", value: "metric")]
-            urlComponents.queryItems = queryItems
+        let queryItems: [URLQueryItem]
+        if let lat = lat, let long = long {
+            queryItems = [
+                URLQueryItem(name: "lat", value: String(lat)),
+                URLQueryItem(name: "lon", value: String(long)),
+                URLQueryItem(name: "appid", value: self.openWeatherAppID),
+                URLQueryItem(name: "units", value: "metric")
+            ]
+        } else if let locationName = locationName {
+            queryItems = [
+                URLQueryItem(name: "q", value: locationName),
+                URLQueryItem(name: "appid", value: self.openWeatherAppID),
+                URLQueryItem(name: "units", value: "metric")
+            ]
+        } else {
+            self.handleError(message: "Either coordinates or location name must be provided")
+            return
         }
-
-        guard let url = urlComponents.url else { return }
-        URLSession.shared.dataTask(with: url) { ( data, response, err ) in
+        
+        urlComponents.queryItems = queryItems
+        
+        guard let url = urlComponents.url else {
+            self.handleError(message: "Failed to create URL")
+            return
+        }
+        
+        URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
             DispatchQueue.main.async {
-                if let err = err {
-                    print("Failed to get data from url:", err)
-                    withAnimation {
-                        self.state = .error
-                        self.chosenWeather = Weather(code: 100, name: "Clouds", color: "#B1B4B8", icon: "cloud", temp: 0, humidity: 99, windSpeed: 2)
-                    }
+                guard let self = self else { return }
+                
+                if let error = error {
+                    self.handleError(message: error.localizedDescription)
                     return
                 }
-                guard let data = data else { return }
+                
+                guard let data = data else {
+                    self.handleError(message: "No data received")
+                    return
+                }
+                
                 do {
                     let decoder = JSONDecoder()
                     self.weather = try decoder.decode(ResponseBodyForecastAPI.self, from: data)
@@ -75,14 +99,18 @@ class MainScreenViewModel: ObservableObject {
                     }
                     completion()
                 } catch {
-                    withAnimation {
-                        self.state = .error
-                        self.chosenWeather = Weather(code: 100, name: "Clouds", color: "#B1B4B8", icon: "cloud", temp: 0, humidity: 99, windSpeed: 2)
-                    }
-                    print(error)
+                    self.handleError(message: error.localizedDescription)
                 }
             }
         }.resume()
+    }
+    
+    private func handleError(message: String) {
+        print("Failed to get weather data: \(message)")
+        withAnimation {
+            self.state = .error
+            self.chosenWeather = Weather(code: 100, name: "Clouds", color: "#B1B4B8", icon: "cloud", temp: 0, humidity: 99, windSpeed: 2)
+        }
     }
     
     @Published var stateCityName: PlaceHolderState = .placeholder
@@ -458,36 +486,38 @@ class MainScreenViewModel: ObservableObject {
     }
     
     
-    @Published var deviceLocationService = DeviceLocationService.shared
-    @Published var tokens: Set<AnyCancellable> = []
     @Published var coordinates: (lat: Double, lon: Double)? = nil
-    @Published var coordinatesReceived: Bool = false
-    
-    func getCoordinates() {
-        observeCoordinateUpdates()
-        observeDeniedLocationAccess()
-    }
-    
-    func observeCoordinateUpdates() {
-        deviceLocationService.coordinatesPublisher
-            .receive(on: DispatchQueue.main)
-            .sink { completion in
-                print("Handle \(completion) for error and finished subscription.")
-            } receiveValue: { coordinates in
-                self.coordinates = (coordinates.latitude, coordinates.longitude)
-                self.coordinatesReceived = true
-            }
-            .store(in: &tokens)
-    }
-
-    func observeDeniedLocationAccess() {
-        deviceLocationService.deniedLocationAccessPublisher
-            .receive(on: DispatchQueue.main)
-            .sink {
-                print("Handle access denied event, possibly with an alert.")
-            }
-            .store(in: &tokens)
-    }
+    @Published var useUserGeo = UserDefaults.standard.bool(forKey: "isGeoposition")
+//    @Published var deviceLocationService = DeviceLocationService.shared
+//    @Published var tokens: Set<AnyCancellable> = []
+//    @Published var coordinates: (lat: Double, lon: Double)? = nil
+//    @Published var coordinatesReceived: Bool = false
+//    
+//    func getCoordinates() {
+//        observeCoordinateUpdates()
+//        observeDeniedLocationAccess()
+//    }
+//    
+//    func observeCoordinateUpdates() {
+//        deviceLocationService.coordinatesPublisher
+//            .receive(on: DispatchQueue.main)
+//            .sink { completion in
+//                print("Handle \(completion) for error and finished subscription.")
+//            } receiveValue: { coordinates in
+//                self.coordinates = (coordinates.latitude, coordinates.longitude)
+//                self.coordinatesReceived = true
+//            }
+//            .store(in: &tokens)
+//    }
+//
+//    func observeDeniedLocationAccess() {
+//        deviceLocationService.deniedLocationAccessPublisher
+//            .receive(on: DispatchQueue.main)
+//            .sink {
+//                print("Handle access denied event, possibly with an alert.")
+//            }
+//            .store(in: &tokens)
+//    }
     
     @FetchRequest(
         entity: TestCloth.entity(),
@@ -686,7 +716,6 @@ class MainScreenViewModel: ObservableObject {
                     var items: [Cloth] = []
                     for cloth in self.clothes {
                         if cloth.type == type {
-                            print(cloth)
                             items.append(cloth)
                         }
                     }
@@ -831,45 +860,55 @@ class MainScreenViewModel: ObservableObject {
             configs = NormalHotConfig
         }
         
-        if weather.code.description.hasPrefix("2") || weather.code.description.hasPrefix("5") || weather.code.description.hasPrefix("6") {
-            config = configs.weatherConfig.first(where: {$0.weather == .rain})!.clothes
-        } else if weather.humidity > 65 {
-            config = configs.weatherConfig.first(where: {$0.weather == .humidity})!.clothes
-        } else if weather.code == 804 || weather.code == 803 || weather.windSpeed > 12 {
-            config = configs.weatherConfig.first(where: {$0.weather == .cloudyOrWindy})!.clothes
-        } else {
-            config = configs.weatherConfig.first(where: {$0.weather == .sunny})!.clothes
-        }
+//        if weather.code.description.hasPrefix("2") || weather.code.description.hasPrefix("5") || weather.code.description.hasPrefix("6") {
+//            config = configs.weatherConfig.first(where: {$0.weather == .rain})!.clothes
+//        } else if weather.humidity > 65 {
+//            config = configs.weatherConfig.first(where: {$0.weather == .humidity})!.clothes
+//        } else if weather.code == 804 || weather.code == 803 || weather.windSpeed > 12 {
+//            config = configs.weatherConfig.first(where: {$0.weather == .cloudyOrWindy})!.clothes
+//        } else {
+//            config = configs.weatherConfig.first(where: {$0.weather == .sunny})!.clothes
+//        }
+        config = configs.weatherConfig.first(where: {$0.weather == .sunny})!.clothes
+        
         
         //user preferences
+        //remove winter hat if temperature is higher than his preference
         let winterHatTempTypes = ["superCold", "cold", "coldy", "cool"]
         switch user.hatTemperature {
         case _ where user.hatTemperature == "-20°C and below":
             if temp > -20 {
-                config = removeClothFromConfig(config: config, type: .headdresses, tempTypes: winterHatTempTypes)
+                config = removeHatFromConfig(config: config, tempTypes: winterHatTempTypes)
             }
         case _ where user.hatTemperature == "-10°C and below":
             if temp > -10 {
-                config = removeClothFromConfig(config: config, type: .headdresses, tempTypes: winterHatTempTypes)
+                config = removeHatFromConfig(config: config, tempTypes: winterHatTempTypes)
             }
         case _ where user.hatTemperature == "0°C and below":
             if temp > 0 {
-                config = removeClothFromConfig(config: config, type: .headdresses, tempTypes: winterHatTempTypes)
+                config = removeHatFromConfig(config: config, tempTypes: winterHatTempTypes)
             }
         case _ where user.hatTemperature == "0°C and above":
             if temp > 4.9 {
-                config = removeClothFromConfig(config: config, type: .headdresses, tempTypes: winterHatTempTypes)
+                config = removeHatFromConfig(config: config, tempTypes: winterHatTempTypes)
             }
         default:
             if temp > 0 {
-                config = removeClothFromConfig(config: config, type: .headdresses, tempTypes: winterHatTempTypes)
+                config = removeHatFromConfig(config: config, tempTypes: winterHatTempTypes)
             }
         }
+        
+        //remove t-shirt if user doesn't wear t-shirt under sweater
+        if !user.isTshirtUnder {
+            config = removeTshirtFromConfig(config: config)
+        }
+        
         
         return config
     }
     
-    func removeClothFromConfig(config :[StyleOutfits], type: ClothesType, tempTypes: [String]) -> [StyleOutfits] {
+    func removeHatFromConfig(config :[StyleOutfits], tempTypes: [String]) -> [StyleOutfits] {
+        let type: ClothesType = .headdresses
         var updatedConfig = config
         var excludedTempTypes = ["superCold", "cold", "coldy", "cool", "regular", "warm", "hot"]
         if !tempTypes.isEmpty {
@@ -881,6 +920,23 @@ class MainScreenViewModel: ObservableObject {
             updatedStyleOutfit.outfits = styleOutfit.outfits.map { outfit in
                 outfit.filter { clothesPref in
                     !(clothesPref.type == type && excludedTempTypes.contains(clothesPref.temp.rawValue))
+                }
+            }
+            return updatedStyleOutfit
+        }
+        return updatedConfig
+    }
+    
+    func removeTshirtFromConfig(config :[StyleOutfits]) -> [StyleOutfits] {
+        let type: ClothesType = .tshirts
+        let excludedTempTypes = ["superCold", "cold", "coldy", "cool", "regular", "warm", "hot"]
+        var updatedConfig = config
+        
+        updatedConfig = config.map { styleOutfit in
+            var updatedStyleOutfit = styleOutfit
+            updatedStyleOutfit.outfits = styleOutfit.outfits.map { outfit in
+                outfit.filter { cloth in
+                    !(cloth.type == type && outfit.contains(where: {$0.type == .hoodies}))
                 }
             }
             return updatedStyleOutfit
@@ -1120,15 +1176,6 @@ class MainScreenViewModel: ObservableObject {
         return sortedClothes
     }
     
-    //Remote config
-    @Published var appIsLive = RemoteConfigManager.stringValue(forKey: RCKey.appIsLive)
-    @Published var NormalSuperColdConfig = RemoteConfigManager.getOutfitConfig(forKey: RCKey.NormalSuperColdConfig)
-    @Published var NormalColdConfig = RemoteConfigManager.getOutfitConfig(forKey: RCKey.NormalColdConfig)
-    @Published var NormalColdyConfig = RemoteConfigManager.getOutfitConfig(forKey: RCKey.NormalColdyConfig)
-    @Published var NormalCoolConfig = RemoteConfigManager.getOutfitConfig(forKey: RCKey.NormalCoolConfig)
-    @Published var NormalRegularConfig = RemoteConfigManager.getOutfitConfig(forKey: RCKey.NormalRegularConfig)
-    @Published var NormalWarmConfig = RemoteConfigManager.getOutfitConfig(forKey: RCKey.NormalWarmConfig)
-    @Published var NormalHotConfig = RemoteConfigManager.getOutfitConfig(forKey: RCKey.NormalHotConfig)
     
     
     //Clear ViewModel
@@ -1141,11 +1188,6 @@ class MainScreenViewModel: ObservableObject {
         stateCityName = .placeholder
         geonamesResponse = GeonamesResponse(totalResultsCount: 0, geonames: [])
         cityNames = []
-        
-        deviceLocationService = DeviceLocationService.shared
-        tokens = []
-        coordinates = nil
-        coordinatesReceived = false
         
         userIsLoggedIn = false
         userEmail = ""

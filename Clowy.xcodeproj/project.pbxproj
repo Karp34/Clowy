@@ -1563,7 +1563,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = clowy;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Hook it up";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to provide location-based services.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = Smth;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1600,7 +1600,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = clowy;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Hook it up";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to provide location-based services.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = Smth;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

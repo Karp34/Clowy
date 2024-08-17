@@ -9,6 +9,7 @@ import SwiftUI
 import CoreLocation
 
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
+    @StateObject private var mainViewModel = MainScreenViewModel.shared
     let manager = CLLocationManager()
     
     @Published var location: CLLocationCoordinate2D?
@@ -25,7 +26,10 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        location = locations.first?.coordinate
+        if let location = locations.first?.coordinate {
+            self.location = location
+            mainViewModel.coordinates = (lat: location.latitude, lon: location.longitude)
+        }
         isLoading = false
     }
     

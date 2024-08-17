@@ -20,6 +20,7 @@ class CreateDefaultWardrobe {
             Wardrobe(id: .dresses, clothesTypeName: .dresses, items: [], ratio: .square),
             Wardrobe(id: .skirts, clothesTypeName: .skirts, items: [], ratio: .square),
             Wardrobe(id: .pants, clothesTypeName: .pants, items: [], ratio: .rectangle),
+            Wardrobe(id: .shorts, clothesTypeName: .shorts, items: [], ratio: .square),
             Wardrobe(id: .thermalPants, clothesTypeName: .thermalPants, items: [], ratio: .rectangle),
             Wardrobe(id: .socks, clothesTypeName: .socks, items: [], ratio: .square),
             Wardrobe(id: .sneakers, clothesTypeName: .sneakers, items: [], ratio: .square),

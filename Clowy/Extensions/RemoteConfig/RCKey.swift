@@ -17,4 +17,5 @@ struct RCKey {
     static let NormalWarmConfig = "NormalWarmConfig"
     static let NormalHotConfig = "NormalHotConfig"
     static let appIsBlockedReason = "appIsBlockedReason"
+    static let openWeatherAppID = "openWeatherAppID"
 }

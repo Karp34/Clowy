@@ -31,6 +31,7 @@ enum ClothesType: String, CaseIterable, Codable {
     case dresses = "Dresses"
     case skirts = "Skirts"
     case pants = "Pants"
+    case shorts = "Shorts"
     case thermalPants = "Thermal Pants"
     case socks = "Socks"
     case sneakers = "Shoes"

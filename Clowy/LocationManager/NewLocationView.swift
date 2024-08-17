@@ -11,6 +11,7 @@ import CoreLocationUI
 struct NewLocationView: View {
     @StateObject var locationManager = LocationManager()
     
+    
     var body: some View {
         VStack {
             if let location = locationManager.location {

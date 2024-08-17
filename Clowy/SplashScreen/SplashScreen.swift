@@ -10,6 +10,7 @@ import Firebase
 
 struct SplashScreen: View {
     @StateObject private var viewModel = MainScreenViewModel.shared
+    @StateObject private var locationManager = LocationManager()
     @State var size = 0.8
     @State var isActive = false
     
@@ -47,9 +48,10 @@ struct SplashScreen: View {
                         }
                     }
                 }
-                viewModel.getCoordinates()
-                viewModel.observeDeniedLocationAccess()
-                viewModel.deviceLocationService.requestLocationUpdates()
+                locationManager.requestLocation()
+//                viewModel.getCoordinates()
+//                viewModel.observeDeniedLocationAccess()
+//                viewModel.deviceLocationService.requestLocationUpdates()
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.5 ) {
                     self.isActive = true

@@ -9,11 +9,11 @@ import SwiftUI
 
 struct ChooseLocationView: View {
     @StateObject private var viewModel = MainScreenViewModel.shared
+    @StateObject var locationManager = LocationManager()
     
     @State var location = ""
     @State var isChangingLocation = false
     @State var chosenLocation = UserDefaults.standard.string(forKey: "location")
-    @State var isGeoposition = UserDefaults.standard.bool(forKey: "isGeoposition")
     @State var locationHistory = UserDefaults.standard.object(forKey: "locationHistory") as? [String] ?? []
     @FocusState private var isTextFieldFocused: Bool
     
@@ -80,9 +80,9 @@ struct ChooseLocationView: View {
                                             UserDefaults.standard.set(locationHistory, forKey: "locationHistory")
                                         }
                                         
-                                        if isGeoposition {
-                                            isGeoposition = false
-                                            UserDefaults.standard.set(isGeoposition, forKey: "isGeoposition")
+                                        if viewModel.useUserGeo {
+                                            viewModel.useUserGeo = false
+                                            UserDefaults.standard.set(viewModel.useUserGeo, forKey: "isGeoposition")
                                         }
                                     }
                                     isChangingLocation = false
@@ -188,7 +188,7 @@ struct ChooseLocationView: View {
                     RoundedRectangle(cornerRadius: 16)
                         .foregroundColor(.white)
                     HStack {
-                        if isGeoposition{
+                        if viewModel.useUserGeo{
                             Image(systemName: "location.fill")
                                 .resizable()
                                 .scaledToFit()
@@ -205,7 +205,7 @@ struct ChooseLocationView: View {
                             .foregroundColor(Color(hex: "#646C75"))
                             .font(.custom("Montserrat-Medium", size: 14))
                         Spacer()
-                        if isGeoposition == true {
+                        if viewModel.useUserGeo {
                             ZStack {
                                 Circle()
                                     .foregroundColor(.green)
@@ -225,8 +225,12 @@ struct ChooseLocationView: View {
                 .shadow(color: Color(hex: "#273145").opacity(0.1), radius: 35, x: 0, y: 8)
                 .frame(height: 56)
                 .onTapGesture {
-                    isGeoposition.toggle()
-                    UserDefaults.standard.set(isGeoposition, forKey: "isGeoposition")
+                    viewModel.useUserGeo.toggle()
+                    locationManager.requestLocation()
+                    if let location = locationManager.location {
+                        UserDefaults.standard.set(viewModel.useUserGeo, forKey: "isGeoposition")
+                        viewModel.coordinates = (lat: location.latitude, lon: location.longitude)
+                    }
                 }
                 
                 if !locationHistory.isEmpty {
@@ -243,7 +247,7 @@ struct ChooseLocationView: View {
                                         .foregroundColor(Color(hex: "#646C75"))
                                         .font(.custom("Montserrat-Medium", size: 14))
                                     Spacer()
-                                    if chosenLocation == locationHistory[item] && !isGeoposition {
+                                    if chosenLocation == locationHistory[item] && !viewModel.useUserGeo {
                                         ZStack {
                                             Circle()
                                                 .foregroundColor(.green)
@@ -263,8 +267,8 @@ struct ChooseLocationView: View {
                             .onTapGesture {
                                 chosenLocation = locationHistory[item]
                                 UserDefaults.standard.set(chosenLocation, forKey: "location")
-                                isGeoposition = false
-                                UserDefaults.standard.set(isGeoposition, forKey: "isGeoposition")
+                                viewModel.useUserGeo = false
+                                UserDefaults.standard.set(viewModel.useUserGeo, forKey: "isGeoposition")
                             }
                         }
                     }
@@ -280,7 +284,7 @@ struct ChooseLocationView: View {
         .padding(.horizontal, 24)
         .background(Color(hex: "#F7F8FA").edgesIgnoringSafeArea(.all))
         .onDisappear {
-            if isGeoposition {
+            if viewModel.useUserGeo {
                 if (viewModel.coordinates != nil) {
                     viewModel.getWeatherData(lat: viewModel.coordinates!.lat, long: viewModel.coordinates!.lon, locationName: nil) {
                         chosenLocation = viewModel.weather.city.name

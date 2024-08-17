@@ -51,7 +51,6 @@ struct RemoteConfigManager {
             if let jsonDictionary = json as? [String: Any] {
                 let name = jsonDictionary["name"] as! String
                 outfitConfig.name = name //SuperCold
-//                print(outfitConfig.name)
                 if let config = jsonDictionary["config"] as? [String: [String: [[String: String]]]] {
                     
                     for weathertype in config {
@@ -67,7 +66,6 @@ struct RemoteConfigManager {
                                 for cloth in outfit {
                                     let clothType = ClothesType(rawValue: cloth.key)!
                                     let temp = TemperatureType(rawValue: cloth.value)!
-                                    
                                     clothesPref.append(ClothesPref(type: clothType, temp: temp))
                                 }
                                 outfits.append(clothesPref)
