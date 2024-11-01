@@ -23,9 +23,9 @@ struct MainScreenView: View, DaysForecastViewDelegate {
     @State var showLocationSheet = false
     
     let defaultOutfit = [
-        Cloth(id: "1100", name: "", type: .tshirts, color: "", temperature: [], isDefault: true, image: "DefaultUpperWear", rawImage: nil),
-        Cloth(id: "1100", name: "", type: .tshirts, color: "", temperature: [], isDefault: true, image: "DefaultPants", rawImage: nil),
-        Cloth(id: "1102", name: "", type: .sneakers, color: "", temperature: [], isDefault: true, image: "DefaultSneaker", rawImage: nil)
+        Cloth(id: "1100", name: "", type: .tshirts, color: "", temperature: [], isDefault: true, image: "DefaultUpperWear", rawImage: nil, creationDate: 0),
+        Cloth(id: "1100", name: "", type: .tshirts, color: "", temperature: [], isDefault: true, image: "DefaultPants", rawImage: nil, creationDate: 0),
+        Cloth(id: "1102", name: "", type: .sneakers, color: "", temperature: [], isDefault: true, image: "DefaultSneaker", rawImage: nil, creationDate: 0)
     ]
     
     private func createWardrobe(wardrobe: [Wardrobe]) {

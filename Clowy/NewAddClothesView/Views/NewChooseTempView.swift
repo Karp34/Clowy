@@ -12,15 +12,7 @@ struct NewChooseTempView: View {
     
     let insets = EdgeInsets(top: 8, leading: 24, bottom: 0, trailing: 24)
     
-    let tempLists = [
-        Temperature(id: 0, name: TemperatureType.superCold.rawValue, temp: [-30, -20]),
-        Temperature(id: 1, name: TemperatureType.cold.rawValue, temp: [-20, -10]),
-        Temperature(id: 2, name: TemperatureType.coldy.rawValue, temp: [-10, -5]),
-        Temperature(id: 3, name: TemperatureType.cool.rawValue, temp: [-5, 5]),
-        Temperature(id: 4, name: TemperatureType.regular.rawValue, temp: [5, 15]),
-        Temperature(id: 5, name: TemperatureType.warm.rawValue, temp: [15, 25]),
-        Temperature(id: 6, name: TemperatureType.hot.rawValue, temp: [25, 35])
-        ]
+    let tempLists = GetTemperatureRange.getTemperatureList()
     
     
     

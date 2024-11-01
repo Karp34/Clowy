@@ -14,4 +14,6 @@ extension Color {
     static let secondaryOrangeBrand = Color(hex: "#F8A751")
     static let notChosenCircle = Color(hex: "#DDE7F8")
     static let primaryBackground = Color(hex: "#F7F8FA")
+    static let primaryGray = Color(hex: "#646C75")
+    static let secondaryGray = Color(hex: "#EFF0F2")
 }

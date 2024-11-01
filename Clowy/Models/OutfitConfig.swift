@@ -32,6 +32,7 @@ struct StyleOutfits: Codable {
 enum OutfitStyle: String, CaseIterable, Codable {
     case business = "business"
     case casual = "casual"
+//    case sport = "sport"
 }
 
 struct ClothesPref: Codable {

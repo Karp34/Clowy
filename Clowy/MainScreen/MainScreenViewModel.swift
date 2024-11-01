@@ -25,6 +25,8 @@ class MainScreenViewModel: ObservableObject {
     @Published var selectedId: Int = 0
     @Published var days: [Day] = []
     
+    @Published var showAddNewClothModel = false
+    
     //Remote config
     @Published var appIsLive = RemoteConfigManager.stringValue(forKey: RCKey.appIsLive)
     @Published var openWeatherAppID = RemoteConfigManager.stringValue(forKey: RCKey.openWeatherAppID)
@@ -693,8 +695,9 @@ class MainScreenViewModel: ObservableObject {
                     let temperature = data["temp"] as? [String] ?? []
                     let isDefault = data["isDefault"] as? Bool ?? true
                     let image = data["image"] as? String ?? ""
+                    let creationDate = data["creationDate"] as? Int ?? 0
                     
-                    let cloth = Cloth(id: id, name: name, type: ClothesType(rawValue: type) ?? ClothesType.blank, color: color, temperature: temperature, isDefault: isDefault, image: image)
+                    let cloth = Cloth(id: id, name: name, type: ClothesType(rawValue: type) ?? ClothesType.blank, color: color, temperature: temperature, isDefault: isDefault, image: image, creationDate: creationDate)
                     self.clothes.append(cloth)
                     
                 }
@@ -713,12 +716,7 @@ class MainScreenViewModel: ObservableObject {
                     let id = type.id
                     let type = type.clothesTypeName
                     let ratio = GetRatio.getRatio(type: type)
-                    var items: [Cloth] = []
-                    for cloth in self.clothes {
-                        if cloth.type == type {
-                            items.append(cloth)
-                        }
-                    }
+                    let items = self.clothes.filter { $0.type == type }
                     self.wardrobe.append(Wardrobe(id: id, clothesTypeName: type, items: items, ratio: ratio))
                 }
                 self.wardrobeState = .success
@@ -751,13 +749,13 @@ class MainScreenViewModel: ObservableObject {
             if defaultOutfit.contains(id) {
                 switch id {
                 case "1100" :
-                    clothes.append(Cloth(id: "1100", name: "", type: .tshirts, color: "#000000", temperature: ["Cold"], isDefault: true, image: "DefaultUpperWear"))
+                    clothes.append(Cloth(id: "1100", name: "", type: .tshirts, color: "#000000", temperature: ["Cold"], isDefault: true, image: "DefaultUpperWear", creationDate: 0))
 
                 case "1101":
-                    clothes.append(Cloth(id: "1101", name: "", type: .pants, color: "#000000", temperature: ["Cold"], isDefault: true, image: "DefaultPants"))
+                    clothes.append(Cloth(id: "1101", name: "", type: .pants, color: "#000000", temperature: ["Cold"], isDefault: true, image: "DefaultPants", creationDate: 0))
                     
                 case "1102":
-                    clothes.append(Cloth(id: "1102", name: "", type: .sneakers, color: "#00000", temperature: ["Cold"], isDefault: true, image: "DefaultSneaker"))
+                    clothes.append(Cloth(id: "1102", name: "", type: .sneakers, color: "#00000", temperature: ["Cold"], isDefault: true, image: "DefaultSneaker", creationDate: 0))
                 default:
                     print("Logic error when creating default outfit")
                 }
@@ -772,14 +770,20 @@ class MainScreenViewModel: ObservableObject {
         return clothes
     }
     
-    func deleteCloth(clothId: String, imageId: String) {
+    func deleteCloth(cloth: Cloth) {
+        print(cloth.name)
+        print(cloth.id)
+        print(cloth.type)
 //      thnik how to delete from each outfit and delete from storage
         let db = Firestore.firestore()
-        let ref = db.collection("Users").document(userId).collection("Wardrobe").document(clothId)
+        let ref = db.collection("Users").document(userId).collection("Wardrobe").document(cloth.id)
         ref.delete { error in
             if error == nil {
-                self.fetchWardrobe() {}
-                self.deleteFromStorage(clothId: imageId)
+                if let index = self.wardrobe.firstIndex(where: { $0.clothesTypeName == cloth.type }) {
+                    self.wardrobe[index].deleteCloth(cloth)
+                }
+                self.clothes.removeAll { $0.id == cloth.id }
+                self.deleteFromStorage(clothId: cloth.image)
             } else {
                 print(error?.localizedDescription)
             }
@@ -794,7 +798,7 @@ class MainScreenViewModel: ObservableObject {
           if let error = error {
               print(error.localizedDescription)
           } else {
-              print("Success")
+              print("Image deleted from storage successfully")
           }
         }
     }
@@ -843,6 +847,8 @@ class MainScreenViewModel: ObservableObject {
         let temp = Double(weather.temp)
         var config = [StyleOutfits]()
         var configs: OutfitConfig
+        var weatherTypeConfig: WeatherType = .sunny
+        
         
         if temp <= -20 {
             configs = NormalSuperColdConfig
@@ -860,17 +866,21 @@ class MainScreenViewModel: ObservableObject {
             configs = NormalHotConfig
         }
         
-//        if weather.code.description.hasPrefix("2") || weather.code.description.hasPrefix("5") || weather.code.description.hasPrefix("6") {
-//            config = configs.weatherConfig.first(where: {$0.weather == .rain})!.clothes
-//        } else if weather.humidity > 65 {
-//            config = configs.weatherConfig.first(where: {$0.weather == .humidity})!.clothes
-//        } else if weather.code == 804 || weather.code == 803 || weather.windSpeed > 12 {
-//            config = configs.weatherConfig.first(where: {$0.weather == .cloudyOrWindy})!.clothes
-//        } else {
-//            config = configs.weatherConfig.first(where: {$0.weather == .sunny})!.clothes
-//        }
-        config = configs.weatherConfig.first(where: {$0.weather == .sunny})!.clothes
-        
+        if weather.code.description.hasPrefix("2") || weather.code.description.hasPrefix("5") || weather.code.description.hasPrefix("6") {
+            weatherTypeConfig = .rain
+            config = configs.weatherConfig.first(where: {$0.weather == .rain})!.clothes
+        } else if weather.humidity > 65 {
+            weatherTypeConfig = .humidity
+            config = configs.weatherConfig.first(where: {$0.weather == .humidity})!.clothes
+        } else if weather.code == 804 || weather.code == 803 || weather.windSpeed > 12 {
+            weatherTypeConfig = .cloudyOrWindy
+            config = configs.weatherConfig.first(where: {$0.weather == .cloudyOrWindy})!.clothes
+        } else {
+            weatherTypeConfig = .sunny
+            config = configs.weatherConfig.first(where: {$0.weather == .sunny})!.clothes
+        }
+//        config = configs.weatherConfig.first(where: {$0.weather == .sunny})!.clothes
+//        weatherTypeConfig = .sunny
         
         //user preferences
         //remove winter hat if temperature is higher than his preference
@@ -903,8 +913,130 @@ class MainScreenViewModel: ObservableObject {
             config = removeTshirtFromConfig(config: config)
         }
         
-        
+        //check if there is in config outfits that don't fit user preference
+        if !user.excludedClothes.isEmpty {
+            let userWears: [ClothesType] = [.skirts, .dresses]
+            var clothWeather: [String] = []
+            for cloth in userWears {
+                if cloth == .dresses {
+                    clothWeather = convertClothWeatherToWeatherType(userPreference: user.dressWeather, temp: temp)
+                } else {
+                    clothWeather = convertClothWeatherToWeatherType(userPreference: user.skirtWeather, temp: temp)
+                }
+                config = removeOutfitNotFittingToUserPreference(config: config, cloth: cloth, clothWeather: clothWeather, weatherTypeConfig: weatherTypeConfig)
+            }
+        }
+        print(config)
         return config
+    }
+    
+    func convertClothWeatherToWeatherType(userPreference: [String], temp: Double) -> [String] {
+        var output: [String] = []
+        if userPreference.contains("Mainly cloudy") || userPreference.contains("Windy") {
+            output.append("cloudyOrWindy")
+        }
+        if userPreference.contains("Sunny") {
+            output.append("sunny")
+        }
+        if userPreference.contains("Rain") || userPreference.contains("Snow") && temp <= 3 {
+            output.append("rain")
+        }
+//        if userPreference.isEmpty {
+//            output.append("sunny")
+//        }
+        return output
+    }
+    
+    func removeOutfitNotFittingToUserPreference(config :[StyleOutfits], cloth:ClothesType , clothWeather: [String], weatherTypeConfig: WeatherType) -> [StyleOutfits] {
+        var fittingOutfits: [StyleOutfits] = []
+        
+        if user.excludedClothes.contains(cloth.rawValue.lowercased()) {
+            //user doesn't wear this cloth
+            for styleOutfits in config {
+                let newStyle = styleOutfits.style
+                var newStyleOutfits = [[ClothesPref]]()
+                for outfit in styleOutfits.outfits {
+                    if !outfit.contains(where: {$0.type == cloth}) {
+                        newStyleOutfits.append(outfit)
+                    }
+                }
+                fittingOutfits.append(StyleOutfits(style: newStyle, outfits: newStyleOutfits))
+            }
+        } else {
+            for styleOutfits in config {
+                let newStyle = styleOutfits.style
+                var newStyleOutfits = [[ClothesPref]]()
+                for outfit in styleOutfits.outfits {
+                    // add outfit if it contains dress/skirt that user wears and the weather is prefered for this cloth
+                    if outfit.contains(where: {$0.type == cloth}) && clothWeather.contains(weatherTypeConfig.rawValue) {
+                        // if user wears clothes from outfit with skirt/dress
+                        if userWearsSuchOufit(outfit: outfit, cloth: cloth) {
+                            newStyleOutfits.append(outfit)
+                        }
+                    // else if there is no dress/skirt in outfit, just add it to the return
+                    } else if !outfit.contains(where: {$0.type == cloth}) {
+                        newStyleOutfits.append(outfit)
+                    }
+                }
+                fittingOutfits.append(StyleOutfits(style: newStyle, outfits: newStyleOutfits))
+            }
+        }
+        
+        return fittingOutfits
+    }
+    
+    func getClothTypeFromPreference(preference: String) -> ClothesType {
+        var output: ClothesType = .blank
+        if preference == "Jacket" {
+            output = .jackets
+        } else if preference == "Blazer, Suit Jacket" {
+            output = .suitJackets
+        } else if preference == "Cardigan, Sweater, Tutrtleneck" {
+            output = .hoodies
+        } else if preference == "Shirt" {
+            output = . shirts
+        } else if preference == "T-Shirt, Top" {
+            output = .tshirts
+        } else if preference == "Leggins" {
+            output = .pants
+        } else {
+            output = .blank
+        }
+        return output
+    }
+    
+    func userWearsSuchOufit(outfit: [ClothesPref], cloth: ClothesType) -> Bool {
+        var isAllowed = true
+        let possiblePairings = ["Jacket", "Blazer, Suit Jacket", "Cardigan, Sweater, Tutrtleneck", "Shirt", "T-Shirt, Top", "Leggins", "With nothing"]
+        let possibleCLothes: [ClothesType] = [
+            .jackets,
+            .suitJackets,
+            .hoodies,
+            .shirts,
+            .tshirts,
+            .pants
+        ]
+        var notAllowedClothes: [ClothesType] = []
+        var pairings: [String] = []
+        
+        if cloth == .dresses {
+            pairings = user.dressPairings
+        } else if cloth == .skirts {
+            pairings = user.skirtPairings
+        }
+        
+        for option in possiblePairings {
+            if !pairings.contains(option) {
+                notAllowedClothes.append(getClothTypeFromPreference(preference: option))
+            }
+        }
+        
+        for notAllowedCloth in notAllowedClothes {
+            if outfit.contains(where: {$0.type == notAllowedCloth}) {
+                isAllowed = false
+            }
+        }
+        return isAllowed
     }
     
     func removeHatFromConfig(config :[StyleOutfits], tempTypes: [String]) -> [StyleOutfits] {
@@ -929,7 +1061,6 @@ class MainScreenViewModel: ObservableObject {
     
     func removeTshirtFromConfig(config :[StyleOutfits]) -> [StyleOutfits] {
         let type: ClothesType = .tshirts
-        let excludedTempTypes = ["superCold", "cold", "coldy", "cool", "regular", "warm", "hot"]
         var updatedConfig = config
         
         updatedConfig = config.map { styleOutfit in
@@ -962,7 +1093,7 @@ class MainScreenViewModel: ObservableObject {
             }
     }
     
-    func getRightOutfit(clothes: [Cloth], config: [StyleOutfits]) -> [PercentFittingOutfit] {
+    func getListOfPercentFittingOutfits(clothes: [Cloth], config: [StyleOutfits]) -> [PercentFittingOutfit] {
         var percentFittingOutfits = [PercentFittingOutfit(style: .business, outfit: [], percent: 0)]
         
         for style in config {
@@ -1001,6 +1132,90 @@ class MainScreenViewModel: ObservableObject {
         return percentFittingOutfits
     }
     
+//    func getOutfitsForDay(config: [StyleOutfits]) -> FittingOutfitsResponse {
+//        
+//        guard !clothes.isEmpty else {
+//            return FittingOutfitsResponse(id: 0, outfits: [], code: 401, error: "No items in wardrobe")
+//        }
+//        
+//        guard !outfits.isEmpty else {
+//            return FittingOutfitsResponse(id: 0, outfits: [], code: 402, error: "No outfits")
+//        }
+////        
+//        let usersFittingOutfits = getFittingOutfits(config: config)
+//        if !usersFittingOutfits.isEmpty {
+//            let notIncludedStyles = notIncludedStyles(allFittingOutfits: usersFittingOutfits)
+//            if notIncludedStyles.isEmpty {
+//                return FittingOutfitsResponse(id: 0, outfits: sortOutfitsByPreferredStyle(usersFittingOutfits), code: 200, error: "")
+//            }
+//        }
+//        
+//        let generatedOutfits = generateOutfits(from: clothes, config: config)
+//        return FittingOutfitsResponse(id: 0, outfits: sortOutfitsByPreferredStyle(generatedOutfits), code: generatedOutfits.isEmpty ? 400 : 200, error: generatedOutfits.isEmpty ? "Unable to generate suitable outfits" : "")
+//    }
+//
+//    private func getFittingOutfits(config: [StyleOutfits]) -> [FittingOutfit] {
+//        var fittingOutfits = [FittingOutfit]()
+//        
+//        var outfitId = 0
+//        for outfit in outfits {
+//            let clothesIds = getClothesByIds(outfit.clothes)
+//            let rightOutfits = getListOfPercentFittingOutfits(clothes: clothesIds, config: config)
+//            
+//            for rightOutfit in rightOutfits where rightOutfit.percent == 100 {
+//                let sortedOutfit = sortClothes(clothesList: rightOutfit.outfit)
+//                if !sortedOutfit.isEmpty && !fittingOutfits.contains(where: { $0.outfit == sortedOutfit }) {
+//                    fittingOutfits.append(FittingOutfit(id: outfitId, style: rightOutfit.style, outfit: sortedOutfit, isGenerated: false))
+//                    outfitId += 1
+//                }
+//            }
+//        }
+//        
+//        return fittingOutfits
+//    }
+//    
+//    private func notIncludedStyles(allFittingOutfits:[FittingOutfit]) -> [OutfitStyle] {
+//        var notIncludedStyles: [OutfitStyle] = []
+//        for style in OutfitStyle.allCases {
+//            if !allFittingOutfits.map({$0.style}).contains(style) {
+//                notIncludedStyles.append(style)
+//            }
+//        }
+//        return notIncludedStyles
+//    }
+//
+//    private func generateOutfits(from clothes: [Cloth], config: [StyleOutfits]) -> [FittingOutfit] {
+//        let notFittingOutfits = getNotFittingOutfits(clothes: clothes, config: config)
+//        let allFittingOutfits = completeOutfits(notFittingOutfits: notFittingOutfits, clothes: clothes)
+//        
+//        return createFittingOutfits(from: allFittingOutfits)
+//    }
+//
+//    private func getNotFittingOutfits(clothes: [Cloth], config: [StyleOutfits]) -> [PercentFittingOutfit] {
+//        // Implementation details...
+//    }
+//
+//    private func completeOutfits(notFittingOutfits: [PercentFittingOutfit], clothes: [Cloth]) -> [PercentFittingOutfit] {
+//        // Implementation details...
+//    }
+//
+//    private func createFittingOutfits(from allFittingOutfits: [PercentFittingOutfit]) -> [FittingOutfit] {
+//        // Implementation details...
+//    }
+//
+//    private func sortOutfitsByPreferredStyle(_ outfits: [FittingOutfit]) -> [FittingOutfit] {
+//        let preferedStyle = user.preferedStyle
+//        return outfits.sorted { outfit1, outfit2 in
+//            if outfit1.style.rawValue == preferedStyle && outfit2.style.rawValue != preferedStyle {
+//                return true
+//            } else if outfit1.style.rawValue != preferedStyle && outfit2.style.rawValue == preferedStyle {
+//                return false
+//            } else {
+//                return outfit1.id < outfit2.id
+//            }
+//        }
+//    }
+//    
     
     
     func getOutfitsForDay(config: [StyleOutfits]) -> FittingOutfitsResponse {
@@ -1013,9 +1228,9 @@ class MainScreenViewModel: ObservableObject {
         var count = 0
         for outfit in outfits {
             
-            let clothes = getClothesByIds(outfit.clothes)
+            let clothesIds = getClothesByIds(outfit.clothes)
             
-            let rightOutfits = getRightOutfit(clothes: clothes, config: config)
+            let rightOutfits = getListOfPercentFittingOutfits(clothes: clothesIds, config: config)
             
             for outfit in rightOutfits {
                 if outfit.percent == 100 {
@@ -1067,7 +1282,7 @@ class MainScreenViewModel: ObservableObject {
                             if !fittingClothesOutfits.isEmpty {
                                 fittingClothesOutfits.sort { $0.percent > $1.percent }
                                 changedOutfit = fittingClothesOutfits[0]
-                                
+                                print("changedOutfit", changedOutfit)
                             }
                         } else {
                             error = "No suitable \(type.type.rawValue) for temperatures \(GetTemperatureRange.getTemperatureRange(type: type.temp))"
@@ -1095,7 +1310,7 @@ class MainScreenViewModel: ObservableObject {
                             let id = "Not real cloth "
                             var counter = 0
                             for cloth in absentTypes {
-                                let newCloth = Cloth(id: id+cloth.type.rawValue+counter.description , name: cloth.type.rawValue, type: cloth.type, color: "#FFFFFF", temperature: [cloth.temp.rawValue] , isDefault: true, image: cloth.type.rawValue)
+                                let newCloth = Cloth(id: id+cloth.type.rawValue+counter.description , name: cloth.type.rawValue, type: cloth.type, color: "#FFFFFF", temperature: [cloth.temp.rawValue] , isDefault: true, image: cloth.type.rawValue, creationDate: 0)
                                 notRealClothesOutfit.outfit.append(newCloth)
                                 
                                 let notRealCloth = NotRealCloth(id: id+cloth.type.rawValue+counter.description, type: cloth.type, temp: cloth.temp)

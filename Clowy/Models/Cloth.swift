@@ -16,6 +16,7 @@ struct Cloth: Identifiable, Equatable, Hashable {
     var isDefault: Bool
     var image: String
     var rawImage: UIImage?
+    var creationDate: Int
 }
 
 enum ClothesType: String, CaseIterable, Codable {

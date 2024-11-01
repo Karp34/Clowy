@@ -52,7 +52,7 @@ struct ClothesCardView: View {
                         },
                         secondaryButton:  .default(Text("Yes")){
                             print("Yes")
-                            viewModel.deleteCloth(clothId: cloth.id, imageId: cloth.image)
+                            viewModel.deleteCloth(cloth: cloth)
                         }
                     )
                 }

@@ -17,16 +17,16 @@ class AddNewOutfitViewModel: ObservableObject, WardrobeClothesCardCollectionDele
     
     @Published var defaultStringOutfit = ["1100","1101","1102"]
     @Published var defaultOutfit = [
-        Cloth(id: "1100", name: "", type: .tshirts, color: "#000000", temperature: ["Cold"], isDefault: true, image: "DefaultUpperWear"),
-        Cloth(id: "1101", name: "", type: .pants, color: "#000000", temperature: ["Cold"], isDefault: true, image: "DefaultPants"),
-        Cloth(id: "1102", name: "", type: .sneakers, color: "#00000", temperature: ["Cold"], isDefault: true, image: "DefaultSneaker")
+        Cloth(id: "1100", name: "", type: .tshirts, color: "#000000", temperature: ["Cold"], isDefault: true, image: "DefaultUpperWear", creationDate: 0),
+        Cloth(id: "1101", name: "", type: .pants, color: "#000000", temperature: ["Cold"], isDefault: true, image: "DefaultPants", creationDate: 0),
+        Cloth(id: "1102", name: "", type: .sneakers, color: "#00000", temperature: ["Cold"], isDefault: true, image: "DefaultSneaker", creationDate: 0)
     ]
     
     func appendToOutfit(cloth: Cloth) {
         let defaulClothesType = [
-            Cloth(id: "1100", name: "", type: .tshirts, color: "#000000", temperature: ["Cold"], isDefault: true, image: "DefaultUpperWear"),
-            Cloth(id: "1101", name: "", type: .pants, color: "#000000", temperature: ["Cold"], isDefault: true, image: "DefaultPants"),
-            Cloth(id: "1102", name: "", type: .sneakers, color: "#00000", temperature: ["Cold"], isDefault: true, image: "DefaultSneaker")
+            Cloth(id: "1100", name: "", type: .tshirts, color: "#000000", temperature: ["Cold"], isDefault: true, image: "DefaultUpperWear", creationDate: 0),
+            Cloth(id: "1101", name: "", type: .pants, color: "#000000", temperature: ["Cold"], isDefault: true, image: "DefaultPants", creationDate: 0),
+            Cloth(id: "1102", name: "", type: .sneakers, color: "#00000", temperature: ["Cold"], isDefault: true, image: "DefaultSneaker", creationDate: 0)
         ]
         
         let upperClothesTypes = [ClothesType.hoodies, ClothesType.jackets, ClothesType.thermals, ClothesType.tshirts, ClothesType.dresses]
@@ -136,9 +136,9 @@ class AddNewOutfitViewModel: ObservableObject, WardrobeClothesCardCollectionDele
         showSaveButton = false
         defaultStringOutfit = ["1100","1101","1102"]
         defaultOutfit = [
-            Cloth(id: "1100", name: "", type: .tshirts, color: "#000000", temperature: ["Cold"], isDefault: true, image: "DefaultUpperWear"),
-            Cloth(id: "1101", name: "", type: .pants, color: "#000000", temperature: ["Cold"], isDefault: true, image: "DefaultPants"),
-            Cloth(id: "1102", name: "", type: .sneakers, color: "#00000", temperature: ["Cold"], isDefault: true, image: "DefaultSneaker")
+            Cloth(id: "1100", name: "", type: .tshirts, color: "#000000", temperature: ["Cold"], isDefault: true, image: "DefaultUpperWear", creationDate: 0),
+            Cloth(id: "1101", name: "", type: .pants, color: "#000000", temperature: ["Cold"], isDefault: true, image: "DefaultPants", creationDate: 0),
+            Cloth(id: "1102", name: "", type: .sneakers, color: "#00000", temperature: ["Cold"], isDefault: true, image: "DefaultSneaker", creationDate: 0)
         ]
     }
     

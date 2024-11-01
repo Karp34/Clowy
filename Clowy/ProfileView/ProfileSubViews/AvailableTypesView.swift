@@ -9,10 +9,15 @@ import SwiftUI
 
 struct AvailableTypesView: View {
     @State var showSheet = false
-//    @ObservedObject var viewModel: ProfileViewModel
-    @StateObject private var viewModel = ProfileViewModel.shared
+    @StateObject private var mainViewModel = MainScreenViewModel.shared
     
-    let allTypes = GetClothes.getClothes()
+    let allTypes = CreateDefaultWardrobe.getClothes()
+    let notDeletableCLothes: [Wardrobe] = [
+        Wardrobe(id: .hoodies, clothesTypeName: .hoodies, items: [], ratio: .rectangle),
+        Wardrobe(id: .tshirts, clothesTypeName: .tshirts, items: [], ratio: .rectangle),
+        Wardrobe(id: .pants, clothesTypeName: .pants, items: [], ratio: .rectangle),
+        Wardrobe(id: .sneakers, clothesTypeName: .sneakers, items: [], ratio: .square)
+    ]
     
     
     var body: some View {
@@ -22,20 +27,29 @@ struct AvailableTypesView: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 16)
                     .foregroundColor(.white)
-                VStack(alignment: .leading, spacing: 16) {
+                VStack(alignment: .leading, spacing: 8) {
                     HStack {
-                        Text("Select type of clothing")
+                        Text("Clothes you don't wear")
                             .foregroundColor(Color(hex: "#646C75"))
                             .font(.custom("Montserrat-Medium", size: 16))
                         Spacer()
                     }
-                    CleanTagsView(items: viewModel.chosenClothes)
+                    if mainViewModel.user.excludedClothes.isEmpty {
+                        Text("Tap to remove clothes types from wardrobe")
+                            .foregroundColor(Color(hex: "#646C75"))
+                            .font(.custom("Montserrat-Regular", size: 12))
+                    } else {
+                        CleanTagsView(items: mainViewModel.user.excludedClothes)
+                            .padding(.top, 8)
+                    }
                 }
                 .padding(16)
             }
             .edgesIgnoringSafeArea(.all)
             .shadow(color: Color(hex: "#273145").opacity(0.1), radius: 35, x: 0, y: 8)
-            .sheet(isPresented: $showSheet) {
+            .sheet(isPresented: $showSheet, onDismiss: {
+                mainViewModel.updateUser { _ in }
+            }) {
                 ZStack (alignment: .bottom) {
                     VStack (alignment: .leading, spacing: 8) {
                         HStack {
@@ -46,38 +60,28 @@ struct AvailableTypesView: View {
                             Spacer()
                         }
                         .padding(.top, 8)
-                        Text("Select type of clothing")
+                        Text("Select clothes you don't wear")
                             .foregroundColor(Color(hex: "#646C75"))
                             .font(.custom("Montserrat-SemiBold", size: 22))
                             .padding(.top, 8)
                         
                         ScrollView(.vertical, showsIndicators: false) {
                             VStack (spacing: 16) {
-                            
-                                ForEach(0..<allTypes.count) { id in
-                                    if viewModel.chosenClothes.contains(allTypes[id].clothesTypeName.rawValue) {
-                                        ListItem(name: allTypes[id].clothesTypeName.rawValue, isPicked: true)
-                                            .onTapGesture {
-                                                if let index = viewModel.chosenClothes.firstIndex(where: {$0 == allTypes[id].clothesTypeName.rawValue }) {
-                                                    viewModel.chosenClothes.remove(at: index)
-                                                    UserDefaults.standard.set(viewModel.chosenClothes, forKey: "chosenClothesTypes")
-                                                }
-                                            }
-                                    } else {
-                                        ListItem(name: allTypes[id].clothesTypeName.rawValue, isPicked: false)
-                                            .onTapGesture {
-                                                if id < viewModel.chosenClothes.count {
-                                                    viewModel.chosenClothes.insert(allTypes[id].clothesTypeName.rawValue, at: id)
-                                                } else {
-                                                    viewModel.chosenClothes.append(allTypes[id].clothesTypeName.rawValue)
-                                                }
-                                                
-                                                UserDefaults.standard.set(viewModel.chosenClothes, forKey: "chosenClothesTypes")
-                                            }
+                                ForEach(allTypes) { type in
+                                    if !notDeletableCLothes.contains(type) {
+                                        let isInList = mainViewModel.user.excludedClothes.contains(type.clothesTypeName.rawValue.lowercased())
+                                        ListItem(
+                                            name: type.clothesTypeName.rawValue,
+                                            isPicked: isInList
+                                        )
+                                        .onTapGesture {
+                                            updateClothesList(cloth: type.clothesTypeName.rawValue.lowercased())
+                                        }
+                                        
+                                        RoundedRectangle(cornerRadius: 16)
+                                            .frame(height: 1)
+                                            .foregroundColor(Color(hex: "#EFF0F2"))
                                     }
-                                    RoundedRectangle(cornerRadius: 16)
-                                        .frame(height: 1)
-                                        .foregroundColor(Color(hex: "#EFF0F2"))
                                 }
                                 Spacer(minLength: 138)
                             }
@@ -85,13 +89,15 @@ struct AvailableTypesView: View {
                         }
                     }
                     .padding(.horizontal, 24)
+                    
                     ZStack (alignment: .bottom) {
                         Rectangle()
                             .foregroundColor(.clear)
                             .background(LinearGradient(colors: [.white.opacity(0), .white], startPoint: .top, endPoint: .bottom))
                             .frame(height: 178)
+                        
                         Button {
-                            UserDefaults.standard.set(viewModel.chosenClothes, forKey: "chosenClothesTypes")
+                            mainViewModel.updateUser { _ in }
                             showSheet = false
                         } label: {
                             ZStack {
@@ -113,6 +119,16 @@ struct AvailableTypesView: View {
             
         }
         .buttonStyle(ScaleButtonStyle())
+    }
+    
+    func updateClothesList(cloth: String) {
+        if mainViewModel.user.excludedClothes.contains(cloth) {
+            if let index = mainViewModel.user.excludedClothes.firstIndex(where: {$0 == cloth}) {
+                mainViewModel.user.excludedClothes.remove(at: index)
+            }
+        } else {
+            mainViewModel.user.excludedClothes.append(cloth)
+        }
     }
 }
 

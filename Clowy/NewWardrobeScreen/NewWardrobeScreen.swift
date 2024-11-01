@@ -9,17 +9,14 @@ import SwiftUI
 
 struct NewWardrobeScreen: View {
     @StateObject private var viewModel = MainScreenViewModel.shared
-//    @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State private var isShowingSheet = false
     
     init() {
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.titleTextAttributes = [.font : UIFont(name: "Montserrat-Bold", size: 14)!]
-        if #available(iOS 14.0, *) {
-            UINavigationBar.appearance().titleTextAttributes = [.font : UIFont(name: "Montserrat-Bold", size: 14)!, .foregroundColor: UIColor(Color(hex: "#FFFFFF"))]
-            navBarAppearance.backgroundColor = UIColor(Color(hex: "#F7F8FA"))
-        }
+        UINavigationBar.appearance().titleTextAttributes = [.font : UIFont(name: "Montserrat-Bold", size: 14)!, .foregroundColor: UIColor(Color(hex: "#FFFFFF"))]
+        navBarAppearance.backgroundColor = UIColor(Color(hex: "#F7F8FA"))
         navBarAppearance.shadowColor = .clear
         UINavigationBar.appearance().standardAppearance = navBarAppearance
         UINavigationBar.appearance().compactAppearance = navBarAppearance
@@ -62,12 +59,10 @@ struct NewWardrobeScreen: View {
                 NewWardrobeScreenPlaceholder()
             } else {
                 VStack {
-                    ForEach(viewModel.wardrobe) { cat in
-//                        if cat.items.count > 0 {
-                            ClothesCollectionView(clothesTypeName: cat.clothesTypeName, clothes: cat.items)
-//                        } else {
-//                            NoClothesCollection(name: cat.clothesTypeName.rawValue)
-//                        }
+                    ForEach(viewModel.wardrobe) { category in
+                        if !viewModel.user.excludedClothes.contains(category.clothesTypeName.rawValue.lowercased()) {
+                            ClothesCollectionView(clothesTypeName: category.clothesTypeName, clothes: category.items)
+                        }
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)

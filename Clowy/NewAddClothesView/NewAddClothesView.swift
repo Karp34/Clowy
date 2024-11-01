@@ -13,7 +13,7 @@ import Firebase
 class AddClothesViewModel: ObservableObject {
     @StateObject private var mainViewModel = MainScreenViewModel.shared
     
-    @Published var cloth: Cloth = Cloth(id:  UUID().uuidString, name: "", type: .blank, color: "#FFFFFF", temperature: [], isDefault: false, image: "", rawImage: nil)
+    @Published var cloth: Cloth = Cloth(id:  UUID().uuidString, name: "", type: .blank, color: "#FFFFFF", temperature: [], isDefault: false, image: "", rawImage: nil, creationDate: 0)
     @Published var temp: [Temperature] = []
     @Published var imageId: String = ""
     
@@ -22,7 +22,7 @@ class AddClothesViewModel: ObservableObject {
     static var shared = AddClothesViewModel()
     
     func reset() {
-        cloth = Cloth(id:  UUID().uuidString, name: "", type: .blank, color: "#FFFFFF", temperature: [], isDefault: false, image: "", rawImage: nil)
+        cloth = Cloth(id:  UUID().uuidString, name: "", type: .blank, color: "#FFFFFF", temperature: [], isDefault: false, image: "", rawImage: nil, creationDate: 0)
         temp = []
     }
     
@@ -55,7 +55,7 @@ class AddClothesViewModel: ObservableObject {
     func addCloth(name: String, image: String, type: String, temp: [String], color: String, isDefault: Bool) {
         let db = Firestore.firestore()
         let ref = db.collection("Users").document(mainViewModel.userId).collection("Wardrobe")
-        ref.addDocument(data: ["name": name, "type": type, "image" : image, "temp": temp, "color": color, "isDefault": isDefault]) { error in
+        ref.addDocument(data: ["name": name, "type": type, "image" : image, "temp": temp, "color": color, "isDefault": isDefault, "creationDate": Int(Date().timeIntervalSince1970)]) { error in
             if error == nil {
                 self.mainViewModel.fetchWardrobe() {
                     
@@ -71,7 +71,7 @@ class AddClothesViewModel: ObservableObject {
         let db = Firestore.firestore()
         let ref = db.collection("Users").document(mainViewModel.userId).collection("Wardrobe")
         
-        ref.document(cloth.id).setData(["name": name, "type": type, "image" : image, "temp": temp, "color": color, "isDefault": isDefault]) { error in
+        ref.document(cloth.id).setData(["name": name, "type": type, "image" : image, "temp": temp, "color": color, "isDefault": isDefault, "creationDate": Int(Date().timeIntervalSince1970)]) { error in
             if error == nil {
                 self.mainViewModel.fetchWardrobe() {
                      

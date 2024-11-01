@@ -14,6 +14,12 @@ struct Wardrobe: Identifiable, Equatable {
     var ratio: AspectRatioTypes
 }
 
+extension Wardrobe {
+    mutating func deleteCloth(_ cloth: Cloth) {
+        self.items.removeAll { $0.id == cloth.id }
+    }
+}
+
 enum WardrobeOrder: Int, CaseIterable, Codable {
     case headdresses = 0
     case sunglasses = 1

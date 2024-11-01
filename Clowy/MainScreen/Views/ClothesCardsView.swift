@@ -38,9 +38,11 @@ struct ClothesCardsView: View {
 }
 
 struct ClothesCard: View {
+    @StateObject private var addClothesViewModel = AddClothesViewModel.shared
     @State var cloth: Cloth
     var notRealClothesTemps: [NotRealCloth]?
     var color: String?
+    @State var isShowingSheet = false
 
     var body: some View {
         if cloth.id.starts(with: "Not real cloth") {
@@ -92,6 +94,14 @@ struct ClothesCard: View {
             }
             .shadow(color:Color(hex: "#646C75").opacity(0.15), radius: 30, y: 4)
             .padding(4)
+            .onTapGesture {
+                isShowingSheet = true
+                addClothesViewModel.cloth = cloth
+                addClothesViewModel.temp = GetTemperatureRange.decodeTemperature(listTemp: cloth.temperature)
+            }
+            .sheet(isPresented: $isShowingSheet) {
+                AddClothesView(isEdtitngCloth: true, isShowingSheet: $isShowingSheet)
+            }
         } else {
             ZStack{
                 RoundedRectangle(cornerRadius: 16)

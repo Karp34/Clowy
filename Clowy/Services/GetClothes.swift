@@ -7,41 +7,26 @@
 
 import Foundation
 
-//case headdresses = 0
-//case sunglasses = 1
-//case scarves = 2
-//case jackets = 3
-//case hoodies = 4
-//case thermals = 5
-//case tshirts = 6
-//case pants = 7
-//case thermalPants = 8
-//case socks = 9
-//case sneakers = 10
-//case umbrellas = 11
-//case gloves = 12
-//case accessories = 13
-
-class GetClothes {
-    static func getClothes() -> [Wardrobe] {
-        return [
-            Wardrobe(id: .headdresses, clothesTypeName: .headdresses, items: [], ratio: .square),
-            Wardrobe(id: .sunglasses, clothesTypeName: .sunglasses, items: [], ratio: .rectangle),
-            Wardrobe(id: .scarves, clothesTypeName: .scarves, items: [], ratio: .rectangle),
-            Wardrobe(id: .jackets, clothesTypeName: .jackets, items: [], ratio: .rectangle),
-            Wardrobe(id: .hoodies, clothesTypeName: ClothesType.hoodies, items: [], ratio: .rectangle),
-            Wardrobe(id: .thermals, clothesTypeName: .thermals, items: [], ratio: .rectangle),
-            Wardrobe(id: .tshirts, clothesTypeName: .tshirts, items: [], ratio: .rectangle),
-            Wardrobe(id: .dresses, clothesTypeName: .dresses, items: [], ratio: .square),
-            Wardrobe(id: .skirts, clothesTypeName: .skirts, items: [], ratio: .square),
-            Wardrobe(id: .pants, clothesTypeName: .pants, items: [], ratio: .rectangle),
-            Wardrobe(id: .thermalPants, clothesTypeName: .thermalPants, items: [], ratio: .rectangle),
-            Wardrobe(id: .socks, clothesTypeName: .socks, items: [], ratio: .square),
-            Wardrobe(id: .sneakers, clothesTypeName: .sneakers, items: [], ratio: .square),
-            Wardrobe(id: .umbrellas, clothesTypeName: .umbrellas, items: [], ratio: .square),
-            Wardrobe(id: .gloves, clothesTypeName: .gloves, items: [], ratio: .rectangle),
-            Wardrobe(id: .accessories, clothesTypeName: .accessories, items: [], ratio: .square)
-            ]
-    }
-}
+//class GetClothes {
+//    static func getClothes() -> [Wardrobe] {
+//        return [
+//            Wardrobe(id: .headdresses, clothesTypeName: .headdresses, items: [], ratio: .square),
+//            Wardrobe(id: .sunglasses, clothesTypeName: .sunglasses, items: [], ratio: .rectangle),
+//            Wardrobe(id: .scarves, clothesTypeName: .scarves, items: [], ratio: .rectangle),
+//            Wardrobe(id: .jackets, clothesTypeName: .jackets, items: [], ratio: .rectangle),
+//            Wardrobe(id: .hoodies, clothesTypeName: ClothesType.hoodies, items: [], ratio: .rectangle),
+//            Wardrobe(id: .thermals, clothesTypeName: .thermals, items: [], ratio: .rectangle),
+//            Wardrobe(id: .tshirts, clothesTypeName: .tshirts, items: [], ratio: .rectangle),
+//            Wardrobe(id: .dresses, clothesTypeName: .dresses, items: [], ratio: .square),
+//            Wardrobe(id: .skirts, clothesTypeName: .skirts, items: [], ratio: .square),
+//            Wardrobe(id: .pants, clothesTypeName: .pants, items: [], ratio: .rectangle),
+//            Wardrobe(id: .thermalPants, clothesTypeName: .thermalPants, items: [], ratio: .rectangle),
+//            Wardrobe(id: .socks, clothesTypeName: .socks, items: [], ratio: .square),
+//            Wardrobe(id: .sneakers, clothesTypeName: .sneakers, items: [], ratio: .square),
+//            Wardrobe(id: .umbrellas, clothesTypeName: .umbrellas, items: [], ratio: .square),
+//            Wardrobe(id: .gloves, clothesTypeName: .gloves, items: [], ratio: .rectangle),
+//            Wardrobe(id: .accessories, clothesTypeName: .accessories, items: [], ratio: .square)
+//            ]
+//    }
+//}
 

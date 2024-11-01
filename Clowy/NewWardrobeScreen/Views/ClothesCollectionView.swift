@@ -26,25 +26,7 @@ struct ClothesCollectionView: View {
     
     
     
-    func decodeTemperature(listTemp: [String]) -> [Temperature] {
-        var outputList = [Temperature]()
-        let tempList = [
-            Temperature(id: 0, name: "SuperCold", temp: [-30, -20]),
-            Temperature(id: 1, name: "Cold", temp: [-20, -10]),
-            Temperature(id: 2, name: "Coldy", temp: [-10, 0]),
-            Temperature(id: 3, name: "Regular", temp: [0, 10]),
-            Temperature(id: 4, name: "Warm", temp: [10, 20]),
-            Temperature(id: 5, name: "Hot", temp: [20, 30])
-        ]
-        
-        for item in listTemp {
-            if let tempListItem = tempList.first(where: { $0.name == item }) {
-                outputList.append(tempListItem)
-            }
-        }
-        
-        return outputList
-    }
+    
     
     var menuItems: some View {
         return Group {
@@ -52,7 +34,7 @@ struct ClothesCollectionView: View {
                 isShowingSheet.toggle()
                 if let editableCloth {
                     addClothesViewModel.cloth = editableCloth
-                    addClothesViewModel.temp = decodeTemperature(listTemp: editableCloth.temperature)
+                    addClothesViewModel.temp = GetTemperatureRange.decodeTemperature(listTemp: editableCloth.temperature)
                 }
                 
             } label: {
@@ -63,7 +45,7 @@ struct ClothesCollectionView: View {
                 showingAlert = true
             } label: {
                 Label("Delete", systemImage: "trash")
-                    .accentColor(.red)
+                    .tint(.red)
             }
         }
     }
@@ -72,6 +54,7 @@ struct ClothesCollectionView: View {
     
     var body: some View {
         let insets = EdgeInsets(top: 16, leading: 24, bottom: 16, trailing: 24)
+        let sortedClothes = clothes.sorted { $0.creationDate < $1.creationDate }
         
         if selectedClothes != nil && selectedClothes!.count > 0 {
             VStack (alignment: .leading, spacing: 0) {
@@ -81,7 +64,7 @@ struct ClothesCollectionView: View {
                     .foregroundColor(Color(hex: "#646C75"))
                 ScrollView (.horizontal, showsIndicators: false) {
                     HStack {
-                        ForEach(clothes) { cloth in
+                        ForEach(sortedClothes) { cloth in
                             if selectedClothes!.contains(cloth) {
                                 ClothesCardView(cloth: cloth, selected: true)
                                     .onTapGesture {
@@ -122,7 +105,7 @@ struct ClothesCollectionView: View {
                 }
                 ScrollView (.horizontal, showsIndicators: false) {
                     HStack {
-                        ForEach(clothes) { cloth in
+                        ForEach(sortedClothes) { cloth in
                             ClothesCardView(cloth: cloth, deletable: deletable)
                                 .sheet(isPresented: $isShowingSheet, onDismiss: addClothesViewModel.reset) {
                                     AddClothesView(isEdtitngCloth: true, isShowingSheet: $isShowingSheet)
@@ -142,7 +125,7 @@ struct ClothesCollectionView: View {
                                         },
                                         secondaryButton:  .default(Text("Yes")){
                                             print("Yes")
-                                            viewModel.deleteCloth(clothId: cloth.id, imageId: cloth.image)
+                                            viewModel.deleteCloth(cloth: editableCloth!)
                                         }
                                     )
                                 }

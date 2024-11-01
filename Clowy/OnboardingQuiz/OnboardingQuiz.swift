@@ -351,7 +351,7 @@ struct OnboardingQuiz: View {
     @ViewBuilder
     func OnboardingPage7(size: CGSize, index: Int, currentPage: Int) -> some View {
         OnboardingPage(size: size, index: index, currentPage: currentPage) {
-            QuizOptionButton(options: ["Jacket", "Blazer", "Cardigan, Sweater, Tutrtleneck", "Shirt", "T-Shir, Top", "Leggins",  "With nothing"], withCheckpoints: true, currentPage: currentPage, index: index)
+            QuizOptionButton(options: ["Jacket", "Blazer, Suit Jacket", "Cardigan, Sweater, Tutrtleneck", "Shirt", "T-Shirt, Top", "Leggins"], withCheckpoints: true, currentPage: currentPage, index: index)
                 .padding(.top, 40)
         }
         .offset(x: -size.width * CGFloat(currentPage - index))
@@ -369,7 +369,7 @@ struct OnboardingQuiz: View {
     @ViewBuilder
     func OnboardingPage9(size: CGSize, index: Int, currentPage: Int) -> some View {
         OnboardingPage(size: size, index: index, currentPage: currentPage) {
-            QuizOptionButton(options: ["Jacket", "Blazer", "Cardigan, Sweater, Tutrtleneck", "Shirt", "T-Shir, Top", "Leggins",  "With nothing"], withCheckpoints: true, currentPage: currentPage, index: index)
+            QuizOptionButton(options: ["Jacket", "Blazer, Suit Jacket", "Cardigan, Sweater, Tutrtleneck", "Shirt", "T-Shirt, Top", "Leggins", "With nothing"], withCheckpoints: true, currentPage: currentPage, index: index)
                 .padding(.top, 40)
         }
         .offset(x: -size.width * CGFloat(currentPage - index))

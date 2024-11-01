@@ -21,6 +21,7 @@ struct ProfileView: View {
     
     @State var showSheet = false
     @State var showSheet2 = false
+    @State var showSheet3 = false
     @State private var showingAlert = false
     
     var body: some View {
@@ -28,7 +29,8 @@ struct ProfileView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 VStack (spacing: 24){
                     Spacer(minLength: 180)
-                    TempPreferenceView()
+//                    TempPreferenceView()
+                    TemperaturePreferenceDressing()
                     
                     Button {
                         showSheet.toggle()
@@ -40,7 +42,7 @@ struct ProfileView: View {
                         ChooseLocationView()
                     }
                     
-                    AvailableTypesView()
+//                    AvailableTypesView()
                     NotificationsView()
                     InformationView()
                     
@@ -78,6 +80,16 @@ struct ProfileView: View {
                     .sheet(isPresented: $showSheet2) {
                         NewLocationView()
                     }
+                    
+                    
+                    Button("Create New Cloth") {
+                        mainViewModel.showAddNewClothModel.toggle()
+                    }
+                    .fullScreenCover(isPresented: $mainViewModel.showAddNewClothModel) {
+                        CreateNewClothView()
+                    }
+                    
+                    
                 }
                 .padding(.horizontal, 24)
             }
