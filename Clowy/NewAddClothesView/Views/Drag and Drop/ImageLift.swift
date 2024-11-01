@@ -11,7 +11,6 @@ import VisionKit
 @available(iOS 16.0, *)
 @MainActor
 struct ImageLift: UIViewRepresentable {
-//    var imageName: String
     var imageName: UIImage
     let imageView = LiftImageView()
     let analyzer = ImageAnalyzer()
@@ -29,7 +28,7 @@ struct ImageLift: UIViewRepresentable {
         Task {
             if let image = imageView.image {
                 // Here I set configuration to contian all the configurations.
-                let configuration = ImageAnalyzer.Configuration([.text, .visualLookUp, .machineReadableCode])
+                let configuration = ImageAnalyzer.Configuration([.visualLookUp])
                 let analysis = try? await analyzer.analyze(image, configuration: configuration)
                 if let analysis = analysis {
                     interaction.analysis = analysis

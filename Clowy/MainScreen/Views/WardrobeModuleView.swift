@@ -129,29 +129,29 @@ struct WardrobeView: View {
 
 struct AddNewClothView: View {
     @State private var isShowingSheet = false
+    @StateObject private var mainViewModel = MainScreenViewModel.shared
     
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius:20)
-                .frame(maxWidth: 61, idealHeight: 136)
                 .foregroundColor(.white)
             VStack{
-                Button(action: {
-                    isShowingSheet.toggle()
-                }) {
+                Button {
+                    mainViewModel.showAddNewClothModel.toggle()
+                } label: {
                     Image(systemName: "plus")
                         .padding()
+                        .clipShape(Rectangle())
                 }
-                .sheet(isPresented: $isShowingSheet, onDismiss: didDismiss) {
-                    VStack (spacing: 0) {
-                        AddClothesView(isShowingSheet: $isShowingSheet)
-                    }
-                    .background(Color(hex: "#F7F8FA").edgesIgnoringSafeArea(.all))
+                .fullScreenCover(isPresented: $mainViewModel.showAddNewClothModel) {
+                    CreateNewClothView()
                 }
+                
                 RoundedRectangle(cornerRadius: 2)
                     .frame(width: 40.0, height: 1.0)
                     .foregroundColor(.gray)
                     .opacity(0.2)
+                
                 NavigationLink(
                     destination: CameraView()
                         .navigationBarHidden(true)
@@ -168,7 +168,6 @@ struct AddNewClothView: View {
             }
             .foregroundColor(.black)
         }
-    }
-    func didDismiss() {
+        .frame(maxWidth: 61, idealHeight: 136)
     }
 }

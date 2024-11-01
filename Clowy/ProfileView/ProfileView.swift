@@ -82,14 +82,6 @@ struct ProfileView: View {
                     }
                     
                     
-                    Button("Create New Cloth") {
-                        mainViewModel.showAddNewClothModel.toggle()
-                    }
-                    .fullScreenCover(isPresented: $mainViewModel.showAddNewClothModel) {
-                        CreateNewClothView()
-                    }
-                    
-                    
                 }
                 .padding(.horizontal, 24)
             }

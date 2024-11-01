@@ -9,7 +9,7 @@ import SwiftUI
 
 @available(iOS 16.0, *)
 struct DragAndDrop: View {
-    @State private var previewImage: UIImage?
+    @StateObject private var viewModel = CreateNewClothViewModel.shared
     
     var onImageChange: (UIImage) -> ()
     
@@ -18,23 +18,32 @@ struct DragAndDrop: View {
             let size = $0.size
             ZStack (alignment: .center) {
                 RoundedRectangle(cornerRadius: 16)
-                    .stroke(Color(hex: "#DADADA"), style: StrokeStyle(lineWidth: 1, dash: [4]))
-                
+                    .foregroundStyle(.white)
+                RoundedRectangle(cornerRadius: 16)
+                    .stroke(Color.secondaryBlueBrand, style: StrokeStyle(lineWidth: 1, dash: [11]))
                 VStack {
-                    if let previewImage {
-                        Image(uiImage: previewImage)
+                    if let preview = viewModel.DnDpreviewImage {
+                        Image(uiImage: preview)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .padding(4)
                     } else {
                         VStack(spacing: 16) {
-                            Image(systemName: "square.and.arrow.up")
-                                .font(.largeTitle)
-                                .imageScale(.large)
-                                .foregroundColor(Color(hex: "#606060"))
+                            ZStack {
+                                Circle()
+                                    .frame(width: 46, height: 46)
+                                    .foregroundColor(Color.secondaryBlueBrand)
+                                    .opacity(0.1)
+                                Image(systemName: "square.and.arrow.down.on.square")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 20, height: 20)
+                                    .foregroundColor(Color.secondaryBlueBrand)
+                            }
+                            
                             
                             Text("Drag & Drop")
-                                .font(.custom("Montserrat-Regular", size: 12))
+                                .font(.custom("Montserrat-SemiBold", size: 12))
                                 .foregroundColor(Color(hex: "#606060"))
                         }
                         
@@ -44,7 +53,7 @@ struct DragAndDrop: View {
             .background(Color(hex: "#F7F8FA"))
             .dropDestination(for: Data.self, action: { items, location in
                 if let firstItem = items.first, let droppedImage = UIImage(data: firstItem) {
-                    previewImage = droppedImage
+                    viewModel.DnDpreviewImage = droppedImage
                     onImageChange(droppedImage)
                     return true
                 }
@@ -59,7 +68,7 @@ struct DragAndDrop: View {
         Task.detached {
             let thumbnailmage = await image.byPreparingThumbnail(ofSize: size)
             await MainActor.run {
-                previewImage = thumbnailmage
+                viewModel.DnDpreviewImage = thumbnailmage
             }
         }
     }

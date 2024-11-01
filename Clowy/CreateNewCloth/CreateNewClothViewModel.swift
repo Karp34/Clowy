@@ -10,17 +10,31 @@ import FirebaseStorage
 import Firebase
 
 class CreateNewClothViewModel: ObservableObject {
+    static var shared = CreateNewClothViewModel()
     @StateObject private var mainViewModel = MainScreenViewModel.shared
     
     @Published var cloth: Cloth = Cloth(id:  UUID().uuidString, name: "", type: .blank, color: "#FFFFFF", temperature: [], isDefault: false, image: "", rawImage: nil, creationDate: 0)
     @Published var temp: [Temperature] = []
     @Published var imageId: String = ""
 
-    static var shared = CreateNewClothViewModel()
+    @Published var currentPage: Int = 0
+    @Published var isDefaultPhoto = false
+    let defaultPhotoFlow = [0,1,2,6,7]
+    let notDefaultPhotoFlow = [0,3,4,5,6,7]
+    
+    @Published var isCutOut = false
+    @Published var DnDpreviewImage: UIImage?
+    
+    
+    
     
     func reset() {
         cloth = Cloth(id:  UUID().uuidString, name: "", type: .blank, color: "#FFFFFF", temperature: [], isDefault: false, image: "", rawImage: nil, creationDate: 0)
         temp = []
+        imageId = ""
+        currentPage = 0
+        isDefaultPhoto = false
+        DnDpreviewImage = nil
     }
     
     func createTempNames() -> [String] {

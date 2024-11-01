@@ -26,7 +26,7 @@ struct CreateNewClothPage<Content: View>: View {
         VStack(spacing: 0) {
             HStack {
                 Text(title)
-                    .font(.custom("Montserrat-Bold", size: 24))
+                    .font(.custom("Montserrat-Bold", size: 22))
                     .foregroundStyle(Color(hex: "#646C75"))
                 Spacer()
             }

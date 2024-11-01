@@ -14,7 +14,7 @@ struct AddPhotoView: View {
     @ObservedObject var viewModel = AddClothesViewModel.shared
     @State var show = false
     @State var isCutOut = false
-    
+
     var body: some View {
         if #available(iOS 16.0, *) {
             if self.viewModel.cloth.image != "" || self.viewModel.cloth.rawImage != nil {

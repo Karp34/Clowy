@@ -8,11 +8,10 @@
 import SwiftUI
 import PhotosUI
 
-@available(iOS 16.0, *)
 struct ImagePickerV2: View {
     
     var onImageChange: (UIImage) -> ()
-    @ObservedObject var viewModel = AddClothesViewModel.shared
+    @ObservedObject var viewModel = CreateNewClothViewModel.shared
     
     @State private var showImagePicker = false
     @State private var photoItem: PhotosPickerItem?
@@ -21,28 +20,47 @@ struct ImagePickerV2: View {
         GeometryReader {
             let size = $0.size
             
-            UsePhotoFromGalary()
+            ZStack {
+                RoundedRectangle(cornerRadius: 16)
+                    .foregroundStyle(.white)
+                RoundedRectangle(cornerRadius: 16)
+                    .stroke(Color(hex:"F1F1F1"), lineWidth: 1)
+                VStack(spacing: 12) {
+                    ZStack {
+                        Circle()
+                            .frame(width: 46, height: 46)
+                            .foregroundColor(Color.primaryBlueBrand)
+                            .opacity(0.1)
+                        Image(systemName: "photo")
+                            .foregroundColor(Color.primaryBlueBrand)
+                    }
+                    Text("Use photo\nfrom galery")
+                        .font(.custom("Montserrat-Regular", size: 12))
+                        .foregroundColor(Color.primaryBlueBrand)
+                        .multilineTextAlignment(.center)
+                        .lineSpacing(4)
+                }
+            }
             .onTapGesture {
-                showImagePicker.toggle()
+                if viewModel.cloth.rawImage == nil {
+                    showImagePicker.toggle()
+                    
+                }
+                withAnimation {
+                    viewModel.currentPage = 1
+                    viewModel.isDefaultPhoto = true
+                }
+                
             }
             .photosPicker(isPresented: $showImagePicker, selection: $photoItem)
             
             .optionalViewModifier{ contentView in
-                if #available(iOS 17, *) {
-                    contentView
-                        .onChange(of: photoItem) { newValue in
-                            if let newValue {
-                                extractImage(newValue, size)
-                            }
+                contentView
+                    .onChange(of: photoItem) { oldValue, newValue in
+                        if let newValue {
+                            extractImage(newValue, size)
                         }
-                } else {
-                    contentView
-                        .onChange(of: photoItem) {newValue in
-                            if let newValue {
-                                extractImage(newValue, size)
-                            }
-                        }
-                }
+                    }
             }
         }
     }
@@ -73,10 +91,6 @@ struct ImagePickerV2: View {
         }
     }
 }
-
-//#Preview {
-//    ImagePicker()
-//}
 
 extension View {
     @ViewBuilder
