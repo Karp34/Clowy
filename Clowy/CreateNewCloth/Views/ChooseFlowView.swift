@@ -43,7 +43,11 @@ struct ChooseFlowView: View {
             .shadow(color:Color(hex: "#747A800D").opacity(0.05), radius: 8, y: 4)
             .onTapGesture {
                 withAnimation {
-                    viewModel.currentPage = 3
+                    viewModel.currentPage = 2
+                }
+                //reset viewModel if user changed flow
+                if viewModel.isDefaultPhoto {
+                    viewModel.reset()
                     viewModel.isDefaultPhoto = false
                 }
             }

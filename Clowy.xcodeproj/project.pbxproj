@@ -173,6 +173,7 @@
 		BAC871F52CD547A600871140 /* CreateNewClothPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC871F42CD547A600871140 /* CreateNewClothPage.swift */; };
 		BAC871F82CD57E7600871140 /* ChooseFlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC871F72CD57E7600871140 /* ChooseFlowView.swift */; };
 		BAC871FA2CD5889C00871140 /* RemoveBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC871F92CD5889C00871140 /* RemoveBackgroundView.swift */; };
+		BAC871FC2CD62E3900871140 /* SelectCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC871FB2CD62E3900871140 /* SelectCategoryView.swift */; };
 		BACEF9822B9FC73B00C50CF4 /* QuizOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACEF9812B9FC73A00C50CF4 /* QuizOptionButton.swift */; };
 		BACEF9842B9FD31E00C50CF4 /* Montserrat-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BACEF9832B9FD2E100C50CF4 /* Montserrat-ExtraBold.ttf */; };
 		BACEF9862B9FD4DD00C50CF4 /* QuizOptionButtonWithSubtitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACEF9852B9FD4DD00C50CF4 /* QuizOptionButtonWithSubtitle.swift */; };
@@ -385,6 +386,7 @@
 		BAC871F42CD547A600871140 /* CreateNewClothPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewClothPage.swift; sourceTree = "<group>"; };
 		BAC871F72CD57E7600871140 /* ChooseFlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseFlowView.swift; sourceTree = "<group>"; };
 		BAC871F92CD5889C00871140 /* RemoveBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveBackgroundView.swift; sourceTree = "<group>"; };
+		BAC871FB2CD62E3900871140 /* SelectCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryView.swift; sourceTree = "<group>"; };
 		BACEF9812B9FC73A00C50CF4 /* QuizOptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizOptionButton.swift; sourceTree = "<group>"; };
 		BACEF9832B9FD2E100C50CF4 /* Montserrat-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBold.ttf"; sourceTree = "<group>"; };
 		BACEF9852B9FD4DD00C50CF4 /* QuizOptionButtonWithSubtitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizOptionButtonWithSubtitle.swift; sourceTree = "<group>"; };
@@ -920,6 +922,7 @@
 			children = (
 				BAC871F72CD57E7600871140 /* ChooseFlowView.swift */,
 				BAC871F92CD5889C00871140 /* RemoveBackgroundView.swift */,
+				BAC871FB2CD62E3900871140 /* SelectCategoryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1279,6 +1282,7 @@
 				BA8201F32873874500A3C66B /* OldImagePicker.swift in Sources */,
 				BA6E587A299AD8470043DA64 /* ClothesCollectionView.swift in Sources */,
 				BA3CE08B28149DB700D724BF /* Wardrobe.swift in Sources */,
+				BAC871FC2CD62E3900871140 /* SelectCategoryView.swift in Sources */,
 				BAC871EF2CD522AB00871140 /* CreateNewClothView.swift in Sources */,
 				BA3CE09328156B4000D724BF /* Forecast.swift in Sources */,
 				BA18B2CB2B9E30D600B98161 /* ColorsExtesion.swift in Sources */,

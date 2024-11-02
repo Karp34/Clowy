@@ -151,8 +151,8 @@ struct AddClothesView: View {
                     AddPhotoView()
                         .padding(24)
                     
-                    NewTagsView()
-                        .padding(.horizontal, 24)
+//                    TagsView()
+//                        .padding(.horizontal, 24)
                     
                     NewChooseTempView()
                     

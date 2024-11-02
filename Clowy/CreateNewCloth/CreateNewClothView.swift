@@ -22,7 +22,7 @@ struct CreateNewClothView: View {
             nextButton
                 .opacity(viewModel.currentPage > 0 ? 1 : 0)
         }
-        .background(Color(hex: "#F7F8FA").edgesIgnoringSafeArea(.all))
+        .background(Color.primaryBackground.edgesIgnoringSafeArea(.all))
     }
     
     private var navigationBar: some View {
@@ -42,6 +42,7 @@ struct CreateNewClothView: View {
                         primaryButton:  .default(Text("Yes")) {
                             mainViewModel.showAddNewClothModel = false
                             viewModel.reset()
+                            viewModel.currentPage = 0
                             print("Yes, skip onboarding")
                         },
                         secondaryButton:  .default(Text("No, continue")) {
@@ -100,7 +101,7 @@ struct CreateNewClothView: View {
     private var nextButton: some View {
         Button {
             withAnimation {
-                if viewModel.currentPage < 7 && viewModel.currentPage > 0{
+                if viewModel.currentPage < 6 && viewModel.currentPage > 0{
                     if viewModel.isDefaultPhoto {
                         let index = viewModel.defaultPhotoFlow.firstIndex(where: {$0 == viewModel.currentPage})!
                         viewModel.currentPage = viewModel.defaultPhotoFlow[index+1]
@@ -115,7 +116,7 @@ struct CreateNewClothView: View {
         } label: {
             HStack {
                 Spacer()
-                Text(viewModel.currentPage == 7 ? "Save" : "Next")
+                Text(viewModel.currentPage == 6 ? "Save" : "Next")
                     .font(.custom("Montserrat-ExtraBold", size: 16))
                     .foregroundStyle(Color.white)
                 Spacer()
@@ -139,7 +140,6 @@ struct CreateNewClothView: View {
                 CreateNewClothPage4(size: size, index: 4)
                 CreateNewClothPage5(size: size, index: 5)
                 CreateNewClothPage6(size: size, index: 6)
-                CreateNewClothPage7(size: size, index: 7)
             }
         }
     }
@@ -148,6 +148,7 @@ struct CreateNewClothView: View {
     func CreateNewClothPage0(size: CGSize, index: Int) -> some View {
         CreateNewClothPage(size: size, index: index, title:"Upload cloth photo") {
             ChooseFlowView()
+                .padding(.horizontal, 24)
         }
         .offset(x: -size.width * CGFloat(viewModel.currentPage - index))
     }
@@ -156,6 +157,7 @@ struct CreateNewClothView: View {
     func CreateNewClothPage1(size: CGSize, index: Int) -> some View {
         CreateNewClothPage(size: size, index: index, title:"Hold, Drag and Drop photo below") {
             RemoveBackgroundView()
+                .padding(.horizontal, 24)
         }
         .offset(x: -size.width * CGFloat(viewModel.currentPage - index))
     }
@@ -163,47 +165,41 @@ struct CreateNewClothView: View {
     @ViewBuilder
     func CreateNewClothPage2(size: CGSize, index: Int) -> some View {
         CreateNewClothPage(size: size, index: index, title:"Choose category") {
-            Text("2 - choose category")
+            SelectCategoryView()
+                .padding(.leading, 24)
         }
         .offset(x: -size.width * CGFloat(viewModel.currentPage - index))
     }
     
+    
     @ViewBuilder
     func CreateNewClothPage3(size: CGSize, index: Int) -> some View {
-        CreateNewClothPage(size: size, index: index, title:"Choose category") {
-            Text("3 - choose default")
+        CreateNewClothPage(size: size, index: index, title:"Select category type") {
+            Text("3 - choose image")
         }
         .offset(x: -size.width * CGFloat(viewModel.currentPage - index))
     }
     
     @ViewBuilder
     func CreateNewClothPage4(size: CGSize, index: Int) -> some View {
-        CreateNewClothPage(size: size, index: index, title:"Select category type") {
-            Text("4 - choose image")
+        CreateNewClothPage(size: size, index: index, title:"Choose cloth color") {
+            Text("4 - choose color")
         }
         .offset(x: -size.width * CGFloat(viewModel.currentPage - index))
     }
     
     @ViewBuilder
     func CreateNewClothPage5(size: CGSize, index: Int) -> some View {
-        CreateNewClothPage(size: size, index: index, title:"Choose cloth color") {
-            Text("5 - choose color")
+        CreateNewClothPage(size: size, index: index, title:"Select temperature range") {
+            Text("5 - choose temp")
         }
         .offset(x: -size.width * CGFloat(viewModel.currentPage - index))
     }
     
     @ViewBuilder
     func CreateNewClothPage6(size: CGSize, index: Int) -> some View {
-        CreateNewClothPage(size: size, index: index, title:"Select temperature range") {
-            Text("6 - choose temp")
-        }
-        .offset(x: -size.width * CGFloat(viewModel.currentPage - index))
-    }
-    
-    @ViewBuilder
-    func CreateNewClothPage7(size: CGSize, index: Int) -> some View {
         CreateNewClothPage(size: size, index: index, title:"New cloth preview") {
-            Text("7 - final")
+            Text("6 - final")
         }
             .offset(x: -size.width * CGFloat(viewModel.currentPage - index))
     }

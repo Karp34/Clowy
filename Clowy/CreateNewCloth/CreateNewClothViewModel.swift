@@ -19,11 +19,12 @@ class CreateNewClothViewModel: ObservableObject {
 
     @Published var currentPage: Int = 0
     @Published var isDefaultPhoto = false
-    let defaultPhotoFlow = [0,1,2,6,7]
-    let notDefaultPhotoFlow = [0,3,4,5,6,7]
+    let defaultPhotoFlow = [0,1,2,5,6]
+    let notDefaultPhotoFlow = [0,2,3,4,5,6]
     
     @Published var isCutOut = false
     @Published var DnDpreviewImage: UIImage?
+    @Published var categoryNames: [String] = CreateDefaultWardrobe.getClothes().map { $0.clothesTypeName.rawValue }.sorted { $0.lowercased() < $1.lowercased() }
     
     
     
@@ -32,7 +33,6 @@ class CreateNewClothViewModel: ObservableObject {
         cloth = Cloth(id:  UUID().uuidString, name: "", type: .blank, color: "#FFFFFF", temperature: [], isDefault: false, image: "", rawImage: nil, creationDate: 0)
         temp = []
         imageId = ""
-        currentPage = 0
         isDefaultPhoto = false
         DnDpreviewImage = nil
     }

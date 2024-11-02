@@ -49,20 +49,11 @@ struct ChooseLocationView: View {
                             
                             onEditingChanged: { isEditing in
                                 if isEditing {
-                                    print("isEditing")
-//                                    if location.count > 2 {
-//                                        viewModel.getCityName(prefixName: location) {
-//                                            print("onEditingChanged")
-//                                            print("CITY NAMES")
-//                                            print(viewModel.cityNames)
-//                                        }
-//                                    }
                                     withAnimation {
                                         isChangingLocation = true
                                     }
                                 }
                             },
-                            
                             onCommit: {
                                 withAnimation {
                                     if !viewModel.cityNames.isEmpty {

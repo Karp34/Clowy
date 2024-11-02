@@ -42,13 +42,17 @@ struct ImagePickerV2: View {
                 }
             }
             .onTapGesture {
-                if viewModel.cloth.rawImage == nil {
-                    showImagePicker.toggle()
-                    
-                }
                 withAnimation {
                     viewModel.currentPage = 1
+                }
+                //reset viewModel if user changed flow
+                if !viewModel.isDefaultPhoto {
+                    viewModel.reset()
                     viewModel.isDefaultPhoto = true
+                }
+                
+                if viewModel.cloth.rawImage == nil {
+                    showImagePicker.toggle()
                 }
                 
             }

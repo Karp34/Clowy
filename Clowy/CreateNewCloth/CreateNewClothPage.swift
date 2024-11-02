@@ -12,7 +12,6 @@ struct CreateNewClothPage<Content: View>: View {
     let size: CGSize
     var index: Int
     let title: String
-    
     let content: Content
     
     init(size: CGSize, index: Int, title: String, @ViewBuilder content: () -> Content) {
@@ -34,7 +33,6 @@ struct CreateNewClothPage<Content: View>: View {
             .padding(.horizontal, 24)
             
             content
-                .padding(.horizontal, 24)
             
             Spacer()
         }
