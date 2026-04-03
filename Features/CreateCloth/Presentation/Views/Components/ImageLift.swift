@@ -1,0 +1,50 @@
+//
+//  ImageLift.swift
+//  lift-subjects-from-images
+//
+//  Created by Huang Runhua on 6/20/23.
+//
+
+import SwiftUI
+import VisionKit
+
+@MainActor
+struct ImageLift: UIViewRepresentable {
+    var imageName: UIImage
+    let imageView = LiftImageView()
+    let analyzer = ImageAnalyzer()
+    let interaction = ImageAnalysisInteraction()
+    
+    func makeUIView(context: Context) -> some UIView {
+//        imageView.image = UIImage(named: imageName)
+        imageView.image = imageName
+        imageView.contentMode = .scaleAspectFit
+        imageView.addInteraction(interaction)
+        return imageView
+    }
+    
+    func updateUIView(_ uiView: UIViewType, context: Context) {
+        Task {
+            if let image = imageView.image {
+                // Here I set configuration to contian all the configurations.
+                let configuration = ImageAnalyzer.Configuration([.visualLookUp])
+                let analysis = try? await analyzer.analyze(image, configuration: configuration)
+                if let analysis = analysis {
+                    interaction.analysis = analysis
+                    interaction.preferredInteractionTypes = .imageSubject
+                    let detectedSubjects = await interaction.subjects
+                    interaction.highlightedSubjects = detectedSubjects
+                }
+            }
+        }
+    }
+}
+
+
+class LiftImageView: UIImageView {
+    // Use intrinsicContentSize to change the default image size
+    // so that we can change the size in our SwiftUI View
+    override var intrinsicContentSize: CGSize {
+        .zero
+    }
+}
